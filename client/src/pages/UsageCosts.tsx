@@ -520,7 +520,7 @@ export default function UsageCosts() {
             { icon: "⭐", num: "04", title: "Reputation Protection System", cost: "~$0.11", channels: "Email, SMS", desc: "Timed review requests, private feedback capture, detractor alerts, and recovery workflow." },
             { icon: "🎫", num: "05", title: "Season Pass & Membership Lifecycle", cost: "~$0.10", channels: "Email, SMS", desc: "Welcome sequence, renewal countdown, win-back campaigns, and birthday perks." },
             { icon: "📊", num: "07", title: "Internal Sales Accountability", cost: "~$0.02–$0.05", channels: "Email, SMS", desc: "Speed-to-lead alerts, stage stuck notifications, daily manager digest, and quote follow-up tasks." },
-            { icon: "🤝", num: "08", title: "Fundraising & Referral Systems", cost: "Low", channels: "Email", desc: "Fundraiser automation, toolkit delivery, weekly updates, and referral tracking." },
+            { icon: "🤝", num: "08", title: "Fundraising & Referral Systems", cost: "~$0.11–$0.52", channels: "Email", desc: "Fundraiser automation, toolkit delivery, weekly updates, and referral tracking." },
           ].map(p => (
             <div key={p.num} className="border border-white/10 rounded-xl p-5 sm:p-6 mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-start gap-4">
