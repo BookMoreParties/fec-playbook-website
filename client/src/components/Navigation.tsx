@@ -12,9 +12,10 @@ const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4
 
 const navLinks = [
   { label: "Platform", href: "#platform" },
-  { label: "Workflows", href: "#workflows" },
+  { label: "Playbooks", href: "#workflows" },
   { label: "Integrations", href: "#integrations" },
   { label: "Pricing", href: "#pricing" },
+  { label: "Usage Costs", href: "/usage-costs", isPage: true },
   { label: "About", href: "#about" },
 ];
 
@@ -32,10 +33,17 @@ export default function Navigation() {
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     if (href.startsWith("#")) {
-      const el = document.querySelector(href);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      // If we're not on the home page, navigate home first
+      if (location !== "/") {
+        window.location.href = "/" + href;
+      } else {
+        const el = document.querySelector(href);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
+    } else {
+      window.location.href = href;
     }
   };
 

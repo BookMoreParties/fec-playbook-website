@@ -10,8 +10,15 @@ const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4
 export default function Footer() {
   const handleNavClick = (href: string) => {
     if (href.startsWith("#")) {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Navigate to home page first if not already there
+      if (window.location.pathname !== "/") {
+        window.location.href = "/" + href;
+      } else {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      window.location.href = href;
     }
   };
 
@@ -49,9 +56,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { label: "How It Works", href: "#platform" },
-                { label: "Workflows", href: "#workflows" },
+                { label: "Playbooks", href: "#workflows" },
                 { label: "Integrations", href: "#integrations" },
                 { label: "Pricing", href: "#pricing" },
+                { label: "Usage Costs", href: "/usage-costs" },
                 { label: "About Us", href: "#about" },
               ].map((link) => (
                 <li key={link.label}>

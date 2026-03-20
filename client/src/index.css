@@ -439,4 +439,184 @@
   .border-fec-cyan {
     border-color: #00AEEF;
   }
+
+  /* ===== MOBILE RESPONSIVE IMPROVEMENTS ===== */
+
+  /* Prevent horizontal overflow on mobile */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Better touch targets for mobile */
+  .fec-btn-primary,
+  .fec-btn-outline {
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+
+  /* Mobile-first stat numbers */
+  @media (max-width: 640px) {
+    .stat-number {
+      font-size: 2.5rem;
+    }
+
+    /* Reduce padding on mobile sections */
+    section {
+      overflow-x: hidden;
+    }
+
+    /* Ensure workflow cards don't overflow */
+    .workflow-card {
+      min-width: 0;
+      word-break: break-word;
+    }
+
+    /* Pricing cards full width on mobile */
+    .pricing-card {
+      padding: 1.5rem;
+    }
+
+    /* Testimonial cards full width */
+    .testimonial-card {
+      padding: 1.5rem;
+    }
+
+    /* Integration cards smaller on mobile */
+    .integration-logo-card {
+      padding: 1rem;
+    }
+
+    /* Table overflow on mobile */
+    table {
+      font-size: 0.75rem;
+    }
+  }
+
+  /* Slider mobile improvements */
+  input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.15);
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00AEEF, #1565C0);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 174, 239, 0.4);
+    border: 2px solid white;
+  }
+
+  input[type='range']::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00AEEF, #1565C0);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 174, 239, 0.4);
+    border: 2px solid white;
+  }
+
+  input[type='range']::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 3px;
+  }
+
+  /* Usage cost estimator card */
+  .estimator-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .estimator-card:hover {
+    border-color: rgba(0, 174, 239, 0.3);
+  }
+
+  .rate-table-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: center;
+  }
+
+  .rate-table-row:last-child {
+    border-bottom: none;
+  }
+
+  /* Slider field label */
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .slider-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    color: #00AEEF;
+    font-size: 1.125rem;
+  }
+
+  /* Result highlight box */
+  .result-box {
+    background: linear-gradient(135deg, rgba(0,174,239,0.15) 0%, rgba(21,101,192,0.15) 100%);
+    border: 1px solid rgba(0, 174, 239, 0.4);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .result-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    line-height: 1;
+    background: linear-gradient(135deg, #00AEEF 0%, #1565C0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Tab buttons for rate tables */
+  .tab-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .tab-btn.active {
+    background: linear-gradient(135deg, #00AEEF, #1565C0);
+    color: white;
+    border-color: transparent;
+  }
+
+  .tab-btn:hover:not(.active) {
+    color: white;
+    border-color: rgba(255,255,255,0.3);
+  }
 }
