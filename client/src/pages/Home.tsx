@@ -505,7 +505,7 @@ export default function Home() {
             </div>
             <h2 className="text-4xl sm:text-5xl font-black uppercase leading-tight mb-4">
               Eight Playbooks.<br />
-              <span className="fec-gradient-text">100+ Workflows. One Complete Revenue System.</span>
+              <span className="fec-gradient-text">100+ Automations. One Complete Revenue System.</span>
             </h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
               Every playbook is included in your subscription — over 100 pre-built, tested workflows ready to deploy. Not a blank canvas you have to build yourself.
