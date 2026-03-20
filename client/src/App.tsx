@@ -1,23 +1,31 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
-import Pricing from "./pages/Pricing";
-import UsageCosts from "./pages/UsageCosts";
 import MobileCTABar from "./components/MobileCTABar";
+import { lazy, Suspense } from "react";
+
+const Home = lazy(() => import("./pages/Home"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const UsageCosts = lazy(() => import("./pages/UsageCosts"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function Router() {
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/pricing"} component={Pricing} />
-      <Route path={"/usage-costs"} component={UsageCosts} />
-      <Route path={"/404"} component={NotFound} />
-      <Route component={NotFound} />
-    </Switch>
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-[#00AEEF] border-t-transparent rounded-full animate-spin" />
+      </div>
+    }>
+      <Switch>
+        <Route path={"/"} component={Home} />
+        <Route path={"/pricing"} component={Pricing} />
+        <Route path={"/usage-costs"} component={UsageCosts} />
+        <Route path={"/404"} component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
   );
 }
 
