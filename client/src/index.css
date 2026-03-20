@@ -620,3 +620,10 @@
     border-color: rgba(255,255,255,0.3);
   }
 }
+
+/* Mobile sticky CTA bar — add bottom padding on small screens so footer isn't hidden */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}

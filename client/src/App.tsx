@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Pricing from "./pages/Pricing";
 import UsageCosts from "./pages/UsageCosts";
+import MobileCTABar from "./components/MobileCTABar";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <MobileCTABar />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
