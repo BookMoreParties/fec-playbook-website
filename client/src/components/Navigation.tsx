@@ -1,22 +1,24 @@
 /* 
  * FEC Playbook Navigation
  * Design: Dark sticky nav, transparent on hero, solid on scroll
+ * Mobile: Full-screen slide-out drawer with backdrop overlay and staggered animations
  * Brand: Montserrat Bold, FEC Cyan accent
  */
 
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone } from "lucide-react";
+import { Phone, X, ChevronRight } from "lucide-react";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
+const LOGO_VERTICAL_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
 
 const navLinks = [
-  { label: "Platform", href: "#platform" },
-  { label: "Playbooks", href: "#workflows" },
-  { label: "Integrations", href: "#integrations" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Usage Costs", href: "/usage-costs", isPage: true },
-  { label: "About", href: "#about" },
+  { label: "Platform", href: "#platform", desc: "See how FEC Playbook works" },
+  { label: "Playbooks", href: "#workflows", desc: "8 playbooks, 100+ automations" },
+  { label: "Integrations", href: "#integrations", desc: "ROLLER, CenterEdge & more" },
+  { label: "Pricing", href: "#pricing", desc: "Transparent, flat-rate plans" },
+  { label: "Usage Costs", href: "/usage-costs", isPage: true, desc: "Interactive cost calculator" },
+  { label: "About", href: "#about", desc: "Built by FEC operators" },
 ];
 
 export default function Navigation() {
@@ -30,17 +32,26 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     if (href.startsWith("#")) {
-      // If we're not on the home page, navigate home first
       if (location !== "/") {
         window.location.href = "/" + href;
       } else {
-        const el = document.querySelector(href);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        setTimeout(() => {
+          const el = document.querySelector(href);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
       }
     } else {
       window.location.href = href;
@@ -48,87 +59,175 @@ export default function Navigation() {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || mobileOpen
-          ? "bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-white/8"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 py-3">
-          {/* Logo */}
-          <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <img
-              src={LOGO_URL}
-              alt="FEC Playbook"
-              className="h-10 w-auto"
-            />
-          </Link>
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-white/8 shadow-lg shadow-black/20"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-18 py-3">
+            {/* Logo */}
+            <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+              <img
+                src={LOGO_URL}
+                alt="FEC Playbook"
+                className="h-10 w-auto"
+              />
+            </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <button
+                  key={link.label}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-white/70 hover:text-white font-semibold text-sm tracking-wide transition-colors duration-200 uppercase"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                >
+                  {link.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Desktop CTA */}
+            <div className="hidden md:flex items-center gap-4">
+              <a
+                href="https://calendly.com/fecplaybook/demo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fec-btn-primary text-sm py-2.5 px-5"
+              >
+                <Phone size={14} />
+                Book a Call
+              </a>
+            </div>
+
+            {/* Mobile Hamburger */}
+            <button
+              className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-white/5 transition-colors"
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+            >
+              <span className="block w-6 h-0.5 bg-white rounded-full transition-all"></span>
+              <span className="block w-5 h-0.5 bg-[#00AEEF] rounded-full transition-all"></span>
+              <span className="block w-6 h-0.5 bg-white rounded-full transition-all"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Drawer Backdrop */}
+      <div
+        className={`fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setMobileOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Mobile Slide-Out Drawer */}
+      <div
+        className={`fixed top-0 right-0 bottom-0 z-[70] w-[85vw] max-w-sm bg-[#0A0A0A] border-l border-white/10 flex flex-col transition-transform duration-300 ease-in-out md:hidden shadow-2xl shadow-black/50 ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        aria-modal="true"
+        role="dialog"
+        aria-label="Navigation menu"
+      >
+        {/* Drawer Header */}
+        <div className="flex items-center justify-between px-6 py-5 border-b border-white/8">
+          <img src={LOGO_VERTICAL_URL} alt="FEC Playbook" className="h-8 w-auto" />
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors text-white/70 hover:text-white"
+            aria-label="Close menu"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        {/* Drawer Nav Links */}
+        <div className="flex-1 overflow-y-auto py-4 px-4">
+          <p className="text-white/30 text-xs font-bold uppercase tracking-widest px-2 mb-3" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            Navigation
+          </p>
+          <nav className="space-y-1">
+            {navLinks.map((link, i) => (
               <button
                 key={link.label}
                 onClick={() => handleNavClick(link.href)}
-                className="text-white/70 hover:text-white font-semibold text-sm tracking-wide transition-colors duration-200 uppercase"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
+                className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left transition-all duration-200 group hover:bg-white/5 ${
+                  mobileOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+                }`}
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  transitionDelay: mobileOpen ? `${i * 40 + 80}ms` : "0ms",
+                }}
               >
-                {link.label}
+                <div>
+                  <p className="text-white font-bold text-base uppercase tracking-wide group-hover:text-[#00AEEF] transition-colors">
+                    {link.label}
+                  </p>
+                  <p className="text-white/40 text-xs mt-0.5 font-normal normal-case tracking-normal">
+                    {link.desc}
+                  </p>
+                </div>
+                <ChevronRight size={16} className="text-white/20 group-hover:text-[#00AEEF] group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
               </button>
             ))}
-          </div>
+          </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Divider */}
+          <div className="border-t border-white/8 my-4 mx-2"></div>
+
+          {/* Quick Links */}
+          <p className="text-white/30 text-xs font-bold uppercase tracking-widest px-2 mb-3" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            Quick Access
+          </p>
+          <div className="space-y-1 px-2">
             <a
-              href="https://calendly.com/fecplaybook/demo"
+              href="https://bookmore.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="fec-btn-primary text-sm py-2.5 px-5"
+              className="flex items-center justify-between py-2.5 text-white/50 hover:text-white/80 transition-colors text-sm"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+              onClick={() => setMobileOpen(false)}
             >
-              <Phone size={14} />
-              Book a Call
+              <span>Client Login</span>
+              <ChevronRight size={14} className="text-white/20" />
+            </a>
+            <a
+              href="mailto:support@fecplaybook.com"
+              className="flex items-center justify-between py-2.5 text-white/50 hover:text-white/80 transition-colors text-sm"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              <span>support@fecplaybook.com</span>
+              <ChevronRight size={14} className="text-white/20" />
             </a>
           </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-[#0A0A0A] border-t border-white/8 px-4 py-6 space-y-4">
-          {navLinks.map((link) => (
-            <button
-              key={link.label}
-              onClick={() => handleNavClick(link.href)}
-              className="block w-full text-left text-white/80 hover:text-white font-bold text-base uppercase tracking-wide py-2"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              {link.label}
-            </button>
-          ))}
+        {/* Drawer CTA Footer */}
+        <div className="px-4 pb-8 pt-4 border-t border-white/8 space-y-3">
           <a
             href="https://calendly.com/fecplaybook/demo"
             target="_blank"
             rel="noopener noreferrer"
-            className="fec-btn-primary w-full justify-center mt-4"
+            className="fec-btn-primary w-full justify-center text-sm py-4"
             onClick={() => setMobileOpen(false)}
           >
             <Phone size={16} />
-            Book a Call
+            Book a Free Demo Call
           </a>
+          <p className="text-white/30 text-xs text-center" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            Free 30-min strategy call · No commitment
+          </p>
         </div>
-      )}
-    </nav>
+      </div>
+    </>
   );
 }
