@@ -100,14 +100,14 @@ function ScreenshotFrame({ src, alt, title }: { src: string; alt: string; title:
 
 // Workflow Card
 const workflows = [
-  { icon: "🎂", num: "01", title: "Birthday & Celebration Sales System", desc: "From first inquiry to 5-star review to next year's rebooking — fully automated.", cost: "~$0.32/booking", outcomes: ["Higher conversion rates", "More per-party revenue", "Consistent 5-star experiences"] },
-  { icon: "🏢", num: "02", title: "Group & Corporate Event Engine", desc: "Turn cold inquiries into confirmed bookings. Target schools, corporate events, and large parties.", cost: "~$0.30/booking", outcomes: ["More weekday revenue", "Faster closes", "Predictable group bookings"] },
-  { icon: "🎟️", num: "03", title: "Ticketing & Visit Automation", desc: "Guests arrive informed, prepared, and excited. Automated confirmations, waivers, and guides.", cost: "~$0.09/booking", outcomes: ["Faster check-in", "Better guest experience", "Fewer no-shows"] },
-  { icon: "⭐", num: "04", title: "Reputation Protection System", desc: "Protect your stars. Resolve issues before they go public. Turn satisfied guests into visible proof.", cost: "~$0.11/booking", outcomes: ["Higher star ratings", "Issues resolved privately", "Stronger online presence"] },
-  { icon: "🎫", num: "05", title: "Season Pass & Membership Lifecycle", desc: "Keep members engaged and renewals on autopilot. Welcome, renew, and win-back automatically.", cost: "~$0.10/booking", outcomes: ["Higher retention", "More recurring revenue", "Reduced churn"] },
-  { icon: "📱", num: "06", title: "Text Club & Repeat Visit Engine", desc: "Drive traffic on demand with targeted SMS campaigns. A direct line to your customers.", cost: "~$0.07–$0.09/booking", outcomes: ["Increased traffic", "Higher lifetime value", "Measurable results"] },
-  { icon: "📊", num: "07", title: "Internal Sales Accountability", desc: "No lead left behind. No deal left stalled. Automated alerts for new leads and stalled deals.", cost: "~$0.02–$0.05/booking", outcomes: ["Higher close rates", "Stronger sales discipline", "Daily manager digest"] },
-  { icon: "🤝", num: "08", title: "Fundraising & Referral Systems", desc: "Turn your community into a lead-generation engine. Automate fundraising and referral programs.", cost: "Low/booking", outcomes: ["Organic lead generation", "Repeat school bookings", "Community partnerships"] },
+  { icon: "🎂", num: "01", title: "Birthday & Celebration Sales System", desc: "From first inquiry to 5-star review to next year's rebooking — fully automated.", outcomes: ["Higher conversion rates", "More per-party revenue", "Consistent 5-star experiences"] },
+  { icon: "🏢", num: "02", title: "Group & Corporate Event Engine", desc: "Turn cold inquiries into confirmed bookings. Target schools, corporate events, and large parties.", outcomes: ["More weekday revenue", "Faster closes", "Predictable group bookings"] },
+  { icon: "🎟️", num: "03", title: "Ticketing & Visit Automation", desc: "Guests arrive informed, prepared, and excited. Automated confirmations, waivers, and guides.", outcomes: ["Faster check-in", "Better guest experience", "Fewer no-shows"] },
+  { icon: "⭐", num: "04", title: "Reputation Protection System", desc: "Protect your stars. Resolve issues before they go public. Turn satisfied guests into visible proof.", outcomes: ["Higher star ratings", "Issues resolved privately", "Stronger online presence"] },
+  { icon: "🎫", num: "05", title: "Season Pass & Membership Lifecycle", desc: "Keep members engaged and renewals on autopilot. Welcome, renew, and win-back automatically.", outcomes: ["Higher retention", "More recurring revenue", "Reduced churn"] },
+  { icon: "📱", num: "06", title: "Text Club & Repeat Visit Engine", desc: "Drive traffic on demand with targeted SMS campaigns. A direct line to your customers.", outcomes: ["Increased traffic", "Higher lifetime value", "Measurable results"] },
+  { icon: "📊", num: "07", title: "Internal Sales Accountability", desc: "No lead left behind. No deal left stalled. Automated alerts for new leads and stalled deals.", outcomes: ["Higher close rates", "Stronger sales discipline", "Daily manager digest"] },
+  { icon: "🤝", num: "08", title: "Fundraising & Referral Systems", desc: "Turn your community into a lead-generation engine. Automate fundraising and referral programs.", outcomes: ["Organic lead generation", "Repeat school bookings", "Community partnerships"] },
 ];
 
 // Pricing data
@@ -529,18 +529,12 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="pt-3 border-t border-white/8">
-                  <span className="text-[#00AEEF] text-xs font-bold">{wf.cost}</span>
-                </div>
+
               </div>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-white/50 text-sm mb-2">Usage costs are passed through at cost — you only pay for what you use.</p>
-            <p className="text-white/30 text-xs mb-6 max-w-2xl mx-auto">
-              Cost per booking noted is based on averages. Each center may see a higher or lower cost per booking based on messaging length and additional communications/usage. Results are not guaranteed. Noted results are based on real average user information. Results vary depending on the operator's venue and internal processes.
-            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="https://calendly.com/fecplaybook/demo"
@@ -550,13 +544,6 @@ export default function Home() {
               >
                 <Phone size={16} />
                 See the Full Playbook — Book a Call
-              </a>
-              <a
-                href="/usage-costs"
-                className="fec-btn-outline"
-              >
-                Calculate Your Usage Costs
-                <ArrowRight size={16} />
               </a>
             </div>
           </div>
