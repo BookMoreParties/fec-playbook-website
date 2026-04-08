@@ -23,6 +23,22 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
+  // Load form_embed.js for iframe auto-resize when modal opens
+  useEffect(() => {
+    if (!isOpen) return;
+    const SCRIPT_ID = "bookmore-form-embed";
+    if (document.getElementById(SCRIPT_ID)) return; // already loaded
+    const script = document.createElement("script");
+    script.id = SCRIPT_ID;
+    script.src = "https://link.bookmore.app/js/form_embed.js";
+    script.type = "text/javascript";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      // Leave the script in place — removing and re-adding causes flicker
+    };
+  }, [isOpen]);
+
   // Close on Escape key
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
