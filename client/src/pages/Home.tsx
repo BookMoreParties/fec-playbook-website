@@ -345,12 +345,19 @@ export default function Home() {
                   alt="Birthday party at FEC with text message confirmation"
                   className="w-full rounded-lg"
                 />
-                {/* Overlay text */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0A0A0A] to-transparent p-6">
+                {/* Overlay text — hidden on mobile, shown on desktop */}
+                <div className="hidden sm:block absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0A0A0A] to-transparent p-6">
                   <div className="bg-[#00AEEF]/10 border border-[#00AEEF]/30 rounded-lg p-4">
                     <p className="text-[#00AEEF] font-bold text-sm uppercase tracking-wide mb-1">What FEC Playbook Delivers</p>
                     <p className="text-white text-sm">Automated birthday party confirmations, follow-ups, and review requests — all without lifting a finger.</p>
                   </div>
+                </div>
+              </div>
+              {/* Card shown below image on mobile only */}
+              <div className="sm:hidden mt-4">
+                <div className="bg-[#00AEEF]/10 border border-[#00AEEF]/30 rounded-lg p-4">
+                  <p className="text-[#00AEEF] font-bold text-sm uppercase tracking-wide mb-1">What FEC Playbook Delivers</p>
+                  <p className="text-white text-sm">Automated birthday party confirmations, follow-ups, and review requests — all without lifting a finger.</p>
                 </div>
               </div>
             </div>
