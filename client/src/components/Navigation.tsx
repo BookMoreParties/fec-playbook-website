@@ -14,11 +14,11 @@ const LOGO_VERTICAL_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664
 
 const navLinks = [
   { label: "Platform", href: "#platform", desc: "See how FEC Playbook works" },
+  { label: "Features", href: "/features", isPage: true, desc: "Everything included in your plan" },
   { label: "How It Works", href: "/how-it-works", isPage: true, desc: "The system explained simply" },
   { label: "Playbook", href: "/playbook", isPage: true, desc: "10 systems, 100+ automations" },
   { label: "Integrations", href: "#integrations", desc: "ROLLER, CenterEdge & more" },
   { label: "Pricing", href: "#pricing", desc: "Transparent, flat-rate plans" },
-  { label: "Usage Costs", href: "/usage-costs", isPage: true, desc: "Interactive cost calculator" },
 ];
 
 export default function Navigation() {

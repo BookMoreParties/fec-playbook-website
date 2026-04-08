@@ -11,6 +11,7 @@ const Pricing = lazy(() => import("./pages/Pricing"));
 const UsageCosts = lazy(() => import("./pages/UsageCosts"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const Playbook = lazy(() => import("./pages/Playbook"));
+const Features = lazy(() => import("./pages/Features"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function Router() {
@@ -26,6 +27,7 @@ function Router() {
         <Route path={"/usage-costs"} component={UsageCosts} />
         <Route path={"/how-it-works"} component={HowItWorks} />
         <Route path={"/playbook"} component={Playbook} />
+        <Route path={"/features"} component={Features} />
         <Route path={"/404"} component={NotFound} />
         <Route component={NotFound} />
       </Switch>

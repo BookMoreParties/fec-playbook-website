@@ -56,11 +56,11 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { label: "Platform Overview", href: "#platform" },
+                { label: "Features", href: "/features" },
                 { label: "How It Works", href: "/how-it-works" },
                 { label: "What's in the Playbook", href: "/playbook" },
                 { label: "Integrations", href: "#integrations" },
                 { label: "Pricing", href: "#pricing" },
-                { label: "Usage Costs", href: "/usage-costs" },
               ].map((link) => (
                 <li key={link.label}>
                   <button
