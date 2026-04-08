@@ -241,13 +241,13 @@ export default function Home() {
 
             {/* H1 */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] mb-6 tracking-tight uppercase">
-              Stop Patching.<br />
-              <span className="fec-gradient-text">Start Running.</span>
+              Run Your FEC<br />
+              <span className="fec-gradient-text">On a Playbook.</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-xl sm:text-2xl text-white/80 font-semibold mb-4 leading-relaxed">
-              FEC Playbook is the all-in-one automation platform built by FEC operators — not outsiders selling software that doesn't fit our industry.
+              FEC Playbook is the all-in-one automation platform built by FEC operators — for FEC operators. We know the business because we run it.
             </p>
 
             <p className="text-white/60 text-base mb-10 leading-relaxed max-w-2xl">
@@ -319,11 +319,11 @@ export default function Home() {
                 <span className="section-label text-red-400">The Problem</span>
               </div>
               <h2 className="text-4xl sm:text-5xl font-black uppercase leading-tight mb-6">
-                Stop Patching Platforms<br />
-                <span className="text-red-400">to Get a Result.</span>
+                Running an FEC Is Complex.<br />
+                <span className="text-red-400">Your Systems Shouldn't Be.</span>
               </h2>
               <p className="text-white/60 text-base leading-relaxed mb-8">
-                Don't rely on a patchwork of solutions that weren't built for your business. Most FECs are stitching together 5–10 disconnected tools — and paying the price in missed leads, inconsistent follow-up, and staff burnout.
+                Most FECs are running on 5–10 disconnected tools that weren't built for this industry. The result? Missed leads, inconsistent follow-up, and a team spending more time managing software than serving guests.
               </p>
 
               <div className="space-y-0">

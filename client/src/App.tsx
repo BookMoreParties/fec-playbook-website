@@ -9,6 +9,8 @@ import { lazy, Suspense } from "react";
 const Home = lazy(() => import("./pages/Home"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const UsageCosts = lazy(() => import("./pages/UsageCosts"));
+const HowItWorks = lazy(() => import("./pages/HowItWorks"));
+const Playbook = lazy(() => import("./pages/Playbook"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function Router() {
@@ -22,6 +24,8 @@ function Router() {
         <Route path={"/"} component={Home} />
         <Route path={"/pricing"} component={Pricing} />
         <Route path={"/usage-costs"} component={UsageCosts} />
+        <Route path={"/how-it-works"} component={HowItWorks} />
+        <Route path={"/playbook"} component={Playbook} />
         <Route path={"/404"} component={NotFound} />
         <Route component={NotFound} />
       </Switch>
