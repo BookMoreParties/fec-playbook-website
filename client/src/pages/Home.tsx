@@ -198,10 +198,6 @@ const faqs = [
     a: "Yes, but they're minimal and transparent. Communication costs (SMS, email, phone) are passed through from carriers with minimal markup. The average cost per completed booking ranges from $0.02 to $0.32 depending on the workflow.",
   },
   {
-    q: "What if I'm currently using Patch Retention or another tool?",
-    a: "FEC Playbook is built specifically for FECs by FEC operators — not a generic marketing tool patched together for our industry. We offer a complete migration path and can have your system running within weeks.",
-  },
-  {
     q: "Is there a contract or cancellation fee?",
     a: "Monthly plans are month-to-month with no contracts or cancellation fees. Annual plans offer the best value with a 12-month commitment.",
   },
