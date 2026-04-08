@@ -79,9 +79,6 @@ function StatsSection() {
           </div>
         ))}
       </div>
-      <p className="text-white/30 text-xs text-center pb-6 leading-relaxed" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-        *Listed stats and outcomes are based on client feedback and are not a representation or guarantee of similar or same results. Location results vary and are not guaranteed.
-      </p>
     </div>
   );
 }

@@ -124,6 +124,9 @@ export default function Footer() {
           <p className="text-white/30 text-xs leading-relaxed" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             <strong className="text-white/50">Integration Partner Disclaimer:</strong> The brands represented (ROLLER Software, CenterEdge Software, PartyWirks, TripleSeat, Party Center Software) do not endorse FEC Playbook. All logos and trademarks are owned by their respective organizations and are not the property of, nor directly affiliated with, FEC Playbook. Logos are used solely to indicate integration compatibility.
           </p>
+          <p className="text-white/30 text-xs leading-relaxed" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            <strong className="text-white/50">Results Disclaimer:</strong> *Listed stats and outcomes are based on client feedback and are not a representation or guarantee of similar or same results. Location results vary and are not guaranteed.
+          </p>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
             <p className="text-white/30 text-xs" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               © {new Date().getFullYear()} FEC Playbook. All rights reserved. Formerly known as Book More.
