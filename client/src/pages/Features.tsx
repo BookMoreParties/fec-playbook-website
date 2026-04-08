@@ -5,7 +5,7 @@
  */
 
 import { Link } from "wouter";
-import { Phone, Mail, MessageSquare, Globe, Filter, GitBranch, Send, Share2, BarChart2, Bot, Star, Gift, Zap, ArrowRight, CheckCircle, Users, Calendar, TrendingUp, Eye } from "lucide-react";
+import { Phone, Mail, MessageSquare, Globe, Filter, GitBranch, Send, Share2, BarChart2, Bot, Star, Gift, Zap, ArrowRight, CheckCircle, Users, Calendar, TrendingUp, Eye, HeartHandshake } from "lucide-react";
 
 const BOOKING_URL = "https://calendly.com/fecplaybook/demo";
 
@@ -212,6 +212,26 @@ const features = [
   },
   {
     id: "11",
+    icon: HeartHandshake,
+    title: "Donation Request Management",
+    subtitle: "Turn Donation Asks Into Revenue Opportunities.",
+    color: "#00AEEF",
+    gradient: "from-[#00AEEF]/20 to-[#00AEEF]/5",
+    border: "border-[#00AEEF]/30",
+    description:
+      "Every donation request that hits your inbox is a warm lead for a fundraiser event or group booking. FEC Playbook automatically routes incoming donation requests into a managed pipeline — so your team can respond fast, qualify the opportunity, and convert it into a paid fundraiser night or group event instead of a free giveaway.",
+    bullets: [
+      "Dedicated donation request intake pipeline",
+      "Automated acknowledgment & qualification sequence",
+      "Convert requests into fundraiser event proposals",
+      "Group event upsell automation for non-profits & schools",
+      "Follow-up sequences for unresponsive requestors",
+      "Track conversion rate from request to booked event",
+    ],
+    tag: "Fundraiser & Group Sales",
+  },
+  {
+    id: "12",
     icon: Users,
     title: "100+ Prebuilt FEC-Specific Systems",
     subtitle: "Built for Your Business. Ready on Day One.",
@@ -300,7 +320,7 @@ export default function Features() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             {[
-              { value: "11+", label: "Core Feature Modules" },
+              { value: "12+", label: "Core Feature Modules" },
               { value: "100+", label: "Pre-Built Automations" },
               { value: "1", label: "Login. One Platform." },
               { value: "0", label: "Extra Tools Needed" },
