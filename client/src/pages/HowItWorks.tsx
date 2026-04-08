@@ -11,8 +11,9 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 
 const ASSETS = {
-  screenshotDashboard: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/screenshot-dashboard_b976f464.png",
+  screenshotDashboard: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/hiw-step01-pos-data-5oAqgyQBeJUTARrxqmFakZ.webp",
   automationVisual: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/automation-visual-7FFhxMiacnZRBnZdiXWffS.webp",
+  pipelineVisual: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/hiw-step03-pathways-K3VLeKt7mFbt6MXxTvoRSr.webp",
 };
 
 const steps = [
@@ -63,8 +64,8 @@ const steps = [
       "Inbound texts are routed to the right team member instantly",
       "Group inquiries enter a dedicated corporate/school pipeline",
     ],
-    image: null,
-    imageAlt: "",
+    image: ASSETS.pipelineVisual,
+    imageAlt: "FEC Playbook pipeline showing multiple guest pathways",
     flip: false,
   },
 ];
