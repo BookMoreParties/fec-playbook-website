@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import { 
   Phone, ArrowRight, CheckCircle, XCircle, ChevronDown, ChevronUp,
   MessageSquare, Star, Users, TrendingUp, Calendar, Shield, 
-  Zap, BarChart3, RefreshCw, Gift, Target, Award
+  Zap, BarChart3, RefreshCw, Gift, Target, Award, Clock
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -62,20 +62,26 @@ function useInView(threshold = 0.2) {
 function StatsSection() {
   const { ref, inView } = useInView();
   return (
-    <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8 py-16">
-      {[
-        { value: "10", suffix: "", label: "Core Playbook Systems", icon: Award },
-        { value: "100+", suffix: "", label: "Pre-Built Automations", icon: Zap },
-        { value: "1", suffix: "", label: "Login. One Platform.", icon: Gift },
-      ].map(({ value, suffix, label, icon: Icon }) => (
-        <div key={label} className="text-center">
-          <div className="stat-number">{value}{suffix}</div>
-          <div className="flex items-center justify-center gap-1.5 mt-2">
-            <Icon size={14} className="text-[#00AEEF]" />
-            <p className="text-white/50 text-xs font-semibold uppercase tracking-wide" style={{ fontFamily: "'Montserrat', sans-serif" }}>{label}</p>
+    <div ref={ref}>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8">
+        {[
+          { value: "10", suffix: "", label: "Core Playbook Systems", icon: Award, asterisk: false },
+          { value: "100+", suffix: "", label: "Pre-Built Automations", icon: Zap, asterisk: false },
+          { value: "1", suffix: "", label: "Login. One Platform.", icon: Gift, asterisk: false },
+          { value: "30", suffix: "hrs", label: "Staff Hours Saved Weekly", icon: Clock, asterisk: true },
+        ].map(({ value, suffix, label, icon: Icon, asterisk }) => (
+          <div key={label} className="text-center">
+            <div className="stat-number">{value}{suffix}{asterisk && <span className="text-[#00AEEF] text-2xl align-super">*</span>}</div>
+            <div className="flex items-center justify-center gap-1.5 mt-2">
+              <Icon size={14} className="text-[#00AEEF]" />
+              <p className="text-white/50 text-xs font-semibold uppercase tracking-wide" style={{ fontFamily: "'Montserrat', sans-serif" }}>{label}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <p className="text-white/30 text-xs text-center pb-6 leading-relaxed" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+        *Listed stats and outcomes are based on client feedback and are not a representation or guarantee of similar or same results. Location results vary and are not guaranteed.
+      </p>
     </div>
   );
 }
