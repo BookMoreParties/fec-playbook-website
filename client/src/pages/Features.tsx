@@ -378,9 +378,9 @@ export default function Features() {
                     {feature.id}
                   </div>
 
-                  <div className={`relative p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start ${!isEven ? "lg:flex lg:flex-row-reverse" : ""}`}>
+                  <div className={`relative p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch ${!isEven ? "lg:[direction:rtl]" : ""}`}>
                     {/* Left: Content */}
-                    <div>
+                    <div className={`flex flex-col ${!isEven ? "lg:[direction:ltr]" : ""}`}>
                       {/* Tag */}
                       <div
                         className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border mb-4"
@@ -397,7 +397,7 @@ export default function Features() {
                       <p className="font-bold mb-4" style={{ color: feature.color }}>
                         {feature.subtitle}
                       </p>
-                      <p className="text-white/70 text-base leading-relaxed mb-6">
+                      <p className="text-white/70 text-base leading-relaxed mb-6 flex-1">
                         {feature.description}
                       </p>
 
@@ -405,7 +405,7 @@ export default function Features() {
                         href={BOOKING_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wide transition-all duration-200 hover:gap-3"
+                        className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wide transition-all duration-200 hover:gap-3 mt-auto"
                         style={{ color: feature.color }}
                       >
                         See This in Action
@@ -414,16 +414,16 @@ export default function Features() {
                     </div>
 
                     {/* Right: Bullet list */}
-                    <div className="bg-black/30 rounded-xl p-6 border border-white/5">
+                    <div className={`bg-black/30 rounded-xl p-6 border border-white/5 flex flex-col ${!isEven ? "lg:[direction:ltr]" : ""}`}>
                       <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-4">What's Included</p>
-                      <ul className="space-y-3">
+                      <ul className="space-y-0 flex-1">
                         {feature.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-start gap-3">
+                          <li key={bullet} className="flex items-center gap-3 py-2.5 border-b border-white/5 last:border-0">
                             <CheckCircle
-                              className="w-4 h-4 mt-0.5 flex-shrink-0"
+                              className="w-4 h-4 flex-shrink-0"
                               style={{ color: feature.color }}
                             />
-                            <span className="text-white/80 text-sm">{bullet}</span>
+                            <span className="text-white/80 text-sm leading-snug">{bullet}</span>
                           </li>
                         ))}
                       </ul>
