@@ -5,7 +5,7 @@
  */
 
 import { Link } from "wouter";
-import { Phone, Mail, MessageSquare, Globe, Filter, GitBranch, Send, Share2, BarChart2, Bot, Star, Gift, Zap, ArrowRight, CheckCircle, Users, Calendar, TrendingUp, Eye, HeartHandshake } from "lucide-react";
+import { Phone, Mail, MessageSquare, Globe, Filter, GitBranch, Send, Share2, BarChart2, Bot, Star, Gift, Zap, ArrowRight, CheckCircle, Users, Calendar, TrendingUp, Eye, HeartHandshake, ClipboardList } from "lucide-react";
 
 const BOOKING_URL = "https://calendly.com/fecplaybook/demo";
 
@@ -232,6 +232,27 @@ const features = [
   },
   {
     id: "12",
+    icon: ClipboardList,
+    title: "Hiring Pipeline Management",
+    subtitle: "Hire Smarter. Staff Better. Stop Guessing.",
+    color: "#1565C0",
+    gradient: "from-[#1565C0]/20 to-[#1565C0]/5",
+    border: "border-[#1565C0]/30",
+    description:
+      "Stop wasting time interviewing the wrong people. FEC Playbook's hiring pipeline manages your entire applicant flow — from application intake through auditions and interviews — and integrates with our partner Ferret Personality to automatically filter candidates into the roles they're best suited for based on their personality profile. Only the right-fit applicants make it to your interview chair.",
+    bullets: [
+      "Applicant intake pipeline with automated acknowledgment",
+      "Ferret Personality integration for role-fit filtering",
+      "Automated audition & interview scheduling",
+      "Stage-based applicant progression tracking",
+      "Disqualify & archive non-fitting candidates automatically",
+      "Offer letter & onboarding sequence automation",
+    ],
+    tag: "Hiring & Staffing",
+    partnerNote: "Powered in partnership with Ferret Personality",
+  },
+  {
+    id: "13",
     icon: Users,
     title: "100+ Prebuilt FEC-Specific Systems",
     subtitle: "Built for Your Business. Ready on Day One.",
@@ -320,7 +341,7 @@ export default function Features() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             {[
-              { value: "12+", label: "Core Feature Modules" },
+              { value: "13+", label: "Core Feature Modules" },
               { value: "100+", label: "Pre-Built Automations" },
               { value: "1", label: "Login. One Platform." },
               { value: "0", label: "Extra Tools Needed" },
@@ -403,6 +424,12 @@ export default function Features() {
                           </li>
                         ))}
                       </ul>
+                      {(feature as any).partnerNote && (
+                        <div className="mt-5 pt-4 border-t border-white/10 flex items-center gap-2">
+                          <span className="text-xs font-bold uppercase tracking-widest" style={{ color: feature.color }}>⚡</span>
+                          <span className="text-white/50 text-xs italic">{(feature as any).partnerNote}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
