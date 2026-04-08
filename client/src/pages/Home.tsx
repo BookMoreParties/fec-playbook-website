@@ -177,6 +177,7 @@ const integrations = [
   { name: "PartyWirks", badge: "Integration Partner", color: "#FF6B35", abbr: "PW", desc: "Party booking & management" },
   { name: "TripleSeat", badge: "Integration Partner", color: "#6C63FF", abbr: "TS", desc: "Event sales & management" },
   { name: "Party Center Software", badge: "Integration Partner", color: "#00BFA5", abbr: "PCS", desc: "FEC booking platform" },
+  { name: "Ferret Personality", badge: "Hiring Partner", color: "#F59E0B", abbr: "FP", desc: "Personality-based hiring" },
 ];
 
 // FAQ
@@ -667,7 +668,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
             {integrations.map((partner) => (
               <div key={partner.name} className="integration-logo-card flex-col gap-3 text-center">
                 <div
