@@ -21,9 +21,9 @@ const ASSETS = {
   textClub: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/text-club-offer-deXrAuqSunkxwnsEiwQZqh.webp",
   fecOperator: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/fec-operator-FPdt5GDKLRrSr7YzshYVGw.webp",
   automationVisual: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/automation-visual-7FFhxMiacnZRBnZdiXWffS.webp",
-  screenshotDashboard: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/screenshot-dashboard_b976f464.png",
-  screenshotConversations: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/screenshot-conversations_026f807f.png",
-  screenshotPipeline: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/screenshot-pipeline_3d43c6a0.png",
+  screenshotDashboard: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-dashboard-Xvv4CsYBmbuFktddYJRVAY.webp",
+  screenshotConversations: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-conversations-JtN2wUBGRkhaeNP9KaWfvi.webp",
+  screenshotPipeline: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-pipeline-5H8g837XP3Whcjpofgqvyf.webp",
 };
 
 // Counter animation hook
