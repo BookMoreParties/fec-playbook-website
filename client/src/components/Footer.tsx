@@ -4,10 +4,12 @@
  */
 
 import { Phone, Mail, ExternalLink } from "lucide-react";
+import { useBooking } from "@/contexts/BookingContext";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
 
 export default function Footer() {
+  const { openBooking } = useBooking();
   const handleNavClick = (href: string) => {
     if (href.startsWith("#")) {
       // Navigate to home page first if not already there
@@ -36,15 +38,13 @@ export default function Footer() {
               You bring the brand. We bring the playbook.
             </p>
             <div className="flex items-center gap-4 mt-6">
-              <a
-                href="https://calendly.com/fecplaybook/demo"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={openBooking}
                 className="fec-btn-primary text-xs py-2 px-4"
               >
                 <Phone size={12} />
                 Book a Call
-              </a>
+              </button>
             </div>
           </div>
 
@@ -82,16 +82,14 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="https://calendly.com/fecplaybook/demo"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={openBooking}
                   className="flex items-center gap-2 text-white/50 hover:text-[#00AEEF] text-sm transition-colors"
                   style={{ fontFamily: "'Montserrat', sans-serif" }}
                 >
                   <Phone size={14} />
                   Book a Demo Call
-                </a>
+                </button>
               </li>
               <li>
                 <a

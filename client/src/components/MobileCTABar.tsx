@@ -7,10 +7,12 @@
 
 import { useState, useEffect } from "react";
 import { Phone, X } from "lucide-react";
+import { useBooking } from "@/contexts/BookingContext";
 
 export default function MobileCTABar() {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const { openBooking } = useBooking();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,10 +50,8 @@ export default function MobileCTABar() {
       <div className="bg-[#0A0A0A] border-t border-white/10 px-4 pt-3 pb-5 shadow-[0_-8px_32px_rgba(0,0,0,0.6)]">
         <div className="flex items-center gap-3">
           {/* Main CTA */}
-          <a
-            href="https://calendly.com/fecplaybook/demo"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={openBooking}
             className="flex-1 flex items-center justify-center gap-2 bg-[#00AEEF] hover:bg-[#0090CC] active:bg-[#007AAD] text-white font-black uppercase tracking-wide text-sm py-4 rounded-xl transition-colors duration-200 shadow-lg shadow-[#00AEEF]/30"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
@@ -61,7 +61,7 @@ export default function MobileCTABar() {
               <Phone size={16} className="relative" />
             </span>
             Book a Free Demo Call
-          </a>
+          </button>
 
           {/* Dismiss button */}
           <button

@@ -173,11 +173,11 @@ const testimonials = [
 // Integration partners
 const integrations = [
   { name: "ROLLER Software", badge: "Official Integrated Partner", color: "#E63946", abbr: "ROLLER", desc: "Cloud-based venue management" },
-  { name: "CenterEdge Software", badge: "Integration Partner", color: "#2196F3", abbr: "CE", desc: "FEC point-of-sale platform" },
-  { name: "PartyWirks", badge: "Integration Partner", color: "#FF6B35", abbr: "PW", desc: "Party booking & management" },
-  { name: "TripleSeat", badge: "Integration Partner", color: "#6C63FF", abbr: "TS", desc: "Event sales & management" },
-  { name: "Party Center Software", badge: "Integration Partner", color: "#00BFA5", abbr: "PCS", desc: "FEC booking platform" },
-  { name: "Ferret Personality", badge: "Hiring Partner", color: "#F59E0B", abbr: "FP", desc: "Personality-based hiring" },
+  { name: "CenterEdge Software", badge: "", color: "#2196F3", abbr: "CE", desc: "FEC point-of-sale platform" },
+  { name: "PartyWirks", badge: "", color: "#FF6B35", abbr: "PW", desc: "Party booking & management" },
+  { name: "TripleSeat", badge: "", color: "#6C63FF", abbr: "TS", desc: "Event sales & management" },
+  { name: "Party Center Software", badge: "", color: "#00BFA5", abbr: "PCS", desc: "FEC booking platform" },
+  { name: "Ferret Personality", badge: "Integration Partner", color: "#F59E0B", abbr: "FP", desc: "Personality-based hiring" },
 ];
 
 // FAQ
@@ -251,7 +251,7 @@ export default function Home() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://calendly.com/fecplaybook/demo"
+                href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fec-btn-primary text-base py-4 px-8 animate-pulse-glow"
@@ -484,7 +484,7 @@ export default function Home() {
             Book a 30-minute call with our team and see exactly how FEC Playbook runs your revenue automatically.
           </p>
           <a
-            href="https://calendly.com/fecplaybook/demo"
+            href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-[#1565C0] font-black text-base uppercase tracking-wide py-4 px-10 rounded hover:bg-white/90 transition-all hover:shadow-xl"
@@ -538,7 +538,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/fecplaybook/demo"
+                href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fec-btn-primary"
@@ -681,7 +681,7 @@ export default function Home() {
                   <p className="text-white font-bold text-xs uppercase tracking-wide leading-tight">{partner.name}</p>
                   <p className="text-white/40 text-xs mt-0.5">{partner.desc}</p>
                 </div>
-                <p className="text-[#00AEEF] text-xs font-bold uppercase tracking-wide">{partner.badge}</p>
+                {partner.badge && <p className="text-[#00AEEF] text-xs font-bold uppercase tracking-wide">{partner.badge}</p>}
               </div>
             ))}
           </div>
@@ -776,7 +776,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <a
-                  href="https://calendly.com/fecplaybook/demo"
+                  href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`block text-center py-3 px-6 rounded font-black text-sm uppercase tracking-wide transition-all ${
@@ -838,7 +838,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://calendly.com/fecplaybook/demo"
+              href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
               target="_blank"
               rel="noopener noreferrer"
               className="fec-btn-primary text-base py-4 px-10 animate-pulse-glow"
@@ -910,7 +910,7 @@ export default function Home() {
             The operating strategy behind successful Family Entertainment Centers — built, tested, and ready to run.
           </p>
           <a
-            href="https://calendly.com/fecplaybook/demo"
+            href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white text-[#1565C0] font-black text-lg uppercase tracking-wide py-5 px-12 rounded hover:bg-white/90 transition-all hover:shadow-2xl"

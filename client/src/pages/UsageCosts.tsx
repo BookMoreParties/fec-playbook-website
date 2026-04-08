@@ -564,7 +564,7 @@ export default function UsageCosts() {
             Book a 30-minute call and we'll walk through exactly what FEC Playbook would cost for your specific volume.
           </p>
           <a
-            href="https://calendly.com/fecplaybook/demo"
+            href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white text-[#1565C0] font-black text-sm sm:text-base uppercase tracking-wide py-4 px-8 sm:px-10 rounded hover:bg-white/90 transition-all"

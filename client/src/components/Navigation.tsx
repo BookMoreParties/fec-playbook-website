@@ -8,6 +8,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Phone, X, ChevronRight } from "lucide-react";
+import { useBooking } from "@/contexts/BookingContext";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
 const LOGO_VERTICAL_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
@@ -25,6 +26,7 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [location] = useLocation();
+  const { openBooking } = useBooking();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -94,15 +96,13 @@ export default function Navigation() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
-              <a
-                href="https://calendly.com/fecplaybook/demo"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={openBooking}
                 className="fec-btn-primary text-sm py-2.5 px-5"
               >
                 <Phone size={14} />
                 Book a Call
-              </a>
+              </button>
             </div>
 
             {/* Mobile Hamburger */}
@@ -213,16 +213,13 @@ export default function Navigation() {
 
         {/* Drawer CTA Footer */}
         <div className="px-4 pb-8 pt-4 border-t border-white/8 space-y-3">
-          <a
-            href="https://calendly.com/fecplaybook/demo"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => { openBooking(); setMobileOpen(false); }}
             className="fec-btn-primary w-full justify-center text-sm py-4"
-            onClick={() => setMobileOpen(false)}
           >
             <Phone size={16} />
             Book a Free Demo Call
-          </a>
+          </button>
           <p className="text-white/30 text-xs text-center" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             Free 30-min strategy call · No commitment
           </p>

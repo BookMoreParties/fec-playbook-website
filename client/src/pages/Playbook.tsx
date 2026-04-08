@@ -215,7 +215,7 @@ export default function Playbook() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://calendly.com/fecplaybook/demo"
+              href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
               target="_blank"
               rel="noopener noreferrer"
               className="fec-btn-primary text-base py-4 px-8"
@@ -365,7 +365,7 @@ export default function Playbook() {
             <p className="text-white/60 text-lg mb-10">All automated. All built. All ready to run.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/fecplaybook/demo"
+                href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fec-btn-primary text-base py-4 px-8"

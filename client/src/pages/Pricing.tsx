@@ -142,7 +142,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <a
-                  href="https://calendly.com/fecplaybook/demo"
+                  href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`block text-center py-4 px-6 rounded font-black text-sm uppercase tracking-wide transition-all ${
@@ -303,7 +303,7 @@ export default function Pricing() {
             Book a 30-minute call with our team. We'll walk you through pricing, onboarding, and exactly what to expect.
           </p>
           <a
-            href="https://calendly.com/fecplaybook/demo"
+            href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white text-[#1565C0] font-black text-base uppercase tracking-wide py-4 px-10 rounded hover:bg-white/90 transition-all"

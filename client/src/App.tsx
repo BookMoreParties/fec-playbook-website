@@ -4,6 +4,8 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import MobileCTABar from "./components/MobileCTABar";
+import BookingModal from "./components/BookingModal";
+import { BookingProvider, useBooking } from "./contexts/BookingContext";
 import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -35,14 +37,26 @@ function Router() {
   );
 }
 
+function AppInner() {
+  const { isOpen, closeBooking } = useBooking();
+  return (
+    <>
+      <Router />
+      <MobileCTABar />
+      <BookingModal isOpen={isOpen} onClose={closeBooking} />
+    </>
+  );
+}
+
 function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
-          <Router />
-          <MobileCTABar />
+          <BookingProvider>
+            <AppInner />
+          </BookingProvider>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

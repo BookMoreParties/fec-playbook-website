@@ -154,7 +154,7 @@ export default function HowItWorks() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://calendly.com/fecplaybook/demo"
+              href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
               target="_blank"
               rel="noopener noreferrer"
               className="fec-btn-primary text-base py-4 px-8"
@@ -333,7 +333,7 @@ export default function HowItWorks() {
             <p className="text-white/60 text-base mb-8">The playbook runs the same way every day — even when people don't.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/fecplaybook/demo"
+                href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fec-btn-primary text-base py-4 px-8"

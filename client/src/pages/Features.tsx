@@ -9,7 +9,7 @@ import { Phone, Mail, MessageSquare, Globe, Filter, GitBranch, Send, Share2, Bar
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-const BOOKING_URL = "https://calendly.com/fecplaybook/demo";
+const BOOKING_URL = "https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp";
 
 const features = [
   {
