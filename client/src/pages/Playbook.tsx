@@ -247,7 +247,7 @@ export default function Playbook() {
                   <div className="lg:col-span-4 p-8 border-b lg:border-b-0 lg:border-r border-white/8">
                     <div className="flex items-start gap-4 mb-4">
                       <div className="text-4xl font-black leading-none"
-                        style={{ color: `${item.color}30`, fontFamily: "'Montserrat', sans-serif" }}>
+                        style={{ color: item.color, fontFamily: "'Montserrat', sans-serif", textShadow: `0 0 20px ${item.color}60` }}>
                         {item.num}
                       </div>
                       <div className="text-3xl">{item.icon}</div>
