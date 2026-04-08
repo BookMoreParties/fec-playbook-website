@@ -61,18 +61,12 @@ function useInView(threshold = 0.2) {
 // Stats Section
 function StatsSection() {
   const { ref, inView } = useInView();
-  const parties = useCounter(500, 2000, inView);
-  const reviews = useCounter(5, 1500, inView);
-  const hours = useCounter(40, 2000, inView);
-  const centers = useCounter(100, 2000, inView);
-
   return (
-    <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8 py-16">
+    <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8 py-16">
       {[
-        { value: parties, suffix: "+", label: "Parties Automated Monthly", icon: Gift },
-        { value: reviews, suffix: "★", label: "Average Review Rating", icon: Star },
-        { value: hours, suffix: "hrs", label: "Staff Hours Saved Weekly", icon: Zap },
-        { value: centers, suffix: "+", label: "FECs Running the Playbook", icon: Award },
+        { value: "10", suffix: "", label: "Core Playbook Systems", icon: Award },
+        { value: "100+", suffix: "", label: "Pre-Built Automations", icon: Zap },
+        { value: "1", suffix: "", label: "Login. One Platform.", icon: Gift },
       ].map(({ value, suffix, label, icon: Icon }) => (
         <div key={label} className="text-center">
           <div className="stat-number">{value}{suffix}</div>
@@ -241,17 +235,17 @@ export default function Home() {
 
             {/* H1 */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] mb-6 tracking-tight uppercase">
-              Run Your FEC<br />
-              <span className="fec-gradient-text">On a Playbook.</span>
+              The Operating Strategy<br />
+              <span className="fec-gradient-text">Behind Successful FECs</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-xl sm:text-2xl text-white/80 font-semibold mb-4 leading-relaxed">
-              FEC Playbook is the all-in-one automation platform built by FEC operators — for FEC operators. We know the business because we run it.
+              FEC Playbook isn't a collection of tools. It's a ready-to-run operating system built specifically for how Family Entertainment Centers actually work.
             </p>
 
             <p className="text-white/60 text-base mb-10 leading-relaxed max-w-2xl">
-              Automated marketing, sales pipelines, guest communication, and retention systems — all pre-built, proven, and ready to run. You bring the brand. We bring the playbook.
+              You bring the brand. We bring the playbook.
             </p>
 
             {/* CTAs */}
@@ -269,7 +263,7 @@ export default function Home() {
                 onClick={() => document.querySelector("#platform")?.scrollIntoView({ behavior: "smooth" })}
                 className="fec-btn-outline text-base py-4 px-8"
               >
-                See What's in the Playbook
+                See What's in the Playbook →
                 <ArrowRight size={18} />
               </button>
             </div>
