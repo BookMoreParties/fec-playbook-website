@@ -244,7 +244,7 @@ export default function Home() {
               FEC Playbook isn't a collection of tools. It's a ready-to-run operating system built specifically for how Family Entertainment Centers actually work.
             </p>
 
-            <p className="text-white/60 text-base mb-10 leading-relaxed max-w-2xl">
+            <p className="text-[#00AEEF] text-lg font-bold mb-10 leading-relaxed max-w-2xl tracking-wide">
               You bring the brand. We bring the playbook.
             </p>
 
