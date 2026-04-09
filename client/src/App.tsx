@@ -15,6 +15,7 @@ const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const Playbook = lazy(() => import("./pages/Playbook"));
 const Features = lazy(() => import("./pages/Features"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const ThankYou = lazy(() => import("./pages/ThankYou"));
 
 function Router() {
   return (
@@ -31,6 +32,7 @@ function Router() {
         <Route path={"/playbook"} component={Playbook} />
         <Route path={"/features"} component={Features} />
         <Route path={"/404"} component={NotFound} />
+        <Route path={"/thank-you"} component={ThankYou} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
