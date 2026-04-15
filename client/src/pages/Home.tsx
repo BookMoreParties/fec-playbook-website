@@ -172,12 +172,11 @@ const testimonials = [
 
 // Integration partners
 const integrations = [
-  { name: "ROLLER Software", badge: "Official Integrated Partner", color: "#E63946", abbr: "ROLLER", desc: "Cloud-based venue management" },
-  { name: "CenterEdge Software", badge: "", color: "#2196F3", abbr: "CE", desc: "FEC point-of-sale platform" },
-  { name: "PartyWirks", badge: "", color: "#FF6B35", abbr: "PW", desc: "Party booking & management" },
-  { name: "TripleSeat", badge: "", color: "#6C63FF", abbr: "TS", desc: "Event sales & management" },
-  { name: "Party Center Software", badge: "", color: "#00BFA5", abbr: "PCS", desc: "FEC booking platform" },
-  { name: "Ferret Personality", badge: "Integration Partner", color: "#F59E0B", abbr: "FP", desc: "Personality-based hiring" },
+  { name: "ROLLER Software", badge: "Official Integrated Partner", desc: "Cloud-based venue management", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/roller_dbd1531e.jpg", logoBg: "#E63946" },
+  { name: "CenterEdge Software", badge: "", desc: "FEC point-of-sale platform", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/centeredge_5f59d304.jpg", logoBg: "#ffffff" },
+  { name: "PartyWirks", badge: "", desc: "Party booking & management", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/partywirks_2ade489e.jpg", logoBg: "#ffffff" },
+  { name: "Party Center Software", badge: "", desc: "FEC booking platform", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/party-center-software_8932d225.jpg", logoBg: "#ffffff" },
+  { name: "Ferret Personality", badge: "Integration Partner", desc: "Personality-based hiring", logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/ferret-personality_bfe99ecd.png", logoBg: "#ffffff" },
 ];
 
 // FAQ
@@ -668,14 +667,18 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
             {integrations.map((partner) => (
               <div key={partner.name} className="integration-logo-card flex-col gap-3 text-center">
                 <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-black text-sm mx-auto shadow-lg"
-                  style={{ background: `linear-gradient(135deg, ${partner.color}, ${partner.color}99)`, boxShadow: `0 4px 20px ${partner.color}40` }}
+                  className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto shadow-lg overflow-hidden"
+                  style={{ background: partner.logoBg }}
                 >
-                  {partner.abbr}
+                  <img
+                    src={partner.logo}
+                    alt={partner.name + ' logo'}
+                    className="w-full h-full object-contain p-1"
+                  />
                 </div>
                 <div>
                   <p className="text-white font-bold text-xs uppercase tracking-wide leading-tight">{partner.name}</p>
@@ -689,7 +692,7 @@ export default function Home() {
           {/* Disclaimer */}
           <div className="bg-white/3 border border-white/8 rounded-lg p-6 text-center">
             <p className="text-white/40 text-xs leading-relaxed max-w-3xl mx-auto">
-              <strong className="text-white/60">Disclaimer:</strong> The brands represented (ROLLER Software, CenterEdge Software, PartyWirks, TripleSeat, Party Center Software) do not endorse FEC Playbook. All logos and trademarks are the property of their respective organizations and are not owned by or directly affiliated with FEC Playbook. Logos are used solely to indicate integration compatibility and data import capabilities.
+              <strong className="text-white/60">Disclaimer:</strong> The brands represented (ROLLER Software, CenterEdge Software, PartyWirks, Party Center Software, Ferret Personality) do not endorse FEC Playbook. All logos and trademarks are the property of their respective organizations and are not owned by or directly affiliated with FEC Playbook. Logos are used solely to indicate integration compatibility and data import capabilities.
             </p>
           </div>
         </div>
