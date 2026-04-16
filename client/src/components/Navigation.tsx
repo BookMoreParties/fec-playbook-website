@@ -18,7 +18,7 @@ const navLinks = [
   { label: "Features", href: "/features", isPage: true, desc: "Everything included in your plan" },
   { label: "How It Works", href: "/how-it-works", isPage: true, desc: "The system explained simply" },
   { label: "Playbook", href: "/playbook", isPage: true, desc: "10 systems, 100+ automations" },
-  { label: "Pricing", href: "#pricing", desc: "Transparent, flat-rate plans" },
+  { label: "Pricing", href: "/pricing", isPage: true, desc: "Transparent, flat-rate plans" },
 ];
 
 export default function Navigation() {
