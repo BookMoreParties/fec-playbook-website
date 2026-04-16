@@ -95,6 +95,15 @@ export default function Navigation() {
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
+              <a
+                href="https://app.bookmore.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-white font-semibold text-sm tracking-wide transition-colors duration-200 uppercase"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                Login
+              </a>
               <button
                 onClick={openBooking}
                 className="fec-btn-primary text-sm py-2.5 px-5"
@@ -188,14 +197,14 @@ export default function Navigation() {
           </p>
           <div className="space-y-1 px-2">
             <a
-              href="https://bookmore.app"
+              href="https://app.bookmore.app"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between py-2.5 text-white/50 hover:text-white/80 transition-colors text-sm"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
               onClick={() => setMobileOpen(false)}
             >
-              <span>Client Login</span>
+              <span>Login</span>
               <ChevronRight size={14} className="text-white/20" />
             </a>
             <a
