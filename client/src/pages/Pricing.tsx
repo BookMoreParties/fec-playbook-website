@@ -22,7 +22,7 @@ const pricingPlans = [
       "Month-to-month billing",
       "Unlimited contacts",
       "Unlimited users",
-      "All 8 automation workflows",
+      "All 8 playbooks included",
       "24/7 live chat support",
       "Unlimited Zoom support calls",
       "Full platform access",
@@ -42,7 +42,7 @@ const pricingPlans = [
       "Save $794 vs. monthly",
       "Unlimited contacts",
       "Unlimited users",
-      "All 8 automation workflows",
+      "All 8 playbooks included",
       "24/7 live chat support",
       "Unlimited Zoom support calls",
       "Full platform access",
@@ -110,7 +110,7 @@ export default function Pricing() {
             <span className="fec-gradient-text">Pricing.</span>
           </h1>
           <p className="text-white/60 text-xl max-w-2xl mx-auto">
-            One flat subscription. All 8 workflows. Unlimited contacts and users. No surprises.
+            One flat subscription. All 8 playbooks included. Unlimited contacts and users. No surprises.
           </p>
         </div>
       </section>
@@ -162,7 +162,7 @@ export default function Pricing() {
 
           <div className="bg-[#00AEEF]/5 border border-[#00AEEF]/20 rounded-lg p-6 text-center">
             <p className="text-[#00AEEF] font-bold text-sm uppercase tracking-wide mb-2">All Plans Include</p>
-            <p className="text-white/60 text-sm">Unlimited contacts · Unlimited users · All 8 workflows · 24/7 live chat · Unlimited Zoom calls · Full platform access</p>
+            <p className="text-white/60 text-sm">Unlimited contacts · Unlimited users · All 8 playbooks included · 24/7 live chat · Unlimited Zoom calls · Full platform access</p>
           </div>
         </div>
       </section>
