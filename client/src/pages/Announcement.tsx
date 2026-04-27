@@ -177,7 +177,7 @@ export default function Announcement() {
         <hr className="border-white/10 my-10" />
 
         {/* Footer CTA */}
-        <div className="text-center">
+        <div className="text-center mb-10">
           <p className="text-white/40 text-sm mb-6">
             — The FEC Playbook Team
           </p>
@@ -190,6 +190,62 @@ export default function Announcement() {
             Log In to FEC Playbook
             <ArrowRight size={16} />
           </a>
+        </div>
+
+        {/* Website review CTA */}
+        <div
+          className="rounded-xl overflow-hidden"
+          style={{ border: "1px solid rgba(0,174,239,0.25)", background: "#0D1B3E" }}
+        >
+          <div className="px-8 py-8 flex flex-col sm:flex-row items-center gap-6">
+            <div className="flex-1 text-center sm:text-left">
+              <p
+                className="text-[10px] font-black uppercase tracking-widest text-[#00AEEF]/60 mb-2"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                New Website
+              </p>
+              <h3
+                className="text-lg font-black uppercase text-white leading-tight mb-2"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                We've also launched a brand new website
+              </h3>
+              <p
+                className="text-white/55 text-sm leading-relaxed"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                Explore the new FEC Playbook website — learn about the platform,
+                the 8 playbooks, pricing, and how it all works.
+              </p>
+            </div>
+            <div className="shrink-0">
+              <a
+                href="https://www.fecplaybook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-bold uppercase tracking-wider text-sm px-7 py-3.5 rounded transition-colors duration-200"
+                style={{
+                  background: "transparent",
+                  border: "2px solid #00AEEF",
+                  color: "#00AEEF",
+                  fontFamily: "'Montserrat', sans-serif",
+                  whiteSpace: "nowrap",
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = "#00AEEF";
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#0A0A0A";
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                  (e.currentTarget as HTMLAnchorElement).style.color = "#00AEEF";
+                }}
+              >
+                View New Website
+                <ArrowRight size={15} />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
