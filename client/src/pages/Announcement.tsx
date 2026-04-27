@@ -2,11 +2,8 @@
 // Page: In-App Announcement — Book More → FEC Playbook rebrand
 
 import { useEffect } from "react";
-import { Link } from "wouter";
 import { ArrowRight, CheckCircle, AlertTriangle, Info } from "lucide-react";
-
-const BANNER_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/announcement-banner-TRUHCVoUKJjg4Jggwx4ryE.webp";
+import AnnouncementBanner from "../components/AnnouncementBanner";
 
 export default function Announcement() {
   useEffect(() => {
@@ -18,15 +15,8 @@ export default function Announcement() {
       className="min-h-screen bg-[#0A0A0A] text-white"
       style={{ fontFamily: "'Montserrat', sans-serif" }}
     >
-      {/* Banner Image */}
-      <div className="w-full">
-        <img
-          src={BANNER_URL}
-          alt="Book More is now FEC Playbook — Platform Update"
-          className="w-full object-cover"
-          style={{ maxHeight: "420px", objectPosition: "center" }}
-        />
-      </div>
+      {/* Banner */}
+      <AnnouncementBanner />
 
       {/* Content */}
       <div className="max-w-3xl mx-auto px-6 py-14">
