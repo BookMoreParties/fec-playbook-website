@@ -50,17 +50,13 @@ export default function OnboardingThankYou() {
           borderBottom: "1px solid rgba(0,174,239,0.15)",
         }}
       >
-        <Link href="/">
-          <a>
-            <img src={FEC_LOGO} alt="FEC Playbook" style={{ height: "32px", width: "auto" }} />
-          </a>
-        </Link>
-        <Link href="/onboarding">
-          <a className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/50 hover:text-[#00AEEF] transition-colors duration-200">
-            <ArrowLeft size={14} />
-            Onboarding Overview
-          </a>
-        </Link>
+        <a href="/">
+          <img src={FEC_LOGO} alt="FEC Playbook" style={{ height: "32px", width: "auto" }} />
+        </a>
+        <a href="/onboarding" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/50 hover:text-[#00AEEF] transition-colors duration-200">
+          <ArrowLeft size={14} />
+          Back to Onboarding
+        </a>
       </nav>
 
       {/* ── Thank you header ── */}
@@ -197,12 +193,10 @@ export default function OnboardingThankYou() {
 
         {/* Back link */}
         <div className="text-center mt-8">
-          <Link href="/onboarding">
-            <a className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/30 hover:text-[#00AEEF] transition-colors duration-200">
-              <ArrowLeft size={13} />
-              Back to Onboarding Overview
-            </a>
-          </Link>
+          <a href="/onboarding" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/30 hover:text-[#00AEEF] transition-colors duration-200">
+            <ArrowLeft size={13} />
+            Back to Onboarding Overview
+          </a>
         </div>
       </div>
 

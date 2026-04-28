@@ -167,11 +167,9 @@ export default function Onboarding() {
           borderBottom: scrolled ? "1px solid rgba(0,174,239,0.15)" : "1px solid transparent",
         }}
       >
-        <Link href="/">
-          <a>
-            <img src={FEC_LOGO} alt="FEC Playbook" style={{ height: "32px", width: "auto" }} />
-          </a>
-        </Link>
+        <a href="/">
+          <img src={FEC_LOGO} alt="FEC Playbook" style={{ height: "32px", width: "auto" }} />
+        </a>
         <div className="flex items-center gap-6">
           <button
             onClick={scrollToOverview}
@@ -376,15 +374,14 @@ export default function Onboarding() {
             Your onboarding specialist will guide you through the platform to ensure you fully understand how your system works and how to use it effectively. After launch, we stay connected with 30, 60, and 90-day success check-ins to review progress, answer questions, and help you continue optimizing your playbooks. And whenever you need assistance, 24/7 live support is available directly from within the platform.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/onboarding/survey">
-              <a
-                className="inline-flex items-center gap-2 font-black uppercase tracking-wider text-sm px-8 py-4 rounded transition-all duration-200 hover:bg-[#00c4ff]"
-                style={{ background: "#00AEEF", color: "#0A0A0A" }}
-              >
-                <ChevronRight size={16} />
-                Complete Your Intake Survey
-              </a>
-            </Link>
+            <a
+              href="/onboarding/survey"
+              className="inline-flex items-center gap-2 font-black uppercase tracking-wider text-sm px-8 py-4 rounded transition-all duration-200 hover:bg-[#00c4ff]"
+              style={{ background: "#00AEEF", color: "#0A0A0A" }}
+            >
+              <ChevronRight size={16} />
+              Complete Your Intake Survey
+            </a>
             <a
               href="https://app.bookmore.app"
               target="_blank"
