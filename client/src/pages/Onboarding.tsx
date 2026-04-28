@@ -295,7 +295,7 @@ export default function Onboarding() {
             style={{
               fontSize: "clamp(2rem, 5vw, 3rem)",
               letterSpacing: "-0.02em",
-              color: "rgba(255,255,255,0.25)",
+              color: "rgba(0,174,239,0.45)",
             }}
           >
             Run Your Playbook. Grow More.
@@ -375,16 +375,26 @@ export default function Onboarding() {
           <p className="text-white/60 text-sm leading-relaxed mb-8 max-w-xl mx-auto">
             Your onboarding specialist will guide you through the platform to ensure you fully understand how your system works and how to use it effectively. After launch, we stay connected with 30, 60, and 90-day success check-ins to review progress, answer questions, and help you continue optimizing your playbooks. And whenever you need assistance, 24/7 live support is available directly from within the platform.
           </p>
-          <a
-            href="https://app.bookmore.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-black uppercase tracking-wider text-sm px-8 py-4 rounded transition-all duration-200 hover:bg-[#00c4ff]"
-            style={{ background: "#00AEEF", color: "#0A0A0A" }}
-          >
-            <ChevronRight size={16} />
-            Run Your Playbook. Grow More.
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/onboarding/survey">
+              <a
+                className="inline-flex items-center gap-2 font-black uppercase tracking-wider text-sm px-8 py-4 rounded transition-all duration-200 hover:bg-[#00c4ff]"
+                style={{ background: "#00AEEF", color: "#0A0A0A" }}
+              >
+                <ChevronRight size={16} />
+                Complete Your Intake Survey
+              </a>
+            </Link>
+            <a
+              href="https://app.bookmore.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-bold uppercase tracking-wider text-sm px-8 py-4 rounded transition-all duration-200"
+              style={{ border: "1px solid rgba(0,174,239,0.35)", color: "#00AEEF", background: "transparent" }}
+            >
+              Log In to FEC Playbook
+            </a>
+          </div>
           <p className="text-white/30 text-xs mt-5">
             Questions? Contact your FEC Playbook implementation specialist directly.
           </p>

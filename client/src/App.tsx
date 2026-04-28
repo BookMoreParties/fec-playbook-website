@@ -18,6 +18,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 const Announcement = lazy(() => import("./pages/Announcement"));
 const Onboarding = lazy(() => import("./pages/Onboarding"));
+const OnboardingSurvey = lazy(() => import("./pages/OnboardingSurvey"));
 
 function Router() {
   return (
@@ -37,6 +38,7 @@ function Router() {
         <Route path={"/thank-you"} component={ThankYou} />
         <Route path={"/announcement"} component={Announcement} />
         <Route path={"/onboarding"} component={Onboarding} />
+        <Route path={"/onboarding/survey"} component={OnboardingSurvey} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
