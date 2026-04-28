@@ -96,10 +96,10 @@ export default function Announcement() {
         >
           <div className="bg-amber-400/5 border border-amber-400/20 rounded-lg p-5 mb-5">
             <p className="text-amber-300 font-semibold text-sm mb-1">
-              Heads up — brief interruption possible Tuesday night
+              Heads up — brief interruption possible late night Sunday, May 3rd
             </p>
             <p className="text-white/70 text-sm">
-              The URL change is scheduled for <strong className="text-white">Tuesday night</strong>. There may be a short window where{" "}
+              The URL change is scheduled for <strong className="text-white">late night Sunday, May 3rd</strong>. There may be a short window where{" "}
               <code className="text-amber-300 bg-white/5 px-1.5 py-0.5 rounded text-xs">
                 app.bookmore.app
               </code>{" "}
@@ -117,11 +117,10 @@ export default function Announcement() {
             >
               app.bookmore.app
             </a>{" "}
-            — will continue to work as your main login through the end of this
-            week.
+            — will continue to work as your main login through Sunday, May 3rd.
           </p>
           <p>
-            Starting later this week, the new login URL will be:
+            Starting Monday, May 4th, the new login URL will be:
           </p>
 
           <div className="my-5 flex items-center gap-3 bg-[#0D1B3E] border border-[#00AEEF]/30 rounded-lg px-5 py-4">
