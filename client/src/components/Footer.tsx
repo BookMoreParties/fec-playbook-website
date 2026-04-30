@@ -82,14 +82,14 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <button
-                  onClick={openBooking}
+                <a
+                  href="/book-a-demo"
                   className="flex items-center gap-2 text-white/50 hover:text-[#00AEEF] text-sm transition-colors"
                   style={{ fontFamily: "'Montserrat', sans-serif" }}
                 >
                   <Phone size={14} />
                   Book a Demo Call
-                </button>
+                </a>
               </li>
               <li>
                 <a
