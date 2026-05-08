@@ -18,7 +18,6 @@ const navLinks = [
   { label: "Features", href: "/features", isPage: true, desc: "Everything included in your plan" },
   { label: "How It Works", href: "/how-it-works", isPage: true, desc: "The system explained simply" },
   { label: "Playbook", href: "/playbook", isPage: true, desc: "10 systems, 100+ automations" },
-  { label: "Pricing", href: "/pricing", isPage: true, desc: "Transparent, flat-rate plans" },
 ];
 
 export default function Navigation() {
@@ -104,13 +103,14 @@ export default function Navigation() {
               >
                 Login
               </a>
-              <button
-                onClick={openBooking}
+              <a
+                href="/book-a-demo"
                 className="fec-btn-primary text-sm py-2.5 px-5"
+                style={{ display: "inline-flex", alignItems: "center", gap: "6px", textDecoration: "none" }}
               >
                 <Phone size={14} />
-                Book a Call
-              </button>
+                Book a Demo
+              </a>
             </div>
 
             {/* Mobile Hamburger */}
@@ -221,13 +221,15 @@ export default function Navigation() {
 
         {/* Drawer CTA Footer */}
         <div className="px-4 pb-8 pt-4 border-t border-white/8 space-y-3">
-          <button
-            onClick={() => { openBooking(); setMobileOpen(false); }}
+          <a
+            href="/book-a-demo"
+            onClick={() => setMobileOpen(false)}
             className="fec-btn-primary w-full justify-center text-sm py-4"
+            style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}
           >
             <Phone size={16} />
             Book a Free Demo Call
-          </button>
+          </a>
           <p className="text-white/30 text-xs text-center" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             Free 30-min strategy call · No commitment
           </p>
