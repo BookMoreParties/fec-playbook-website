@@ -60,7 +60,6 @@ export default function Footer() {
                 { label: "How It Works", href: "/how-it-works" },
                 { label: "What's in the Playbook", href: "/playbook" },
                 { label: "Integrations", href: "#integrations" },
-                { label: "Pricing", href: "#pricing" },
               ].map((link) => (
                 <li key={link.label}>
                   <button
