@@ -738,93 +738,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== PRICING SECTION ===== */}
-      <section id="pricing" className="py-24 bg-[#0D1B3E]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="h-px w-12 bg-[#00AEEF]"></div>
-              <span className="section-label">Simple, Transparent Pricing</span>
-              <div className="h-px w-12 bg-[#00AEEF]"></div>
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-black uppercase leading-tight mb-4">
-              One Flat Subscription.<br />
-              <span className="fec-gradient-text">Everything Included.</span>
-            </h2>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              No hidden fees. No per-user charges. Unlimited contacts, unlimited users, all 8 playbooks with 100+ workflows — one price.
-            </p>
+      {/* ===== DEMO CTA SECTION (replaces pricing) ===== */}
+      <section id="pricing" className="py-24 bg-[#0D1B3E] relative overflow-hidden">
+        {/* Background circuit pattern */}
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300AEEF' fill-opacity='0.6'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} />
+        {/* Cyan glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#00AEEF]/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="h-px w-12 bg-[#00AEEF]"></div>
+            <span className="section-label">Ready to See It Live?</span>
+            <div className="h-px w-12 bg-[#00AEEF]"></div>
           </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight mb-6">
+            Stop Guessing.<br />
+            <span className="fec-gradient-text">See It Running.</span>
+          </h2>
+          <p className="text-white/60 text-lg sm:text-xl max-w-2xl mx-auto mb-10">
+            Book a free 30-minute strategy call. We'll walk through the platform live, map the 10 playbooks to your specific FEC, and give you a real cost estimate — no slides, no fluff.
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-16">
-            {pricingPlans.map((plan) => (
-              <div key={plan.name} className={`pricing-card relative ${plan.featured ? "featured" : ""}`}>
-                {plan.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#00AEEF] text-white text-xs font-black uppercase tracking-wider px-4 py-1 rounded-full">
-                    {plan.badge}
-                  </div>
-                )}
-                <h3 className="text-white font-black text-lg uppercase mb-2">{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-5xl font-black text-white">{plan.price}</span>
-                  <span className="text-white/50 text-base">{plan.period}</span>
-                </div>
-                <p className="text-white/40 text-sm mb-6">{plan.setup}</p>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-white/70 text-sm">
-                      <CheckCircle size={14} className="text-[#00AEEF] flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`block text-center py-3 px-6 rounded font-black text-sm uppercase tracking-wide transition-all ${
-                    plan.featured
-                      ? "fec-gradient-bg text-white hover:opacity-90"
-                      : "border border-white/20 text-white hover:border-[#00AEEF] hover:text-[#00AEEF]"
-                  }`}
-                >
-                  Get Started — Book a Call
-                </a>
+          {/* Value props row */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
+            {[
+              { icon: "⚡", label: "30 Minutes", desc: "Focused, no-fluff walkthrough" },
+              { icon: "🎯", label: "Built for Your FEC", desc: "We map it to your operation" },
+              { icon: "💰", label: "Real Cost Estimate", desc: "Know exactly what you'll pay" },
+            ].map(f => (
+              <div key={f.label} className="bg-white/5 border border-white/10 rounded-xl p-5 text-center">
+                <span className="text-3xl mb-3 block">{f.icon}</span>
+                <p className="text-white font-black text-sm uppercase tracking-wide mb-1">{f.label}</p>
+                <p className="text-white/40 text-xs">{f.desc}</p>
               </div>
             ))}
           </div>
 
-          {/* Usage Costs */}
-          <div className="max-w-3xl mx-auto bg-white/3 border border-white/8 rounded-lg p-8">
-            <h3 className="text-white font-black text-lg uppercase mb-2 text-center">Usage-Based Costs</h3>
-            <p className="text-white/50 text-sm text-center mb-6">Beyond your subscription, communication costs are passed through at cost with minimal markup.</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-              {[
-                { label: "Email Sending", cost: "$0.0014/email" },
-                { label: "SMS (per segment)", cost: "$0.0228/segment" },
-                { label: "Email Verification", cost: "$0.005/verification" },
-                { label: "Avg. usage cost/booking", cost: "$0.09–$0.32" },
-              ].map(({ label, cost }) => (
-                <div key={label} className="text-center">
-                  <p className="text-[#00AEEF] font-black text-lg">{cost}</p>
-                  <p className="text-white/40 text-xs mt-1">{label}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-white/30 text-xs text-center mb-4">
-              Real-time dashboard tracking. Advance notice of fee changes. No hidden fees.
-            </p>
-            <div className="bg-yellow-400/5 border border-yellow-400/20 rounded p-3 mb-4">
-              <p className="text-yellow-400/70 text-xs text-center leading-relaxed">
-                Usage cost per booking is based on averages. Each center may see a higher or lower cost per booking based on messaging length and additional communications/usage. Results are not guaranteed. Results vary depending on the operator's venue and internal processes.
-              </p>
-            </div>
-            <div className="text-center">
-              <a href="/usage-costs" className="inline-flex items-center gap-2 text-[#00AEEF] font-bold text-sm uppercase tracking-wide hover:underline">
-                Calculate Your Exact Usage Costs →
-              </a>
-            </div>
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="/book-a-demo"
+              className="fec-btn-primary text-base py-4 px-10 animate-pulse-glow"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", textDecoration: "none" }}
+            >
+              <Phone size={18} />
+              Book a Free Demo Call
+            </a>
+            <a
+              href="/playbook"
+              className="fec-btn-outline text-base py-4 px-10"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", textDecoration: "none" }}
+            >
+              See What's in the Playbook
+              <ArrowRight size={18} />
+            </a>
           </div>
+          <p className="text-white/30 text-sm mt-6">Free strategy call · No commitment required · Flat-rate pricing discussed on the call</p>
         </div>
       </section>
 
