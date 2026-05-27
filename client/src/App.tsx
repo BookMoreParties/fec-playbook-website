@@ -21,6 +21,7 @@ const Onboarding = lazy(() => import("./pages/Onboarding"));
 const OnboardingSurvey = lazy(() => import("./pages/OnboardingSurvey"));
 const OnboardingThankYou = lazy(() => import("./pages/OnboardingThankYou"));
 const BookDemo = lazy(() => import("./pages/BookDemo"));
+const GetReady = lazy(() => import("./pages/GetReady"));
 
 function Router() {
   return (
@@ -43,6 +44,7 @@ function Router() {
         <Route path={"/onboarding/survey"} component={OnboardingSurvey} />
         <Route path={"/onboarding/thank-you"} component={OnboardingThankYou} />
         <Route path={"/book-a-demo"} component={BookDemo} />
+        <Route path={"/getready"} component={GetReady} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
