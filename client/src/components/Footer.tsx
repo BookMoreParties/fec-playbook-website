@@ -133,6 +133,8 @@ export default function Footer() {
               <a href="/terms" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Terms of Service</a>
               <a href="/disclaimer" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Disclaimer</a>
               <a href="#" className="termly-display-preferences text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Consent Preferences</a>
+              <a href="https://app.termly.io/notify/54d6a0ce-5f50-4d6d-8a24-5b21db524a12" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Do Not Sell or Share My Personal Information</a>
+              <a href="https://app.termly.io/notify/54d6a0ce-5f50-4d6d-8a24-5b21db524a12" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Limit the Use of My Sensitive Personal Information</a>
             </div>
           </div>
         </div>
