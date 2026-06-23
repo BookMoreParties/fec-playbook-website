@@ -9,7 +9,6 @@ import { BookingProvider, useBooking } from "./contexts/BookingContext";
 import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home"));
-const Pricing = lazy(() => import("./pages/Pricing"));
 const UsageCosts = lazy(() => import("./pages/UsageCosts"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const Playbook = lazy(() => import("./pages/Playbook"));
@@ -32,7 +31,6 @@ function Router() {
     }>
       <Switch>
         <Route path={"/"} component={Home} />
-        <Route path={"/pricing"} component={Pricing} />
         <Route path={"/usage-costs"} component={UsageCosts} />
         <Route path={"/how-it-works"} component={HowItWorks} />
         <Route path={"/playbook"} component={Playbook} />
