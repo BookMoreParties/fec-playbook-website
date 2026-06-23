@@ -128,7 +128,7 @@ export default function Footer() {
             <p className="text-white/30 text-xs" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               © {new Date().getFullYear()} FEC Playbook. All rights reserved. Formerly known as Book More.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
               <a href="/privacy" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Privacy Policy</a>
               <a href="/terms" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Terms of Service</a>
               <a href="/disclaimer" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Disclaimer</a>
