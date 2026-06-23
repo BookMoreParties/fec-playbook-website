@@ -11,6 +11,13 @@ import Footer from "@/components/Footer";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
 
+// Extend window type to include fbq
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
 export default function BookDemo() {
   // Load GHL booking embed script
   useEffect(() => {
@@ -22,6 +29,13 @@ export default function BookDemo() {
     script.type = "text/javascript";
     script.async = true;
     document.body.appendChild(script);
+  }, []);
+
+  // Fire Facebook Pixel Lead event when visitor lands on this page
+  useEffect(() => {
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "Lead");
+    }
   }, []);
 
   return (

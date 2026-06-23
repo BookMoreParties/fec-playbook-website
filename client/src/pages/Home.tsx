@@ -250,9 +250,7 @@ export default function Home() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/book-a-demo"
                 className="fec-btn-primary text-base py-4 px-8 animate-pulse-glow"
               >
                 <Phone size={18} />
@@ -537,9 +535,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/book-a-demo"
                 className="fec-btn-primary"
               >
                 <Phone size={16} />
@@ -809,9 +805,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/book-a-demo"
               className="fec-btn-primary text-base py-4 px-10 animate-pulse-glow"
             >
               <Phone size={18} />
@@ -881,9 +875,7 @@ export default function Home() {
             The operating strategy behind successful Family Entertainment Centers — built, tested, and ready to run.
           </p>
           <a
-            href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/book-a-demo"
             className="inline-flex items-center gap-3 bg-white text-[#1565C0] font-black text-lg uppercase tracking-wide py-5 px-12 rounded hover:bg-white/90 transition-all hover:shadow-2xl"
           >
             <Phone size={20} />
