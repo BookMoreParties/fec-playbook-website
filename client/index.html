@@ -13,7 +13,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <!-- Facebook Pixel Code -->
+
+    <!-- Google tag (gtag.js) — Measurement ID: G-SZ6C788GTC -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SZ6C788GTC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SZ6C788GTC');
+    </script>
+    <!-- End Google tag -->
+
+    <!-- Meta Pixel Code — FEC Playbook (ID: 933154335110766) -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -24,15 +35,19 @@
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '933154335110766');
+      fbq('init', '1002440822682600');
       fbq('track', 'PageView');
     </script>
-    <!-- End Facebook Pixel Code -->
+    <!-- End Meta Pixel Code -->
   </head>
 
   <body>
-    <!-- Facebook Pixel noscript fallback -->
+    <!-- Meta Pixel noscript fallbacks -->
     <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=933154335110766&ev=PageView&noscript=1"
+    /></noscript>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1002440822682600&ev=PageView&noscript=1"
     /></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
