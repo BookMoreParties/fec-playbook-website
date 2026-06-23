@@ -10,6 +10,10 @@ Disallow: /announcement
 Disallow: /usage-costs
 Disallow: /pricing
 Disallow: /thank-you
+Disallow: /keithcal
+Disallow: /teamcal
+Disallow: /lauracal
+Disallow: /kristinecal
 
 # Sitemap
 Sitemap: https://www.fecplaybook.com/sitemap.xml

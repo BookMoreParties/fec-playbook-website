@@ -21,6 +21,10 @@ const OnboardingSurvey = lazy(() => import("./pages/OnboardingSurvey"));
 const OnboardingThankYou = lazy(() => import("./pages/OnboardingThankYou"));
 const BookDemo = lazy(() => import("./pages/BookDemo"));
 const GetReady = lazy(() => import("./pages/GetReady"));
+const KeithCal = lazy(() => import("./pages/KeithCal"));
+const TeamCal = lazy(() => import("./pages/TeamCal"));
+const LauraCal = lazy(() => import("./pages/LauraCal"));
+const KristineCal = lazy(() => import("./pages/KristineCal"));
 
 function Router() {
   return (
@@ -43,6 +47,10 @@ function Router() {
         <Route path={"/onboarding/thank-you"} component={OnboardingThankYou} />
         <Route path={"/book-a-demo"} component={BookDemo} />
         <Route path={"/getready"} component={GetReady} />
+        <Route path={"/keithcal"} component={KeithCal} />
+        <Route path={"/teamcal"} component={TeamCal} />
+        <Route path={"/lauracal"} component={LauraCal} />
+        <Route path={"/kristinecal"} component={KristineCal} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
