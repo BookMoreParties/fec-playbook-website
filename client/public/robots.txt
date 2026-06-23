@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Block internal/client-only pages from indexing
+Disallow: /onboarding
+Disallow: /onboarding/survey
+Disallow: /onboarding/thank-you
+Disallow: /getready
+Disallow: /announcement
+Disallow: /usage-costs
+Disallow: /pricing
+Disallow: /thank-you
+
+# Sitemap
+Sitemap: https://www.fecplaybook.com/sitemap.xml
