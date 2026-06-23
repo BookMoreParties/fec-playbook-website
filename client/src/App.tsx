@@ -25,6 +25,7 @@ const KeithCal = lazy(() => import("./pages/KeithCal"));
 const TeamCal = lazy(() => import("./pages/TeamCal"));
 const LauraCal = lazy(() => import("./pages/LauraCal"));
 const KristineCal = lazy(() => import("./pages/KristineCal"));
+const KeithLauraCal = lazy(() => import("./pages/KeithLauraCal"));
 
 function Router() {
   return (
@@ -51,6 +52,7 @@ function Router() {
         <Route path={"/teamcal"} component={TeamCal} />
         <Route path={"/lauracal"} component={LauraCal} />
         <Route path={"/kristinecal"} component={KristineCal} />
+        <Route path={"/keithlauracal"} component={KeithLauraCal} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

@@ -14,6 +14,7 @@ Disallow: /keithcal
 Disallow: /teamcal
 Disallow: /lauracal
 Disallow: /kristinecal
+Disallow: /keithlauracal
 
 # Sitemap
 Sitemap: https://www.fecplaybook.com/sitemap.xml
