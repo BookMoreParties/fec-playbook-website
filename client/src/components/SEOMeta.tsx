@@ -7,7 +7,7 @@
 import { Helmet } from "react-helmet-async";
 
 const SITE_URL = "https://www.fecplaybook.com";
-const OG_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
+const OG_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/og-social-image-Kk7qTA4cKMc7eP44TcSHFK.png";
 const SITE_NAME = "FEC Playbook";
 
 interface SEOMetaProps {
