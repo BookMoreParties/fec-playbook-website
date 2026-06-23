@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { CheckCircle, Clock, Phone, Users, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEOMeta from "@/components/SEOMeta";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
 
@@ -40,6 +41,11 @@ export default function BookDemo() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <SEOMeta
+        title="Book a Free Demo — See FEC Playbook in Action"
+        description="Schedule a free strategy call with the FEC Playbook team. See how our automation platform can transform your Family Entertainment Center's marketing and operations."
+        path="/book-a-demo"
+      />
       <Navigation />
 
       {/* Hero */}

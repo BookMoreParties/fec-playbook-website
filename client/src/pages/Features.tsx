@@ -8,8 +8,9 @@ import { Link } from "wouter";
 import { Phone, Mail, MessageSquare, Globe, Filter, GitBranch, Send, Share2, BarChart2, Bot, Star, Gift, Zap, ArrowRight, CheckCircle, Users, Calendar, TrendingUp, Eye, HeartHandshake, ClipboardList } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEOMeta from "@/components/SEOMeta";
 
-const BOOKING_URL = "https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp";
+const BOOKING_URL = "/book-a-demo";
 
 const features = [
   {
@@ -287,6 +288,11 @@ const additionalCapabilities = [
 export default function Features() {
   return (
     <div className="min-h-screen bg-[#0A0A0A]">
+      <SEOMeta
+        title="Platform Features — Automation, CRM & SMS for Family Entertainment Centers"
+        description="Explore FEC Playbook's full platform: unified inbox, birthday automation, text clubs, reputation management, pipelines, and 100+ pre-built workflows built for FECs."
+        path="/features"
+      />
       <Navigation />
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">

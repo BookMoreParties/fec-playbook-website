@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEOMeta from "@/components/SEOMeta";
 
 // CDN Asset URLs
 const ASSETS = {
@@ -209,6 +210,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <SEOMeta
+        title="FEC Playbook — The Operating System for Family Entertainment Centers"
+        description="FEC Playbook is the all-in-one automation platform built by FEC operators for FEC operators. Stop patching together tools that don't work. Start running one proven system."
+        path="/"
+      />
       <Navigation />
 
       {/* ===== HERO SECTION ===== */}
@@ -481,7 +487,7 @@ export default function Home() {
             Book a 30-minute call with our team and see exactly how FEC Playbook runs your revenue automatically.
           </p>
           <a
-            href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
+            href="/book-a-demo"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-[#1565C0] font-black text-base uppercase tracking-wide py-4 px-10 rounded hover:bg-white/90 transition-all hover:shadow-xl"

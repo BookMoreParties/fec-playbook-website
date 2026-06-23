@@ -38,13 +38,13 @@ export default function Footer() {
               You bring the brand. We bring the playbook.
             </p>
             <div className="flex items-center gap-4 mt-6">
-              <button
-                onClick={openBooking}
+              <a
+                href="/book-a-demo"
                 className="fec-btn-primary text-xs py-2 px-4"
               >
                 <Phone size={12} />
                 Book a Call
-              </button>
+              </a>
             </div>
           </div>
 
@@ -129,8 +129,9 @@ export default function Footer() {
               © {new Date().getFullYear()} FEC Playbook. All rights reserved. Formerly known as Book More.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Privacy Policy</a>
-              <a href="#" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Terms of Service</a>
+              <a href="/privacy" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Privacy Policy</a>
+              <a href="/terms" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Terms of Service</a>
+              <a href="/disclaimer" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Disclaimer</a>
             </div>
           </div>
         </div>

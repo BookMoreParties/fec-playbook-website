@@ -9,6 +9,7 @@ import { Phone, ArrowRight, CheckCircle, BookOpen, Zap, Target } from "lucide-re
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
+import SEOMeta from "@/components/SEOMeta";
 
 const playbookItems = [
   {
@@ -175,6 +176,11 @@ const replaces = [
 export default function Playbook() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <SEOMeta
+        title="What's in the Playbook — 10 Pre-Built FEC Operating Systems"
+        description="Discover the 10 pre-built operating systems inside FEC Playbook: birthday sales, text clubs, reputation management, loyalty, and more — all built for Family Entertainment Centers."
+        path="/playbook"
+      />
       <Navigation />
 
       {/* ===== HERO ===== */}
@@ -215,7 +221,7 @@ export default function Playbook() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
+              href="/book-a-demo"
               target="_blank"
               rel="noopener noreferrer"
               className="fec-btn-primary text-base py-4 px-8"
@@ -365,7 +371,7 @@ export default function Playbook() {
             <p className="text-white/60 text-lg mb-10">All automated. All built. All ready to run.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
+                href="/book-a-demo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fec-btn-primary text-base py-4 px-8"

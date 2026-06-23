@@ -9,6 +9,7 @@ import { Phone, ArrowRight, CheckCircle, Database, Zap, GitBranch, Shield } from
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
+import SEOMeta from "@/components/SEOMeta";
 
 const ASSETS = {
   screenshotDashboard: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/hiw-step01-pos-data-5oAqgyQBeJUTARrxqmFakZ.webp",
@@ -128,6 +129,11 @@ const outcomes = [
 export default function HowItWorks() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <SEOMeta
+        title="How FEC Playbook Works — Setup, Integrations & Automation for FECs"
+        description="See exactly how FEC Playbook connects to your POS, automates guest journeys, and runs your marketing on autopilot. Setup in days, not months."
+        path="/how-it-works"
+      />
       <Navigation />
 
       {/* ===== HERO ===== */}
@@ -154,7 +160,7 @@ export default function HowItWorks() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
+              href="/book-a-demo"
               target="_blank"
               rel="noopener noreferrer"
               className="fec-btn-primary text-base py-4 px-8"
@@ -333,7 +339,7 @@ export default function HowItWorks() {
             <p className="text-white/60 text-base mb-8">The playbook runs the same way every day — even when people don't.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
+                href="/book-a-demo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fec-btn-primary text-base py-4 px-8"

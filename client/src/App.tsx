@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/sonner";
+import { HelmetProvider } from "react-helmet-async";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -26,6 +27,11 @@ const TeamCal = lazy(() => import("./pages/TeamCal"));
 const LauraCal = lazy(() => import("./pages/LauraCal"));
 const KristineCal = lazy(() => import("./pages/KristineCal"));
 const KeithLauraCal = lazy(() => import("./pages/KeithLauraCal"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Eula = lazy(() => import("./pages/Eula"));
+const Disclaimer = lazy(() => import("./pages/Disclaimer"));
+const Terms = lazy(() => import("./pages/Terms"));
+const AcceptableUse = lazy(() => import("./pages/AcceptableUse"));
 
 function Router() {
   return (
@@ -53,6 +59,11 @@ function Router() {
         <Route path={"/lauracal"} component={LauraCal} />
         <Route path={"/kristinecal"} component={KristineCal} />
         <Route path={"/keithlauracal"} component={KeithLauraCal} />
+        <Route path={"/privacy"} component={PrivacyPolicy} />
+        <Route path={"/eula"} component={Eula} />
+        <Route path={"/disclaimer"} component={Disclaimer} />
+        <Route path={"/terms"} component={Terms} />
+        <Route path={"/acceptable-use"} component={AcceptableUse} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
@@ -72,16 +83,18 @@ function AppInner() {
 
 function App() {
   return (
-    <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark">
-        <TooltipProvider>
-          <Toaster />
-          <BookingProvider>
-            <AppInner />
-          </BookingProvider>
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
+    <HelmetProvider>
+      <ErrorBoundary>
+        <ThemeProvider defaultTheme="dark">
+          <TooltipProvider>
+            <Toaster />
+            <BookingProvider>
+              <AppInner />
+            </BookingProvider>
+          </TooltipProvider>
+        </ThemeProvider>
+      </ErrorBoundary>
+    </HelmetProvider>
   );
 }
 
