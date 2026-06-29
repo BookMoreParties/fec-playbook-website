@@ -79,13 +79,13 @@ export default function Welcome() {
         display: block;
       }
       .welcome-greeting {
-        font-size: 64px;
+        font-size: 36px;
         font-weight: 900;
         color: #FFFFFF;
-        line-height: 1.1;
-        letter-spacing: -1px;
+        line-height: 1.2;
+        letter-spacing: -0.5px;
         text-transform: uppercase;
-        white-space: wrap;
+        white-space: normal;
         overflow: hidden;
         text-overflow: ellipsis;
       }
