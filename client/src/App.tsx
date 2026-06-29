@@ -34,6 +34,10 @@ const Terms = lazy(() => import("./pages/Terms"));
 const AcceptableUse = lazy(() => import("./pages/AcceptableUse"));
 const Widget = lazy(() => import("./pages/Widget"));
 const Welcome = lazy(() => import("./pages/Welcome"));
+const TC1 = lazy(() => import("./pages/TC1"));
+const TC2 = lazy(() => import("./pages/TC2"));
+const TC3 = lazy(() => import("./pages/TC3"));
+const TC4 = lazy(() => import("./pages/TC4"));
 
 function Router() {
   return (
@@ -68,6 +72,10 @@ function Router() {
         <Route path={"/acceptable-use"} component={AcceptableUse} />
         <Route path={"/widget"} component={Widget} />
         <Route path={"/welcome"} component={Welcome} />
+        <Route path={"/TC1"} component={TC1} />
+        <Route path={"/TC2"} component={TC2} />
+        <Route path={"/TC3"} component={TC3} />
+        <Route path={"/TC4"} component={TC4} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
