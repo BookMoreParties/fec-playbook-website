@@ -33,6 +33,7 @@ const Disclaimer = lazy(() => import("./pages/Disclaimer"));
 const Terms = lazy(() => import("./pages/Terms"));
 const AcceptableUse = lazy(() => import("./pages/AcceptableUse"));
 const Widget = lazy(() => import("./pages/Widget"));
+const Welcome = lazy(() => import("./pages/Welcome"));
 
 function Router() {
   return (
@@ -66,6 +67,7 @@ function Router() {
         <Route path={"/terms"} component={Terms} />
         <Route path={"/acceptable-use"} component={AcceptableUse} />
         <Route path={"/widget"} component={Widget} />
+        <Route path={"/welcome"} component={Welcome} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

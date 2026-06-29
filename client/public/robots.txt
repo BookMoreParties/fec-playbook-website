@@ -16,6 +16,7 @@ Disallow: /lauracal
 Disallow: /kristinecal
 Disallow: /keithlauracal
 Disallow: /widget
+Disallow: /welcome
 
 # Sitemap
 Sitemap: https://www.fecplaybook.com/sitemap.xml
