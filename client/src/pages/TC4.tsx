@@ -58,7 +58,7 @@ export default function TC4() {
               <div className="flex items-center gap-3">
                 <img src={LOGO_URL} alt="FEC Playbook" className="h-7 w-auto" />
                 <div className="h-4 w-px bg-white/20" />
-                <p className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">TC4 — Optimization</p>
+                <p className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">Optimization</p>
               </div>
             </div>
             <div className="p-2">
