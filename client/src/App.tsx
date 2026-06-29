@@ -32,6 +32,7 @@ const Eula = lazy(() => import("./pages/Eula"));
 const Disclaimer = lazy(() => import("./pages/Disclaimer"));
 const Terms = lazy(() => import("./pages/Terms"));
 const AcceptableUse = lazy(() => import("./pages/AcceptableUse"));
+const Widget = lazy(() => import("./pages/Widget"));
 
 function Router() {
   return (
@@ -64,6 +65,7 @@ function Router() {
         <Route path={"/disclaimer"} component={Disclaimer} />
         <Route path={"/terms"} component={Terms} />
         <Route path={"/acceptable-use"} component={AcceptableUse} />
+        <Route path={"/widget"} component={Widget} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
