@@ -38,6 +38,7 @@ const TC1 = lazy(() => import("./pages/TC1"));
 const TC2 = lazy(() => import("./pages/TC2"));
 const TC3 = lazy(() => import("./pages/TC3"));
 const TC4 = lazy(() => import("./pages/TC4"));
+const CheckIn = lazy(() => import("./pages/CheckIn"));
 
 function Router() {
   return (
@@ -76,6 +77,7 @@ function Router() {
         <Route path={"/TC2"} component={TC2} />
         <Route path={"/TC3"} component={TC3} />
         <Route path={"/TC4"} component={TC4} />
+        <Route path={"/checkin"} component={CheckIn} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
