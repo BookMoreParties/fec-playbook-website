@@ -1,0 +1,98 @@
+/*
+ * FEC Playbook — Support Page
+ * Route: /support
+ * Embedded GHL support form (GX1tIjpliSHQPP8MX821)
+ */
+
+import { useEffect } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+
+const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
+
+export default function Support() {
+  useEffect(() => {
+    const SCRIPT_ID = "support-form-embed";
+    if (document.getElementById(SCRIPT_ID)) return;
+    const script = document.createElement("script");
+    script.id = SCRIPT_ID;
+    script.src = "https://link.bookmore.app/js/form_embed.js";
+    script.type = "text/javascript";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <Navigation />
+
+      {/* Hero */}
+      <section className="pt-32 pb-12 bg-[#0D1B3E] relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300AEEF' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="h-px w-12 bg-[#00AEEF]" />
+            <span className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">We're Here to Help</span>
+            <div className="h-px w-12 bg-[#00AEEF]" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-black uppercase leading-tight mb-4">
+            FEC Playbook<br />
+            <span
+              style={{
+                background: "linear-gradient(135deg, #00AEEF, #1565C0)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Support
+            </span>
+          </h1>
+          <p className="text-white/60 text-lg max-w-xl mx-auto">
+            Have a question or need help? Fill out the form below and our team will get back to you as quickly as possible.
+          </p>
+        </div>
+      </section>
+
+      {/* Support Form Embed */}
+      <section className="py-12 bg-[#0A0A0A]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="bg-[#0D1B3E] border border-[#00AEEF]/20 rounded-2xl overflow-hidden shadow-2xl shadow-[#00AEEF]/5">
+            <div className="px-6 py-5 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <img src={LOGO_URL} alt="FEC Playbook" className="h-7 w-auto" />
+                <div className="h-4 w-px bg-white/20" />
+                <p className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">Support Request</p>
+              </div>
+            </div>
+            <div className="p-2">
+              <iframe
+                src="https://link.bookmore.app/widget/form/GX1tIjpliSHQPP8MX821"
+                style={{ width: "100%", height: "757px", border: "none", borderRadius: "3px" }}
+                id="inline-GX1tIjpliSHQPP8MX821"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Support Form"
+                data-height="757"
+                data-layout-iframe-id="inline-GX1tIjpliSHQPP8MX821"
+                data-form-id="GX1tIjpliSHQPP8MX821"
+                title="Support Form"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}

@@ -22,6 +22,7 @@ Disallow: /TC2
 Disallow: /TC3
 Disallow: /TC4
 Disallow: /checkin
+Disallow: /support
 
 # Sitemap
 Sitemap: https://www.fecplaybook.com/sitemap.xml
