@@ -1,157 +1,165 @@
 /**
  * Welcome page — /welcome
- * FEC Playbook branded greeting widget. No site chrome.
- * Unlisted: blocked in robots.txt and excluded from sitemap.
+ * FEC Playbook branded greeting widget.
+ * Matches /widget page exactly: 1240px height, same html/body/section structure,
+ * same content-wrapper / text-content / image-container layout.
+ * No site chrome. Unlisted: blocked in robots.txt and excluded from sitemap.
  * Supports ?name= URL param for personalized greeting.
  */
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Welcome() {
-  const [greeting, setGreeting] = useState("Welcome!");
-  const [emoji, setEmoji] = useState("👋");
-
   useEffect(() => {
+    // Inject styles to match /widget exactly
+    const style = document.createElement("style");
+    style.id = "welcome-styles";
+    style.textContent = `
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 1240px;
+        overflow: hidden;
+      }
+      body {
+        min-height: 1240px;
+        display: flex;
+        flex-direction: column;
+      }
+      .welcome-section {
+        flex: 0 0 1240px;
+        width: 100%;
+        background:
+          linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(13,31,60,0.88) 50%, rgba(10,10,10,0.92) 100%),
+          url('https://storage.googleapis.com/msgsndr/NR4s8IMRYH47Mdbw4url/media/67daecf25336578825e85d6e.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-blend-mode: multiply;
+        border-radius: 10px;
+        color: white;
+        font-family: 'Montserrat', Arial, sans-serif;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 45px;
+      }
+      .welcome-content-wrapper {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        height: 100%;
+      }
+      .welcome-text-content {
+        flex: 3;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 32px;
+      }
+      .welcome-image-container {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        border-radius: 0 10px 10px 0;
+        overflow: hidden;
+      }
+      .welcome-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .welcome-logo {
+        height: 56px;
+        object-fit: contain;
+        display: block;
+      }
+      .welcome-greeting {
+        font-size: 64px;
+        font-weight: 900;
+        color: #FFFFFF;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .welcome-tagline {
+        font-size: 28px;
+        font-weight: 600;
+        color: #00AEEF;
+        letter-spacing: 0.3px;
+      }
+      .welcome-divider {
+        width: 80px;
+        height: 4px;
+        background: #00AEEF;
+        border-radius: 2px;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Set greeting
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get("name") || "";
     const hour = new Date().getHours();
+    const greetingEl = document.getElementById("welcome-greeting");
+    if (!greetingEl) return;
 
-    let greetingText = "";
-    let greetingEmoji = "";
-
+    let text = "";
+    let emoji = "";
     if (hour >= 5 && hour < 12) {
-      greetingText = name ? `Good Morning, ${name}!` : "Good Morning!";
-      greetingEmoji = "🌞";
+      text = name ? `Good Morning, ${name}!` : "Good Morning!";
+      emoji = "🌞";
     } else if (hour >= 12 && hour < 17) {
-      greetingText = name ? `Good Afternoon, ${name}!` : "Good Afternoon!";
-      greetingEmoji = "☀️";
+      text = name ? `Good Afternoon, ${name}!` : "Good Afternoon!";
+      emoji = "☀️";
     } else {
-      greetingText = name ? `Good Evening, ${name}!` : "Good Evening!";
-      greetingEmoji = "🌙";
+      text = name ? `Good Evening, ${name}!` : "Good Evening!";
+      emoji = "🌙";
     }
+    greetingEl.textContent = `${text} ${emoji}`;
 
-    setGreeting(greetingText);
-    setEmoji(greetingEmoji);
+    return () => {
+      document.getElementById("welcome-styles")?.remove();
+    };
   }, []);
 
   return (
-    <div style={{
-      margin: 0,
-      padding: 0,
-      width: "100%",
-      height: "1240px",
-      overflow: "hidden",
-      fontFamily: "'Montserrat', Arial, sans-serif",
-      background: "#0A0A0A",
-    }}>
-      {/* Google Font */}
+    <>
       <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap"
         rel="stylesheet"
       />
-
-      <section style={{
-        width: "100%",
-        height: "1240px",
-        background: "linear-gradient(135deg, #0A0A0A 0%, #0d1f3c 50%, #0A0A0A 100%)",
-        boxSizing: "border-box",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative",
-        overflow: "hidden",
-      }}>
-
-        {/* Circuit board background pattern */}
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: `url('https://storage.googleapis.com/msgsndr/NR4s8IMRYH47Mdbw4url/media/67daecf25336578825e85d6e.webp')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: 0.08,
-        }} />
-
-        {/* Cyan glow orb */}
-        <div style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "700px",
-          height: "700px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0,174,239,0.12) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }} />
-
-        {/* Content */}
-        <div style={{
-          position: "relative",
-          zIndex: 1,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          padding: "40px",
-        }}>
-
-          {/* Logo */}
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png"
-            alt="FEC Playbook"
-            style={{
-              height: "72px",
-              marginBottom: "64px",
-              objectFit: "contain",
-            }}
-          />
-
-          {/* Greeting */}
-          <div style={{
-            fontSize: "72px",
-            fontWeight: 900,
-            color: "#FFFFFF",
-            lineHeight: 1.1,
-            letterSpacing: "-1px",
-            marginBottom: "24px",
-            textTransform: "uppercase",
-            fontFamily: "'Montserrat', Arial, sans-serif",
-          }}>
-            {greeting}
+      <section className="welcome-section">
+        <div className="welcome-content-wrapper">
+          <div className="welcome-text-content">
+            <img
+              className="welcome-logo"
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png"
+              alt="FEC Playbook"
+            />
+            <div className="welcome-divider" />
+            <div className="welcome-greeting" id="welcome-greeting">
+              Good Morning! 🌞
+            </div>
+            <div className="welcome-tagline">
+              You bring the brand. We bring the playbook.
+            </div>
           </div>
-
-          {/* Emoji */}
-          <div style={{
-            fontSize: "80px",
-            lineHeight: 1,
-            marginBottom: "48px",
-          }}>
-            {emoji}
+          <div className="welcome-image-container">
+            <img
+              src="https://storage.googleapis.com/msgsndr/NR4s8IMRYH47Mdbw4url/media/67daf38726b5016a4ea536f6.png"
+              alt="FEC Playbook"
+            />
           </div>
-
-          {/* Tagline */}
-          <div style={{
-            fontSize: "26px",
-            fontWeight: 600,
-            color: "#00AEEF",
-            letterSpacing: "0.5px",
-            fontFamily: "'Montserrat', Arial, sans-serif",
-          }}>
-            You bring the brand. We bring the playbook.
-          </div>
-
-          {/* Divider */}
-          <div style={{
-            width: "80px",
-            height: "3px",
-            background: "#00AEEF",
-            margin: "40px auto 0",
-            borderRadius: "2px",
-          }} />
         </div>
       </section>
-    </div>
+    </>
   );
 }
