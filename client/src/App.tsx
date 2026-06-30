@@ -40,6 +40,7 @@ const TC3 = lazy(() => import("./pages/TC3"));
 const TC4 = lazy(() => import("./pages/TC4"));
 const CheckIn = lazy(() => import("./pages/CheckIn"));
 const Support = lazy(() => import("./pages/Support"));
+const CalThankYou = lazy(() => import("./pages/CalThankYou"));
 
 function Router() {
   return (
@@ -80,6 +81,7 @@ function Router() {
         <Route path={"/TC4"} component={TC4} />
         <Route path={"/checkin"} component={CheckIn} />
         <Route path={"/support"} component={Support} />
+        <Route path={"/cal-thankyou"} component={CalThankYou} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
