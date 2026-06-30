@@ -120,10 +120,10 @@ export default function CalThankYou() {
                     className="w-10 h-10 rounded-full flex items-center justify-center text-white font-black text-sm flex-shrink-0"
                     style={{ backgroundColor: "#00AEEF" }}
                   >
-                    M
+                    A
                   </div>
                   <div>
-                    <p className="text-white font-bold text-sm">Matthew</p>
+                    <p className="text-white font-bold text-sm">Adam</p>
                     <p className="text-white/40 text-xs">FEC Owner & Operator</p>
                   </div>
                 </div>
@@ -153,12 +153,17 @@ export default function CalThankYou() {
       </main>
 
       {/* Footer */}
-      <footer className="py-6 border-t border-white/8 text-center">
-        <div className="max-w-xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-white/30">
-          <span>© 2026 FEC Playbook. All Rights Reserved.</span>
-          <div className="flex gap-4">
+      <footer className="py-8 border-t border-white/8 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <p className="text-white/25 text-xs mb-4">© 2026 FEC Playbook. All Rights Reserved.</p>
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-white/35">
             <a href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</a>
             <a href="/terms" className="hover:text-white/60 transition-colors">Terms of Service</a>
+            <a href="/eula" className="hover:text-white/60 transition-colors">EULA</a>
+            <a href="/disclaimer" className="hover:text-white/60 transition-colors">Disclaimer</a>
+            <a href="#" className="termly-display-preferences hover:text-white/60 transition-colors cursor-pointer">Consent Preferences</a>
+            <a href="https://app.termly.io/notify/54d6a0ce-5f50-4d6d-8a24-5b21db524a12" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Do Not Sell or Share My Personal Information</a>
+            <a href="https://app.termly.io/notify/54d6a0ce-5f50-4d6d-8a24-5b21db524a12" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Limit the Use of My Sensitive Personal Information</a>
           </div>
         </div>
       </footer>
