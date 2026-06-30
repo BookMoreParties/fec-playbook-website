@@ -8,11 +8,18 @@
 
 import { Star, CheckCircle, Mail } from "lucide-react";
 import Footer from "@/components/Footer";
+import { useMemo } from "react";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
 const DASHBOARD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663337094674/5hTiQqbDpyu7utReXppjD4/fec_playbook_onboarding_dashboard-6JW3ncWwrWAoXKf5ihbY7m.webp";
 
 export default function CalThankYou() {
+  const name = useMemo(() => {
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get("name")?.trim();
+    return raw && raw.length > 0 ? raw : null;
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white flex flex-col" style={{ fontFamily: "'Montserrat', sans-serif" }}>
 
@@ -51,12 +58,24 @@ export default function CalThankYou() {
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl font-black uppercase leading-tight mb-5">
-              Thank{" "}
-              <span style={{ color: "#00AEEF" }}>You!</span>
+              {name ? (
+                <>
+                  Thank You,{" "}
+                  <span style={{ color: "#00AEEF" }}>{name}!</span>
+                </>
+              ) : (
+                <>
+                  Thank{" "}
+                  <span style={{ color: "#00AEEF" }}>You!</span>
+                </>
+              )}
             </h1>
 
             <p className="text-white/65 text-lg sm:text-xl leading-relaxed mb-6">
-              We've received your booking and look forward to connecting with you at your scheduled time. Check your email for the calendar invite.
+              {name
+                ? `We've received your booking, ${name}. We look forward to connecting with you at your scheduled time. Check your email for the calendar invite.`
+                : "We've received your booking and look forward to connecting with you at your scheduled time. Check your email for the calendar invite."
+              }
             </p>
 
             {/* Email reminder */}
