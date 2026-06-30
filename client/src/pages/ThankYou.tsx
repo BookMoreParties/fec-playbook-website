@@ -20,17 +20,10 @@ const nextSteps = [
   },
   {
     step: "02",
-    icon: Play,
-    title: "Watch the 3-Min Overview",
-    description: "Get a head start before your call. Our short overview walks you through exactly how FEC Playbook is structured so your demo time is spent on your specific questions.",
-    color: "#1565C0",
-  },
-  {
-    step: "03",
     icon: Zap,
     title: "Think About Your Biggest Pain Point",
     description: "What's costing you the most time or revenue right now? Birthday party follow-ups? Hiring? Reputation management? We'll build your demo around it.",
-    color: "#00AEEF",
+    color: "#1565C0",
   },
 ];
 
@@ -186,11 +179,11 @@ export default function ThankYou() {
               className="text-3xl sm:text-4xl font-black uppercase text-white"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              3 Things to Do <span style={{ color: "#00AEEF" }}>Right Now</span>
+              2 Things to Do <span style={{ color: "#00AEEF" }}>Right Now</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {nextSteps.map((item) => {
               const Icon = item.icon;
               return (
