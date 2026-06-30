@@ -692,8 +692,19 @@ export default function GetReady() {
       </section>
 
       {/* ── Footer note ── */}
-      <div className="border-t border-white/5 py-4 px-6 text-center">
-        <p className="text-xs text-slate-600">Sales-call onboarding overview for FEC Playbook clients.</p>
+      <div className="border-t border-white/5 py-8 px-6 text-center">
+        <p className="text-white/20 text-xs mb-3">
+          © {new Date().getFullYear()} FEC Playbook. All Rights Reserved.
+        </p>
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
+          <a href="/privacy" className="hover:text-[#00AEEF] transition-colors">Privacy Policy</a>
+          <a href="/terms" className="hover:text-[#00AEEF] transition-colors">Terms of Service</a>
+          <a href="/eula" className="hover:text-[#00AEEF] transition-colors">EULA</a>
+          <a href="/disclaimer" className="hover:text-[#00AEEF] transition-colors">Disclaimer</a>
+          <a href="#" className="termly-display-preferences hover:text-[#00AEEF] transition-colors cursor-pointer">Consent Preferences</a>
+          <a href="https://app.termly.io/notify/54d6a0ce-5f50-4d6d-8a24-5b21db524a12" target="_blank" rel="noopener noreferrer" className="hover:text-[#00AEEF] transition-colors">Do Not Sell or Share My Personal Information</a>
+          <a href="https://app.termly.io/notify/54d6a0ce-5f50-4d6d-8a24-5b21db524a12" target="_blank" rel="noopener noreferrer" className="hover:text-[#00AEEF] transition-colors">Limit the Use of My Sensitive Personal Information</a>
+        </div>
       </div>
     </div>
   );
