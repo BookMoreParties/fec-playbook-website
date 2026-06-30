@@ -163,13 +163,11 @@ export default function BookDemo() {
             {/* Right: Booking Calendar */}
             <div className="lg:col-span-3">
               <div className="bg-[#0D1B3E] border border-[#00AEEF]/20 rounded-2xl overflow-hidden shadow-2xl shadow-[#00AEEF]/5">
-                <div className="px-6 py-5 border-b border-white/10">
-                  <div className="flex items-center gap-3">
-                    <img src={LOGO_URL} alt="FEC Playbook" className="h-7 w-auto" />
-                    <div className="h-4 w-px bg-white/20" />
-                    <div>
-                      <p className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">Free 30-Min Strategy Call</p>
-                    </div>
+                <div className="px-4 sm:px-6 py-4 border-b border-white/10">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                    <img src={LOGO_URL} alt="FEC Playbook" className="h-6 sm:h-7 w-auto flex-shrink-0" />
+                    <div className="h-4 w-px bg-white/20 flex-shrink-0" />
+                    <p className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">Free 30-Min Strategy Call</p>
                   </div>
                 </div>
                 <div className="p-2">

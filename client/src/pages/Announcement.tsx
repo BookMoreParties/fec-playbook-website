@@ -249,7 +249,10 @@ export default function Announcement() {
 
         {/* Compliance footer */}
         <div className="mt-10 pt-6 border-t border-white/8 text-center">
-          <p className="text-white/20 text-xs mb-3">© {new Date().getFullYear()} FEC Playbook. All Rights Reserved.</p>
+          <div className="flex items-center justify-center gap-4 mb-3">
+            <p className="text-white/20 text-xs">© {new Date().getFullYear()} FEC Playbook. All Rights Reserved.</p>
+            <a href="/" className="text-white/25 hover:text-[#00AEEF] text-xs transition-colors">← Home</a>
+          </div>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
             <a href="/privacy" className="hover:text-[#00AEEF] transition-colors">Privacy Policy</a>
             <a href="/terms" className="hover:text-[#00AEEF] transition-colors">Terms of Service</a>

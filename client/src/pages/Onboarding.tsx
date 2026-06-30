@@ -170,10 +170,10 @@ export default function Onboarding() {
         <a href="/">
           <img src={FEC_LOGO} alt="FEC Playbook" style={{ height: "32px", width: "auto" }} />
         </a>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 sm:gap-6">
           <button
             onClick={scrollToOverview}
-            className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-[#00AEEF] transition-colors duration-200"
+            className="hidden sm:block text-xs font-bold uppercase tracking-widest text-white/60 hover:text-[#00AEEF] transition-colors duration-200"
           >
             Overview
           </button>
@@ -181,7 +181,7 @@ export default function Onboarding() {
             onClick={() =>
               document.getElementById("phases")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-[#00AEEF] transition-colors duration-200"
+            className="hidden sm:block text-xs font-bold uppercase tracking-widest text-white/60 hover:text-[#00AEEF] transition-colors duration-200"
           >
             Phases
           </button>
@@ -189,7 +189,7 @@ export default function Onboarding() {
             href="https://app.bookmore.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded transition-colors duration-200"
+            className="text-xs font-bold uppercase tracking-widest px-3 sm:px-4 py-2 rounded transition-colors duration-200"
             style={{
               background: "#00AEEF",
               color: "#0A0A0A",
@@ -403,9 +403,10 @@ export default function Onboarding() {
         className="text-center py-8 px-6"
         style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
       >
-        <p className="text-white/20 text-xs mb-3">
-          © {new Date().getFullYear()} FEC Playbook. All Rights Reserved.
-        </p>
+        <div className="flex items-center justify-center gap-4 mb-3">
+          <p className="text-white/20 text-xs">© {new Date().getFullYear()} FEC Playbook. All Rights Reserved.</p>
+          <a href="/" className="text-white/25 hover:text-[#00AEEF] text-xs transition-colors">← Home</a>
+        </div>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
           <a href="/privacy" className="hover:text-[#00AEEF] transition-colors">Privacy Policy</a>
           <a href="/terms" className="hover:text-[#00AEEF] transition-colors">Terms of Service</a>

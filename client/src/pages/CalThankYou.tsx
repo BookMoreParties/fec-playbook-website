@@ -155,7 +155,10 @@ export default function CalThankYou() {
       {/* Footer */}
       <footer className="py-8 border-t border-white/8 text-center">
         <div className="max-w-3xl mx-auto px-4">
-          <p className="text-white/25 text-xs mb-4">© 2026 FEC Playbook. All Rights Reserved.</p>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <p className="text-white/25 text-xs">© 2026 FEC Playbook. All Rights Reserved.</p>
+            <a href="/" className="text-white/35 hover:text-[#00AEEF] text-xs transition-colors">← Home</a>
+          </div>
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-white/35">
             <a href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</a>
             <a href="/terms" className="hover:text-white/60 transition-colors">Terms of Service</a>

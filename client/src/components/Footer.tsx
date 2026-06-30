@@ -124,10 +124,13 @@ export default function Footer() {
           <p className="text-white/30 text-xs leading-relaxed" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             <strong className="text-white/50">Results Disclaimer:</strong> *Listed stats and outcomes are based on client feedback and are not a representation or guarantee of similar or same results. Location results vary and are not guaranteed.
           </p>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-            <p className="text-white/30 text-xs" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              © {new Date().getFullYear()} FEC Playbook. All rights reserved. Formerly known as Book More.
-            </p>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-white/30 text-xs" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                © {new Date().getFullYear()} FEC Playbook. All rights reserved. Formerly known as Book More.
+              </p>
+              <a href="/" className="text-white/30 hover:text-[#00AEEF] text-xs transition-colors flex items-center gap-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>← Home</a>
+            </div>
             <div className="flex flex-wrap gap-x-4 gap-y-2">
               <a href="/privacy" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Privacy Policy</a>
               <a href="/terms" className="text-white/30 hover:text-white/60 text-xs transition-colors" style={{ fontFamily: "'Montserrat', sans-serif" }}>Terms of Service</a>
