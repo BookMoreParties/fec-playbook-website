@@ -161,16 +161,15 @@ export default function OnboardingThankYou() {
 
         {/* Calendar embed */}
         <div
-          className="rounded-2xl overflow-hidden"
+          className="rounded-2xl"
           style={{
             border: "1px solid rgba(0,174,239,0.15)",
             background: "#ffffff",
-            minHeight: "600px",
           }}
         >
           <iframe
             src="https://link.bookmore.app/widget/booking/A1WTNLAmGkG7ry5K3xBi"
-            style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "700px", display: "block" }}
+            style={{ width: "100%", border: "none", display: "block", minHeight: "900px" }}
             scrolling="no"
             id="A1WTNLAmGkG7ry5K3xBi_1782173220759"
             title="Book Your FEC Playbook Training Call"

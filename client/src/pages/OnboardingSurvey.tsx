@@ -92,16 +92,15 @@ export default function OnboardingSurvey() {
       {/* ── Survey embed ── */}
       <div className="max-w-3xl mx-auto px-4 py-10">
         <div
-          className="rounded-2xl overflow-hidden"
+          className="rounded-2xl"
           style={{
             border: "1px solid rgba(0,174,239,0.15)",
             background: "#ffffff",
-            minHeight: "600px",
           }}
         >
           <iframe
             src="https://link.bookmore.app/widget/survey/r8vwtJQA7lWq58jqJWwW"
-            style={{ border: "none", width: "100%", minHeight: "700px", display: "block" }}
+            style={{ border: "none", width: "100%", minHeight: "1200px", display: "block" }}
             scrolling="no"
             id="r8vwtJQA7lWq58jqJWwW"
             title="FEC Playbook Client Intake Survey"
