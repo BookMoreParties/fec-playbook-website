@@ -54,7 +54,7 @@ export default function KeithLauraCal() {
       {/* Calendar Embed */}
       <section className="py-12 bg-[#0A0A0A]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="bg-[#0D1B3E] border border-[#00AEEF]/20 rounded-2xl overflow-hidden shadow-2xl shadow-[#00AEEF]/5">
+          <div className="bg-[#0D1B3E] border border-[#00AEEF]/20 rounded-2xl shadow-2xl shadow-[#00AEEF]/5">
             <div className="px-4 sm:px-6 py-4 border-b border-white/10">
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <img src={LOGO_URL} alt="FEC Playbook" className="h-6 sm:h-7 w-auto flex-shrink-0" />
@@ -65,7 +65,7 @@ export default function KeithLauraCal() {
             <div className="p-2">
               <iframe
                 src="https://link.bookmore.app/widget/booking/Ok7C2BGoVHaPKHmbDqUI"
-                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "680px" }}
+                style={{ width: "100%", border: "none", display: "block", minHeight: "900px" }}
                 scrolling="no"
                 id="BJvCQpKaFIWSByjmLBUw_1782224536945"
                 title="Book Time with Keith & Laura"
