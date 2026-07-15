@@ -1,5 +1,5 @@
 /**
- * FEC Playbook — Thank You Page
+ * FEC Playbook™ — Thank You Page
  * Design: Bold Sports/Action Brand — dark navy/black bg, FEC Cyan (#00AEEF) + Cobalt Blue (#1565C0) accents
  * Montserrat Black headings, confirmation state, next-steps guide, social proof reinforcement
  */
@@ -339,7 +339,7 @@ export default function ThankYou() {
             </p>
           </div>
           <p className="text-white/25 text-xs uppercase tracking-widest">
-            FEC Playbook · The Operating System for Family Entertainment Centers
+            FEC Playbook™ · The Operating System for Family Entertainment Centers
           </p>
         </div>
       </section>

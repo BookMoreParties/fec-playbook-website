@@ -1,5 +1,5 @@
 /* 
- * FEC Playbook Footer
+ * FEC Playbook™ Footer
  * Dark background, FEC brand colors
  */
 
@@ -119,7 +119,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/8 mt-12 pt-8 space-y-4">
           <p className="text-white/30 text-xs leading-relaxed" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            <strong className="text-white/50">Integration Partner Disclaimer:</strong> The brands represented (ROLLER Software, CenterEdge Software, PartyWirks, TripleSeat, Party Center Software) do not endorse FEC Playbook. All logos and trademarks are owned by their respective organizations and are not the property of, nor directly affiliated with, FEC Playbook. Logos are used solely to indicate integration compatibility.
+            <strong className="text-white/50">Integration Partner Disclaimer:</strong> The brands represented (ROLLER Software, CenterEdge Software, PartyWirks, TripleSeat, Party Center Software) do not endorse FEC Playbook™. All logos and trademarks are owned by their respective organizations and are not the property of, nor directly affiliated with, FEC Playbook™. Logos are used solely to indicate integration compatibility.
           </p>
           <p className="text-white/30 text-xs leading-relaxed" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             <strong className="text-white/50">Results Disclaimer:</strong> *Listed stats and outcomes are based on client feedback and are not a representation or guarantee of similar or same results. Location results vary and are not guaranteed.
@@ -127,7 +127,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <div className="flex flex-wrap items-center gap-3">
               <p className="text-white/30 text-xs" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                © {new Date().getFullYear()} FEC Playbook. All rights reserved. Formerly known as Book More.
+                © {new Date().getFullYear()} FEC Playbook™. All rights reserved. Formerly known as Book More.
               </p>
               <a href="/" className="text-white/30 hover:text-[#00AEEF] text-xs transition-colors flex items-center gap-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>← Home</a>
             </div>

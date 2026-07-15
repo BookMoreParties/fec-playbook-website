@@ -1,5 +1,5 @@
-// Design: FEC Playbook — dark navy/near-black, cyan accent (#00AEEF), Montserrat typography
-// Page: In-App Announcement — Book More → FEC Playbook rebrand
+// Design: FEC Playbook™ — dark navy/near-black, cyan accent (#00AEEF), Montserrat typography
+// Page: In-App Announcement — Book More → FEC Playbook™ rebrand
 
 import { useEffect } from "react";
 import { ArrowRight, CheckCircle, AlertTriangle, Info } from "lucide-react";
@@ -36,7 +36,7 @@ export default function Announcement() {
           style={{ letterSpacing: "-0.01em" }}
         >
           Book More Is Now{" "}
-          <span className="text-[#00AEEF]">FEC Playbook</span>
+          <span className="text-[#00AEEF]">FEC Playbook™</span>
         </h1>
 
         <p className="text-white/60 text-base leading-relaxed mb-10">
@@ -59,7 +59,7 @@ export default function Announcement() {
             system for running a Family Entertainment Center.
           </p>
           <p>
-            <strong className="text-[#00AEEF]">FEC Playbook</strong> is the
+            <strong className="text-[#00AEEF]">FEC Playbook™</strong> is the
             name that reflects that reality. Same platform. Same team. Same
             commitment to your success — just a brand that finally matches what
             we've built.
@@ -178,7 +178,7 @@ export default function Announcement() {
         {/* Footer CTA */}
         <div className="text-center mb-10">
           <p className="text-white/40 text-sm mb-6">
-            — The FEC Playbook Team
+            — The FEC Playbook™ Team
           </p>
           <a
             href="https://app.bookmore.app"
@@ -186,7 +186,7 @@ export default function Announcement() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#00AEEF] text-[#0A0A0A] font-bold uppercase tracking-wider text-sm px-8 py-3.5 rounded hover:bg-[#00c4ff] transition-colors duration-200"
           >
-            Log In to FEC Playbook
+            Log In to FEC Playbook™
             <ArrowRight size={16} />
           </a>
         </div>
@@ -214,7 +214,7 @@ export default function Announcement() {
                 className="text-white/55 text-sm leading-relaxed"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
-                Explore the new FEC Playbook website — learn about the platform,
+                Explore the new FEC Playbook™ website — learn about the platform,
                 the 8 playbooks, pricing, and how it all works.
               </p>
             </div>
@@ -250,7 +250,7 @@ export default function Announcement() {
         {/* Compliance footer */}
         <div className="mt-10 pt-6 border-t border-white/8 text-center">
           <div className="flex items-center justify-center gap-4 mb-3">
-            <p className="text-white/20 text-xs">© {new Date().getFullYear()} FEC Playbook. All Rights Reserved.</p>
+            <p className="text-white/20 text-xs">© {new Date().getFullYear()} FEC Playbook™. All Rights Reserved.</p>
             <a href="/" className="text-white/25 hover:text-[#00AEEF] text-xs transition-colors">← Home</a>
           </div>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>

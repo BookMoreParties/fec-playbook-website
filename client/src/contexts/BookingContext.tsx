@@ -1,5 +1,5 @@
 /**
- * FEC Playbook — Booking Context
+ * FEC Playbook™ — Booking Context
  * Global state for the booking calendar modal.
  * Wrap the app in <BookingProvider> and call openBooking() from any component.
  */

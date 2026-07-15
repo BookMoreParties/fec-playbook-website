@@ -1,5 +1,5 @@
 /* 
- * FEC Playbook — Home Page
+ * FEC Playbook™ — Home Page
  * Design: Bold Sports/Action Brand
  * Dark backgrounds, FEC Cyan (#00AEEF) + Cobalt (#1565C0) accents
  * Montserrat Black headlines, high contrast throughout
@@ -183,8 +183,8 @@ const integrations = [
 // FAQ
 const faqs = [
   {
-    q: "Does FEC Playbook replace my POS or booking software?",
-    a: "No. FEC Playbook works alongside your existing POS and booking systems — extending them with automated marketing, sales pipelines, and guest communication without replacing your core operations. No rip-and-replace required.",
+    q: "Does FEC Playbook™ replace my POS or booking software?",
+    a: "No. FEC Playbook™ works alongside your existing POS and booking systems — extending them with automated marketing, sales pipelines, and guest communication without replacing your core operations. No rip-and-replace required.",
   },
   {
     q: "How long does onboarding take?",
@@ -212,7 +212,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
         title="FEC Playbook — The Operating System for Family Entertainment Centers"
-        description="FEC Playbook is the all-in-one automation platform built by FEC operators for FEC operators. Stop patching together tools that don't work. Start running one proven system."
+        description="FEC Playbook™ is the all-in-one automation platform built by FEC operators for FEC operators. Stop patching together tools that don't work. Start running one proven system."
         path="/"
       />
       <Navigation />
@@ -246,7 +246,7 @@ export default function Home() {
 
             {/* Subheadline */}
             <p className="text-xl sm:text-2xl text-white/80 font-semibold mb-4 leading-relaxed">
-              FEC Playbook isn't a collection of tools. It's a ready-to-run operating system built specifically for how Family Entertainment Centers actually work.
+              FEC Playbook™ isn't a collection of tools. It's a ready-to-run operating system built specifically for how Family Entertainment Centers actually work.
             </p>
 
             <p className="text-[#00AEEF] text-lg font-bold mb-10 leading-relaxed max-w-2xl tracking-wide">
@@ -352,7 +352,7 @@ export default function Home() {
                 {/* Overlay text — hidden on mobile, shown on desktop */}
                 <div className="hidden sm:block absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0A0A0A] to-transparent p-6">
                   <div className="bg-[#00AEEF]/10 border border-[#00AEEF]/30 rounded-lg p-4">
-                    <p className="text-[#00AEEF] font-bold text-sm uppercase tracking-wide mb-1">What FEC Playbook Delivers</p>
+                    <p className="text-[#00AEEF] font-bold text-sm uppercase tracking-wide mb-1">What FEC Playbook™ Delivers</p>
                     <p className="text-white text-sm">Automated birthday party confirmations, follow-ups, and review requests — all without lifting a finger.</p>
                   </div>
                 </div>
@@ -360,7 +360,7 @@ export default function Home() {
               {/* Card shown below image on mobile only */}
               <div className="sm:hidden mt-4">
                 <div className="bg-[#00AEEF]/10 border border-[#00AEEF]/30 rounded-lg p-4">
-                  <p className="text-[#00AEEF] font-bold text-sm uppercase tracking-wide mb-1">What FEC Playbook Delivers</p>
+                  <p className="text-[#00AEEF] font-bold text-sm uppercase tracking-wide mb-1">What FEC Playbook™ Delivers</p>
                   <p className="text-white text-sm">Automated birthday party confirmations, follow-ups, and review requests — all without lifting a finger.</p>
                 </div>
               </div>
@@ -375,7 +375,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
               <div className="h-px w-12 bg-[#00AEEF]"></div>
-              <span className="section-label">What Is FEC Playbook?</span>
+              <span className="section-label">What Is FEC Playbook™?</span>
               <div className="h-px w-12 bg-[#00AEEF]"></div>
             </div>
             <h2 className="text-4xl sm:text-5xl font-black uppercase leading-tight mb-6">
@@ -384,10 +384,10 @@ export default function Home() {
             </h2>
             <div className="max-w-3xl mx-auto bg-white/5 border border-white/10 rounded-lg p-8">
               <p className="text-white text-lg font-semibold leading-relaxed mb-4">
-                FEC Playbook is an all-in-one automation platform designed specifically for Family Entertainment Centers.
+                FEC Playbook™ is an all-in-one automation platform designed specifically for Family Entertainment Centers.
               </p>
               <p className="text-white/70 text-base leading-relaxed">
-                It manages the full guest journey — from first inquiry to repeat visit — using proven systems built by FEC operators. Your POS runs transactions. FEC Playbook runs everything around them.
+                It manages the full guest journey — from first inquiry to repeat visit — using proven systems built by FEC operators. Your POS runs transactions. FEC Playbook™ runs everything around them.
               </p>
             </div>
           </div>
@@ -459,7 +459,7 @@ export default function Home() {
                     <Zap size={24} className="text-white" />
                   </div>
                   <div>
-                    <p className="text-white font-black text-xl uppercase">FEC Playbook</p>
+                    <p className="text-white font-black text-xl uppercase">FEC Playbook™</p>
                     <p className="text-[#00AEEF] text-sm font-semibold">One login. One workflow. One source of truth.</p>
                   </div>
                 </div>
@@ -484,7 +484,7 @@ export default function Home() {
             Ready to Stop Patching and Start Running?
           </h2>
           <p className="text-white/80 text-lg mb-8">
-            Book a 30-minute call with our team and see exactly how FEC Playbook runs your revenue automatically.
+            Book a 30-minute call with our team and see exactly how FEC Playbook™ runs your revenue automatically.
           </p>
           <a
             href="/book-a-demo"
@@ -566,7 +566,7 @@ export default function Home() {
                 <span className="fec-gradient-text">On Demand.</span>
               </h2>
               <p className="text-white/70 text-base leading-relaxed mb-8">
-                The FEC Playbook Text Club sends segmented, timely offers to your customers via SMS — encouraging repeat visits and boosting sales during slower periods. A direct line to your customers that delivers measurable results.
+                The FEC Playbook™ Text Club sends segmented, timely offers to your customers via SMS — encouraging repeat visits and boosting sales during slower periods. A direct line to your customers that delivers measurable results.
               </p>
 
               <div className="space-y-4">
@@ -621,14 +621,14 @@ export default function Home() {
                 <span className="fec-gradient-text">Not Outsiders.</span>
               </h2>
               <p className="text-white/70 text-base leading-relaxed mb-6">
-                FEC Playbook was founded by FEC operators who lived the chaos firsthand. We know what it's like to chase party leads in email, miss follow-ups because the team was slammed, and watch competitors gain ground while you're stuck managing six different tools.
+                FEC Playbook™ was founded by FEC operators who lived the chaos firsthand. We know what it's like to chase party leads in email, miss follow-ups because the team was slammed, and watch competitors gain ground while you're stuck managing six different tools.
               </p>
               <p className="text-white/70 text-base leading-relaxed mb-6">
                 We didn't build this from a boardroom. We built it from the floor of a family entertainment center — and then refined it across dozens of real FEC environments before bringing it to market.
               </p>
               <div className="bg-white/5 border-l-4 border-[#00AEEF] pl-6 py-4 mb-8">
                 <p className="text-white font-bold text-lg italic">
-                  "Most platforms solve one task. FEC Playbook runs the entire operation."
+                  "Most platforms solve one task. FEC Playbook™ runs the entire operation."
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -665,7 +665,7 @@ export default function Home() {
               <span className="fec-gradient-text">You Already Use.</span>
             </h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              FEC Playbook connects with your existing POS and booking platforms — extending them with automation, marketing, and follow-up. No rip-and-replace. No disruption.
+              FEC Playbook™ connects with your existing POS and booking platforms — extending them with automation, marketing, and follow-up. No rip-and-replace. No disruption.
             </p>
           </div>
 
@@ -694,7 +694,7 @@ export default function Home() {
           {/* Disclaimer */}
           <div className="bg-white/3 border border-white/8 rounded-lg p-6 text-center">
             <p className="text-white/40 text-xs leading-relaxed max-w-3xl mx-auto">
-              <strong className="text-white/60">Disclaimer:</strong> The brands represented (ROLLER Software, CenterEdge Software, PartyWirks, Party Center Software, Ferret Personality) do not endorse FEC Playbook. All logos and trademarks are the property of their respective organizations and are not owned by or directly affiliated with FEC Playbook. Logos are used solely to indicate integration compatibility and data import capabilities.
+              <strong className="text-white/60">Disclaimer:</strong> The brands represented (ROLLER Software, CenterEdge Software, PartyWirks, Party Center Software, Ferret Personality) do not endorse FEC Playbook™. All logos and trademarks are the property of their respective organizations and are not owned by or directly affiliated with FEC Playbook™. Logos are used solely to indicate integration compatibility and data import capabilities.
             </p>
           </div>
         </div>

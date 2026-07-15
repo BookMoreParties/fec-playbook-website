@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Training Call 1: Tech Integration & Orientation
+ * FEC Playbook™ — Training Call 1: Tech Integration & Orientation
  * Route: /TC1
  */
 

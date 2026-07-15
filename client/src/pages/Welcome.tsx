@@ -1,6 +1,6 @@
 /**
  * Welcome page — /welcome
- * FEC Playbook branded greeting widget.
+ * FEC Playbook™ branded greeting widget.
  * Matches /widget page exactly: 1240px height, same html/body/section structure,
  * same content-wrapper / text-content / image-container layout.
  * No site chrome. Unlisted: blocked in robots.txt and excluded from sitemap.

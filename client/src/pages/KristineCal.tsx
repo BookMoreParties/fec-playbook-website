@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Kristine's Calendar Page
+ * FEC Playbook™ — Kristine's Calendar Page
  * Design: Dark bg, FEC Cyan accent, embedded GHL booking calendar
  * Route: /kristinecal
  */

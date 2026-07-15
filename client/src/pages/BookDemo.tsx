@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Book a Demo Page
+ * FEC Playbook™ — Book a Demo Page
  * Design: Dark bg, FEC Cyan accent, embedded booking calendar with supporting context
  * Route: /book-a-demo
  */
@@ -42,8 +42,8 @@ export default function BookDemo() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
-        title="Book a Free Demo — See FEC Playbook in Action"
-        description="Schedule a free strategy call with the FEC Playbook team. See how our automation platform can transform your Family Entertainment Center's marketing and operations."
+        title="Book a Free Demo — See FEC Playbook™ in Action"
+        description="Schedule a free strategy call with the FEC Playbook™ team. See how our automation platform can transform your Family Entertainment Center's marketing and operations."
         path="/book-a-demo"
       />
       <Navigation />
@@ -62,7 +62,7 @@ export default function BookDemo() {
             <div className="h-px w-12 bg-[#00AEEF]" />
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight mb-6">
-            See FEC Playbook<br />
+            See FEC Playbook™<br />
             <span style={{ background: "linear-gradient(135deg, #00AEEF, #1565C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               In Action.
             </span>
@@ -105,7 +105,7 @@ export default function BookDemo() {
                     {
                       icon: Phone,
                       title: "Real Cost Estimate",
-                      desc: "We'll run your numbers through the usage calculator so you leave knowing exactly what FEC Playbook would cost for your volume.",
+                      desc: "We'll run your numbers through the usage calculator so you leave knowing exactly what FEC Playbook™ would cost for your volume.",
                     },
                   ].map((item) => (
                     <div key={item.title} className="flex items-start gap-4">
@@ -129,7 +129,7 @@ export default function BookDemo() {
                 <ul className="space-y-3">
                   {[
                     "Your current booking & follow-up process",
-                    "The 10 pre-built FEC Playbook systems",
+                    "The 10 pre-built FEC Playbook™ systems",
                     "How the platform connects to your POS",
                     "Onboarding timeline and what's included",
                     "Transparent pricing and usage costs",
@@ -153,7 +153,7 @@ export default function BookDemo() {
                     <span className="text-[#00AEEF] text-xs font-black">FEC</span>
                   </div>
                   <div>
-                    <p className="text-white font-bold text-xs">FEC Playbook Client</p>
+                    <p className="text-white font-bold text-xs">FEC Playbook™ Client</p>
                     <p className="text-white/40 text-xs">Family Entertainment Center Owner</p>
                   </div>
                 </div>
@@ -207,7 +207,7 @@ export default function BookDemo() {
               },
               {
                 q: "What if I'm already using another CRM?",
-                a: "We'll walk through how FEC Playbook compares to what you're using and whether a migration makes sense for your operation.",
+                a: "We'll walk through how FEC Playbook™ compares to what you're using and whether a migration makes sense for your operation.",
               },
             ].map((faq) => (
               <div key={faq.q} className="bg-[#0A0A0A] border border-white/10 rounded-xl p-5">

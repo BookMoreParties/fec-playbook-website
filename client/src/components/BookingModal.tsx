@@ -1,5 +1,5 @@
 /**
- * FEC Playbook — Booking Modal
+ * FEC Playbook™ — Booking Modal
  * Renders the real booking calendar embed in a full-screen overlay.
  * Triggered globally via the BookingContext.
  */

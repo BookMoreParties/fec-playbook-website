@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Keith's Calendar Page
+ * FEC Playbook™ — Keith's Calendar Page
  * Design: Dark bg, FEC Cyan accent, embedded GHL booking calendar
  * Route: /keithcal
  */

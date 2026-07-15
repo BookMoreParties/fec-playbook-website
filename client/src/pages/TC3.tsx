@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Training Call 3: Marketing Activation
+ * FEC Playbook™ — Training Call 3: Marketing Activation
  * Route: /TC3
  */
 

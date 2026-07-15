@@ -1,6 +1,6 @@
-// Design: FEC Playbook Onboarding Journey
+// Design: FEC Playbook™ Onboarding Journey
 // Dark near-black background (#0A0A0A), dark navy cards (#0D1B3E), cyan accent (#00AEEF)
-// Montserrat font, uppercase headings, FEC Playbook branding throughout
+// Montserrat font, uppercase headings, FEC Playbook™ branding throughout
 // Structure mirrors the original Book More onboarding page, fully rebranded
 
 import { useEffect, useRef, useState } from "react";
@@ -34,7 +34,7 @@ const phases = [
     tag: "TECH INTERFACE & TRAINING 1",
     title: "Tech Interface & Training Call 1",
     duration: "~2 hours — Scheduled upon receipt of Intake Survey",
-    attendees: "FEC Playbook + Client + Website Manager",
+    attendees: "FEC Playbook™ + Client + Website Manager",
     body: "During this session, we connect your social media platforms, implement the required A2P compliance elements on your website, and begin activating your platform so it's ready to use right away. You'll also learn how to use the Conversation Box, manage your social media presence from within the platform, and leverage the reputation management tools. Your website manager should attend this call, as some website updates will need to be completed during the session. By the end of the call, your system will already be in motion — you'll be using it, not waiting for it.",
     deliverables: [
       "Social media platforms connected (Google My Business, Facebook, Instagram) and learn how to manage",
@@ -52,7 +52,7 @@ const phases = [
     tag: "PLAYBOOK IDENTIFICATION",
     title: "Playbook Identification Call",
     duration: "~60 minutes — Scheduled upon completion of Training Call 1",
-    attendees: "FEC Playbook + Client",
+    attendees: "FEC Playbook™ + Client",
     body: "This is where your system gets customized — and where you start to understand it. Your implementation specialist walks you through the full playbook library, explaining what each automation does and the revenue it drives. As you learn, you identify and prioritize your playbooks — marking each one Active, On Hold, or Not Applicable for your venue.",
     deliverables: [
       "Full playbook library reviewed and understood",
@@ -86,8 +86,8 @@ const phases = [
     tag: "TRAINING CALL 2",
     title: "Training Call 2 — Sales System",
     duration: "~90 minutes — Scheduled upon receipt of Sales messaging + A2P approval",
-    attendees: "FEC Playbook + Client + Website Manager",
-    body: "Sales Pipeline messaging is complete. A2P is approved. Now we activate your highest-revenue playbooks. Your website manager joins to add the Sales forms directly to your website during the call. Your FEC Playbook specialist walks your team through how they work, and confirms everything is running correctly. The system starts to work for you.",
+    attendees: "FEC Playbook™ + Client + Website Manager",
+    body: "Sales Pipeline messaging is complete. A2P is approved. Now we activate your highest-revenue playbooks. Your website manager joins to add the Sales forms directly to your website during the call. Your FEC Playbook™ specialist walks your team through how they work, and confirms everything is running correctly. The system starts to work for you.",
     deliverables: [
       "Sales Pipeline automations activated and live",
       "Speed-to-lead and missed call text-back running",
@@ -103,8 +103,8 @@ const phases = [
     tag: "TRAINING CALL 3",
     title: "Training Call 3 — Marketing System",
     duration: "~90 minutes — Scheduled upon completion of Training Call 2",
-    attendees: "FEC Playbook + Client",
-    body: "You've completed your Marketing messaging. Time to activate your customer retention and revenue-driving campaigns. Your FEC Playbook specialist turns on your chosen Marketing automations. Your team learns how each campaign works and what to expect. By the end of this call, your marketing is running.",
+    attendees: "FEC Playbook™ + Client",
+    body: "You've completed your Marketing messaging. Time to activate your customer retention and revenue-driving campaigns. Your FEC Playbook™ specialist turns on your chosen Marketing automations. Your team learns how each campaign works and what to expect. By the end of this call, your marketing is running.",
     deliverables: [
       "Marketing automations activated and live",
       "Birthday and celebration campaigns start",
@@ -121,8 +121,8 @@ const phases = [
     tag: "FINAL TRAINING",
     title: "Final Training & Platform Review",
     duration: "~90 minutes — Scheduled upon completion of Training Call 3",
-    attendees: "FEC Playbook + Client",
-    body: "By this point, your system is built and your team is already using FEC Playbook. This final session brings everything together. We'll walk through the entire platform with your team — reviewing your active playbooks, dashboards, and reports to ensure everything is functioning exactly as it should. Along the way, we'll address any remaining questions, activate any final playbooks, and make sure your team feels confident navigating the system. When this session ends, onboarding is complete. Your automations are running. Your team knows how to use the platform. And your systems are working behind the scenes to help grow your business.",
+    attendees: "FEC Playbook™ + Client",
+    body: "By this point, your system is built and your team is already using FEC Playbook™. This final session brings everything together. We'll walk through the entire platform with your team — reviewing your active playbooks, dashboards, and reports to ensure everything is functioning exactly as it should. Along the way, we'll address any remaining questions, activate any final playbooks, and make sure your team feels confident navigating the system. When this session ends, onboarding is complete. Your automations are running. Your team knows how to use the platform. And your systems are working behind the scenes to help grow your business.",
     deliverables: [
       "Full platform walkthrough completed",
       "All remaining playbooks reviewed and activated",
@@ -233,7 +233,7 @@ export default function Onboarding() {
           <p
             className="text-xs font-black uppercase tracking-[0.25em] text-[#00AEEF]/70 mb-6"
           >
-            FEC Playbook Client Onboarding
+            FEC Playbook™ Client Onboarding
           </p>
 
           {/* Main headline */}
@@ -251,7 +251,7 @@ export default function Onboarding() {
             className="text-white/60 leading-relaxed mb-10 mx-auto"
             style={{ fontSize: "1.05rem", maxWidth: "560px" }}
           >
-            Running a Family Entertainment Center means juggling a thousand things at once. FEC Playbook automates what should happen every day — so nothing falls through the cracks. Here's what to expect during your onboarding journey.
+            Running a Family Entertainment Center means juggling a thousand things at once. FEC Playbook™ automates what should happen every day — so nothing falls through the cracks. Here's what to expect during your onboarding journey.
           </p>
 
           {/* CTA */}
@@ -389,11 +389,11 @@ export default function Onboarding() {
               className="inline-flex items-center gap-2 font-bold uppercase tracking-wider text-sm px-8 py-4 rounded transition-all duration-200"
               style={{ border: "1px solid rgba(0,174,239,0.35)", color: "#00AEEF", background: "transparent" }}
             >
-              Log In to FEC Playbook
+              Log In to FEC Playbook™
             </a>
           </div>
           <p className="text-white/30 text-xs mt-5">
-            Questions? Contact your FEC Playbook implementation specialist directly.
+            Questions? Contact your FEC Playbook™ implementation specialist directly.
           </p>
         </div>
       </section>
@@ -404,7 +404,7 @@ export default function Onboarding() {
         style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
       >
         <div className="flex items-center justify-center gap-4 mb-3">
-          <p className="text-white/20 text-xs">© {new Date().getFullYear()} FEC Playbook. All Rights Reserved.</p>
+          <p className="text-white/20 text-xs">© {new Date().getFullYear()} FEC Playbook™. All Rights Reserved.</p>
           <a href="/" className="text-white/25 hover:text-[#00AEEF] text-xs transition-colors">← Home</a>
         </div>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>

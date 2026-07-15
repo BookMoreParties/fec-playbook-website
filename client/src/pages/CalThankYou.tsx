@@ -1,5 +1,5 @@
 /**
- * FEC Playbook — Generic Calendar Thank You Page
+ * FEC Playbook™ — Generic Calendar Thank You Page
  * Route: /cal-thankyou
  * Simple, generic post-booking confirmation. No navigation. No demo-specific language.
  * Matches reference: logo → check → headline → subtext → dashboard image → testimonial → contact → footer
@@ -107,11 +107,11 @@ export default function CalThankYou() {
                   ))}
                 </div>
                 <blockquote className="text-white/75 text-base leading-relaxed italic mb-6">
-                  "FEC Playbook has completely transformed the way we operate. Before implementing it, our sales follow up, guest communication, reviews, and marketing were scattered across multiple systems and inconsistent at best.
+                  "FEC Playbook™ has completely transformed the way we operate. Before implementing it, our sales follow up, guest communication, reviews, and marketing were scattered across multiple systems and inconsistent at best.
                   <br /><br />
                   Now, our team is more organized, our response times are faster, and we finally have systems in place that actually support growth.
                   <br /><br />
-                  What makes FEC Playbook different is that it was clearly built by FEC operators who truly understand the industry. The workflows, automations, and pipelines are practical, relevant, and designed specifically for attractions like ours.
+                  What makes FEC Playbook™ different is that it was clearly built by FEC operators who truly understand the industry. The workflows, automations, and pipelines are practical, relevant, and designed specifically for attractions like ours.
                   <br /><br />
                   It's become an essential part of our operation."
                 </blockquote>
@@ -156,7 +156,7 @@ export default function CalThankYou() {
       <footer className="py-8 border-t border-white/8 text-center">
         <div className="max-w-3xl mx-auto px-4">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <p className="text-white/25 text-xs">© 2026 FEC Playbook. All Rights Reserved.</p>
+            <p className="text-white/25 text-xs">© 2026 FEC Playbook™. All Rights Reserved.</p>
             <a href="/" className="text-white/35 hover:text-[#00AEEF] text-xs transition-colors">← Home</a>
           </div>
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-white/35">

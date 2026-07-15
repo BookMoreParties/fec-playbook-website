@@ -1,5 +1,5 @@
 /**
- * FEC Playbook — Features Page
+ * FEC Playbook™ — Features Page
  * Design: Bold Sports/Action Brand — dark navy/black bg, FEC Cyan (#00AEEF) + Cobalt Blue (#1565C0) accents
  * Montserrat Black headings, clean feature cards with icons, gradient accents, high contrast
  */
@@ -122,7 +122,7 @@ const features = [
     gradient: "from-[#1565C0]/20 to-[#1565C0]/5",
     border: "border-[#1565C0]/30",
     description:
-      "Create and manage your Meta, Google, and LinkedIn ads directly within FEC Playbook. No more switching between ad platforms — build campaigns, set budgets, and track performance all from one dashboard.",
+      "Create and manage your Meta, Google, and LinkedIn ads directly within FEC Playbook™. No more switching between ad platforms — build campaigns, set budgets, and track performance all from one dashboard.",
     bullets: [
       "Meta (Facebook & Instagram) Ads",
       "Google Ads campaign management",
@@ -222,7 +222,7 @@ const features = [
     gradient: "from-[#00AEEF]/20 to-[#00AEEF]/5",
     border: "border-[#00AEEF]/30",
     description:
-      "Every donation request that hits your inbox is a warm lead for a fundraiser event or group booking. FEC Playbook automatically routes incoming donation requests into a managed pipeline — so your team can respond fast, qualify the opportunity, and convert it into a paid fundraiser night or group event instead of a free giveaway.",
+      "Every donation request that hits your inbox is a warm lead for a fundraiser event or group booking. FEC Playbook™ automatically routes incoming donation requests into a managed pipeline — so your team can respond fast, qualify the opportunity, and convert it into a paid fundraiser night or group event instead of a free giveaway.",
     bullets: [
       "Dedicated donation request intake pipeline",
       "Automated acknowledgment & qualification sequence",
@@ -242,7 +242,7 @@ const features = [
     gradient: "from-[#1565C0]/20 to-[#1565C0]/5",
     border: "border-[#1565C0]/30",
     description:
-      "Stop wasting time interviewing the wrong people. FEC Playbook's hiring pipeline manages your entire applicant flow — from application intake through auditions and interviews — and integrates with our partner Ferret Personality to automatically filter candidates into the roles they're best suited for based on their personality profile. Only the right-fit applicants make it to your interview chair.",
+      "Stop wasting time interviewing the wrong people. FEC Playbook™'s hiring pipeline manages your entire applicant flow — from application intake through auditions and interviews — and integrates with our partner Ferret Personality to automatically filter candidates into the roles they're best suited for based on their personality profile. Only the right-fit applicants make it to your interview chair.",
     bullets: [
       "Applicant intake pipeline with automated acknowledgment",
       "Ferret Personality integration for role-fit filtering",
@@ -290,7 +290,7 @@ export default function Features() {
     <div className="min-h-screen bg-[#0A0A0A]">
       <SEOMeta
         title="Platform Features — Automation, CRM & SMS for Family Entertainment Centers"
-        description="Explore FEC Playbook's full platform: unified inbox, birthday automation, text clubs, reputation management, pipelines, and 100+ pre-built workflows built for FECs."
+        description="Explore FEC Playbook™'s full platform: unified inbox, birthday automation, text clubs, reputation management, pipelines, and 100+ pre-built workflows built for FECs."
         path="/features"
       />
       <Navigation />
@@ -322,7 +322,7 @@ export default function Features() {
             NOTHING IT DOESN'T.
           </h1>
           <p className="text-white/70 text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
-            FEC Playbook is a complete operating system — not a collection of disconnected tools. Every feature below is included in your subscription, pre-configured for Family Entertainment Centers, and ready to run from day one.
+            FEC Playbook™ is a complete operating system — not a collection of disconnected tools. Every feature below is included in your subscription, pre-configured for Family Entertainment Centers, and ready to run from day one.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

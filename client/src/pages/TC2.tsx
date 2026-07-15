@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Training Call 2: Sales Activation
+ * FEC Playbook™ — Training Call 2: Sales Activation
  * Route: /TC2
  */
 

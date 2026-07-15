@@ -1,4 +1,4 @@
-// Design: FEC Playbook — Dark Navy (#0A0A0A / #0D1B3E), Cyan (#00AEEF), White
+// Design: FEC Playbook™ — Dark Navy (#0A0A0A / #0D1B3E), Cyan (#00AEEF), White
 // Typography: Montserrat (display/headings), system sans (body)
 // Layout: Full-width sections, left-sidebar step cards, timeline strip
 // Style: Sales-call onboarding overview — detailed, structured, professional
@@ -168,13 +168,13 @@ export default function GetReady() {
         }} />
 
         <div className="relative max-w-4xl mx-auto">
-          <p className="text-[11px] font-bold tracking-[0.25em] text-[#00AEEF] uppercase mb-6">FEC Playbook — Client Onboarding Overview</p>
+          <p className="text-[11px] font-bold tracking-[0.25em] text-[#00AEEF] uppercase mb-6">FEC Playbook™ — Client Onboarding Overview</p>
           <h1 className="text-5xl md:text-7xl font-black uppercase leading-none mb-6">
             <span className="text-white">READY TO</span><br />
             <span className="text-[#00AEEF]">PUSH PLAY?</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-            FEC Playbook transforms your family entertainment center from disconnected systems and manual follow-up into one fully connected marketing, sales, communication, reputation, and guest experience engine.
+            FEC Playbook™ transforms your family entertainment center from disconnected systems and manual follow-up into one fully connected marketing, sales, communication, reputation, and guest experience engine.
           </p>
           <a
             href="#step-01"
@@ -282,7 +282,7 @@ export default function GetReady() {
               title="Client Signup & Intake Survey"
               timing="Day 0 · Completed at signup"
               attendees="Client + FECPB"
-              goal="Gather everything needed to begin building the client's branded FEC Playbook environment."
+              goal="Gather everything needed to begin building the client's branded FEC Playbook™ environment."
               sections={[
                 {
                   title: "Client Completes",
@@ -329,7 +329,7 @@ export default function GetReady() {
                   ],
                 },
               ]}
-              presenterNote="This step gives FEC Playbook the brand, team, website, sales, and operational context needed to move quickly."
+              presenterNote="This step gives FEC Playbook™ the brand, team, website, sales, and operational context needed to move quickly."
             />
           </div>
 
@@ -346,7 +346,7 @@ export default function GetReady() {
             tag="Connect Systems + Orient Team"
             title="Tech Integration & Orientation Call"
             timing="Days 2–5 · 60–90 minutes"
-            attendees="Client + FEC Playbook"
+            attendees="Client + FEC Playbook™"
             goal="Connect systems, ensure compliance, and introduce the platform."
             sections={[
               {
@@ -362,7 +362,7 @@ export default function GetReady() {
               {
                 title: "Platform Orientation",
                 items: [
-                  "General overview of FEC Playbook",
+                  "General overview of FEC Playbook™",
                   "Understanding the Hub structure",
                   "Review user permissions & access",
                   "Walk through the navigation of the system",
@@ -383,7 +383,7 @@ export default function GetReady() {
                   "Review POS data fields and event data structure",
                   "Verify POS data routing",
                   "Configure mail parser forwarding if applicable",
-                  "Verify reservation/order data is flowing correctly into FEC Playbook",
+                  "Verify reservation/order data is flowing correctly into FEC Playbook™",
                   "Begin A2P compliance setup and submission",
                 ],
               },
@@ -454,8 +454,8 @@ export default function GetReady() {
             tag="Train Pipelines + Install Lead Forms"
             title="Sales Pipeline Training & Activation"
             timing="Days 7–14 · 60–90 minutes"
-            attendees="Client + FEC Playbook"
-            goal="Train the team on sales pipeline usage, activate sales automations, and install website lead capture so inquiries flow into FEC Playbook."
+            attendees="Client + FEC Playbook™"
+            goal="Train the team on sales pipeline usage, activate sales automations, and install website lead capture so inquiries flow into FEC Playbook™."
             sections={[
               {
                 title: "Prerequisites",
@@ -542,7 +542,7 @@ export default function GetReady() {
             tag="Marketing Activation + Advanced Tools"
             title="Marketing Automation & Advanced Features Training"
             timing="Days 14–21 · 60–90 minutes"
-            attendees="Client + FEC Playbook"
+            attendees="Client + FEC Playbook™"
             goal="Activate retention marketing and advanced automation tools."
             sections={[
               {
@@ -614,7 +614,7 @@ export default function GetReady() {
             tag="Go Live + Keep Improving"
             title="Optimization & Growth Support"
             timing="Go live + 30 days after launch"
-            attendees="FEC Playbook + Client"
+            attendees="FEC Playbook™ + Client"
             goal="Ensure clients are maximizing the platform long-term."
             sections={[
               {
@@ -661,7 +661,7 @@ export default function GetReady() {
             <span className="text-[#00AEEF]">AFTER ONBOARDING.</span>
           </h2>
           <p className="text-slate-400 text-base mb-10 leading-relaxed">
-            After launch, FEC Playbook reviews performance, answers questions, and helps optimize workflows so the system keeps improving with your team's day-to-day use.
+            After launch, FEC Playbook™ reviews performance, answers questions, and helps optimize workflows so the system keeps improving with your team's day-to-day use.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -694,7 +694,7 @@ export default function GetReady() {
       {/* ── Footer note ── */}
       <div className="border-t border-white/5 py-8 px-6 text-center">
         <div className="flex items-center justify-center gap-4 mb-3">
-          <p className="text-white/20 text-xs">© {new Date().getFullYear()} FEC Playbook. All Rights Reserved.</p>
+          <p className="text-white/20 text-xs">© {new Date().getFullYear()} FEC Playbook™. All Rights Reserved.</p>
           <a href="/" className="text-white/25 hover:text-[#00AEEF] text-xs transition-colors">← Home</a>
         </div>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>

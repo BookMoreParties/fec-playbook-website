@@ -1,4 +1,4 @@
-// Design: FEC Playbook — Post-Survey Thank You + Booking page
+// Design: FEC Playbook™ — Post-Survey Thank You + Booking page
 // Dark near-black background, minimal chrome so the calendar is the focus
 // Celebratory but professional — confirms survey receipt, prompts call booking
 
@@ -103,7 +103,7 @@ export default function OnboardingThankYou() {
             Your intake survey has been received. The next step is to schedule your
             <strong className="text-white"> Tech Interface &amp; Training Call 1</strong> — a
             ~2-hour session where we connect your platforms, begin activating your system, and
-            get you using FEC Playbook from day one.
+            get you using FEC Playbook™ from day one.
           </p>
 
           {/* What to expect pills */}
@@ -128,7 +128,7 @@ export default function OnboardingThankYou() {
               }}
             >
               <Users size={12} style={{ color: "#00AEEF" }} />
-              FEC Playbook + Client + Website Manager
+              FEC Playbook™ + Client + Website Manager
             </div>
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold"
@@ -172,7 +172,7 @@ export default function OnboardingThankYou() {
             style={{ width: "100%", border: "none", display: "block", minHeight: "900px" }}
             scrolling="no"
             id="A1WTNLAmGkG7ry5K3xBi_1782173220759"
-            title="Book Your FEC Playbook Training Call"
+            title="Book Your FEC Playbook™ Training Call"
           />
         </div>
 
@@ -205,7 +205,7 @@ export default function OnboardingThankYou() {
         style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
       >
         <div className="flex items-center justify-center gap-4 mb-3">
-          <p className="text-white/20 text-xs">© {new Date().getFullYear()} FEC Playbook. All Rights Reserved.</p>
+          <p className="text-white/20 text-xs">© {new Date().getFullYear()} FEC Playbook™. All Rights Reserved.</p>
           <a href="/" className="text-white/25 hover:text-[#00AEEF] text-xs transition-colors">← Home</a>
         </div>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>

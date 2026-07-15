@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Post-Onboarding Check-In Call
+ * FEC Playbook™ — Post-Onboarding Check-In Call
  * Route: /checkin
  */
 

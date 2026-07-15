@@ -1,5 +1,5 @@
 /**
- * FEC Playbook — How It Works Page
+ * FEC Playbook™ — How It Works Page
  * Design: Bold Sports/Action Brand
  * Dark backgrounds, FEC Cyan (#00AEEF) + Cobalt (#1565C0) accents
  * Montserrat Black headlines, high contrast throughout
@@ -23,7 +23,7 @@ const steps = [
     badge: "The Foundation",
     icon: Database,
     title: "Everything Starts With Live POS & Booking Data",
-    body: "When something happens in your center — a ticket sale, a party booking, a group inquiry, or a reschedule — that information is sent into FEC Playbook automatically.",
+    body: "When something happens in your center — a ticket sale, a party booking, a group inquiry, or a reschedule — that information is sent into FEC Playbook™ automatically.",
     highlight: "No exporting. No double entry. No clean-up later.",
     items: [
       "Connects directly to your existing POS and booking system",
@@ -32,7 +32,7 @@ const steps = [
       "No manual data entry or spreadsheet exports required",
     ],
     image: ASSETS.screenshotDashboard,
-    imageAlt: "FEC Playbook dashboard showing live POS data",
+    imageAlt: "FEC Playbook™ dashboard showing live POS data",
     flip: false,
   },
   {
@@ -40,7 +40,7 @@ const steps = [
     badge: "Intelligent Automation",
     icon: Zap,
     title: "The System Knows What to Do Next",
-    body: "When data comes in, FEC Playbook automatically identifies who the guest is, understands what they did, recognizes the type of visit or event, routes it to the right place, and starts the right follow-up.",
+    body: "When data comes in, FEC Playbook™ automatically identifies who the guest is, understands what they did, recognizes the type of visit or event, routes it to the right place, and starts the right follow-up.",
     highlight: "Your team doesn't choose the next step. The system already knows.",
     items: [
       "Identifies who the guest is and their history with your center",
@@ -49,14 +49,14 @@ const steps = [
       "Starts the right follow-up sequence without any manual trigger",
     ],
     image: ASSETS.automationVisual,
-    imageAlt: "FEC Playbook automation pipeline running automatically",
+    imageAlt: "FEC Playbook™ automation pipeline running automatically",
     flip: true,
   },
   {
     num: "03",
     badge: "Multiple Pathways",
     icon: GitBranch,
-    title: "Guests Don't Follow One Path — And Neither Does FEC Playbook",
+    title: "Guests Don't Follow One Path — And Neither Does FEC Playbook™",
     body: "A guest might book a party online, walk in and buy tickets, text a question, be part of a school group, or reschedule an event. Each action triggers different outcomes, automatically. That's the point.",
     highlight: "Every path is handled. Every guest is followed up with.",
     items: [
@@ -66,7 +66,7 @@ const steps = [
       "Group inquiries enter a dedicated corporate/school pipeline",
     ],
     image: ASSETS.pipelineVisual,
-    imageAlt: "FEC Playbook pipeline showing multiple guest pathways",
+    imageAlt: "FEC Playbook™ pipeline showing multiple guest pathways",
     flip: false,
   },
 ];
@@ -130,8 +130,8 @@ export default function HowItWorks() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
-        title="How FEC Playbook Works — Setup, Integrations & Automation for FECs"
-        description="See exactly how FEC Playbook connects to your POS, automates guest journeys, and runs your marketing on autopilot. Setup in days, not months."
+        title="How FEC Playbook™ Works — Setup, Integrations & Automation for FECs"
+        description="See exactly how FEC Playbook™ connects to your POS, automates guest journeys, and runs your marketing on autopilot. Setup in days, not months."
         path="/how-it-works"
       />
       <Navigation />
@@ -149,14 +149,14 @@ export default function HowItWorks() {
             <span className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">How It Works</span>
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.95] mb-6 tracking-tight">
-            How FEC Playbook Works<br />
+            How FEC Playbook™ Works<br />
             <span className="fec-gradient-text">(Without the Tech Headache)</span>
           </h1>
           <p className="text-white/60 text-xl max-w-3xl mx-auto mb-4 leading-relaxed">
             There isn't one path. There isn't one trigger. There isn't one thing your team has to remember.
           </p>
           <p className="text-white font-bold text-lg mb-10">
-            FEC Playbook runs off what actually happens in your business.
+            FEC Playbook™ runs off what actually happens in your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

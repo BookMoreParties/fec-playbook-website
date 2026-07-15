@@ -1,5 +1,5 @@
 /**
- * FEC Playbook — What's In The Playbook Page
+ * FEC Playbook™ — What's In The Playbook Page
  * Design: Bold Sports/Action Brand
  * Dark backgrounds, FEC Cyan (#00AEEF) + Cobalt (#1565C0) accents
  * Montserrat Black headlines, high contrast throughout
@@ -123,7 +123,7 @@ const playbookItems = [
     num: "08",
     icon: "🔗",
     title: "POS-Adjacent by Design",
-    subtitle: "Your POS runs transactions. FEC Playbook runs everything around them.",
+    subtitle: "Your POS runs transactions. FEC Playbook™ runs everything around them.",
     included: [
       "Works alongside your existing POS",
       "Live POS activity drives follow-up and communication",
@@ -178,7 +178,7 @@ export default function Playbook() {
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
         title="What's in the Playbook — 10 Pre-Built FEC Operating Systems"
-        description="Discover the 10 pre-built operating systems inside FEC Playbook: birthday sales, text clubs, reputation management, loyalty, and more — all built for Family Entertainment Centers."
+        description="Discover the 10 pre-built operating systems inside FEC Playbook™: birthday sales, text clubs, reputation management, loyalty, and more — all built for Family Entertainment Centers."
         path="/playbook"
       />
       <Navigation />
@@ -199,7 +199,7 @@ export default function Playbook() {
             <span className="fec-gradient-text">Behind Successful FECs</span>
           </h1>
           <p className="text-white/60 text-xl max-w-3xl mx-auto mb-4 leading-relaxed">
-            FEC Playbook isn't a collection of tools. It's a ready-to-run operating system built specifically for how Family Entertainment Centers actually work.
+            FEC Playbook™ isn't a collection of tools. It's a ready-to-run operating system built specifically for how Family Entertainment Centers actually work.
           </p>
           <p className="text-[#00AEEF] font-bold text-lg mb-10">
             You bring the brand. We bring the playbook.
@@ -309,17 +309,17 @@ export default function Playbook() {
               <div className="h-px w-12 bg-[#00AEEF]"></div>
             </div>
             <h2 className="text-4xl sm:text-5xl font-black uppercase leading-tight mb-4">
-              What FEC Playbook<br />
+              What FEC Playbook™<br />
               <span className="fec-gradient-text">Replaces</span>
             </h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              Instead of logging into multiple disconnected platforms, FEC Playbook brings it all under one roof.
+              Instead of logging into multiple disconnected platforms, FEC Playbook™ brings it all under one roof.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-8">
-              <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-6">Before FEC Playbook</p>
+              <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-6">Before FEC Playbook™</p>
               <div className="space-y-3">
                 {replaces.map((tool) => (
                   <div key={tool} className="flex items-center gap-3 text-white/50">
@@ -333,7 +333,7 @@ export default function Playbook() {
             </div>
             <div className="bg-gradient-to-br from-[#00AEEF]/10 to-[#1565C0]/10 border border-[#00AEEF]/30 rounded-2xl p-8 flex flex-col justify-center items-center text-center">
               <div className="text-6xl mb-4">🎯</div>
-              <p className="text-[#00AEEF] font-black text-2xl uppercase mb-2">FEC Playbook</p>
+              <p className="text-[#00AEEF] font-black text-2xl uppercase mb-2">FEC Playbook™</p>
               <p className="text-white font-bold text-lg mb-4">One system. One strategy. One source of truth.</p>
               <div className="space-y-2">
                 {["One login", "One workflow", "One inbox", "One source of truth"].map((item) => (
@@ -357,7 +357,7 @@ export default function Playbook() {
               <span className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">The Takeaway</span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-black uppercase leading-tight mb-6">
-              FEC Playbook Isn't Another Tool.<br />
+              FEC Playbook™ Isn't Another Tool.<br />
               <span className="fec-gradient-text">It's the Operating Strategy Your Center Runs On.</span>
             </h2>
             <div className="flex flex-wrap justify-center gap-4 mb-10 text-sm font-bold text-white/60">

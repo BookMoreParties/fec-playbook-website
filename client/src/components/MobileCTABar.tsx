@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Mobile Sticky CTA Bar
+ * FEC Playbook™ — Mobile Sticky CTA Bar
  * Design: Fixed bottom bar, appears after scrolling 300px past hero
  * Slides up from bottom with smooth animation
  * Hidden on md+ screens (desktop has nav CTA)

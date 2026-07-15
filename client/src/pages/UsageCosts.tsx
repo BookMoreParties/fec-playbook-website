@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Usage Cost Calculator Page
+ * FEC Playbook™ — Usage Cost Calculator Page
  * Design: Dark bg, FEC Cyan accent, interactive sliders for real-time cost estimation
  * Mirrors the functionality of fecpricing-exhqebvr.manus.space estimator section
  */
@@ -546,7 +546,7 @@ export default function UsageCosts() {
               <div>
                 <p className="text-yellow-400 font-bold text-sm mb-2">Cost Per Booking Disclaimer</p>
                 <p className="text-yellow-400/70 text-xs leading-relaxed">
-                  The usage cost per booking noted above is based on averages across real FEC Playbook users. Each center may see a higher or lower cost per booking based on messaging length, additional communications, and actual usage patterns. Actual costs may vary based on message length and carrier fees. Results are not guaranteed. Noted results are based on real average user information. Results vary depending on the operator's venue and internal processes.
+                  The usage cost per booking noted above is based on averages across real FEC Playbook™ users. Each center may see a higher or lower cost per booking based on messaging length, additional communications, and actual usage patterns. Actual costs may vary based on message length and carrier fees. Results are not guaranteed. Noted results are based on real average user information. Results vary depending on the operator's venue and internal processes.
                 </p>
               </div>
             </div>
@@ -561,7 +561,7 @@ export default function UsageCosts() {
             Ready to See Your Real Numbers?
           </h2>
           <p className="text-white/80 text-lg mb-8">
-            Book a 30-minute call and we'll walk through exactly what FEC Playbook would cost for your specific volume.
+            Book a 30-minute call and we'll walk through exactly what FEC Playbook™ would cost for your specific volume.
           </p>
           <a
             href="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"

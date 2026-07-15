@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Training Call 4: Optimization
+ * FEC Playbook™ — Training Call 4: Optimization
  * Route: /TC4
  */
 

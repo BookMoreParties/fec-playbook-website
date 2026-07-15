@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Support Page
+ * FEC Playbook™ — Support Page
  * Route: /support
  * Embedded GHL support form (GX1tIjpliSHQPP8MX821)
  */
@@ -41,7 +41,7 @@ export default function Support() {
             <div className="h-px w-12 bg-[#00AEEF]" />
           </div>
           <h1 className="text-4xl sm:text-5xl font-black uppercase leading-tight mb-4">
-            FEC Playbook<br />
+            FEC Playbook™<br />
             <span
               style={{
                 background: "linear-gradient(135deg, #00AEEF, #1565C0)",

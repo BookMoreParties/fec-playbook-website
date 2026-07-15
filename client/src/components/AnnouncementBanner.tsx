@@ -1,6 +1,6 @@
-// Design: FEC Playbook — tight wide banner using real logos
+// Design: FEC Playbook™ — tight wide banner using real logos
 // Short height, dark background, cyan border, both logos with arrow between
-// Banner is linked to the FEC Playbook home page
+// Banner is linked to the FEC Playbook™ home page
 
 import { Link } from "wouter";
 
@@ -69,7 +69,7 @@ export default function AnnouncementBanner() {
             </svg>
           </div>
 
-          {/* FEC Playbook logo */}
+          {/* FEC Playbook™ logo */}
           <div className="flex items-center">
             <img
               src={FEC_LOGO}

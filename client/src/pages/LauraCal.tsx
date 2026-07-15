@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Laura's Calendar Page
+ * FEC Playbook™ — Laura's Calendar Page
  * Design: Dark bg, FEC Cyan accent, embedded GHL booking calendar
  * Route: /lauracal
  */

@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 
 const SITE_URL = "https://www.fecplaybook.com";
 const OG_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/og-social-image-Kk7qTA4cKMc7eP44TcSHFK.png";
-const SITE_NAME = "FEC Playbook";
+const SITE_NAME = "FEC Playbook™";
 
 interface SEOMetaProps {
   title: string;
@@ -19,7 +19,7 @@ interface SEOMetaProps {
 
 export default function SEOMeta({ title, description, path, ogImage = OG_IMAGE }: SEOMetaProps) {
   const canonical = `${SITE_URL}${path}`;
-  const fullTitle = title.includes("FEC Playbook") ? title : `${title} | FEC Playbook`;
+  const fullTitle = title.includes("FEC Playbook™") ? title : `${title} | FEC Playbook™`;
 
   return (
     <Helmet>

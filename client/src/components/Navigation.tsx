@@ -1,5 +1,5 @@
 /* 
- * FEC Playbook Navigation
+ * FEC Playbook™ Navigation
  * Design: Dark sticky nav, transparent on hero, solid on scroll
  * Mobile: Full-screen slide-out drawer with backdrop overlay and staggered animations
  * Brand: Montserrat Bold, FEC Cyan accent
@@ -14,7 +14,7 @@ const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4
 const LOGO_VERTICAL_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
 
 const navLinks = [
-  { label: "Platform", href: "#platform", desc: "See how FEC Playbook works" },
+  { label: "Platform", href: "#platform", desc: "See how FEC Playbook™ works" },
   { label: "Features", href: "/features", isPage: true, desc: "Everything included in your plan" },
   { label: "How It Works", href: "/how-it-works", isPage: true, desc: "The system explained simply" },
   { label: "Playbook", href: "/playbook", isPage: true, desc: "10 systems, 100+ automations" },

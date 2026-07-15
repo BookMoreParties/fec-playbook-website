@@ -1,5 +1,5 @@
 /*
- * FEC Playbook — Team Calendar Page
+ * FEC Playbook™ — Team Calendar Page
  * Design: Dark bg, FEC Cyan accent, embedded GHL booking calendar
  * Route: /teamcal
  */
