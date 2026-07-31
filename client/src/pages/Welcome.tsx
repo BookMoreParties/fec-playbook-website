@@ -8,6 +8,7 @@
 
 import { useEffect, useState } from "react";
 import { CheckCircle, Lock, Mail, Clock, ChevronRight } from "lucide-react";
+import Footer from "@/components/Footer";
 
 const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
@@ -396,59 +397,9 @@ export default function Welcome() {
           </div>
         </div>
 
-        {/* Dashboard image callout */}
-        <div
-          style={{
-            marginTop: "40px",
-            background: "rgba(13,27,62,0.5)",
-            border: "1px solid rgba(0,174,239,0.15)",
-            borderRadius: "16px",
-            padding: "24px",
-            textAlign: "center",
-          }}
-        >
-          <p
-            style={{
-              fontSize: "11px",
-              fontWeight: 700,
-              textTransform: "uppercase",
-              letterSpacing: "0.15em",
-              color: "#00AEEF",
-              marginBottom: "12px",
-            }}
-          >
-            Your All-In-One Operating System
-          </p>
-          <img
-            src="https://storage.googleapis.com/msgsndr/NR4s8IMRYH47Mdbw4url/media/67daf38726b5016a4ea536f6.png"
-            alt="FEC Playbook Dashboard"
-            style={{ width: "100%", borderRadius: "10px", maxWidth: "560px" }}
-          />
-        </div>
       </div>
 
-      {/* ── Footer ── */}
-      <footer
-        style={{
-          borderTop: "1px solid rgba(255,255,255,0.06)",
-          padding: "24px",
-          textAlign: "center",
-        }}
-      >
-        <img src={LOGO_URL} alt="FEC Playbook" style={{ height: "28px", marginBottom: "12px" }} />
-        <div style={{ display: "flex", justifyContent: "center", gap: "16px", marginBottom: "12px" }}>
-          <a href="/" style={{ color: "rgba(255,255,255,0.3)", fontSize: "12px", textDecoration: "none" }}>
-            Main Website
-          </a>
-          <span style={{ color: "rgba(255,255,255,0.15)" }}>|</span>
-          <a href="mailto:support@fecplaybook.com" style={{ color: "rgba(255,255,255,0.3)", fontSize: "12px", textDecoration: "none" }}>
-            Support
-          </a>
-        </div>
-        <p style={{ color: "rgba(255,255,255,0.15)", fontSize: "11px" }}>
-          © {new Date().getFullYear()} FEC Playbook™. All Rights Reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
