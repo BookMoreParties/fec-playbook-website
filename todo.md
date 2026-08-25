@@ -1,0 +1,6 @@
+- [ ] Verify the connected GitHub remote points to BookMoreParties/fecpb-website-manus.
+- [ ] Commit and push the current FEC Playbook website source files to the requested repository.
+- [ ] Confirm the destination branch and synchronization result.
+- [ ] Confirm the connected destination is BookMoreParties/fec-playbook-website.
+- [ ] Push the complete current website source to user_github/main.
+- [ ] Verify the pushed commit is available on the GitHub repository.
