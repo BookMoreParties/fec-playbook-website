@@ -1,0 +1,13 @@
+- [ ] Review the main site’s conversion journey, messaging, SEO implementation, and visual hierarchy.
+- [ ] Research relevant family entertainment center search themes and credible supporting sources.
+- [ ] Define a revised positioning and page strategy that supports demo conversion without naming competitors.
+- [ ] Deliver prioritized recommendations for approval before implementation.
+- [x] Rebuild the homepage hero around the FEC Revenue Operations position and one primary booking CTA.
+- [x] Add the FEC Revenue Cycle benefits section following the hero.
+- [x] Standardize public demo calls to action and remove unverified homepage proof claims.
+- [x] Add accurate, visible-content structured data and improve crawl-ready public metadata.
+- [x] Validate mobile layouts and the consent-aware demo booking path before checkpointing.
+- [x] Apply the confirmed hierarchy: 8 Revenue Playbooks, 13 Core Modules, and 100+ automations.
+- [x] Remove numerical social-proof claims while retaining approved testimonials.
+- [x] Make CenterEdge the primary official integration partner and label other integrations as data import options.
+- [x] Preserve the approved 30-minute FEC Revenue Review promise for mixed leadership buyers.

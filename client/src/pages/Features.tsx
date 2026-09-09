@@ -327,12 +327,10 @@ export default function Features() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-[#00AEEF] hover:bg-[#0099D6] text-white font-black uppercase tracking-wider px-8 py-4 rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(0,174,239,0.4)]"
             >
               <Phone className="w-5 h-5" />
-              Book a Demo Call
+              Book a 30-Minute FEC Revenue Review
             </a>
             <Link
               href="/playbook"
@@ -350,7 +348,7 @@ export default function Features() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             {[
-              { value: "13+", label: "Core Feature Modules" },
+              { value: "13", label: "Core Modules" },
               { value: "100+", label: "Pre-Built Automations" },
               { value: "1", label: "Login. One Platform." },
               { value: "0", label: "Extra Tools Needed" },
@@ -409,8 +407,6 @@ export default function Features() {
 
                       <a
                         href={BOOKING_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wide transition-all duration-200 hover:gap-3 mt-auto"
                         style={{ color: feature.color }}
                       >
@@ -515,12 +511,10 @@ export default function Features() {
               </div>
               <a
                 href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#00AEEF] hover:bg-[#0099D6] text-white font-black uppercase tracking-wider px-10 py-4 rounded-lg transition-all duration-200 shadow-[0_0_30px_rgba(0,174,239,0.4)]"
               >
                 <Phone className="w-5 h-5" />
-                Book a Demo — See It All Live
+                Book a 30-Minute FEC Revenue Review
               </a>
             </div>
           </div>
@@ -538,12 +532,10 @@ export default function Features() {
           </p>
           <a
             href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-[#00AEEF] font-black uppercase tracking-wider px-10 py-4 rounded-lg hover:bg-white/90 transition-all duration-200 shadow-xl"
           >
             <Phone className="w-5 h-5" />
-            Book a Free Demo Call
+            Book a 30-Minute FEC Revenue Review
           </a>
         </div>
       </section>

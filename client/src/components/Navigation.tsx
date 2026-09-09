@@ -8,7 +8,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Phone, X, ChevronRight } from "lucide-react";
-import { useBooking } from "@/contexts/BookingContext";
+import { trackEvent } from "@/lib/analytics";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
 const LOGO_VERTICAL_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
@@ -17,15 +17,13 @@ const navLinks = [
   { label: "Platform", href: "#platform", desc: "See how FEC Playbook™ works" },
   { label: "Features", href: "/features", isPage: true, desc: "Everything included in your plan" },
   { label: "How It Works", href: "/how-it-works", isPage: true, desc: "The system explained simply" },
-  { label: "Playbook", href: "/playbook", isPage: true, desc: "10 systems, 100+ automations" },
+  { label: "Playbook", href: "/playbook", isPage: true, desc: "8 revenue playbooks, 100+ automations" },
 ];
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [location] = useLocation();
-  const { openBooking } = useBooking();
-
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -105,11 +103,12 @@ export default function Navigation() {
               </a>
               <a
                 href="/book-a-demo"
+                onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement: "navigation_desktop" })}
                 className="fec-btn-primary text-sm py-2.5 px-5"
                 style={{ display: "inline-flex", alignItems: "center", gap: "6px", textDecoration: "none" }}
               >
                 <Phone size={14} />
-                Book a Demo
+                Book a Revenue Review
               </a>
             </div>
 
@@ -223,15 +222,18 @@ export default function Navigation() {
         <div className="px-4 pb-8 pt-4 border-t border-white/8 space-y-3">
           <a
             href="/book-a-demo"
-            onClick={() => setMobileOpen(false)}
+            onClick={() => {
+              trackEvent("cta_book_revenue_review_clicked", { placement: "navigation_mobile" });
+              setMobileOpen(false);
+            }}
             className="fec-btn-primary w-full justify-center text-sm py-4"
             style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}
           >
             <Phone size={16} />
-            Book a Free Demo Call
+            Book a 30-Minute FEC Revenue Review
           </a>
           <p className="text-white/30 text-xs text-center" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            Free 30-min strategy call · No commitment
+            Clear next steps for your FEC revenue cycle
           </p>
         </div>
       </div>

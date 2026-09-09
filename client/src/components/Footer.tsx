@@ -4,12 +4,11 @@
  */
 
 import { Phone, Mail, ExternalLink } from "lucide-react";
-import { useBooking } from "@/contexts/BookingContext";
+import { trackEvent } from "@/lib/analytics";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
 
 export default function Footer() {
-  const { openBooking } = useBooking();
   const handleNavClick = (href: string) => {
     if (href.startsWith("#")) {
       // Navigate to home page first if not already there
@@ -40,10 +39,11 @@ export default function Footer() {
             <div className="flex items-center gap-4 mt-6">
               <a
                 href="/book-a-demo"
+                onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement: "footer_brand" })}
                 className="fec-btn-primary text-xs py-2 px-4"
               >
                 <Phone size={12} />
-                Book a Call
+                Book a Revenue Review
               </a>
             </div>
           </div>
@@ -83,11 +83,12 @@ export default function Footer() {
               <li>
                 <a
                   href="/book-a-demo"
+                  onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement: "footer_link" })}
                   className="flex items-center gap-2 text-white/50 hover:text-[#00AEEF] text-sm transition-colors"
                   style={{ fontFamily: "'Montserrat', sans-serif" }}
                 >
                   <Phone size={14} />
-                  Book a Demo Call
+                  Book a Revenue Review
                 </a>
               </li>
               <li>
@@ -119,7 +120,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/8 mt-12 pt-8 space-y-4">
           <p className="text-white/30 text-xs leading-relaxed" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            <strong className="text-white/50">Integration Partner Disclaimer:</strong> The brands represented (ROLLER Software, CenterEdge Software, PartyWirks, TripleSeat, Party Center Software) do not endorse FEC Playbook™. All logos and trademarks are owned by their respective organizations and are not the property of, nor directly affiliated with, FEC Playbook™. Logos are used solely to indicate integration compatibility.
+            <strong className="text-white/50">Integration Partner Disclaimer:</strong> CenterEdge Software is an official FEC Playbook™ integration partner. The other named brands and trademarks are owned by their respective organizations and are not the property of, nor directly affiliated with, FEC Playbook™. They are referenced solely to describe available data-import compatibility.
           </p>
           <p className="text-white/30 text-xs leading-relaxed" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             <strong className="text-white/50">Results Disclaimer:</strong> *Listed stats and outcomes are based on client feedback and are not a representation or guarantee of similar or same results. Location results vary and are not guaranteed.

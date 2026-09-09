@@ -161,12 +161,10 @@ export default function HowItWorks() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/book-a-demo"
-              target="_blank"
-              rel="noopener noreferrer"
               className="fec-btn-primary text-base py-4 px-8"
             >
               <Phone size={18} />
-              See It in Action
+              Book a 30-Minute FEC Revenue Review
             </a>
             <Link href="/playbook">
               <button className="fec-btn-outline text-base py-4 px-8">
@@ -338,14 +336,12 @@ export default function HowItWorks() {
             <p className="text-2xl font-black uppercase text-white mb-2">Same Playbook. Same Results. Less Stress.</p>
             <p className="text-white/60 text-base mb-8">The playbook runs the same way every day — even when people don't.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/book-a-demo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="fec-btn-primary text-base py-4 px-8"
-              >
-                <Phone size={18} />
-                Book a 15-Minute Overview
+            <a
+              href="/book-a-demo"
+              className="fec-btn-primary text-base py-4 px-8"
+            >
+              <Phone size={18} />
+              Book a 30-Minute FEC Revenue Review
               </a>
               <Link href="/playbook">
                 <button className="fec-btn-outline text-base py-4 px-8">

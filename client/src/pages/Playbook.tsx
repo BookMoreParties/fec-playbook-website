@@ -177,8 +177,8 @@ export default function Playbook() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
-        title="What's in the Playbook — 10 Pre-Built FEC Operating Systems"
-        description="Discover the 10 pre-built operating systems inside FEC Playbook™: birthday sales, text clubs, reputation management, loyalty, and more — all built for Family Entertainment Centers."
+        title="What's in the Playbook — 8 Revenue Playbooks for FECs"
+        description="Discover the 8 revenue playbooks inside FEC Playbook™: birthday sales, text clubs, reputation management, loyalty, and more — all built for Family Entertainment Centers."
         path="/playbook"
       />
       <Navigation />
@@ -208,7 +208,7 @@ export default function Playbook() {
           {/* Quick stats */}
           <div className="flex flex-wrap justify-center gap-6 mb-10">
             {[
-              { value: "10", label: "Core Playbook Systems" },
+              { value: "8", label: "Revenue Playbooks" },
               { value: "100+", label: "Pre-Built Automations" },
               { value: "1", label: "Login. One Platform." },
             ].map(({ value, label }) => (
@@ -222,12 +222,10 @@ export default function Playbook() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/book-a-demo"
-              target="_blank"
-              rel="noopener noreferrer"
               className="fec-btn-primary text-base py-4 px-8"
             >
               <Phone size={18} />
-              Book a Call to Learn More
+              Book a 30-Minute FEC Revenue Review
             </a>
             <Link href="/how-it-works">
               <button className="fec-btn-outline text-base py-4 px-8">
@@ -370,14 +368,12 @@ export default function Playbook() {
             </div>
             <p className="text-white/60 text-lg mb-10">All automated. All built. All ready to run.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/book-a-demo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="fec-btn-primary text-base py-4 px-8"
-              >
-                <Phone size={18} />
-                Book a 15-Minute Overview
+            <a
+              href="/book-a-demo"
+              className="fec-btn-primary text-base py-4 px-8"
+            >
+              <Phone size={18} />
+              Book a 30-Minute FEC Revenue Review
               </a>
               <Link href="/how-it-works">
                 <button className="fec-btn-outline text-base py-4 px-8">

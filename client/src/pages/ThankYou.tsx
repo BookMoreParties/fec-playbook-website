@@ -28,10 +28,10 @@ const nextSteps = [
 ];
 
 const stats = [
-  { value: "30+", label: "FECs Already Running on the Playbook" },
-  { value: "13+", label: "Core Feature Modules" },
+  { value: "8", label: "Revenue Playbooks" },
+  { value: "13", label: "Core Modules" },
   { value: "100+", label: "Pre-Built Automations" },
-  { value: "30 min", label: "All You Need to See It All" },
+  { value: "1", label: "FEC Revenue System" },
 ];
 
 const testimonialSnippets = [
