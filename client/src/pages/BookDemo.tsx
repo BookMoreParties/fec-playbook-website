@@ -1,6 +1,7 @@
 /*
  * FEC Playbook™ — Book a Demo Page
- * Design: Dark bg, FEC Cyan accent, embedded booking calendar with supporting context
+ * Design: Bold FEC action campaign with true black and white contrast, cyan power accents,
+ * a tangible Revenue Review artefact, angular geometry, and no calm centered SaaS composition.
  * Route: /book-a-demo
  */
 
@@ -36,28 +37,59 @@ export default function BookDemo() {
       />
       <Navigation />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 bg-[#0D1B3E] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300AEEF' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-[#00AEEF]" />
-            <span className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">30-Minute FEC Revenue Review</span>
-            <div className="h-px w-12 bg-[#00AEEF]" />
+      {/* Design reminder: left-led action hero, with a proprietary-feeling visual proof object rather than a centered SaaS headline. */}
+      <section className="relative isolate overflow-hidden bg-[#0A0A0A] pb-16 pt-32 sm:pb-20">
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-[7px] bg-[#00AEEF]" />
+        <div className="pointer-events-none absolute right-[-9rem] top-16 h-72 w-72 -skew-x-12 border border-[#00AEEF]/25" />
+        <div className="pointer-events-none absolute bottom-0 left-0 h-20 w-full bg-[#0D1B3E] [clip-path:polygon(0_70%,100%_0,100%_100%,0_100%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-3">
+                <span className="h-[3px] w-11 bg-[#00AEEF]" />
+                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">30-Minute FEC Revenue Review</span>
+              </div>
+              <h1 className="mt-6 max-w-4xl text-5xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
+                Leave With a Clearer <span className="text-[#00AEEF]">Revenue Plan.</span>
+              </h1>
+              <p className="mt-7 max-w-2xl text-base font-medium leading-relaxed text-white/75 sm:text-lg">
+                In 30 minutes, we will identify the revenue work that needs attention, map the ready-built FEC Playbooks™ that fit your facility, and outline a practical path to activate them with your team.
+              </p>
+              <p className="mt-7 max-w-xl border-l-4 border-[#00AEEF] pl-4 text-sm font-black uppercase leading-relaxed tracking-[0.08em] text-white">
+                You are not buying a blank system to build inside. You are reviewing the playbook already built for FEC work.
+              </p>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="relative border border-white/15 bg-[#0D1B3E] p-1 shadow-[18px_18px_0_rgba(0,174,239,0.18)]">
+                <div className="absolute -left-3 top-8 hidden h-28 w-3 bg-[#00AEEF] lg:block" />
+                <div className="relative border border-white/10 bg-[#081326] p-5 sm:p-6">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                    <div>
+                      <p className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Revenue Review Worksheet</p>
+                      <p className="mt-1 text-sm font-semibold text-white/65">What you leave with in 30 minutes.</p>
+                    </div>
+                    <span className="flex h-9 w-9 items-center justify-center bg-[#00AEEF] text-sm text-[#0A0A0A]" aria-hidden="true">▶</span>
+                  </div>
+                  <ol className="mt-5 space-y-4">
+                    {[
+                      ["01", "REVENUE LEAKS", "Find the handoffs that need attention first."],
+                      ["02", "READY-BUILT PLAYBOOKS", "Match the systems that fit your operation."],
+                      ["03", "ACTIVATION PATH", "See the team, timing, and support path ahead."],
+                    ].map(([number, title, copy]) => (
+                      <li key={number} className="flex gap-3">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-[#00AEEF] text-xs font-black text-[#0A0A0A]">{number}</span>
+                        <div className="border-l border-white/15 pl-3">
+                          <p className="text-xs font-black uppercase tracking-[0.12em] text-white">{title}</p>
+                          <p className="mt-1 text-xs leading-relaxed text-white/55">{copy}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight mb-6">
-            Leave With a Clearer<br />
-            <span style={{ background: "linear-gradient(135deg, #00AEEF, #1565C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              Revenue Plan.
-            </span>
-          </h1>
-          <p className="text-white/60 text-lg sm:text-xl max-w-2xl mx-auto">
-            In 30 minutes, we will identify the revenue leaks we would address first, map the FEC Playbooks™ that fit your facility, and explain the implementation path.
-          </p>
         </div>
       </section>
 
@@ -90,6 +122,11 @@ export default function BookDemo() {
                       title: "A Practical Implementation Path",
                       desc: "Leave with a clearer view of the rollout steps that apply to your systems and team.",
                     },
+                    {
+                      icon: CheckCircle,
+                      title: "Support Through Activation",
+                      desc: "See the guidance available to help your team turn ready-built playbooks into daily execution.",
+                    },
                   ].map((item) => (
                     <div key={item.title} className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-10 h-10 bg-[#00AEEF]/10 border border-[#00AEEF]/30 rounded-lg flex items-center justify-center">
@@ -105,7 +142,7 @@ export default function BookDemo() {
               </div>
 
               {/* What's Covered */}
-              <div className="bg-[#0D1B3E] border border-white/10 rounded-xl p-6">
+              <div className="border border-white/10 bg-[#0D1B3E] p-6">
                 <h3 className="text-white font-black text-sm uppercase tracking-wide mb-4">
                   We'll Cover
                 </h3>
@@ -114,7 +151,7 @@ export default function BookDemo() {
                     "Your current booking, follow-up, and lead-ownership process",
                     "The revenue playbooks that match your operation",
                     "How FEC Playbook™ works alongside your POS and booking system",
-                    "The rollout path for your team and workflows",
+                    "The support path that gets your playbooks live",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <CheckCircle size={14} className="text-[#00AEEF] flex-shrink-0 mt-0.5" />
@@ -128,7 +165,7 @@ export default function BookDemo() {
 
             {/* Right: Booking Calendar */}
             <div className="lg:col-span-3">
-              <div className="bg-[#0D1B3E] border border-[#00AEEF]/20 rounded-2xl shadow-2xl shadow-[#00AEEF]/5">
+              <div className="border border-[#00AEEF]/20 bg-[#0D1B3E] shadow-[14px_14px_0_rgba(0,174,239,0.1)]">
                 <div className="px-4 sm:px-6 py-4 border-b border-white/10">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     <img src={LOGO_URL} alt="FEC Playbook" className="h-6 sm:h-7 w-auto flex-shrink-0" />
@@ -146,6 +183,28 @@ export default function BookDemo() {
                   />
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Design reminder: make the activation promise specific and physical, using black/white/cyan contrast and angular play-button geometry. */}
+      <section className="relative overflow-hidden bg-white py-20 text-[#0A0A0A] sm:py-24">
+        <div className="absolute right-0 top-0 hidden h-full w-[32%] bg-[#1565C0] [clip-path:polygon(38%_0,100%_0,100%_100%,0_100%)] lg:block" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-3">
+                <span className="h-[3px] w-11 bg-[#00AEEF]" />
+                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#1565C0]">From Review to Activation</span>
+              </div>
+              <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl">You Will Not Be Handed a Login and Left to Build.</h2>
+              <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-[#1E3A5F]/80 sm:text-lg">Your Revenue Review identifies the ready-built systems that matter first. From there, we tailor the playbooks to your facility and guide your team through activation.</p>
+            </div>
+            <div className="border-l-4 border-[#00AEEF] bg-[#0A0A0A] p-6 text-white lg:col-span-5 lg:mr-10">
+              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#00AEEF]">The Support Path</p>
+              <p className="mt-4 text-xl font-black uppercase leading-tight">Ready-Built Systems. FEC-Specific Guidance. Daily Execution.</p>
+              <p className="mt-4 text-sm leading-relaxed text-white/65">Understand the implementation steps, team participation, and support available for your facility before you decide what comes next.</p>
             </div>
           </div>
         </div>

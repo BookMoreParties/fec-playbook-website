@@ -94,9 +94,27 @@ const playbooks = [
 ];
 
 const proofPillars = [
-  { title: "PARTY & EVENT INQUIRIES", copy: "Follow up while intent is high." },
-  { title: "GUEST FOLLOW-UP", copy: "Keep the next visit moving." },
-  { title: "TEAM ACCOUNTABILITY", copy: "Make every revenue task visible." },
+  { title: "PRE-BUILT FOR FECS", copy: "Eight Revenue Playbooks and 100+ automations start ready—not as a blank canvas." },
+  { title: "MADE YOURS", copy: "Your voice, offers, handoffs, and team structure shape the rollout." },
+  { title: "SUPPORTED THROUGH ACTIVATION", copy: "FEC-specific guidance helps your team put the right playbooks into motion." },
+];
+
+const builtSystemBlocks = [
+  {
+    number: "01",
+    title: "Start with a Real Playbook.",
+    copy: "Party inquiries, booking confirmations, review requests, repeat-visit follow-up, team accountability, and more begin with systems already designed for FEC operations.",
+  },
+  {
+    number: "02",
+    title: "Adapt It to Your Venue.",
+    copy: "We align the message, offer, timing, owners, and handoffs with your brand and the systems your team already uses.",
+  },
+  {
+    number: "03",
+    title: "Put It Into Motion With Support.",
+    copy: "Your team gets FEC-specific implementation guidance so the playbooks become part of daily operations—not another login that goes unused.",
+  },
 ];
 
 const integrations = [
@@ -230,12 +248,12 @@ export default function Home() {
                   Run Every Revenue Moment in Your FEC From <span className="text-[#00AEEF]">One Playbook.</span>
                 </h1>
                 <p className="mt-7 max-w-2xl text-base font-medium leading-relaxed text-white/75 sm:text-lg">
-                  FEC Playbook™ helps you turn more party and group inquiries into booked events, automate guest follow-up, protect your reputation, and bring families back more often. It works alongside the POS and booking software your facility already uses.
+                  FEC Playbook™ gives your team a pre-built system for party and group inquiries, guest follow-up, reputation, repeat visits, and accountability. The automations and sequences are already built from FEC operating experience—then adapted to your brand, team, and existing software.
                 </p>
                 <div className="mt-8 flex flex-col items-stretch gap-4 sm:items-start">
                   <PrimaryCta placement="hero" className="w-full sm:w-auto" />
                   <p className="max-w-xl text-sm leading-relaxed text-white/60">
-                    Leave with the revenue leaks we would address first and the playbooks that fit your facility.
+                    See the ready-built playbooks that fit your facility—and the revenue work they take off your team’s plate.
                   </p>
                   <a
                     href="#revenue-playbooks"
@@ -355,6 +373,45 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Design reminder: pre-built system proof uses large stage numbers, angular fields, and play-button geometry—not soft SaaS cards. */}
+        <section id="built-system" className="relative overflow-hidden bg-[#0A0A0A] py-20 sm:py-28">
+          <div className="pointer-events-none absolute -left-16 top-0 h-full w-48 bg-[#1565C0]/30 [clip-path:polygon(0_0,100%_0,45%_100%,0_100%)]" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-10 border-b border-white/15 pb-10 lg:grid-cols-12 lg:items-end">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3">
+                  <span className="h-[3px] w-11 bg-[#00AEEF]" />
+                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Pre-Built by FEC Experience</span>
+                </div>
+                <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl lg:text-6xl">The Revenue System Is Built. <span className="text-[#00AEEF]">Your Brand Makes It Yours.</span></h2>
+              </div>
+              <p className="max-w-xl text-base leading-relaxed text-white/65 lg:col-span-5 lg:justify-self-end">Most software gives your team a set of tools and a blank screen. FEC Playbook™ starts with the revenue workflows, automations, and handoffs already mapped for Family Entertainment Centers. We then tailor the system to the way your facility communicates, sells, and serves families.</p>
+            </div>
+
+            <div className="mt-10 grid gap-4 lg:grid-cols-3">
+              {builtSystemBlocks.map((block, index) => (
+                <article key={block.number} className="relative min-h-80 overflow-hidden border border-white/15 bg-[#0D1B3E] p-6 sm:p-8">
+                  <div className="absolute right-0 top-0 h-24 w-28 bg-[#00AEEF] [clip-path:polygon(56%_0,100%_0,100%_100%,0_100%)]" />
+                  <div className="relative flex h-full flex-col">
+                    <div className="flex items-start justify-between">
+                      <span className="text-7xl font-black leading-none tracking-[-0.08em] text-white/15">{block.number}</span>
+                      <span className="mt-1 flex h-9 w-9 items-center justify-center bg-[#0A0A0A] text-[#00AEEF]" aria-hidden="true">▶</span>
+                    </div>
+                    <h3 className="mt-12 max-w-xs text-2xl font-black uppercase leading-[0.95] tracking-[-0.03em] text-white">{block.title}</h3>
+                    <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">{block.copy}</p>
+                    <p className="mt-auto pt-6 text-[10px] font-black uppercase tracking-[0.16em] text-[#00AEEF]">{index === 0 ? "8 Ready-Built Playbooks" : index === 1 ? "You Bring the Brand" : "FEC-Specific Guidance"}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-col items-start justify-between gap-5 border-t border-white/15 pt-8 sm:flex-row sm:items-center">
+              <p className="max-w-2xl text-lg font-black uppercase leading-tight text-white">You bring the brand. We provide the playbook—and the FEC experience to help your team run it.</p>
+              <PrimaryCta placement="built_system" className="shrink-0" />
+            </div>
+          </div>
+        </section>
+
         {/* Design reminder: product proof is a full-size visual focal point; controls remain functional without hover. */}
         <section id="platform" className="bg-[#0A0A0A] py-20 sm:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -412,9 +469,9 @@ export default function Home() {
                   <span className="h-[3px] w-11 bg-[#00AEEF]" />
                   <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Revenue Playbooks</span>
                 </div>
-                <h2 className="mt-6 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-5xl">Purpose-Built Systems for the Moments That Move Revenue.</h2>
+                <h2 className="mt-6 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-5xl">Eight Ready-Built Playbooks. One Connected Revenue System.</h2>
               </div>
-              <p className="max-w-md text-base leading-relaxed text-white/60">Start with a defined FEC operating moment, then adapt the playbook to your venue, team, and customer journey.</p>
+              <p className="max-w-md text-base leading-relaxed text-white/60">These are not starter templates for your team to build from scratch. Each playbook includes the workflow, automation, ownership, and follow-up structure for a specific revenue moment—then we tailor the details to your venue.</p>
             </div>
 
             <div className="mt-10 grid gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-4">
@@ -428,7 +485,7 @@ export default function Home() {
             </div>
 
             <div className="mt-10 flex flex-col items-start justify-between gap-5 border-t border-white/15 pt-8 sm:flex-row sm:items-center">
-              <p className="max-w-xl text-base font-medium leading-relaxed text-white/75">Every playbook connects to the same operating system, so your team can see what is next and why it matters.</p>
+              <p className="max-w-xl text-base font-medium leading-relaxed text-white/75">You bring the brand. We provide the playbook—and the support to put it to work.</p>
               <PrimaryCta placement="revenue_playbooks" className="shrink-0" />
             </div>
           </div>

@@ -15,3 +15,11 @@
 - [x] Remove numerical social-proof claims while retaining approved testimonials.
 - [x] Make CenterEdge the primary official integration partner and label other integrations as data import options.
 - [x] Preserve the approved 30-minute FEC Revenue Review promise for mixed leadership buyers.
+- [x] Review the revised homepage and booking page against the new pre-built system and support message.
+- [x] Define the clearest content placements and exact copy changes for the value proposition.
+- [x] Deliver a decision-ready recommendation before changing the live website content.
+- [x] Revise the homepage hero and proof strip to explain that the revenue system is pre-built.
+- [x] Add the Playbook Arrives Built section after the FEC Revenue Cycle.
+- [x] Reframe the eight Revenue Playbooks as ready-built FEC operating systems.
+- [x] Add an activation-support message and stronger action-brand proof to the demo booking page.
+- [x] Validate mobile layouts, run the production build, and save a release checkpoint.
