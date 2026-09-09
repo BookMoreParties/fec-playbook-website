@@ -23,3 +23,9 @@
 - [x] Reframe the eight Revenue Playbooks as ready-built FEC operating systems.
 - [x] Add an activation-support message and stronger action-brand proof to the demo booking page.
 - [x] Validate mobile layouts, run the production build, and save a release checkpoint.
+- [x] Inspect the pre-built system section for interaction opportunities across desktop and mobile.
+- [x] Define conversion-safe animation concepts that reinforce ready-built activation.
+- [x] Deliver a prioritized implementation recommendation.
+- [x] Add a one-time, scroll-triggered three-stage assembly sequence with reduced-motion support.
+- [x] Add a cyan activation route that resolves into the Revenue Review CTA.
+- [x] Validate the animations on desktop and mobile, then save a checkpoint.

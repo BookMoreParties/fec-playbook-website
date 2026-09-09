@@ -4,7 +4,7 @@
  * as an intentional action accent, diagonal momentum, oversized stage numbers, and real product proof.
  */
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   CalendarCheck,
@@ -216,6 +216,32 @@ function PrimaryCta({ placement, className = "" }: { placement: string; classNam
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeProof, setActiveProof] = useState(0);
+  const [builtSystemActive, setBuiltSystemActive] = useState(false);
+  const builtSystemRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = builtSystemRef.current;
+    if (!section) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+      setBuiltSystemActive(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBuiltSystemActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.25 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
@@ -374,7 +400,7 @@ export default function Home() {
         </section>
 
         {/* Design reminder: pre-built system proof uses large stage numbers, angular fields, and play-button geometry—not soft SaaS cards. */}
-        <section id="built-system" className="relative overflow-hidden bg-[#0A0A0A] py-20 sm:py-28">
+        <section ref={builtSystemRef} id="built-system" className="relative overflow-hidden bg-[#0A0A0A] py-20 sm:py-28">
           <div className="pointer-events-none absolute -left-16 top-0 h-full w-48 bg-[#1565C0]/30 [clip-path:polygon(0_0,100%_0,45%_100%,0_100%)]" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 border-b border-white/15 pb-10 lg:grid-cols-12 lg:items-end">
@@ -390,12 +416,16 @@ export default function Home() {
 
             <div className="mt-10 grid gap-4 lg:grid-cols-3">
               {builtSystemBlocks.map((block, index) => (
-                <article key={block.number} className="relative min-h-80 overflow-hidden border border-white/15 bg-[#0D1B3E] p-6 sm:p-8">
+                <article
+                  key={block.number}
+                  className={`relative min-h-80 overflow-hidden border border-white/15 bg-[#0D1B3E] p-6 transition-[opacity,transform,box-shadow] duration-500 ease-out motion-reduce:translate-x-0 motion-reduce:opacity-100 motion-reduce:transition-none sm:p-8 ${builtSystemActive ? "translate-x-0 opacity-100 shadow-[10px_10px_0_rgba(0,174,239,0.12)]" : "translate-x-8 opacity-0"}`}
+                  style={{ transitionDelay: builtSystemActive ? `${index * 190}ms` : "0ms" }}
+                >
                   <div className="absolute right-0 top-0 h-24 w-28 bg-[#00AEEF] [clip-path:polygon(56%_0,100%_0,100%_100%,0_100%)]" />
                   <div className="relative flex h-full flex-col">
                     <div className="flex items-start justify-between">
                       <span className="text-7xl font-black leading-none tracking-[-0.08em] text-white/15">{block.number}</span>
-                      <span className="mt-1 flex h-9 w-9 items-center justify-center bg-[#0A0A0A] text-[#00AEEF]" aria-hidden="true">▶</span>
+                      <span className={`mt-1 flex h-9 w-9 items-center justify-center bg-[#0A0A0A] text-[#00AEEF] transition-all duration-300 motion-reduce:scale-100 motion-reduce:transition-none ${builtSystemActive ? "scale-100 opacity-100" : "scale-75 opacity-0"}`} style={{ transitionDelay: builtSystemActive ? `${index * 190 + 170}ms` : "0ms" }} aria-hidden="true">▶</span>
                     </div>
                     <h3 className="mt-12 max-w-xs text-2xl font-black uppercase leading-[0.95] tracking-[-0.03em] text-white">{block.title}</h3>
                     <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">{block.copy}</p>
@@ -405,9 +435,19 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-10 flex flex-col items-start justify-between gap-5 border-t border-white/15 pt-8 sm:flex-row sm:items-center">
+            <div className="mt-10 border-t border-white/15 pt-8">
               <p className="max-w-2xl text-lg font-black uppercase leading-tight text-white">You bring the brand. We provide the playbook—and the FEC experience to help your team run it.</p>
-              <PrimaryCta placement="built_system" className="shrink-0" />
+              <div className="mt-6 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+                <div className="hidden h-7 flex-1 items-center sm:flex" aria-hidden="true">
+                  <div className={`h-px w-full origin-left bg-[#00AEEF] transition-transform duration-700 ease-out motion-reduce:scale-x-100 motion-reduce:transition-none ${builtSystemActive ? "scale-x-100" : "scale-x-0"}`} style={{ transitionDelay: builtSystemActive ? "690ms" : "0ms" }} />
+                  <span className={`-ml-1 flex h-7 w-7 items-center justify-center bg-[#00AEEF] text-[10px] text-[#0A0A0A] transition-all duration-300 motion-reduce:translate-x-0 motion-reduce:opacity-100 motion-reduce:transition-none ${builtSystemActive ? "translate-x-0 opacity-100" : "-translate-x-3 opacity-0"}`} style={{ transitionDelay: builtSystemActive ? "1290ms" : "0ms" }}>▶</span>
+                </div>
+                <div className="flex items-center gap-3 sm:hidden" aria-hidden="true">
+                  <div className={`h-8 w-px origin-top bg-[#00AEEF] transition-transform duration-500 motion-reduce:scale-y-100 motion-reduce:transition-none ${builtSystemActive ? "scale-y-100" : "scale-y-0"}`} />
+                  <span className={`flex h-7 w-7 items-center justify-center bg-[#00AEEF] text-[10px] text-[#0A0A0A] transition-all duration-300 motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${builtSystemActive ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"}`} style={{ transitionDelay: builtSystemActive ? "690ms" : "0ms" }}>▶</span>
+                </div>
+                <PrimaryCta placement="built_system" className="shrink-0" />
+              </div>
             </div>
           </div>
         </section>
