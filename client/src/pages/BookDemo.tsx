@@ -6,13 +6,48 @@
  */
 
 import { useEffect } from "react";
-import { CheckCircle, ClipboardCheck, Map, Target } from "lucide-react";
+import { ArrowDown, CheckCircle, ClipboardCheck, Map, Target, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOMeta from "@/components/SEOMeta";
+import StructuredData from "@/components/StructuredData";
 import { trackEvent } from "@/lib/analytics";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
+
+const bookDemoFaqs = [
+  {
+    q: "What happens in a 30-Minute FEC Revenue Review?",
+    a: "The review identifies the revenue handoffs that deserve attention, maps the ready-built Revenue Playbooks that fit your facility, and outlines a practical activation path for your team.",
+  },
+  {
+    q: "Who should attend?",
+    a: "Bring the people who own party, group, guest follow-up, or operating decisions. Owner/operators, general managers, and sales or marketing leaders commonly join.",
+  },
+  {
+    q: "Do I need to prepare anything?",
+    a: "No preparation is required. Bring your current tools if you want a more specific conversation, but the review is designed to give you a clear starting point either way.",
+  },
+];
+
+const bookDemoFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: bookDemoFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
+const bookDemoBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fecplaybook.com/" },
+    { "@type": "ListItem", position: 2, name: "Book a Revenue Review", item: "https://www.fecplaybook.com/book-a-demo" },
+  ],
+};
 
 export default function BookDemo() {
   // Load GHL booking embed script
@@ -35,6 +70,7 @@ export default function BookDemo() {
         description="Schedule a 30-minute FEC Revenue Review with FEC Playbook™. Identify the revenue leaks to address first, map the playbooks that fit your facility, and understand your implementation path."
         path="/book-a-demo"
       />
+      <StructuredData data={[bookDemoFaqSchema, bookDemoBreadcrumbSchema]} />
       <Navigation />
 
       {/* Design reminder: left-led action hero, with a proprietary-feeling visual proof object rather than a centered SaaS headline. */}
@@ -58,6 +94,9 @@ export default function BookDemo() {
               <p className="mt-7 max-w-xl border-l-4 border-[#00AEEF] pl-4 text-sm font-black uppercase leading-relaxed tracking-[0.08em] text-white">
                 You are not buying a blank system to build inside. You are reviewing the playbook already built for FEC work.
               </p>
+              <a href="#scheduling" className="mt-7 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#00AEEF] transition-all hover:gap-3">
+                Ready to choose a time? Skip to scheduling <ArrowDown size={16} />
+              </a>
             </div>
 
             <div className="lg:col-span-5">
@@ -115,7 +154,7 @@ export default function BookDemo() {
                     {
                       icon: Map,
                       title: "The Playbooks That Fit Your Facility",
-                      desc: "We will map the FEC Playbooks™ to the practical work your team needs to manage.",
+                      desc: "We will map the ready-built Revenue Playbooks to the practical work your team needs to manage.",
                     },
                     {
                       icon: ClipboardCheck,
@@ -150,7 +189,7 @@ export default function BookDemo() {
                   {[
                     "Your current booking, follow-up, and lead-ownership process",
                     "The revenue playbooks that match your operation",
-                    "How FEC Playbook™ works alongside your POS and booking system",
+                    "How FEC Playbook™ works alongside your current operating systems",
                     "The support path that gets your playbooks live",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
@@ -164,13 +203,17 @@ export default function BookDemo() {
             </div>
 
             {/* Right: Booking Calendar */}
-            <div className="lg:col-span-3">
+            <div id="scheduling" className="lg:col-span-3 scroll-mt-28">
               <div className="border border-[#00AEEF]/20 bg-[#0D1B3E] shadow-[14px_14px_0_rgba(0,174,239,0.1)]">
                 <div className="px-4 sm:px-6 py-4 border-b border-white/10">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     <img src={LOGO_URL} alt="FEC Playbook" className="h-6 sm:h-7 w-auto flex-shrink-0" />
                     <div className="h-4 w-px bg-white/20 flex-shrink-0" />
                     <p className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">30-Minute FEC Revenue Review</p>
+                  </div>
+                  <div className="mt-4 grid gap-3 border-t border-white/10 pt-4 sm:grid-cols-2">
+                    <p className="flex gap-2 text-xs leading-relaxed text-white/65"><Users size={14} className="mt-0.5 flex-none text-[#00AEEF]" />Bring the people who own party, group, guest follow-up, or operating decisions.</p>
+                    <p className="flex gap-2 text-xs leading-relaxed text-white/65"><CheckCircle size={14} className="mt-0.5 flex-none text-[#00AEEF]" />No preparation required. Bring your current tools if you want a more specific conversation.</p>
                   </div>
                 </div>
                 <div className="p-2">
@@ -216,25 +259,8 @@ export default function BookDemo() {
           <h2 className="text-2xl font-black uppercase text-center mb-10">
             Common <span className="text-[#00AEEF]">Questions</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                q: "Do I need to prepare anything?",
-                a: "No preparation needed. Just show up. It helps to have a rough idea of your monthly lead volume and current tools, but it's not required.",
-              },
-              {
-                q: "Is this a sales call?",
-                a: "It is a 30-minute FEC Revenue Review. We will focus on the revenue work that needs attention, the playbooks that fit your operation, and a practical implementation path.",
-              },
-              {
-                q: "How soon can I get started after the call?",
-                a: "We will outline the implementation steps for your facility during the review. Timing depends on your current systems, messaging requirements, and team readiness.",
-              },
-              {
-                q: "What if I'm already using another CRM?",
-                a: "We will review your current setup and show how FEC Playbook™ works alongside the POS and booking software your team already relies on.",
-              },
-            ].map((faq) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {bookDemoFaqs.map((faq) => (
               <div key={faq.q} className="bg-[#0A0A0A] border border-white/10 rounded-xl p-5">
                 <h3 className="text-white font-bold text-sm mb-2">{faq.q}</h3>
                 <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>

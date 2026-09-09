@@ -8,17 +8,25 @@
 
 import { Star, CheckCircle, Mail } from "lucide-react";
 import Footer from "@/components/Footer";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
 const DASHBOARD_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663337094674/5hTiQqbDpyu7utReXppjD4/fec_playbook_onboarding_dashboard-6JW3ncWwrWAoXKf5ihbY7m.webp";
 
 export default function CalThankYou() {
+  const bookingType = useMemo(() => new URLSearchParams(window.location.search).get("type"), []);
   const name = useMemo(() => {
     const params = new URLSearchParams(window.location.search);
     const raw = params.get("name")?.trim();
     return raw && raw.length > 0 ? raw : null;
   }, []);
+
+  useEffect(() => {
+    if (bookingType === "revenue-review") {
+      trackEvent("revenue_review_scheduled", { source: "calendar_confirmation" });
+    }
+  }, [bookingType]);
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white flex flex-col" style={{ fontFamily: "'Montserrat', sans-serif" }}>

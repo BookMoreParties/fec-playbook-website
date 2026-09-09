@@ -29,3 +29,12 @@
 - [x] Add a one-time, scroll-triggered three-stage assembly sequence with reduced-motion support.
 - [x] Add a cyan activation route that resolves into the Revenue Review CTA.
 - [x] Validate the animations on desktop and mobile, then save a checkpoint.
+- [x] Inventory the navigation-linked pages and their primary conversion actions.
+- [x] Audit Features, How It Works, Playbook, and Book a Revenue Review for message, SEO, and AI-discovery alignment.
+- [x] Review desktop and mobile consistency against the action-led FEC Playbook™ visual system.
+- [x] Deliver a prioritized cross-page improvement roadmap before making additional website changes.
+- [x] Rebuild the Playbook page around the canonical eight Revenue Playbooks and activation support.
+- [x] Restructure Features around the thirteen Core Modules and clarify what arrives ready.
+- [x] Refine How It Works around activation stages and source-aware data language.
+- [x] Reduce Revenue Review scheduling friction and add visible, valid FAQ support on public conversion pages.
+- [x] Refresh public sitemap dates, validate desktop/mobile behavior, run production checks, and save a checkpoint.

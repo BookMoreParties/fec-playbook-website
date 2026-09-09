@@ -1,544 +1,305 @@
 /**
- * FEC Playbook™ — Features Page
- * Design: Bold Sports/Action Brand — dark navy/black bg, FEC Cyan (#00AEEF) + Cobalt Blue (#1565C0) accents
- * Montserrat Black headings, clean feature cards with icons, gradient accents, high contrast
+ * FEC Playbook™ — Core Modules
+ * Design: Action-led black/white/cyan system with angular groupings and clear operating outcomes.
  */
 
-import { Link } from "wouter";
-import { Phone, Mail, MessageSquare, Globe, Filter, GitBranch, Send, Share2, BarChart2, Bot, Star, Gift, Zap, ArrowRight, CheckCircle, Users, Calendar, TrendingUp, Eye, HeartHandshake, ClipboardList } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Bot,
+  Calendar,
+  CheckCircle2,
+  ClipboardList,
+  Eye,
+  Gift,
+  GitBranch,
+  Globe,
+  HeartHandshake,
+  Mail,
+  MessageSquare,
+  Phone,
+  Play,
+  Send,
+  Share2,
+  Star,
+  Users,
+  Zap,
+} from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOMeta from "@/components/SEOMeta";
+import StructuredData from "@/components/StructuredData";
 
-const BOOKING_URL = "/book-a-demo";
-
-const features = [
+const coreModules = [
   {
-    id: "01",
+    number: "01",
+    lane: "Capture & Convert",
     icon: MessageSquare,
     title: "Unified Inbox",
-    subtitle: "Every Conversation. One Place.",
-    color: "#00AEEF",
-    gradient: "from-[#00AEEF]/20 to-[#00AEEF]/5",
-    border: "border-[#00AEEF]/30",
-    description:
-      "Conversational and automated SMS, Email, webchat, and social DMs all in one unified inbox. Your team never misses a lead, booking inquiry, or customer message — regardless of where it came from.",
-    bullets: [
-      "Two-way SMS & MMS conversations",
-      "Email inbox with full thread history",
-      "Facebook & Instagram DM integration",
-      "Live website chat widget",
-      "Google Business Messages",
-      "Team assignment & internal notes",
-    ],
-    tag: "Communication Hub",
+    summary: "Keep guest questions, booking inquiries, and team follow-through in one visible conversation space.",
+    ready: ["Conversation routing", "Ownership rules", "Internal notes and history", "Follow-up prompts"],
+    capabilities: ["Two-way SMS and email", "Website chat", "Social direct messages", "Team assignments"],
   },
   {
-    id: "02",
+    number: "02",
+    lane: "Capture & Convert",
     icon: Globe,
-    title: "Website Form Builder & Funnel Page Builder",
-    subtitle: "Capture Leads. Convert Visitors.",
-    color: "#1565C0",
-    gradient: "from-[#1565C0]/20 to-[#1565C0]/5",
-    border: "border-[#1565C0]/30",
-    description:
-      "Create custom landing pages and build forms that put contacts directly into the platform. No third-party tools needed — design high-converting party inquiry pages, group event funnels, and membership sign-up flows all in one place.",
-    bullets: [
-      "Drag-and-drop landing page builder",
-      "Custom form builder with conditional logic",
-      "Contacts auto-populate into CRM",
-      "Birthday party inquiry funnels",
-      "Group & corporate event landing pages",
-      "A/B testing for page variants",
-    ],
-    tag: "Lead Capture",
+    title: "Forms & Funnel Pages",
+    summary: "Turn party, group, and event interest into structured information your team can act on.",
+    ready: ["Inquiry capture paths", "Contact creation", "Follow-up triggers", "Ownership handoff"],
+    capabilities: ["Landing-page builder", "Conditional forms", "Party inquiry flows", "Group event intake"],
   },
   {
-    id: "03",
+    number: "03",
+    lane: "Capture & Convert",
     icon: GitBranch,
-    title: "Sales Pipeline & Customer Journey Management",
-    subtitle: "From Inquiry to Rebook.",
-    color: "#00AEEF",
-    gradient: "from-[#00AEEF]/20 to-[#00AEEF]/5",
-    border: "border-[#00AEEF]/30",
-    description:
-      "Manage your party and event sales with visual kanban pipelines built specifically for FEC workflows. Track every birthday party, group booking, and corporate event from first inquiry through fulfillment and follow-up.",
-    bullets: [
-      "Pre-built birthday party pipeline",
-      "Group & corporate event pipeline",
-      "Drag-and-drop opportunity management",
-      "Automated stage-based follow-ups",
-      "Revenue forecasting by pipeline",
-      "Integration with ROLLER, PartyWirks & more",
-    ],
-    tag: "Sales Management",
+    title: "Sales Pipeline",
+    summary: "Give party, group, and event opportunities a defined route from first inquiry to the next team action.",
+    ready: ["Stage definitions", "Ownership routing", "Reminder logic", "Next-step visibility"],
+    capabilities: ["Visual opportunity management", "Group event pipelines", "Party sales stages", "Revenue reporting"],
   },
   {
-    id: "04",
+    number: "04",
+    lane: "Communicate & Return",
     icon: Mail,
-    title: "Automated Email Marketing",
-    subtitle: "Set It. Let It Run.",
-    color: "#1565C0",
-    gradient: "from-[#1565C0]/20 to-[#1565C0]/5",
-    border: "border-[#1565C0]/30",
-    description:
-      "30/60/90-day bounce-back campaigns, birthday drip sequences, and post-visit nurture flows — all pre-built and ready to deploy. Import your existing email templates with ease and customize them to match your brand.",
-    bullets: [
-      "30/60/90-day bounce-back automation",
-      "Birthday drip campaign sequences",
-      "Post-visit follow-up flows",
-      "Import existing email templates",
-      "Drag-and-drop email builder",
-      "Open/click rate reporting",
-    ],
-    tag: "Email Automation",
+    title: "Email Marketing",
+    summary: "Activate ready-built email sequences for celebrations, guest follow-up, return visits, and seasonal offers.",
+    ready: ["Sequence timing", "Audience rules", "Follow-up logic", "Brand-ready message structure"],
+    capabilities: ["Email builder", "Post-visit follow-through", "Birthday messaging", "Engagement reporting"],
   },
   {
-    id: "05",
+    number: "05",
+    lane: "Communicate & Return",
     icon: Share2,
     title: "Social Media Planner",
-    subtitle: "Plan. Post. Automate.",
-    color: "#00AEEF",
-    gradient: "from-[#00AEEF]/20 to-[#00AEEF]/5",
-    border: "border-[#00AEEF]/30",
-    description:
-      "Pre-plan your social posts, Reels, and Stories across all platforms from one calendar. Automate your first comment with each post, manage and automate comment replies, and keep your social presence consistent without the daily grind.",
-    bullets: [
-      "Multi-platform post scheduling",
-      "Instagram Reels & Stories support",
-      "Auto first-comment on every post",
-      "Automated comment reply rules",
-      "Content calendar view",
-      "Facebook & Instagram management",
-    ],
-    tag: "Social Media",
+    summary: "Plan social communication around your venue calendar rather than relying on last-minute posting.",
+    ready: ["Content planning rhythm", "Campaign alignment", "Posting checkpoints", "Response workflows"],
+    capabilities: ["Multi-platform scheduling", "Calendar view", "Facebook and Instagram management", "Comment-response rules"],
   },
   {
-    id: "06",
-    icon: BarChart2,
-    title: "Social Media Ads Manager",
-    subtitle: "Run Ads. Track Results.",
-    color: "#1565C0",
-    gradient: "from-[#1565C0]/20 to-[#1565C0]/5",
-    border: "border-[#1565C0]/30",
-    description:
-      "Create and manage your Meta, Google, and LinkedIn ads directly within FEC Playbook™. No more switching between ad platforms — build campaigns, set budgets, and track performance all from one dashboard.",
-    bullets: [
-      "Meta (Facebook & Instagram) Ads",
-      "Google Ads campaign management",
-      "LinkedIn Ads integration",
-      "Lead form ad integration",
-      "Campaign performance dashboard",
-      "Budget and spend tracking",
-    ],
-    tag: "Paid Advertising",
+    number: "06",
+    lane: "Manage & Improve",
+    icon: BarChart3,
+    title: "Ads Manager",
+    summary: "Bring campaign activity, lead capture, and performance visibility closer to the revenue systems they support.",
+    ready: ["Lead handoff paths", "Campaign tracking structure", "Audience logic", "Performance checkpoints"],
+    capabilities: ["Meta campaign support", "Google campaign support", "Lead form routing", "Budget visibility"],
   },
   {
-    id: "07",
+    number: "07",
+    lane: "Communicate & Return",
     icon: Bot,
-    title: "AI Voice & Chat Bots",
-    subtitle: "Always On. Always Answering.",
-    color: "#00AEEF",
-    gradient: "from-[#00AEEF]/20 to-[#00AEEF]/5",
-    border: "border-[#00AEEF]/30",
-    description:
-      "Use AI voice assistants to answer calls, provide basic information, and transfer calls to your team. Deploy AI chat on your website so customers get instant answers from your center's knowledgebase — 24/7, no staff required.",
-    bullets: [
-      "AI voice assistant for inbound calls",
-      "Call transfer to live staff",
-      "Website AI chat widget",
-      "Custom knowledgebase training",
-      "FAQ automation",
-      "After-hours coverage",
-    ],
-    tag: "AI Automation",
+    title: "AI Voice & Chat",
+    summary: "Give guests a clear path to basic information and your team a better handoff for questions that need a person.",
+    ready: ["Knowledge-base structure", "After-hours response logic", "Escalation paths", "Team transfer rules"],
+    capabilities: ["Website chat", "Inbound call support", "FAQ responses", "Live-staff transfer"],
   },
   {
-    id: "08",
+    number: "08",
+    lane: "Communicate & Return",
     icon: Star,
-    title: "Reviews Manager",
-    subtitle: "More Stars. Less Effort.",
-    color: "#1565C0",
-    gradient: "from-[#1565C0]/20 to-[#1565C0]/5",
-    border: "border-[#1565C0]/30",
-    description:
-      "Automatically request and respond to Google reviews after every visit. Smart routing encourages guests who had a great time to leave a public review, while guests with concerns are directed to send private feedback instead — protecting your reputation.",
-    bullets: [
-      "Automated post-visit review requests",
-      "Smart routing: happy guests → Google",
-      "Unhappy guests → private feedback",
-      "AI-powered review response drafts",
-      "Review performance dashboard",
-      "Google Business Profile integration",
-    ],
-    tag: "Reputation Management",
+    title: "Reputation Management",
+    summary: "Create a consistent process for collecting guest feedback and directing the right response to the right person.",
+    ready: ["Review-request timing", "Feedback routing", "Response workflows", "Experience trend visibility"],
+    capabilities: ["Guest feedback collection", "Review monitoring", "Response drafts", "Google Business Profile support"],
   },
   {
-    id: "09",
+    number: "09",
+    lane: "Communicate & Return",
     icon: Gift,
-    title: "Loyalty Programs & Text Club",
-    subtitle: "Reward Visits. Drive Rebooking.",
-    color: "#00AEEF",
-    gradient: "from-[#00AEEF]/20 to-[#00AEEF]/5",
-    border: "border-[#00AEEF]/30",
-    description:
-      "Automatically provide rewards based on frequency of visits and encourage repeat visits via Text Club. Build a permission-based SMS subscriber list and send targeted offers, birthday specials, and event announcements directly to guests' phones.",
-    bullets: [
-      "Visit-frequency based rewards",
-      "Text Club opt-in keyword campaigns",
-      "Targeted SMS offer broadcasts",
-      "Birthday month special automations",
-      "Seasonal promotion campaigns",
-      "Subscriber list growth tools",
-    ],
-    tag: "Loyalty & Retention",
+    title: "Loyalty & Text Club",
+    summary: "Give repeat visits, membership engagement, and promotions a permission-based communication system.",
+    ready: ["Subscriber pathways", "Audience grouping", "Offer timing", "Return-visit campaigns"],
+    capabilities: ["Text Club growth", "Targeted offers", "Birthday specials", "Seasonal campaigns"],
   },
   {
-    id: "10",
+    number: "10",
+    lane: "Manage & Improve",
     icon: Eye,
-    title: "Website Pixel & Behavioral Tracking",
-    subtitle: "Know What Guests Are Looking At.",
-    color: "#1565C0",
-    gradient: "from-[#1565C0]/20 to-[#1565C0]/5",
-    border: "border-[#1565C0]/30",
-    description:
-      "Track guest page visits and trigger smart automations based on browsing behavior. If a guest books a birthday party but also visits your groups page, automatically send them a nudge about your group offerings — turning passive browsers into active buyers.",
-    bullets: [
-      "Page visit tracking pixel",
-      "Behavior-triggered automations",
-      "Cross-sell based on browsing",
-      "Contact-level page history",
-      "Retargeting audience building",
-      "Anonymous visitor identification",
-    ],
-    tag: "Smart Tracking",
+    title: "Behavioral Tracking",
+    summary: "Use guest interest and browsing activity to inform relevant follow-through instead of treating every contact the same.",
+    ready: ["Interest signals", "Behavior triggers", "Audience logic", "Follow-up paths"],
+    capabilities: ["Page-visit tracking", "Cross-sell prompts", "Contact history", "Retargeting audiences"],
   },
   {
-    id: "11",
+    number: "11",
+    lane: "Capture & Convert",
     icon: HeartHandshake,
-    title: "Donation Request Management",
-    subtitle: "Turn Donation Asks Into Revenue Opportunities.",
-    color: "#00AEEF",
-    gradient: "from-[#00AEEF]/20 to-[#00AEEF]/5",
-    border: "border-[#00AEEF]/30",
-    description:
-      "Every donation request that hits your inbox is a warm lead for a fundraiser event or group booking. FEC Playbook™ automatically routes incoming donation requests into a managed pipeline — so your team can respond fast, qualify the opportunity, and convert it into a paid fundraiser night or group event instead of a free giveaway.",
-    bullets: [
-      "Dedicated donation request intake pipeline",
-      "Automated acknowledgment & qualification sequence",
-      "Convert requests into fundraiser event proposals",
-      "Group event upsell automation for non-profits & schools",
-      "Follow-up sequences for unresponsive requestors",
-      "Track conversion rate from request to booked event",
-    ],
-    tag: "Fundraiser & Group Sales",
+    title: "Donation & Fundraiser Requests",
+    summary: "Give community requests a managed route that can support both guest goodwill and group-event opportunity.",
+    ready: ["Request intake", "Qualification sequence", "Ownership routing", "Follow-up checkpoints"],
+    capabilities: ["Donation-request pipeline", "Fundraiser follow-up", "School and nonprofit outreach", "Proposal tracking"],
   },
   {
-    id: "12",
+    number: "12",
+    lane: "Manage & Improve",
     icon: ClipboardList,
-    title: "Hiring Pipeline Management",
-    subtitle: "Hire Smarter. Staff Better. Stop Guessing.",
-    color: "#1565C0",
-    gradient: "from-[#1565C0]/20 to-[#1565C0]/5",
-    border: "border-[#1565C0]/30",
-    description:
-      "Stop wasting time interviewing the wrong people. FEC Playbook™'s hiring pipeline manages your entire applicant flow — from application intake through auditions and interviews — and integrates with our partner Ferret Personality to automatically filter candidates into the roles they're best suited for based on their personality profile. Only the right-fit applicants make it to your interview chair.",
-    bullets: [
-      "Applicant intake pipeline with automated acknowledgment",
-      "Ferret Personality integration for role-fit filtering",
-      "Automated audition & interview scheduling",
-      "Stage-based applicant progression tracking",
-      "Disqualify & archive non-fitting candidates automatically",
-      "Offer letter & onboarding sequence automation",
-    ],
-    tag: "Hiring & Staffing",
-    partnerNote: "Powered in partnership with Ferret Personality",
+    title: "Hiring & Staffing",
+    summary: "Organize applicant progress, interview communication, and onboarding follow-through around your team process.",
+    ready: ["Applicant pathways", "Acknowledgment messages", "Interview timing", "Onboarding sequences"],
+    capabilities: ["Applicant intake", "Stage tracking", "Interview scheduling", "Role-fit support"],
   },
   {
-    id: "13",
-    icon: Users,
-    title: "100+ Prebuilt FEC-Specific Systems",
-    subtitle: "Built for Your Business. Ready on Day One.",
-    color: "#00AEEF",
-    gradient: "from-[#00AEEF]/20 to-[#00AEEF]/5",
-    border: "border-[#00AEEF]/30",
-    description:
-      "Every automation, workflow, email sequence, and pipeline was built by FEC operators who know exactly how your business runs. Not generic templates — these are real systems tested in real Family Entertainment Centers.",
-    bullets: [
-      "Birthday party inquiry to fulfillment",
-      "Group & corporate event workflows",
-      "Membership & season pass campaigns",
-      "School & field trip outreach sequences",
-      "Fundraising & community programs",
-      "Text Club offer campaigns",
-    ],
-    tag: "Pre-Built Systems",
+    number: "13",
+    lane: "Manage & Improve",
+    icon: Zap,
+    title: "Automation Engine",
+    summary: "Power the handoffs, reminders, sequences, and follow-through inside every FEC Revenue Playbook.",
+    ready: ["100+ FEC-specific automations", "Trigger and timing logic", "Ownership handoffs", "Next-action prompts"],
+    capabilities: ["Party workflows", "Group-event follow-through", "Bounce-back sequences", "Operational reminders"],
   },
 ];
 
-const additionalCapabilities = [
-  { icon: Calendar, label: "Appointment & Calendar Booking" },
-  { icon: TrendingUp, label: "Revenue & Reporting Dashboards" },
-  { icon: Phone, label: "Call Tracking & Recording" },
-  { icon: Send, label: "SMS Broadcast Campaigns" },
-  { icon: Zap, label: "Trigger-Based Automations" },
-  { icon: Users, label: "Contact CRM & Segmentation" },
+const moduleLanes = [
+  {
+    number: "01",
+    title: "Capture & Convert",
+    outcome: "Turn every inquiry, request, and conversation into a visible next step.",
+    modules: ["Unified Inbox", "Forms & Funnel Pages", "Sales Pipeline", "Donation & Fundraiser Requests"],
+  },
+  {
+    number: "02",
+    title: "Communicate & Return",
+    outcome: "Keep guests engaged before, during, and after the moments that matter.",
+    modules: ["Email Marketing", "Social Media Planner", "AI Voice & Chat", "Reputation Management", "Loyalty & Text Club"],
+  },
+  {
+    number: "03",
+    title: "Manage & Improve",
+    outcome: "Give your team connected visibility, automation, and operational control.",
+    modules: ["Ads Manager", "Behavioral Tracking", "Hiring & Staffing", "Automation Engine"],
+  },
 ];
+
+const featureFaqs = [
+  {
+    question: "What does FEC software include?",
+    answer: "FEC Playbook™ includes 13 connected Core Modules for lead capture, conversations, pipelines, email, text, guest follow-through, reputation, reporting, and more. Those capabilities power eight Revenue Playbooks and 100+ ready-to-activate automations built for Family Entertainment Center operations.",
+  },
+  {
+    question: "Are the automations already built?",
+    answer: "Yes. FEC Playbook™ starts with ready-built workflow logic, timing, ownership, triggers, and follow-up for common FEC revenue moments. Your venue then tailors the brand voice, offers, policies, team roles, and available data sources during activation.",
+  },
+  {
+    question: "Can FEC Playbook™ work with an existing POS or booking system?",
+    answer: "CenterEdge is the official partner. Other supported systems may be connected through the appropriate data-import path, confirmed during your 30-Minute FEC Revenue Review. FEC Playbook™ is designed to run alongside your operating systems rather than require a rip-and-replace decision.",
+  },
+];
+
+const featureFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: featureFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+const featureBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fecplaybook.com/" },
+    { "@type": "ListItem", position: 2, name: "Core Modules", item: "https://www.fecplaybook.com/features" },
+  ],
+};
 
 export default function Features() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
+    <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
-        title="Platform Features — Automation, CRM & SMS for Family Entertainment Centers"
-        description="Explore FEC Playbook™'s full platform: unified inbox, birthday automation, text clubs, reputation management, pipelines, and 100+ pre-built workflows built for FECs."
+        title="13 Core Modules for Family Entertainment Centers"
+        description="Explore the 13 Core Modules behind FEC Playbook™'s eight Revenue Playbooks and 100+ pre-built automations for Family Entertainment Center operations."
         path="/features"
       />
+      <StructuredData data={[featureFaqSchema, featureBreadcrumbSchema]} />
       <Navigation />
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#0D1B2A] to-[#0A0A0A]" />
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `radial-gradient(circle at 25% 50%, #00AEEF 0%, transparent 50%), radial-gradient(circle at 75% 50%, #1565C0 0%, transparent 50%)`,
-          }}
-        />
-        {/* Circuit grid */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `linear-gradient(#00AEEF 1px, transparent 1px), linear-gradient(90deg, #00AEEF 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#00AEEF]/10 border border-[#00AEEF]/30 rounded-full px-4 py-2 mb-6">
-            <Zap className="w-4 h-4 text-[#00AEEF]" />
-            <span className="text-[#00AEEF] text-sm font-bold uppercase tracking-widest">Platform Features</span>
-          </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-none mb-6 text-white">
-            EVERYTHING YOUR<br />
-            <span style={{ color: "#00AEEF" }}>FEC NEEDS.</span><br />
-            NOTHING IT DOESN'T.
-          </h1>
-          <p className="text-white/70 text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
-            FEC Playbook™ is a complete operating system — not a collection of disconnected tools. Every feature below is included in your subscription, pre-configured for Family Entertainment Centers, and ready to run from day one.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={BOOKING_URL}
-              className="inline-flex items-center justify-center gap-2 bg-[#00AEEF] hover:bg-[#0099D6] text-white font-black uppercase tracking-wider px-8 py-4 rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(0,174,239,0.4)]"
-            >
-              <Phone className="w-5 h-5" />
-              Book a 30-Minute FEC Revenue Review
-            </a>
-            <Link
-              href="/playbook"
-              className="inline-flex items-center justify-center gap-2 border border-white/20 hover:border-[#00AEEF]/50 text-white font-bold uppercase tracking-wider px-8 py-4 rounded-lg transition-all duration-200"
-            >
-              See the Playbooks
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* Feature count bar */}
-      <section className="bg-[#00AEEF] py-5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-            {[
-              { value: "13", label: "Core Modules" },
-              { value: "100+", label: "Pre-Built Automations" },
-              { value: "1", label: "Login. One Platform." },
-              { value: "0", label: "Extra Tools Needed" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-3xl font-black text-white">{stat.value}</div>
-                <div className="text-white/80 text-sm font-semibold uppercase tracking-wide">{stat.label}</div>
+      <main>
+        <section className="relative overflow-hidden border-b border-white/10 pt-32 pb-20 sm:pt-40 sm:pb-28">
+          <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(112deg, transparent 0 48%, #00AEEF 48.1% 48.25%, transparent 48.4% 100%), linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px)", backgroundSize: "100% 100%, 54px 54px" }} />
+          <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_.8fr] lg:items-end lg:px-8">
+            <div className="max-w-4xl">
+              <div className="mb-7 flex items-center gap-3 text-[#00AEEF]"><span className="flex h-8 w-8 items-center justify-center bg-[#00AEEF] text-[#0A0A0A]"><Play className="ml-0.5" size={14} fill="currentColor" /></span><span className="h-px w-8 bg-[#00AEEF]" /><span className="text-xs font-black uppercase tracking-[0.22em]">The capability layer</span></div>
+              <h1 className="text-5xl font-black uppercase leading-[0.88] tracking-[-0.055em] sm:text-6xl lg:text-8xl">13 Core Modules.<span className="block text-[#00AEEF]">One FEC Revenue</span>System.</h1>
+              <p className="mt-8 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">These are the connected capabilities behind FEC Playbook™'s ready-built Revenue Playbooks. Modules provide the tools. Playbooks provide the operating sequence. More than 100 automations provide the triggers, handoffs, and follow-through your team does not have to build from scratch.</p>
+              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+                <a href="/book-a-demo" className="fec-btn-primary px-7 py-4 text-sm"><Phone size={18} />Book a 30-Minute FEC Revenue Review</a>
+                <a href="#module-map" className="inline-flex items-center gap-2 px-2 text-sm font-black uppercase tracking-wide text-white/70 transition-colors hover:text-[#00AEEF]">See the module map <ArrowRight size={16} /></a>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              const isEven = index % 2 === 0;
-              return (
-                <div
-                  key={feature.id}
-                  className={`relative rounded-2xl border ${feature.border} bg-gradient-to-br ${feature.gradient} overflow-hidden`}
-                >
-                  {/* Number watermark */}
-                  <div
-                    className="absolute top-4 right-6 text-8xl font-black opacity-10 leading-none select-none"
-                    style={{ color: feature.color }}
-                  >
-                    {feature.id}
-                  </div>
-
-                  <div className={`relative p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch ${!isEven ? "lg:[direction:rtl]" : ""}`}>
-                    {/* Left: Content */}
-                    <div className={`flex flex-col ${!isEven ? "lg:[direction:ltr]" : ""}`}>
-                      {/* Tag */}
-                      <div
-                        className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border mb-4"
-                        style={{ color: feature.color, borderColor: `${feature.color}40`, backgroundColor: `${feature.color}10` }}
-                      >
-                        <Icon className="w-3.5 h-3.5" />
-                        {feature.tag}
-                      </div>
-
-                      {/* Title */}
-                      <h2 className="text-2xl sm:text-3xl font-black uppercase text-white leading-tight mb-2">
-                        {feature.title}
-                      </h2>
-                      <p className="font-bold mb-4" style={{ color: feature.color }}>
-                        {feature.subtitle}
-                      </p>
-                      <p className="text-white/70 text-base leading-relaxed mb-6 flex-1">
-                        {feature.description}
-                      </p>
-
-                      <a
-                        href={BOOKING_URL}
-                        className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wide transition-all duration-200 hover:gap-3 mt-auto"
-                        style={{ color: feature.color }}
-                      >
-                        See This in Action
-                        <ArrowRight className="w-4 h-4" />
-                      </a>
-                    </div>
-
-                    {/* Right: Bullet list */}
-                    <div className={`bg-black/30 rounded-xl p-6 border border-white/5 flex flex-col ${!isEven ? "lg:[direction:ltr]" : ""}`}>
-                      <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-4">What's Included</p>
-                      <ul className="space-y-0 flex-1">
-                        {feature.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-center gap-3 py-2.5 border-b border-white/5 last:border-0">
-                            <CheckCircle
-                              className="w-4 h-4 flex-shrink-0"
-                              style={{ color: feature.color }}
-                            />
-                            <span className="text-white/80 text-sm leading-snug">{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      {(feature as any).partnerNote && (
-                        <div className="mt-5 pt-4 border-t border-white/10 flex items-center gap-2">
-                          <span className="text-xs font-bold uppercase tracking-widest" style={{ color: feature.color }}>⚡</span>
-                          <span className="text-white/50 text-xs italic">{(feature as any).partnerNote}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Capabilities */}
-      <section className="py-16 bg-[#0D1B2A]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white mb-4">
-              Plus These Additional <span style={{ color: "#00AEEF" }}>Capabilities</span>
-            </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
-              Every subscription includes these additional tools — no add-ons, no upsells.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {additionalCapabilities.map((cap) => {
-              const Icon = cap.icon;
-              return (
-                <div
-                  key={cap.label}
-                  className="bg-white/5 border border-white/10 rounded-xl p-4 text-center hover:border-[#00AEEF]/40 transition-colors"
-                >
-                  <Icon className="w-6 h-6 mx-auto mb-2 text-[#00AEEF]" />
-                  <p className="text-white/70 text-xs font-semibold leading-tight">{cap.label}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Prebuilt systems callout */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-2xl overflow-hidden border border-[#00AEEF]/20 bg-gradient-to-br from-[#0D1B2A] to-[#0A0A0A] p-10 sm:p-14 text-center">
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: `radial-gradient(circle at 50% 0%, #00AEEF 0%, transparent 60%)`,
-              }}
-            />
-            <div className="relative">
-              <div className="text-6xl sm:text-8xl font-black text-[#00AEEF] mb-2">100+</div>
-              <h2 className="text-3xl sm:text-4xl font-black uppercase text-white mb-4">
-                Pre-Built FEC-Specific Automations
-              </h2>
-              <p className="text-white/60 text-lg max-w-2xl mx-auto mb-8">
-                Every automation was built and tested by FEC operators — not generic marketing templates. These are real workflows running in real Family Entertainment Centers right now.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
+            </div>
+            <div className="border border-[#00AEEF]/40 bg-[#071629] p-6 shadow-[18px_18px_0_rgba(0,174,239,.18)] sm:p-8">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#00AEEF]">What arrives ready</p>
+              <div className="mt-7 grid gap-4">
                 {[
-                  "Birthday Party Workflows",
-                  "Group & Corporate Events",
-                  "Membership Campaigns",
-                  "Text Club Offers",
-                  "Review Request Flows",
-                  "Bounce-Back Sequences",
-                  "School & Field Trip Outreach",
-                  "Fundraising Programs",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="bg-[#00AEEF]/10 border border-[#00AEEF]/20 rounded-lg px-3 py-2"
-                  >
-                    <p className="text-[#00AEEF] text-xs font-bold text-center">{item}</p>
-                  </div>
+                  ["13", "Core Modules", "Connected capabilities for daily FEC execution."],
+                  ["08", "Revenue Playbooks", "Ready-built operating systems for revenue moments."],
+                  ["100+", "Automations", "Triggers, handoffs, timing, and follow-through."],
+                ].map(([number, label, detail]) => (
+                  <div key={label} className="grid grid-cols-[4rem_1fr] gap-4 border-b border-white/10 pb-4 last:border-0 last:pb-0"><span className="text-2xl font-black text-white">{number}</span><div><p className="font-black uppercase text-white">{label}</p><p className="mt-1 text-sm text-white/55">{detail}</p></div></div>
                 ))}
               </div>
-              <a
-                href={BOOKING_URL}
-                className="inline-flex items-center gap-2 bg-[#00AEEF] hover:bg-[#0099D6] text-white font-black uppercase tracking-wider px-10 py-4 rounded-lg transition-all duration-200 shadow-[0_0_30px_rgba(0,174,239,0.4)]"
-              >
-                <Phone className="w-5 h-5" />
-                Book a 30-Minute FEC Revenue Review
-              </a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#00AEEF] to-[#1565C0]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl font-black uppercase text-white mb-4">
-            Ready to Run Your FEC on a Playbook?
-          </h2>
-          <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-            Book a 30-minute call with our team. We'll walk you through the platform, show you the pre-built systems for your specific venue type, and answer every question you have.
-          </p>
-          <a
-            href={BOOKING_URL}
-            className="inline-flex items-center gap-2 bg-white text-[#00AEEF] font-black uppercase tracking-wider px-10 py-4 rounded-lg hover:bg-white/90 transition-all duration-200 shadow-xl"
-          >
-            <Phone className="w-5 h-5" />
-            Book a 30-Minute FEC Revenue Review
-          </a>
-        </div>
-      </section>
+        <section className="border-y border-white/10 bg-white py-10 text-[#0A0A0A]">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-7 px-4 sm:px-6 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-8">
+            <div className="border-l-4 border-[#00AEEF] pl-5"><p className="text-xs font-black uppercase tracking-[0.2em] text-[#1565C0]">A direct answer</p><h2 className="mt-2 text-3xl font-black uppercase leading-[0.9] sm:text-4xl">Not a blank platform your team has to design.</h2></div>
+            <p className="max-w-3xl text-base leading-relaxed text-black/70 sm:text-lg">FEC Playbook™ combines 13 connected Core Modules with eight Revenue Playbooks and 100+ pre-built automations. The modules provide capability. The playbooks provide a proven FEC operating sequence. During activation, the system is adapted to your brand, offers, ownership, and confirmed data sources.</p>
+          </div>
+        </section>
+
+        <section id="module-map" className="relative overflow-hidden bg-[#0A0A0A] py-16 sm:py-20">
+          <div className="absolute left-0 top-0 h-2 w-[25%] bg-[#00AEEF]" />
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-6 border-b border-white/10 pb-10 lg:grid-cols-[.85fr_1.15fr] lg:items-end"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#00AEEF]">The module map</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] sm:text-5xl">Every module has a job in the revenue system.</h2></div><p className="max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">Start with the operating outcome your team needs. The detailed modules below show the connected capabilities that make that outcome repeatable.</p></div>
+            <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
+              {moduleLanes.map((lane) => (
+                <article key={lane.title} className="relative border border-white/10 bg-[#0D1B3E] p-6"><span className="absolute right-5 top-3 text-5xl font-black text-white/5">{lane.number}</span><p className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">{lane.number} / Action lane</p><h3 className="mt-3 text-2xl font-black uppercase leading-none">{lane.title}</h3><p className="mt-4 text-sm leading-relaxed text-white/65">{lane.outcome}</p><ul className="mt-6 space-y-2 border-t border-white/10 pt-5">{lane.modules.map((module) => <li key={module} className="flex items-center gap-2 text-sm font-semibold text-white/80"><span className="h-1.5 w-1.5 bg-[#00AEEF]" />{module}</li>)}</ul></article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#F3F6F8] py-16 text-[#0A0A0A] sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-8 border-b border-black/15 pb-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#1565C0]">The detailed system</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] sm:text-5xl">13 connected capabilities. One operating context.</h2></div><p className="max-w-2xl text-base leading-relaxed text-black/65 sm:text-lg">Every module below has its own job. They become more valuable because they operate together inside the same ready-built FEC revenue system.</p></div>
+            <div className="mt-10 space-y-4">
+              {coreModules.map((module, index) => {
+                const Icon = module.icon;
+                const cyan = index % 2 === 0;
+                return (
+                  <article key={module.number} className="group relative overflow-hidden border border-black/15 bg-white p-6 sm:p-8">
+                    <div className={`absolute left-0 top-0 h-full w-1.5 ${cyan ? "bg-[#00AEEF]" : "bg-[#1565C0]"}`} />
+                    <div className="grid grid-cols-1 gap-7 pl-2 lg:grid-cols-[.8fr_.85fr_1.35fr] lg:items-start">
+                      <div>
+                        <div className="flex items-start gap-4"><span className={`text-5xl font-black leading-none sm:text-6xl ${cyan ? "text-[#00AEEF]" : "text-[#1565C0]"}`}>{module.number}</span><Icon className={cyan ? "mt-1 text-[#00AEEF]" : "mt-1 text-[#1565C0]"} size={27} /></div>
+                        <p className="mt-6 text-[11px] font-black uppercase tracking-[0.18em] text-black/45">{module.lane}</p>
+                        <h3 className="mt-2 text-2xl font-black uppercase leading-[0.95]">{module.title}</h3>
+                        <p className="mt-4 leading-relaxed text-black/65">{module.summary}</p>
+                      </div>
+                      <div className="border-y border-black/10 py-5 lg:border-y-0 lg:border-r lg:py-0 lg:pr-7"><p className="text-[11px] font-black uppercase tracking-[0.18em] text-black/45">What arrives ready</p><div className="mt-4 grid grid-cols-2 gap-2 text-[10px] font-black uppercase tracking-[0.12em] text-black/50">{["Workflow", "Automation", "Ownership", "Next action"].map((item) => <span key={item} className="flex items-center gap-1.5"><span className={`h-1.5 w-1.5 ${cyan ? "bg-[#00AEEF]" : "bg-[#1565C0]"}`} />{item}</span>)}</div><ul className="mt-5 space-y-2">{module.ready.map((item) => <li key={item} className="flex gap-2 text-sm leading-snug text-black/70"><CheckCircle2 size={15} className={`mt-0.5 flex-none ${cyan ? "text-[#00AEEF]" : "text-[#1565C0]"}`} />{item}</li>)}</ul></div>
+                      <div><p className="text-[11px] font-black uppercase tracking-[0.18em] text-black/45">Module capabilities</p><div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">{module.capabilities.map((item) => <div key={item} className="border border-black/10 bg-[#F3F6F8] px-3 py-2 text-sm font-semibold text-black/70">{item}</div>)}</div><a href="/book-a-demo" className={`mt-6 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide transition-all hover:gap-3 ${cyan ? "text-[#00AEEF]" : "text-[#1565C0]"}`}>See this in your Revenue Review <ArrowRight size={15} /></a></div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-16 text-[#0A0A0A] sm:py-20">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#1565C0]">Data and activation</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] sm:text-5xl">Built to work alongside the systems you already run.</h2></div><div className="border-l-4 border-[#00AEEF] bg-[#F3F6F8] p-6 sm:p-8"><p className="text-lg font-black uppercase leading-tight">CenterEdge is the official partner.</p><p className="mt-3 leading-relaxed text-black/70">Other supported systems may be connected through the appropriate data-import path, confirmed during your 30-Minute FEC Revenue Review. FEC Playbook™ is designed to add operating context and follow-through around the systems your venue already uses.</p><a href="/book-a-demo" className="mt-6 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#1565C0] transition-all hover:gap-3">See which modules power your Revenue Review <ArrowRight size={16} /></a></div></div>
+        </section>
+
+        <section className="bg-[#0A0A0A] py-20 sm:py-24">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[.75fr_1.25fr] lg:px-8"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#00AEEF]">Straight answers</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] sm:text-5xl">Before you choose a platform.</h2><p className="mt-5 max-w-md leading-relaxed text-white/60">A Revenue Review is the fastest way to map the Core Modules, ready-built playbooks, and activation path that matter for your facility.</p><a href="/book-a-demo" className="fec-btn-primary mt-8 px-7 py-4 text-sm"><Phone size={17} />Book a 30-Minute FEC Revenue Review</a></div><div className="divide-y divide-white/10 border-y border-white/10">{featureFaqs.map((faq, index) => <article key={faq.question} className="py-7 first:pt-0 last:pb-0"><div className="flex gap-4"><span className="text-xl font-black text-[#00AEEF]">0{index + 1}</span><div><h3 className="text-xl font-black uppercase leading-tight">{faq.question}</h3><p className="mt-3 leading-relaxed text-white/65">{faq.answer}</p></div></div></article>)}</div></div>
+        </section>
+
+        <section className="relative overflow-hidden bg-[#00AEEF] py-16 text-[#0A0A0A] sm:py-20"><div className="absolute right-[8%] top-[-5rem] text-[16rem] font-black leading-none text-white/20">13</div><div className="relative mx-auto flex max-w-7xl flex-col justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-end lg:px-8"><div className="max-w-3xl"><p className="text-xs font-black uppercase tracking-[0.22em] text-[#0A0A0A]/70">Your next move</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.88] tracking-[-0.045em] sm:text-6xl">See which modules power your Revenue Review.</h2></div><a href="/book-a-demo" className="inline-flex w-fit items-center gap-2 bg-[#0A0A0A] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition-transform hover:-translate-y-1"><Calendar size={18} />Book a Revenue Review</a></div></section>
+      </main>
 
       <Footer />
     </div>
