@@ -5,7 +5,7 @@
  * Brand: Montserrat Bold, FEC Cyan accent
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Phone, X, ChevronRight } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
@@ -24,6 +24,8 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [location] = useLocation();
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -38,6 +40,43 @@ export default function Navigation() {
       document.body.style.overflow = "";
     }
     return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    const focusTimer = window.setTimeout(() => closeButtonRef.current?.focus(), 0);
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setMobileOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+      const focusable = Array.from(drawerRef.current?.querySelectorAll<HTMLElement>(focusableSelector) ?? []);
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.clearTimeout(focusTimer);
+      document.removeEventListener("keydown", handleKeyDown);
+      previouslyFocused?.focus();
+    };
   }, [mobileOpen]);
 
   const handleNavClick = (href: string) => {
@@ -117,6 +156,8 @@ export default function Navigation() {
               className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-white/5 transition-colors"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation-drawer"
             >
               <span className="block w-6 h-0.5 bg-white rounded-full transition-all"></span>
               <span className="block w-5 h-0.5 bg-[#00AEEF] rounded-full transition-all"></span>
@@ -137,13 +178,18 @@ export default function Navigation() {
 
       {/* Mobile Slide-Out Drawer */}
       <div
+        id="mobile-navigation-drawer"
+        ref={drawerRef}
         className={`fixed top-0 right-0 bottom-0 z-[70] w-[85vw] max-w-sm bg-[#0A0A0A] border-l border-white/10 flex flex-col transition-transform duration-300 ease-in-out md:hidden shadow-2xl shadow-black/50 ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-modal="true"
         role="dialog"
-        aria-label="Navigation menu"
+        aria-labelledby="mobile-navigation-title"
+        aria-hidden={!mobileOpen}
+        inert={!mobileOpen}
       >
+        <h2 id="mobile-navigation-title" className="sr-only">Site navigation</h2>
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/8">
           <img src={LOGO_VERTICAL_URL} alt="FEC Playbook" className="h-8 w-auto" />
@@ -151,6 +197,7 @@ export default function Navigation() {
             onClick={() => setMobileOpen(false)}
             className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors text-white/70 hover:text-white"
             aria-label="Close menu"
+            ref={closeButtonRef}
           >
             <X size={18} />
           </button>

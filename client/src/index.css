@@ -149,6 +149,10 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
   }
+  :focus-visible {
+    outline: 3px solid #00AEEF;
+    outline-offset: 3px;
+  }
 }
 
 @layer components {
@@ -625,5 +629,18 @@
 @media (max-width: 767px) {
   body {
     padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

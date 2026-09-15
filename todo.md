@@ -38,3 +38,7 @@
 - [x] Refine How It Works around activation stages and source-aware data language.
 - [x] Reduce Revenue Review scheduling friction and add visible, valid FAQ support on public conversion pages.
 - [x] Refresh public sitemap dates, validate desktop/mobile behavior, run production checks, and save a checkpoint.
+- [x] Install or verify the requested 21st UI review skill and review guidance.
+- [x] Audit navigation-linked public pages for action-led design consistency, accessibility, responsive behavior, and light/dark handling.
+- [x] Fix only high-confidence UI defects and document discretionary design judgments.
+- [x] Validate the remediated pages across desktop/mobile and light/dark contexts, then save a checkpoint.
