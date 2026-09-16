@@ -42,3 +42,9 @@
 - [x] Audit navigation-linked public pages for action-led design consistency, accessibility, responsive behavior, and light/dark handling.
 - [x] Fix only high-confidence UI defects and document discretionary design judgments.
 - [x] Validate the remediated pages across desktop/mobile and light/dark contexts, then save a checkpoint.
+- [x] Inventory the attached Open SaaS template’s visual system and interaction patterns.
+- [x] Compare the template’s patterns against FEC Playbook™ brand and conversion requirements.
+- [x] Deliver a decision-ready inspired layout direction with recommended adaptations and guardrails.
+- [x] Review the supplied 21st component inspiration and select only compatible proof-lane patterns.
+- [x] Build the responsive FEC Playbook™ Playbooks in Motion proof lane beneath the homepage hero.
+- [x] Validate accessibility, reduced-motion behavior, desktop/mobile rendering, and save a checkpoint.

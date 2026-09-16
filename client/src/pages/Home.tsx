@@ -15,7 +15,6 @@ import {
   MessageSquare,
   ShieldCheck,
   Sparkles,
-  Target,
   UserCheck,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
@@ -79,6 +78,36 @@ const revenueStages = [
     copy: "Managers see what needs action, who owns it, and which opportunities have gone quiet. Your team spends less time checking tools and more time moving guests forward.",
     proof: "Alerts + manager digests",
     icon: ClipboardCheck,
+  },
+];
+
+const motionProofs = [
+  {
+    number: "01",
+    label: "INQUIRY FOLLOW-UP",
+    title: "A new lead gets an owner and a next step.",
+    trigger: "Party or group inquiry arrives",
+    action: "Owner assigned · follow-up sequence starts",
+    outcome: "Opportunity stays visible until it moves",
+    icon: UserCheck,
+  },
+  {
+    number: "02",
+    label: "PARTY BOOKING",
+    title: "A confirmed booking becomes a prepared visit.",
+    trigger: "Booking is confirmed",
+    action: "Confirmation · reminders · guest details",
+    outcome: "Families and staff arrive with context",
+    icon: CalendarCheck,
+  },
+  {
+    number: "03",
+    label: "GUEST RETURN",
+    title: "The visit becomes the reason to come back.",
+    trigger: "Guest experience is complete",
+    action: "Feedback · review request · relevant follow-up",
+    outcome: "The next visit is already in motion",
+    icon: ShieldCheck,
   },
 ];
 
@@ -216,6 +245,7 @@ function PrimaryCta({ placement, className = "" }: { placement: string; classNam
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeProof, setActiveProof] = useState(0);
+  const [activeMotionProof, setActiveMotionProof] = useState(0);
   const [builtSystemActive, setBuiltSystemActive] = useState(false);
   const builtSystemRef = useRef<HTMLElement>(null);
 
@@ -257,10 +287,11 @@ export default function Home() {
         {/* Design reminder: asymmetric action campaign hero with a real product-proof visual and one primary action. */}
         <section
           className="relative isolate overflow-hidden bg-[#0A0A0A] pb-14 pt-28 sm:pb-20 sm:pt-32"
-          style={{ backgroundImage: `linear-gradient(90deg, rgba(10,10,10,.98) 0%, rgba(10,10,10,.94) 48%, rgba(10,10,10,.72) 100%), url(${ASSETS.heroBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
+          style={{ backgroundImage: "linear-gradient(118deg, #0A0A0A 0%, #0A0A0A 56%, #081326 100%)" }}
         >
           <div className="pointer-events-none absolute left-0 top-0 h-full w-[7px] bg-[#00AEEF]" />
           <div className="pointer-events-none absolute right-[-9rem] top-16 h-72 w-72 -skew-x-12 border border-[#00AEEF]/25" />
+          <div className="pointer-events-none absolute right-[8%] top-20 hidden text-[18rem] font-black leading-none text-[#00AEEF]/[0.045] lg:block" aria-hidden="true">▶</div>
           <div className="pointer-events-none absolute bottom-0 left-0 h-24 w-full bg-[#0A0A0A] [clip-path:polygon(0_65%,100%_0,100%_100%,0_100%)]" />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -293,30 +324,23 @@ export default function Home() {
               </div>
 
               <div className="lg:col-span-5">
-                <div className="relative border border-white/15 bg-[#081326] p-1 shadow-[18px_18px_0_rgba(0,174,239,0.18)]">
+                <div className="relative border border-white/15 bg-[#081326] p-2 shadow-[18px_18px_0_rgba(0,174,239,0.18)]">
                   <div className="absolute -left-3 top-8 hidden h-28 w-3 bg-[#00AEEF] lg:block" />
-                  <div className="relative overflow-hidden border border-white/10 bg-[#0D1B3E] p-5 sm:p-6">
-                    <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                      <div>
-                        <p className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">FEC Revenue Cycle</p>
-                        <p className="mt-1 text-sm font-semibold text-white/70">A clear next action at every stage.</p>
-                      </div>
-                      <Target size={25} className="text-[#00AEEF]" aria-hidden="true" />
+                  <div className="relative overflow-hidden border border-white/10 bg-[#0D1B3E]">
+                    <div className="flex items-center gap-2 border-b border-white/10 bg-[#081326] px-4 py-3">
+                      <span className="h-2.5 w-2.5 bg-[#00AEEF]" />
+                      <span className="h-2.5 w-2.5 bg-white/25" />
+                      <span className="h-2.5 w-2.5 bg-white/25" />
+                      <span className="ml-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/55">FEC Playbook™ / Live Revenue Work</span>
                     </div>
-                    <ol className="mt-5 space-y-3">
-                      {revenueStages.slice(0, 4).map((stage, index) => (
-                        <li key={stage.number} className="flex gap-3">
-                          <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-[#00AEEF] text-xs font-black text-[#0A0A0A]">{stage.number}</span>
-                          <div className="min-w-0 border-l border-white/15 pl-3">
-                            <p className="text-xs font-black uppercase tracking-[0.12em] text-white">{stage.short}</p>
-                            <p className="mt-0.5 text-xs text-white/55">{index === 0 ? "Lead captured. Owner assigned." : index === 1 ? "Next step sent. Family prepared." : index === 2 ? "Feedback captured. Team informed." : "Relevant follow-up starts."}</p>
-                          </div>
-                        </li>
-                      ))}
-                    </ol>
-                    <div className="mt-5 border-t border-white/10 pt-4 text-xs font-bold uppercase tracking-[0.12em] text-white/55">
-                      From first inquiry to repeat visit
+                    <img src={ASSETS.screenshotPipeline} alt="FEC Playbook™ party and group lead pipeline" className="aspect-[4/3] w-full object-cover object-left-top" />
+                  </div>
+                  <div className="relative mt-2 flex items-center justify-between bg-[#0A0A0A] px-4 py-3">
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#00AEEF]">Real platform proof</p>
+                      <p className="mt-1 text-xs font-bold uppercase tracking-[0.09em] text-white">Lead ownership · follow-up · visibility</p>
                     </div>
+                    <span className="flex h-9 w-9 items-center justify-center bg-[#00AEEF] text-sm text-[#0A0A0A]" aria-hidden="true">▶</span>
                   </div>
                 </div>
               </div>
@@ -341,6 +365,85 @@ export default function Home() {
                   <span className="text-[10px] font-black uppercase tracking-[0.13em] text-white/55">{label}</span>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Design reminder: Open SaaS-inspired proof lane, adapted as a hard-edged FEC action sequence rather than a generic logo carousel. */}
+        <section id="playbooks-in-motion" className="relative overflow-hidden bg-[#F3F6F8] py-20 text-[#0A0A0A] sm:py-28">
+          <div className="pointer-events-none absolute right-[-4rem] top-0 h-full w-[28%] bg-[#1565C0] [clip-path:polygon(35%_0,100%_0,100%_100%,0_100%)]" />
+          <div className="pointer-events-none absolute right-[3%] top-[-4rem] hidden text-[15rem] font-black leading-none text-white/25 lg:block" aria-hidden="true">▶</div>
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-10 border-b border-[#0D1B3E]/15 pb-10 lg:grid-cols-12 lg:items-end">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3">
+                  <span className="h-[3px] w-11 bg-[#00AEEF]" />
+                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#1565C0]">Playbooks in Motion</span>
+                </div>
+                <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
+                  See the Revenue Work <span className="text-[#1565C0]">Move Forward.</span>
+                </h2>
+              </div>
+              <p className="max-w-xl text-base leading-relaxed text-[#1E3A5F]/80 lg:col-span-5 lg:justify-self-end">
+                These are not loose features to configure. Each ready-built playbook gives a revenue moment a trigger, a next action, and a clear outcome your team can own.
+              </p>
+            </div>
+
+            <div className="mt-10 -mr-4 overflow-hidden sm:-mr-6 lg:-mr-8">
+              <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 pr-4 [scrollbar-width:thin] sm:pr-6 lg:pr-8" role="list" aria-label="Examples of ready-built Revenue Playbooks">
+                {motionProofs.map((proof, index) => {
+                  const Icon = proof.icon;
+                  const isActive = activeMotionProof === index;
+                  return (
+                    <button
+                      key={proof.number}
+                      type="button"
+                      onClick={() => setActiveMotionProof(index)}
+                      aria-pressed={isActive}
+                      className={`group relative flex min-h-[28rem] w-[18.5rem] shrink-0 snap-start flex-col overflow-hidden border p-6 text-left transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#00AEEF] sm:w-[23rem] sm:p-7 ${
+                        isActive
+                          ? "border-[#00AEEF] bg-[#0A0A0A] text-white shadow-[10px_10px_0_rgba(0,174,239,0.22)]"
+                          : "border-[#0D1B3E]/20 bg-white text-[#0A0A0A] hover:-translate-y-1 hover:border-[#1565C0]"
+                      }`}
+                    >
+                      <div className={`absolute right-0 top-0 h-20 w-24 [clip-path:polygon(58%_0,100%_0,100%_100%,0_100%)] ${isActive ? "bg-[#00AEEF]" : "bg-[#1565C0]"}`} />
+                      <div className="relative flex items-start justify-between">
+                        <span className={`text-6xl font-black leading-none tracking-[-0.08em] ${isActive ? "text-white/15" : "text-[#0D1B3E]/12"}`}>{proof.number}</span>
+                        <span className={`flex h-10 w-10 items-center justify-center ${isActive ? "bg-[#00AEEF] text-[#0A0A0A]" : "bg-[#0A0A0A] text-[#00AEEF]"}`}><Icon size={18} aria-hidden="true" /></span>
+                      </div>
+                      <p className={`mt-8 text-[10px] font-black uppercase tracking-[0.18em] ${isActive ? "text-[#00AEEF]" : "text-[#1565C0]"}`}>{proof.label}</p>
+                      <h3 className={`mt-3 max-w-sm text-2xl font-black uppercase leading-[0.94] tracking-[-0.03em] ${isActive ? "text-white" : "text-[#0A0A0A]"}`}>{proof.title}</h3>
+                      <dl className={`mt-auto space-y-0 border-t pt-6 ${isActive ? "border-white/15" : "border-[#0D1B3E]/15"}`}>
+                        <div className={`border-b pb-4 ${isActive ? "border-white/10" : "border-[#0D1B3E]/10"}`}>
+                          <dt className={`text-[10px] font-black uppercase tracking-[0.16em] ${isActive ? "text-white/45" : "text-[#1E3A5F]/55"}`}>Trigger</dt>
+                          <dd className={`mt-1 text-sm font-bold leading-snug ${isActive ? "text-white" : "text-[#0D1B3E]"}`}>{proof.trigger}</dd>
+                        </div>
+                        <div className={`border-b py-4 ${isActive ? "border-white/10" : "border-[#0D1B3E]/10"}`}>
+                          <dt className={`text-[10px] font-black uppercase tracking-[0.16em] ${isActive ? "text-white/45" : "text-[#1E3A5F]/55"}`}>Ready-built action</dt>
+                          <dd className={`mt-1 text-sm font-bold leading-snug ${isActive ? "text-white" : "text-[#0D1B3E]"}`}>{proof.action}</dd>
+                        </div>
+                        <div className="pt-4">
+                          <dt className={`text-[10px] font-black uppercase tracking-[0.16em] ${isActive ? "text-[#00AEEF]" : "text-[#1565C0]"}`}>Outcome</dt>
+                          <dd className={`mt-1 text-sm font-black leading-snug ${isActive ? "text-white" : "text-[#0A0A0A]"}`}>{proof.outcome}</dd>
+                        </div>
+                      </dl>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="mt-7 flex flex-col gap-5 border-t border-[#0D1B3E]/15 pt-7 sm:flex-row sm:items-center sm:justify-between">
+              <p className="max-w-2xl text-sm font-bold leading-relaxed text-[#1E3A5F]/75">
+                Tap a playbook to bring its sequence forward. Every workflow is adapted to your facility before it is activated.
+              </p>
+              <a
+                href="#revenue-playbooks"
+                onClick={() => trackEvent("revenue_playbooks_clicked", { placement: "playbooks_in_motion" })}
+                className="inline-flex w-fit items-center gap-2 bg-[#0A0A0A] px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#1565C0] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1565C0]"
+              >
+                Explore All 8 Playbooks <ArrowRight size={17} aria-hidden="true" />
+              </a>
             </div>
           </div>
         </section>
