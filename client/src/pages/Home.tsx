@@ -123,9 +123,9 @@ const playbooks = [
 ];
 
 const proofPillars = [
-  { title: "PRE-BUILT FOR FECS", copy: "Eight Revenue Playbooks and 100+ automations start ready—not as a blank canvas." },
-  { title: "MADE YOURS", copy: "Your voice, offers, handoffs, and team structure shape the rollout." },
-  { title: "SUPPORTED THROUGH ACTIVATION", copy: "FEC-specific guidance helps your team put the right playbooks into motion." },
+  { title: "FEWER MISSED LEADS", copy: "New party and group inquiries get a clear owner and next step." },
+  { title: "LESS MANUAL CHASING", copy: "Confirmations, reminders, and follow-up keep moving when your team is busy." },
+  { title: "MORE REASONS TO RETURN", copy: "Guests receive relevant follow-up after the visit, not another generic blast." },
 ];
 
 const builtSystemBlocks = [
@@ -178,16 +178,16 @@ const faqs = [
     answer: "No. FEC Playbook™ works alongside your existing POS and booking systems. Your existing system records the transaction; FEC Playbook™ helps your team manage the follow-up, marketing, lead ownership, and guest communication around it.",
   },
   {
-    question: "What happens during the 30-minute FEC Revenue Review?",
-    answer: "We identify the revenue moments that need the most attention, map the FEC Playbooks™ that fit your facility, and explain a practical implementation path for your current operation.",
+    question: "What does FEC Playbook™ help us fix first?",
+    answer: "Start with the problem costing your team the most: missed party leads, manual confirmations, weak guest follow-up, unclear ownership, or too few return visits. The Revenue Review maps the ready-built playbooks that fit that problem.",
   },
   {
-    question: "How long does onboarding take?",
-    answer: "Onboarding timing depends on the integrations, messaging compliance requirements, and readiness of your team. The review call gives you a clear view of the steps that apply to your facility.",
+    question: "Do we have to build the automations ourselves?",
+    answer: "No. The workflows, timing, handoffs, reminders, and follow-up sequences start ready. Your venue tailors the brand, offers, policies, and team ownership.",
   },
   {
-    question: "Can our team manage the system without another complicated tool?",
-    answer: "That is the goal. FEC Playbook™ puts lead ownership, communication, automated follow-up, and manager visibility into one operating system built around common FEC revenue moments.",
+    question: "Will it work with the systems we already use?",
+    answer: "Yes. FEC Playbook™ works alongside your current operating systems. CenterEdge is the official partner; other supported data-import paths are confirmed during your Revenue Review.",
   },
 ];
 
@@ -205,7 +205,7 @@ const homeStructuredData = [
     name: "FEC Playbook™",
     url: "https://www.fecplaybook.com/",
     logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png",
-    description: "FEC Revenue Operations software for Family Entertainment Centers.",
+    description: "FEC system for party lead follow-up, booking confirmations, guest communication, repeat visits, and team accountability.",
   },
   {
     "@context": "https://schema.org",
@@ -276,8 +276,8 @@ export default function Home() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
-        title="FEC Revenue Operations Software for Family Entertainment Centers | FEC Playbook™"
-        description="FEC Playbook™ gives Family Entertainment Centers one operating system for party leads, guest follow-up, reputation, repeat visits, and team accountability—without replacing your POS."
+        title="Stop Missing Party Leads & Bring Families Back | FEC Playbook™"
+        description="FEC Playbook™ helps Family Entertainment Centers stop missed party leads, automate confirmations and follow-up, and give families a reason to return."
         path="/"
       />
       <StructuredData data={homeStructuredData} />
@@ -302,15 +302,15 @@ export default function Home() {
                   <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Built by FEC Operators</span>
                 </div>
                 <h1 className="max-w-4xl text-[2.7rem] font-black uppercase leading-[0.91] tracking-[-0.045em] sm:text-6xl lg:text-7xl xl:text-[5.6rem]">
-                  Run Every Revenue Moment in Your FEC From <span className="text-[#00AEEF]">One Playbook.</span>
+                  Stop Losing Party Leads. <span className="text-[#00AEEF]">Bring Families Back.</span>
                 </h1>
                 <p className="mt-7 max-w-2xl text-base font-medium leading-relaxed text-white/75 sm:text-lg">
-                  FEC Playbook™ gives your team a pre-built system for party and group inquiries, guest follow-up, reputation, repeat visits, and accountability. The automations and sequences are already built from FEC operating experience—then adapted to your brand, team, and existing software.
+                  FEC Playbook™ keeps party leads, confirmations, follow-up, and team handoffs moving. It is built by fellow FEC operators, then tailored to your venue and the systems you already use.
                 </p>
                 <div className="mt-8 flex flex-col items-stretch gap-4 sm:items-start">
                   <PrimaryCta placement="hero" className="w-full sm:w-auto" />
                   <p className="max-w-xl text-sm leading-relaxed text-white/60">
-                    See the ready-built playbooks that fit your facility—and the revenue work they take off your team’s plate.
+                    See where leads, time, and repeat visits are getting stuck.
                   </p>
                   <a
                     href="#revenue-playbooks"
@@ -320,7 +320,7 @@ export default function Home() {
                     See the Revenue Playbooks <ArrowRight size={17} aria-hidden="true" />
                   </a>
                 </div>
-                <p className="mt-7 text-xs font-bold uppercase tracking-[0.12em] text-white/55">Built for Family Entertainment Centers. No rip-and-replace required.</p>
+                <p className="mt-7 text-xs font-bold uppercase tracking-[0.12em] text-white/55">Built by fellow FEC operators. Works with the systems you already use.</p>
               </div>
 
               <div className="lg:col-span-5">
@@ -459,10 +459,10 @@ export default function Home() {
                   <span className="text-xs font-black uppercase tracking-[0.18em] text-[#1565C0]">The FEC Revenue Cycle</span>
                 </div>
                 <h2 className="mt-6 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
-                  One Playbook for Every <span className="text-[#1565C0]">Revenue Moment.</span>
+                  The Revenue Work That <span className="text-[#1565C0]">Cannot Be Missed.</span>
                 </h2>
                 <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-[#1E3A5F]/80 sm:text-lg">
-                  An FEC does not lose revenue because of one missed email. Revenue leaks when the handoff from inquiry to booking, booking to visit, and visit to follow-up has no owner. FEC Playbook™ gives your team a system for each moment.
+                  Revenue gets lost when a party lead waits, a confirmation does not go out, or a good visit ends without follow-up. FEC Playbook™ gives each moment a clear owner and next step.
                 </p>
                 <p className="mt-7 border-l-4 border-[#00AEEF] pl-4 text-base font-black leading-relaxed text-[#0D1B3E]">
                   Your POS records the transaction. FEC Playbook™ runs the revenue work around it.
@@ -512,9 +512,9 @@ export default function Home() {
                   <span className="h-[3px] w-11 bg-[#00AEEF]" />
                   <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Pre-Built by FEC Experience</span>
                 </div>
-                <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl lg:text-6xl">The Revenue System Is Built. <span className="text-[#00AEEF]">Your Brand Makes It Yours.</span></h2>
+                <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl lg:text-6xl">Built by Fellow Operators. <span className="text-[#00AEEF]">Made for Your FEC.</span></h2>
               </div>
-              <p className="max-w-xl text-base leading-relaxed text-white/65 lg:col-span-5 lg:justify-self-end">Most software gives your team a set of tools and a blank screen. FEC Playbook™ starts with the revenue workflows, automations, and handoffs already mapped for Family Entertainment Centers. We then tailor the system to the way your facility communicates, sells, and serves families.</p>
+              <p className="max-w-xl text-base leading-relaxed text-white/65 lg:col-span-5 lg:justify-self-end">The playbooks start with real FEC workflows for leads, bookings, guest follow-up, and return visits. We adapt the system to your team, offers, and brand.</p>
             </div>
 
             <div className="mt-10 grid gap-4 lg:grid-cols-3">

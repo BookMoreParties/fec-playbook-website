@@ -18,7 +18,7 @@ const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4
 const bookDemoFaqs = [
   {
     q: "What happens in a 30-Minute FEC Revenue Review?",
-    a: "The review identifies the revenue handoffs that deserve attention, maps the ready-built Revenue Playbooks that fit your facility, and outlines a practical activation path for your team.",
+    a: "We find where party leads, confirmations, follow-up, or ownership are getting stuck, then map the ready-built playbooks that fit your venue.",
   },
   {
     q: "Who should attend?",
@@ -67,7 +67,7 @@ export default function BookDemo() {
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
         title="Book a 30-Minute FEC Revenue Review | FEC Playbook™"
-        description="Schedule a 30-minute FEC Revenue Review with FEC Playbook™. Identify the revenue leaks to address first, map the playbooks that fit your facility, and understand your implementation path."
+        description="Schedule a 30-minute FEC Revenue Review. Find the party leads, confirmations, follow-up, or handoffs that are getting stuck, then see the ready-built system that can help."
         path="/book-a-demo"
       />
       <StructuredData data={[bookDemoFaqSchema, bookDemoBreadcrumbSchema]} />
@@ -86,13 +86,13 @@ export default function BookDemo() {
                 <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">30-Minute FEC Revenue Review</span>
               </div>
               <h1 className="mt-6 max-w-4xl text-5xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-                Leave With a Clearer <span className="text-[#00AEEF]">Revenue Plan.</span>
+                See What Is Costing You <span className="text-[#00AEEF]">Leads and Time.</span>
               </h1>
               <p className="mt-7 max-w-2xl text-base font-medium leading-relaxed text-white/75 sm:text-lg">
-                In 30 minutes, we will identify the revenue work that needs attention, map the ready-built FEC Playbooks™ that fit your facility, and outline a practical path to activate them with your team.
+                In 30 minutes, we find where party leads, confirmations, follow-up, or team handoffs are getting stuck. Then we map the ready-built FEC Playbooks™ that can help.
               </p>
               <p className="mt-7 max-w-xl border-l-4 border-[#00AEEF] pl-4 text-sm font-black uppercase leading-relaxed tracking-[0.08em] text-white">
-                You are not buying a blank system to build inside. You are reviewing the playbook already built for FEC work.
+                The playbooks are already built by fellow FEC operators. Your venue makes them yours.
               </p>
               <a href="#scheduling" className="mt-7 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#00AEEF] transition-all hover:gap-3">
                 Ready to choose a time? Skip to scheduling <ArrowDown size={16} />
@@ -112,9 +112,9 @@ export default function BookDemo() {
                   </div>
                   <ol className="mt-5 space-y-4">
                     {[
-                      ["01", "REVENUE LEAKS", "Find the handoffs that need attention first."],
-                      ["02", "READY-BUILT PLAYBOOKS", "Match the systems that fit your operation."],
-                      ["03", "ACTIVATION PATH", "See the team, timing, and support path ahead."],
+                      ["01", "WHAT IS STUCK", "Find the lead, follow-up, or handoff that needs attention."],
+                      ["02", "WHAT HELPS", "Match the ready-built playbook to the problem."],
+                      ["03", "WHAT HAPPENS NEXT", "See how the system fits your team and venue."],
                     ].map(([number, title, copy]) => (
                       <li key={number} className="flex gap-3">
                         <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-[#00AEEF] text-xs font-black text-[#0A0A0A]">{number}</span>
@@ -148,23 +148,23 @@ export default function BookDemo() {
                   {[
                     {
                       icon: Target,
-                      title: "The Revenue Moments to Address First",
-                      desc: "We will review the guest, lead, and team handoffs that deserve attention in your operation.",
+                      title: "Find What Is Falling Through",
+                      desc: "Party leads, confirmations, follow-up, or team handoffs.",
                     },
                     {
                       icon: Map,
-                      title: "The Playbooks That Fit Your Facility",
-                      desc: "We will map the ready-built Revenue Playbooks to the practical work your team needs to manage.",
+                      title: "Match the Right Playbooks",
+                      desc: "See which ready-built systems fit the work your team needs done.",
                     },
                     {
                       icon: ClipboardCheck,
-                      title: "A Practical Implementation Path",
-                      desc: "Leave with a clearer view of the rollout steps that apply to your systems and team.",
+                      title: "See the Path Forward",
+                      desc: "Understand how the system is tailored to your venue and team.",
                     },
                     {
                       icon: CheckCircle,
-                      title: "Support Through Activation",
-                      desc: "See the guidance available to help your team turn ready-built playbooks into daily execution.",
+                      title: "Get FEC-Specific Support",
+                      desc: "You are supported as the playbooks become daily work.",
                     },
                   ].map((item) => (
                     <div key={item.title} className="flex items-start gap-4">
@@ -187,10 +187,9 @@ export default function BookDemo() {
                 </h3>
                 <ul className="space-y-3">
                   {[
-                    "Your current booking, follow-up, and lead-ownership process",
-                    "The revenue playbooks that match your operation",
-                    "How FEC Playbook™ works alongside your current operating systems",
-                    "The support path that gets your playbooks live",
+                    "Where leads, follow-up, and ownership get stuck",
+                    "The playbooks that fit your venue",
+                    "How the system gets tailored and activated",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <CheckCircle size={14} className="text-[#00AEEF] flex-shrink-0 mt-0.5" />
@@ -241,13 +240,13 @@ export default function BookDemo() {
                 <span className="h-[3px] w-11 bg-[#00AEEF]" />
                 <span className="text-xs font-black uppercase tracking-[0.18em] text-[#1565C0]">From Review to Activation</span>
               </div>
-              <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl">You Will Not Be Handed a Login and Left to Build.</h2>
-              <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-[#1E3A5F]/80 sm:text-lg">Your Revenue Review identifies the ready-built systems that matter first. From there, we tailor the playbooks to your facility and guide your team through activation.</p>
+              <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl">The System Is Ready. Your Team Is Supported.</h2>
+              <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-[#1E3A5F]/80 sm:text-lg">We tailor the ready-built playbooks to your venue, then help your team put them to work.</p>
             </div>
             <div className="border-l-4 border-[#00AEEF] bg-[#0A0A0A] p-6 text-white lg:col-span-5 lg:mr-10">
               <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#00AEEF]">The Support Path</p>
-              <p className="mt-4 text-xl font-black uppercase leading-tight">Ready-Built Systems. FEC-Specific Guidance. Daily Execution.</p>
-              <p className="mt-4 text-sm leading-relaxed text-white/65">Understand the implementation steps, team participation, and support available for your facility before you decide what comes next.</p>
+              <p className="mt-4 text-xl font-black uppercase leading-tight">Ready-Built Systems. FEC-Specific Support.</p>
+              <p className="mt-4 text-sm leading-relaxed text-white/65">Know what gets tailored, who is involved, and what happens next.</p>
             </div>
           </div>
         </div>

@@ -88,11 +88,11 @@ const revenuePlaybooks = [
 const faqs = [
   {
     question: "What is an FEC Revenue Playbook?",
-    answer: "An FEC Revenue Playbook is a ready-built operating system for a specific revenue moment, such as a birthday inquiry, a group event, a return visit, or a membership renewal. It combines workflow, automation, ownership, timing, and follow-up so the team does not start from a blank screen.",
+    answer: "It is a ready-built system for one FEC problem: a party inquiry, group event, guest follow-up, repeat visit, or team handoff. It gives the team a clear next step without starting from scratch.",
   },
   {
-    question: "Do we have to build the automations ourselves?",
-    answer: "No. FEC Playbook™ starts with 100+ pre-built automations and ready-built playbook logic. Your venue provides the brand, offers, policies, team ownership, and available data sources; the system is then adapted to fit how your operation runs.",
+    question: "Which playbook should we start with?",
+    answer: "Start with the problem costing the most leads or team time. For many FECs, that means party lead follow-up, confirmations, guest return, or sales ownership. The Revenue Review helps you choose.",
   },
   {
     question: "How does FEC Playbook™ work with our existing systems?",
@@ -126,8 +126,8 @@ export default function Playbook() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
-        title="8 Revenue Playbooks for Family Entertainment Centers"
-        description="Explore FEC Playbook™'s eight ready-built Revenue Playbooks: FEC-specific systems that turn birthday sales, group events, guest communication, retention, and referrals into consistent action."
+        title="FEC Playbooks for Fewer Missed Leads and More Repeat Visits"
+        description="FEC Playbook™ gives Family Entertainment Centers eight ready-built systems for party leads, confirmations, guest follow-up, repeat visits, and team accountability."
         path="/playbook"
       />
       <StructuredData data={[faqSchema, breadcrumbSchema]} />
@@ -150,12 +150,11 @@ export default function Playbook() {
                 <span className="text-xs font-black uppercase tracking-[0.22em]">The operating-system layer</span>
               </div>
               <h1 className="max-w-4xl text-5xl font-black uppercase leading-[0.88] tracking-[-0.055em] sm:text-6xl lg:text-8xl">
-                8 Revenue Playbooks.
-                <span className="block text-[#00AEEF]">Already Built.</span>
-                Ready for FEC Operations.
+                The Systems That Keep
+                <span className="block text-[#00AEEF]">Revenue Moving.</span>
               </h1>
               <p className="mt-8 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">
-                An FEC Revenue Playbook is a ready-built system of workflow, automation, ownership, timing, and follow-up around a specific revenue moment. FEC Playbook™ supplies the system; your venue brings the brand, offers, team, and operating context that make it yours.
+                Each playbook solves a familiar FEC problem: a party lead that needs a reply, a booking that needs preparation, or a guest who needs a reason to return. The workflows start ready. Your venue makes them yours.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <a href="/book-a-demo" className="fec-btn-primary px-7 py-4 text-sm">
@@ -201,10 +200,10 @@ export default function Playbook() {
                   <Play className="ml-0.5" size={18} fill="currentColor" />
                 </span>
                 <p className="text-xs font-black uppercase tracking-[0.22em] text-[#1565C0]">The revenue map</p>
-                <h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl">A proven route for the moments that move your FEC forward.</h2>
+                <h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl">Eight FEC problems. Eight systems ready to help.</h2>
               </div>
               <p className="max-w-2xl text-base leading-relaxed text-black/70 sm:text-lg">
-                These are not ten generic feature bundles. Each Revenue Playbook is a ready-built system for one high-value operating moment, adapted to your venue during activation.
+                Start with the moment that is costing your team the most time or revenue. We adapt the right playbook to your venue.
               </p>
             </div>
 
@@ -264,10 +263,10 @@ export default function Playbook() {
                 <span className="text-xs font-black uppercase tracking-[0.22em]">Activation support</span>
               </div>
               <h2 className="mt-5 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-6xl">
-                The playbook arrives built. <span className="text-[#00AEEF]">Your brand makes it yours.</span>
+                You bring the brand. <span className="text-[#00AEEF]">We bring the working system.</span>
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-                FEC Playbook™ does not hand your team a blank platform and a pile of configuration work. We start with proven FEC operating logic, then activate it around your offers, policies, team ownership, brand voice, and confirmed data sources.
+                Fellow operators built the workflows around the work FEC teams do every day. We fit them to your offers, voice, team, and existing systems.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">

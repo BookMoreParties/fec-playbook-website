@@ -173,12 +173,12 @@ const moduleLanes = [
 
 const featureFaqs = [
   {
-    question: "What does FEC software include?",
-    answer: "FEC Playbook™ includes 13 connected Core Modules for lead capture, conversations, pipelines, email, text, guest follow-through, reputation, reporting, and more. Those capabilities power eight Revenue Playbooks and 100+ ready-to-activate automations built for Family Entertainment Center operations.",
+    question: "How does FEC Playbook™ help stop missed party leads?",
+    answer: "It gives party and group inquiries a clear owner, next step, and ready-built follow-up route. Your team can see what needs attention instead of relying on memory or separate tools.",
   },
   {
-    question: "Are the automations already built?",
-    answer: "Yes. FEC Playbook™ starts with ready-built workflow logic, timing, ownership, triggers, and follow-up for common FEC revenue moments. Your venue then tailors the brand voice, offers, policies, team roles, and available data sources during activation.",
+    question: "Can FEC Playbook™ automate party confirmations and follow-up?",
+    answer: "Yes. Ready-built playbooks cover the timing, ownership, reminders, and guest communication around party and group bookings. Your venue tailors the details that matter to your guests and team.",
   },
   {
     question: "Can FEC Playbook™ work with an existing POS or booking system?",
@@ -209,8 +209,8 @@ export default function Features() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
-        title="13 Core Modules for Family Entertainment Centers"
-        description="Explore the 13 Core Modules behind FEC Playbook™'s eight Revenue Playbooks and 100+ pre-built automations for Family Entertainment Center operations."
+        title="Stop Missing Party Leads and Follow-Up | FEC Playbook™"
+        description="FEC Playbook™ helps Family Entertainment Centers keep party leads, confirmations, guest follow-up, and team handoffs moving without building the system from scratch."
         path="/features"
       />
       <StructuredData data={[featureFaqSchema, featureBreadcrumbSchema]} />
@@ -222,8 +222,8 @@ export default function Features() {
           <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_.8fr] lg:items-end lg:px-8">
             <div className="max-w-4xl">
               <div className="mb-7 flex items-center gap-3 text-[#00AEEF]"><span className="flex h-8 w-8 items-center justify-center bg-[#00AEEF] text-[#0A0A0A]"><Play className="ml-0.5" size={14} fill="currentColor" /></span><span className="h-px w-8 bg-[#00AEEF]" /><span className="text-xs font-black uppercase tracking-[0.22em]">The capability layer</span></div>
-              <h1 className="text-5xl font-black uppercase leading-[0.88] tracking-[-0.055em] sm:text-6xl lg:text-8xl">13 Core Modules.<span className="block text-[#00AEEF]">One FEC Revenue</span>System.</h1>
-              <p className="mt-8 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">These are the connected capabilities behind FEC Playbook™'s ready-built Revenue Playbooks. Modules provide the tools. Playbooks provide the operating sequence. More than 100 automations provide the triggers, handoffs, and follow-through your team does not have to build from scratch.</p>
+              <h1 className="text-5xl font-black uppercase leading-[0.88] tracking-[-0.055em] sm:text-6xl lg:text-8xl">Less Chasing.<span className="block text-[#00AEEF]">More Booked Parties.</span></h1>
+              <p className="mt-8 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">FEC Playbook™ gives your team the pieces that keep a party lead moving, a family prepared, and the next visit in reach. The systems start ready, so your team can focus on guests instead of building workflows.</p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <a href="/book-a-demo" className="fec-btn-primary px-7 py-4 text-sm"><Phone size={18} />Book a 30-Minute FEC Revenue Review</a>
                 <a href="#module-map" className="inline-flex items-center gap-2 px-2 text-sm font-black uppercase tracking-wide text-white/70 transition-colors hover:text-[#00AEEF]">See the module map <ArrowRight size={16} /></a>
@@ -246,15 +246,15 @@ export default function Features() {
 
         <section className="border-y border-white/10 bg-white py-10 text-[#0A0A0A]">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-7 px-4 sm:px-6 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-8">
-            <div className="border-l-4 border-[#00AEEF] pl-5"><p className="text-xs font-black uppercase tracking-[0.2em] text-[#1565C0]">A direct answer</p><h2 className="mt-2 text-3xl font-black uppercase leading-[0.9] sm:text-4xl">Not a blank platform your team has to design.</h2></div>
-            <p className="max-w-3xl text-base leading-relaxed text-black/70 sm:text-lg">FEC Playbook™ combines 13 connected Core Modules with eight Revenue Playbooks and 100+ pre-built automations. The modules provide capability. The playbooks provide a proven FEC operating sequence. During activation, the system is adapted to your brand, offers, ownership, and confirmed data sources.</p>
+            <div className="border-l-4 border-[#00AEEF] pl-5"><p className="text-xs font-black uppercase tracking-[0.2em] text-[#1565C0]">A direct answer</p><h2 className="mt-2 text-3xl font-black uppercase leading-[0.9] sm:text-4xl">Your team should not have to remember every follow-up.</h2></div>
+            <p className="max-w-3xl text-base leading-relaxed text-black/70 sm:text-lg">FEC Playbook™ combines 13 Core Modules, eight Revenue Playbooks, and 100+ pre-built automations. Together, they give common FEC revenue problems a clear route forward.</p>
           </div>
         </section>
 
         <section id="module-map" className="relative overflow-hidden bg-[#0A0A0A] py-16 sm:py-20">
           <div className="absolute left-0 top-0 h-2 w-[25%] bg-[#00AEEF]" />
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-6 border-b border-white/10 pb-10 lg:grid-cols-[.85fr_1.15fr] lg:items-end"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#00AEEF]">The module map</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] sm:text-5xl">Every module has a job in the revenue system.</h2></div><p className="max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">Start with the operating outcome your team needs. The detailed modules below show the connected capabilities that make that outcome repeatable.</p></div>
+            <div className="grid grid-cols-1 gap-6 border-b border-white/10 pb-10 lg:grid-cols-[.85fr_1.15fr] lg:items-end"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#00AEEF]">The module map</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] sm:text-5xl">The tools behind fewer missed handoffs.</h2></div><p className="max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">Start with the problem your team needs to solve. The modules below show the connected capabilities that make the result repeatable.</p></div>
             <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
               {moduleLanes.map((lane) => (
                 <article key={lane.title} className="relative border border-white/10 bg-[#0D1B3E] p-6"><span className="absolute right-5 top-3 text-5xl font-black text-white/5">{lane.number}</span><p className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">{lane.number} / Action lane</p><h3 className="mt-3 text-2xl font-black uppercase leading-none">{lane.title}</h3><p className="mt-4 text-sm leading-relaxed text-white/65">{lane.outcome}</p><ul className="mt-6 space-y-2 border-t border-white/10 pt-5">{lane.modules.map((module) => <li key={module} className="flex items-center gap-2 text-sm font-semibold text-white/80"><span className="h-1.5 w-1.5 bg-[#00AEEF]" />{module}</li>)}</ul></article>
