@@ -99,7 +99,7 @@ function App() {
   return (
     <HelmetProvider>
       <ErrorBoundary>
-        <ThemeProvider defaultTheme="dark">
+        <ThemeProvider defaultTheme="light">
           <TooltipProvider>
             <Toaster />
             <AppInner />

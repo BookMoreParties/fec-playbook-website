@@ -1,8 +1,8 @@
-/* 
- * FEC Playbook Design System
- * Design Philosophy: Bold Sports/Action Brand
- * Black & White foundation, FEC Cyan (#00AEEF) and Cobalt Blue (#1565C0) accents
- * Typography: Montserrat Black for headlines, Montserrat Bold for subheads, Montserrat Regular for body
+/*
+ * FEC Playbook™ public visual system
+ * Light-first operator-grade editorial software design.
+ * Warm white, near-black, navy rules, and process cyan for action and proof.
+ * Montserrat is the approved all-web type system for this release.
  */
 
 @import "tailwindcss";
@@ -55,27 +55,27 @@
   --fec-navy: oklch(0.14 0.05 255);
 }
 
-:root {
-  --radius: 0.5rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.1 0.01 260);
-  --card: oklch(0.98 0 0);
-  --card-foreground: oklch(0.1 0.01 260);
+ :root {
+  --radius: 0.75rem;
+  --background: oklch(0.992 0.002 95);
+  --foreground: oklch(0.16 0.018 255);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.018 255);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.1 0.01 260);
-  --primary: oklch(0.42 0.22 255);
+  --popover-foreground: oklch(0.16 0.018 255);
+  --primary: oklch(0.3 0.055 255);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.01 255);
-  --secondary-foreground: oklch(0.2 0.05 255);
-  --muted: oklch(0.96 0.005 260);
-  --muted-foreground: oklch(0.5 0.01 260);
+  --secondary: oklch(0.96 0.006 250);
+  --secondary-foreground: oklch(0.22 0.03 255);
+  --muted: oklch(0.965 0.004 250);
+  --muted-foreground: oklch(0.49 0.018 255);
   --accent: oklch(0.72 0.18 210);
-  --accent-foreground: oklch(0.1 0.01 260);
+  --accent-foreground: oklch(0.13 0.018 255);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.9 0.005 260);
-  --input: oklch(0.9 0.005 260);
-  --ring: oklch(0.42 0.22 255);
+  --border: oklch(0.89 0.009 255);
+  --input: oklch(0.89 0.009 255);
+  --ring: oklch(0.72 0.18 210);
   --chart-1: oklch(0.72 0.18 210);
   --chart-2: oklch(0.42 0.22 255);
   --chart-3: oklch(0.55 0.20 235);
@@ -201,36 +201,38 @@
   }
 
   .fec-btn-primary {
-    background: linear-gradient(135deg, #00AEEF 0%, #1565C0 100%);
-    color: white;
+    min-height: 48px;
+    background: #00AEEF;
+    color: #07111f;
     font-weight: 800;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     padding: 0.875rem 2rem;
-    border-radius: 0.25rem;
+    border-radius: 0.75rem;
     border: none;
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
   }
 
   .fec-btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 174, 239, 0.4);
+    transform: translateY(-1px);
+    background: #18bbf2;
+    box-shadow: 0 12px 28px rgba(0, 174, 239, 0.2);
   }
 
   .fec-btn-outline {
     background: transparent;
-    color: white;
+    color: #0D1B3E;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     padding: 0.875rem 2rem;
-    border-radius: 0.25rem;
-    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(13,27,62,0.2);
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
@@ -239,7 +241,51 @@
 
   .fec-btn-outline:hover {
     border-color: #00AEEF;
-    color: #00AEEF;
+    color: #0D1B3E;
+    background: rgba(0,174,239,0.08);
+  }
+
+  .fec-page {
+    min-height: 100vh;
+    background: #fcfcfa;
+    color: #111827;
+  }
+
+  .fec-eyebrow {
+    color: #0c719a;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .fec-display {
+    color: #0c1424;
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 0.95;
+  }
+
+  .fec-copy {
+    color: #526070;
+    line-height: 1.7;
+  }
+
+  .fec-rule {
+    border-color: rgba(13, 27, 62, 0.14);
+  }
+
+  .fec-surface {
+    background: #fff;
+    border: 1px solid rgba(13, 27, 62, 0.12);
+    border-radius: 0.875rem;
+  }
+
+  .fec-frame {
+    background: #081326;
+    border: 1px solid rgba(13, 27, 62, 0.2);
+    border-radius: 1rem;
+    box-shadow: 0 24px 70px rgba(13, 27, 62, 0.16);
   }
 
   .section-label {

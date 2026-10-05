@@ -1,23 +1,15 @@
-/* 
- * FEC Playbook™ Navigation
- * Design: Dark sticky nav, transparent on hero, solid on scroll
- * Mobile: Full-screen slide-out drawer with backdrop overlay and staggered animations
- * Brand: Montserrat Bold, FEC Cyan accent
- */
-
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Phone, X, ChevronRight } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
-const LOGO_VERTICAL_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
+const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/jwiFtSckfvSoscMT.png";
 
 const navLinks = [
-  { label: "Platform", href: "#platform", desc: "See how FEC Playbook™ works" },
-  { label: "Features", href: "/features", isPage: true, desc: "Everything included in your plan" },
-  { label: "How It Works", href: "/how-it-works", isPage: true, desc: "The system explained simply" },
-  { label: "Playbook", href: "/playbook", isPage: true, desc: "8 revenue playbooks, 100+ automations" },
+  { label: "Platform", href: "/", desc: "The connected revenue operating system" },
+  { label: "Outcomes", href: "/features", desc: "What gets easier and moves faster" },
+  { label: "How It Works", href: "/how-it-works", desc: "How the ready-built system is activated" },
+  { label: "Playbooks", href: "/playbook", desc: "The workflows behind daily FEC revenue work" },
 ];
 
 export default function Navigation() {
@@ -26,21 +18,13 @@ export default function Navigation() {
   const [location] = useLocation();
   const drawerRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 8);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Lock body scroll when drawer is open
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -48,6 +32,7 @@ export default function Navigation() {
     const previouslyFocused = document.activeElement as HTMLElement | null;
     const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
     const focusTimer = window.setTimeout(() => closeButtonRef.current?.focus(), 0);
+    document.body.style.overflow = "hidden";
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -59,9 +44,9 @@ export default function Navigation() {
       if (event.key !== "Tab") return;
       const focusable = Array.from(drawerRef.current?.querySelectorAll<HTMLElement>(focusableSelector) ?? []);
       if (focusable.length === 0) return;
-
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
+
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
         last.focus();
@@ -74,214 +59,133 @@ export default function Navigation() {
     document.addEventListener("keydown", handleKeyDown);
     return () => {
       window.clearTimeout(focusTimer);
+      document.body.style.overflow = "";
       document.removeEventListener("keydown", handleKeyDown);
       previouslyFocused?.focus();
     };
   }, [mobileOpen]);
 
-  const handleNavClick = (href: string) => {
-    setMobileOpen(false);
-    if (href.startsWith("#")) {
-      if (location !== "/") {
-        window.location.href = "/" + href;
-      } else {
-        setTimeout(() => {
-          const el = document.querySelector(href);
-          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 50);
-      }
-    } else {
-      window.location.href = href;
-    }
-  };
+  const isCurrent = (href: string) => (href === "/" ? location === "/" : location === href);
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-white/8 shadow-lg shadow-black/20"
-            : "bg-transparent"
+      <header
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-200 ${
+          scrolled ? "border-[#0D1B3E]/12 bg-[#fcfcfa]/95 shadow-[0_8px_32px_rgba(13,27,62,0.06)] backdrop-blur-xl" : "border-transparent bg-[#fcfcfa]/80 backdrop-blur-md"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18 py-3">
-            {/* Logo */}
-            <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-              <img
-                src={LOGO_URL}
-                alt="FEC Playbook"
-                className="h-10 w-auto"
-              />
-            </Link>
+        <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary navigation">
+          <Link href="/" aria-label="FEC Playbook home" className="shrink-0 rounded-lg bg-[#07111f] px-3 py-2">
+            <img src={LOGO_URL} alt="FEC Playbook" className="h-6 w-auto sm:h-7" />
+          </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-white/70 hover:text-white font-semibold text-sm tracking-wide transition-colors duration-200 uppercase"
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}
-                >
-                  {link.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-4">
-              <a
-                href="https://app.bookmore.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-white font-semibold text-sm tracking-wide transition-colors duration-200 uppercase"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
+          <div className="hidden items-center gap-7 lg:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-semibold transition-colors ${isCurrent(link.href) ? "text-[#0D1B3E]" : "text-[#526070] hover:text-[#0D1B3E]"}`}
+                aria-current={isCurrent(link.href) ? "page" : undefined}
               >
-                Login
-              </a>
-              <a
-                href="/book-a-demo"
-                onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement: "navigation_desktop" })}
-                className="fec-btn-primary text-sm py-2.5 px-5"
-                style={{ display: "inline-flex", alignItems: "center", gap: "6px", textDecoration: "none" }}
-              >
-                <Phone size={14} />
-                Book a Revenue Review
-              </a>
-            </div>
-
-            {/* Mobile Hamburger */}
-            <button
-              className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-white/5 transition-colors"
-              onClick={() => setMobileOpen(true)}
-              aria-label="Open menu"
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-navigation-drawer"
-            >
-              <span className="block w-6 h-0.5 bg-white rounded-full transition-all"></span>
-              <span className="block w-5 h-0.5 bg-[#00AEEF] rounded-full transition-all"></span>
-              <span className="block w-6 h-0.5 bg-white rounded-full transition-all"></span>
-            </button>
+                {link.label}
+              </Link>
+            ))}
           </div>
-        </div>
-      </nav>
 
-      {/* Mobile Drawer Backdrop */}
+          <div className="hidden items-center gap-5 lg:flex">
+            <a href="https://app.bookmore.app" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[#526070] transition-colors hover:text-[#0D1B3E]">
+              Login
+            </a>
+            <a
+              href="/book-a-demo"
+              onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement: "navigation_desktop" })}
+              className="fec-btn-primary px-5 py-2.5 text-sm normal-case tracking-normal"
+            >
+              <Phone size={15} aria-hidden="true" />
+              Book a Revenue Review
+            </a>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#0D1B3E]/12 text-[#0D1B3E] transition-colors hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 lg:hidden"
+            aria-label="Open menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation-drawer"
+          >
+            <Menu size={21} aria-hidden="true" />
+          </button>
+        </nav>
+      </header>
+
       <div
-        className={`fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-[60] bg-[#0D1B3E]/35 backdrop-blur-sm transition-opacity duration-200 lg:hidden ${mobileOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
         onClick={() => setMobileOpen(false)}
         aria-hidden="true"
       />
 
-      {/* Mobile Slide-Out Drawer */}
       <div
         id="mobile-navigation-drawer"
         ref={drawerRef}
-        className={`fixed top-0 right-0 bottom-0 z-[70] w-[85vw] max-w-sm bg-[#0A0A0A] border-l border-white/10 flex flex-col transition-transform duration-300 ease-in-out md:hidden shadow-2xl shadow-black/50 ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed inset-y-0 right-0 z-[70] flex w-[min(88vw,24rem)] flex-col bg-[#fcfcfa] shadow-[-20px_0_55px_rgba(13,27,62,0.16)] transition-transform duration-300 lg:hidden ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
         aria-modal="true"
         role="dialog"
         aria-labelledby="mobile-navigation-title"
         aria-hidden={!mobileOpen}
         inert={!mobileOpen}
       >
-        <h2 id="mobile-navigation-title" className="sr-only">Site navigation</h2>
-        {/* Drawer Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/8">
-          <img src={LOGO_VERTICAL_URL} alt="FEC Playbook" className="h-8 w-auto" />
+        <div className="flex items-center justify-between border-b border-[#0D1B3E]/10 px-5 py-5">
+          <h2 id="mobile-navigation-title" className="sr-only">Site navigation</h2>
+          <div className="rounded-lg bg-[#07111f] px-3 py-2"><img src={LOGO_URL} alt="FEC Playbook" className="h-6 w-auto" /></div>
           <button
-            onClick={() => setMobileOpen(false)}
-            className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors text-white/70 hover:text-white"
-            aria-label="Close menu"
+            type="button"
             ref={closeButtonRef}
+            onClick={() => setMobileOpen(false)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#0D1B3E]/12 text-[#0D1B3E] transition-colors hover:border-[#00AEEF] hover:bg-[#00AEEF]/10"
+            aria-label="Close menu"
           >
-            <X size={18} />
+            <X size={19} aria-hidden="true" />
           </button>
         </div>
 
-        {/* Drawer Nav Links */}
-        <div className="flex-1 overflow-y-auto py-4 px-4">
-          <p className="text-white/30 text-xs font-bold uppercase tracking-widest px-2 mb-3" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            Navigation
-          </p>
-          <nav className="space-y-1">
-            {navLinks.map((link, i) => (
-              <button
-                key={link.label}
-                onClick={() => handleNavClick(link.href)}
-                className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left transition-all duration-200 group hover:bg-white/5 ${
-                  mobileOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
-                }`}
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  transitionDelay: mobileOpen ? `${i * 40 + 80}ms` : "0ms",
-                }}
+        <div className="flex-1 px-5 py-6">
+          <p className="fec-eyebrow">Explore</p>
+          <nav className="mt-4 space-y-1" aria-label="Mobile navigation">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className={`block rounded-xl px-4 py-4 transition-colors ${isCurrent(link.href) ? "bg-[#00AEEF]/12 text-[#0D1B3E]" : "text-[#0D1B3E] hover:bg-[#0D1B3E]/5"}`}
+                aria-current={isCurrent(link.href) ? "page" : undefined}
               >
-                <div>
-                  <p className="text-white font-bold text-base uppercase tracking-wide group-hover:text-[#00AEEF] transition-colors">
-                    {link.label}
-                  </p>
-                  <p className="text-white/40 text-xs mt-0.5 font-normal normal-case tracking-normal">
-                    {link.desc}
-                  </p>
-                </div>
-                <ChevronRight size={16} className="text-white/20 group-hover:text-[#00AEEF] group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
-              </button>
+                <span className="block text-base font-bold">{link.label}</span>
+                <span className="mt-1 block text-sm leading-snug text-[#526070]">{link.desc}</span>
+              </Link>
             ))}
           </nav>
 
-          {/* Divider */}
-          <div className="border-t border-white/8 my-4 mx-2"></div>
-
-          {/* Quick Links */}
-          <p className="text-white/30 text-xs font-bold uppercase tracking-widest px-2 mb-3" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            Quick Access
-          </p>
-          <div className="space-y-1 px-2">
-            <a
-              href="https://app.bookmore.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between py-2.5 text-white/50 hover:text-white/80 transition-colors text-sm"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-              onClick={() => setMobileOpen(false)}
-            >
-              <span>Login</span>
-              <ChevronRight size={14} className="text-white/20" />
-            </a>
-            <a
-              href="mailto:support@fecplaybook.com"
-              className="flex items-center justify-between py-2.5 text-white/50 hover:text-white/80 transition-colors text-sm"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-              onClick={() => setMobileOpen(false)}
-            >
-              <span>support@fecplaybook.com</span>
-              <ChevronRight size={14} className="text-white/20" />
+          <div className="mt-8 border-t border-[#0D1B3E]/10 pt-6">
+            <a href="https://app.bookmore.app" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-[#526070] hover:text-[#0D1B3E]">
+              Client login
             </a>
           </div>
         </div>
 
-        {/* Drawer CTA Footer */}
-        <div className="px-4 pb-8 pt-4 border-t border-white/8 space-y-3">
+        <div className="border-t border-[#0D1B3E]/10 p-5">
           <a
             href="/book-a-demo"
             onClick={() => {
               trackEvent("cta_book_revenue_review_clicked", { placement: "navigation_mobile" });
               setMobileOpen(false);
             }}
-            className="fec-btn-primary w-full justify-center text-sm py-4"
-            style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}
+            className="fec-btn-primary w-full justify-center px-5 py-3.5 text-sm normal-case tracking-normal"
           >
-            <Phone size={16} />
-            Book a 30-Minute FEC Revenue Review
+            <Phone size={16} aria-hidden="true" />
+            Book a Revenue Review
           </a>
-          <p className="text-white/30 text-xs text-center" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            Clear next steps for your FEC revenue cycle
-          </p>
+          <p className="mt-3 text-center text-xs leading-relaxed text-[#526070]">Find the revenue work that is getting stuck.</p>
         </div>
       </div>
     </>

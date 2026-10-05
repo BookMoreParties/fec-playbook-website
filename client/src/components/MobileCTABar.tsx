@@ -1,11 +1,4 @@
-/*
- * FEC Playbook™ — Mobile Sticky CTA Bar
- * Design: Fixed bottom bar, appears after scrolling 300px past hero
- * Slides up from bottom with smooth animation
- * Hidden on md+ screens (desktop has nav CTA)
- */
-
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { Phone, X } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
@@ -15,78 +8,49 @@ export default function MobileCTABar() {
   const [dismissed, setDismissed] = useState(false);
   const [location] = useLocation();
   const marketingRoutes = new Set(["/", "/features", "/how-it-works", "/playbook"]);
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show after scrolling 400px (past the hero section)
-      if (window.scrollY > 400 && !dismissed) {
-        setVisible(true);
-      } else if (window.scrollY <= 400) {
-        setVisible(false);
-      }
-    };
 
+  useEffect(() => {
+    setDismissed(false);
+    setVisible(false);
+  }, [location]);
+
+  useEffect(() => {
+    const handleScroll = () => setVisible(window.scrollY > 420 && !dismissed);
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [dismissed]);
-
-  const handleDismiss = () => {
-    setDismissed(true);
-    setVisible(false);
-  };
 
   if (!marketingRoutes.has(location)) return null;
 
   return (
     <div
-      className={`
-        fixed bottom-0 left-0 right-0 z-[55]
-        md:hidden
-        transition-transform duration-300 ease-in-out
-        ${visible ? "translate-y-0" : "translate-y-full"}
-      `}
+      className={`fixed inset-x-0 bottom-0 z-[55] transition-transform duration-300 md:hidden ${visible ? "translate-y-0" : "translate-y-full"}`}
       aria-hidden={!visible}
       inert={!visible}
     >
-      {/* Gradient fade above bar */}
-      <div className="h-8 bg-gradient-to-t from-[#0A0A0A]/80 to-transparent pointer-events-none" />
-
-      {/* Bar itself */}
-      <div className="bg-[#0A0A0A] border-t border-white/10 px-4 pt-3 pb-5 shadow-[0_-8px_32px_rgba(0,0,0,0.6)]">
+      <div className="border-t border-[#0D1B3E]/15 bg-[#fcfcfa]/95 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-12px_35px_rgba(13,27,62,0.12)] backdrop-blur-xl">
         <div className="flex items-center gap-3">
-          {/* Main CTA */}
           <a
             href="/book-a-demo"
             onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement: "mobile_sticky_bar" })}
-            className="flex-1 flex items-center justify-center gap-2 bg-[#00AEEF] hover:bg-[#0090CC] active:bg-[#007AAD] text-white font-black uppercase tracking-wide text-sm py-4 rounded-xl transition-colors duration-200 shadow-lg shadow-[#00AEEF]/30"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
+            className="fec-btn-primary flex-1 justify-center px-4 py-3 text-sm normal-case tracking-normal"
             tabIndex={visible ? 0 : -1}
           >
-            {/* Pulse ring */}
-            <span className="relative flex items-center justify-center">
-              <span className="absolute inline-flex h-5 w-5 rounded-full bg-white/30 animate-ping opacity-60 motion-reduce:hidden" />
-              <Phone size={16} className="relative" />
-            </span>
+            <Phone size={16} aria-hidden="true" />
             Book a Revenue Review
           </a>
-
-          {/* Dismiss button */}
           <button
-            onClick={handleDismiss}
-            className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 active:bg-white/15 text-white/50 hover:text-white/80 transition-colors"
+            type="button"
+            onClick={() => setDismissed(true)}
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#0D1B3E]/15 text-[#526070] transition-colors hover:border-[#00AEEF] hover:bg-[#00AEEF]/10 hover:text-[#0D1B3E]"
             aria-label="Dismiss"
             tabIndex={visible ? 0 : -1}
           >
-            <X size={16} />
+            <X size={17} aria-hidden="true" />
           </button>
         </div>
-
-        {/* Sub-text */}
-        <p
-          className="text-center text-white/35 text-xs mt-2"
-          style={{ fontFamily: "'Montserrat', sans-serif" }}
-        >
-          30-minute FEC Revenue Review · No preparation required
-        </p>
+        <p className="mt-2 text-center text-xs text-[#526070]">30-minute working session · No preparation required</p>
       </div>
     </div>
   );

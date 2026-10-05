@@ -1,22 +1,5 @@
-/*
- * FEC Playbook™ — Conversion-Led Home Page
- * Design philosophy: Bold FEC sports/action campaign. True black and white ground, FEC Blue (#00AEEF)
- * as an intentional action accent, diagonal momentum, oversized stage numbers, and real product proof.
- */
-
-import { useEffect, useRef, useState } from "react";
-import {
-  ArrowRight,
-  CalendarCheck,
-  CheckCircle2,
-  ChevronDown,
-  ChevronUp,
-  ClipboardCheck,
-  MessageSquare,
-  ShieldCheck,
-  Sparkles,
-  UserCheck,
-} from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, CalendarCheck, Check, ChevronDown, ChevronUp, CircleDot, MessageSquare, Star, UsersRound } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOMeta from "@/components/SEOMeta";
@@ -24,177 +7,51 @@ import StructuredData from "@/components/StructuredData";
 import { trackEvent } from "@/lib/analytics";
 
 const ASSETS = {
-  heroBg: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/hero-bg-mLV3usVoJARhVMWa8qsJ8f.webp",
-  birthdayParty: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/birthday-party-text-6MVbVzyByRLkTSrZZi8YVS.webp",
-  textClub: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/text-club-offer-deXrAuqSunkxwnsEiwQZqh.webp",
-  fecOperator: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/fec-operator-FPdt5GDKLRrSr7YzshYVGw.webp",
-  screenshotDashboard: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-dashboard-Xvv4CsYBmbuFktddYJRVAY.webp",
-  screenshotConversations: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-conversations-JtN2wUBGRkhaeNP9KaWfvi.webp",
-  screenshotPipeline: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-pipeline-5H8g837XP3Whcjpofgqvyf.webp",
+  pipeline: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-pipeline-5H8g837XP3Whcjpofgqvyf.webp",
+  inbox: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-conversations-JtN2wUBGRkhaeNP9KaWfvi.webp",
+  dashboard: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-dashboard-Xvv4CsYBmbuFktddYJRVAY.webp",
 };
 
-const revenueStages = [
+const revenueMoments = [
   {
-    number: "01",
-    short: "INQUIRY",
-    label: "Party or group lead",
-    title: "Turn inquiries into booked parties.",
-    copy: "Capture party, group, and corporate inquiries in one place. FEC Playbook™ assigns the next step, follows up on time, and shows your team which opportunities still need attention.",
-    proof: "Pipeline + assigned follow-up",
-    icon: UserCheck,
+    icon: UsersRound,
+    title: "Party lead",
+    outcome: "Every inquiry gets an owner and next step.",
+    copy: "Capture the inquiry, route it to the right person, and keep follow-up visible before interest cools.",
   },
   {
-    number: "02",
-    short: "BOOKING",
-    label: "The next step is clear",
-    title: "Make every booking feel prepared.",
-    copy: "Send the right confirmations, reminders, waivers, and guest details at the right time. Your staff starts with context, and families arrive ready for a better visit.",
-    proof: "Confirmations + reminders",
     icon: CalendarCheck,
+    title: "Booked event",
+    outcome: "Every family gets the right information at the right time.",
+    copy: "Confirmations, reminders, guest details, and team handoffs keep moving when the schedule gets busy.",
   },
   {
-    number: "03",
-    short: "VISIT",
-    label: "The guest experience is owned",
-    title: "Protect the moment after the visit.",
-    copy: "Request feedback while the experience is fresh. Route concerns to your team, recognize great guest moments, and give satisfied families a simple way to leave a review.",
-    proof: "Feedback + review requests",
-    icon: ShieldCheck,
+    icon: Star,
+    title: "Guest feedback",
+    outcome: "Every great experience has a route to public proof.",
+    copy: "Create a consistent way to ask for feedback, invite reviews, and put guest concerns in front of the team.",
   },
   {
-    number: "04",
-    short: "REPUTATION",
-    label: "Guest feedback becomes action",
-    title: "Give families a reason to return.",
-    copy: "Use the visit, purchase, birthday, membership, or interest data you already have to deliver relevant follow-up instead of one-size-fits-all promotions.",
-    proof: "Segmented email + SMS",
     icon: MessageSquare,
-  },
-  {
-    number: "05",
-    short: "REPEAT VISIT",
-    label: "The next visit is already moving",
-    title: "Make revenue work visible to the team.",
-    copy: "Managers see what needs action, who owns it, and which opportunities have gone quiet. Your team spends less time checking tools and more time moving guests forward.",
-    proof: "Alerts + manager digests",
-    icon: ClipboardCheck,
-  },
-];
-
-const motionProofs = [
-  {
-    number: "01",
-    label: "INQUIRY FOLLOW-UP",
-    title: "A new lead gets an owner and a next step.",
-    trigger: "Party or group inquiry arrives",
-    action: "Owner assigned · follow-up sequence starts",
-    outcome: "Opportunity stays visible until it moves",
-    icon: UserCheck,
-  },
-  {
-    number: "02",
-    label: "PARTY BOOKING",
-    title: "A confirmed booking becomes a prepared visit.",
-    trigger: "Booking is confirmed",
-    action: "Confirmation · reminders · guest details",
-    outcome: "Families and staff arrive with context",
-    icon: CalendarCheck,
-  },
-  {
-    number: "03",
-    label: "GUEST RETURN",
-    title: "The visit becomes the reason to come back.",
-    trigger: "Guest experience is complete",
-    action: "Feedback · review request · relevant follow-up",
-    outcome: "The next visit is already in motion",
-    icon: ShieldCheck,
-  },
-];
-
-const playbooks = [
-  { number: "01", title: "Birthday & Celebration Sales", copy: "Guide every party inquiry from first contact through the next celebration." },
-  { number: "02", title: "Group & Corporate Events", copy: "Keep weekday group opportunities visible, qualified, and moving." },
-  { number: "03", title: "Guest Visit Communication", copy: "Prepare guests with the right message before they arrive." },
-  { number: "04", title: "Reputation Protection", copy: "Turn guest feedback into a practical next action for your team." },
-  { number: "05", title: "Membership Lifecycle", copy: "Support each member from welcome through renewal and return." },
-  { number: "06", title: "Text Club & Repeat Visits", copy: "Create relevant reasons for families to come back." },
-  { number: "07", title: "Sales Accountability", copy: "Give managers a simple view of every next revenue action." },
-  { number: "08", title: "Fundraising & Referrals", copy: "Make community relationships easier to manage and grow." },
-];
-
-const proofPillars = [
-  { title: "FEWER MISSED LEADS", copy: "New party and group inquiries get a clear owner and next step." },
-  { title: "LESS MANUAL CHASING", copy: "Confirmations, reminders, and follow-up keep moving when your team is busy." },
-  { title: "MORE REASONS TO RETURN", copy: "Guests receive relevant follow-up after the visit, not another generic blast." },
-];
-
-const builtSystemBlocks = [
-  {
-    number: "01",
-    title: "Start with a Real Playbook.",
-    copy: "Party inquiries, booking confirmations, review requests, repeat-visit follow-up, team accountability, and more begin with systems already designed for FEC operations.",
-  },
-  {
-    number: "02",
-    title: "Adapt It to Your Venue.",
-    copy: "We align the message, offer, timing, owners, and handoffs with your brand and the systems your team already uses.",
-  },
-  {
-    number: "03",
-    title: "Put It Into Motion With Support.",
-    copy: "Your team gets FEC-specific implementation guidance so the playbooks become part of daily operations—not another login that goes unused.",
-  },
-];
-
-const integrations = [
-  { name: "CenterEdge Software", description: "Official integration partner", kind: "Official Partner", primary: true },
-  { name: "ROLLER Software", description: "Venue-management data import", kind: "Data Import", primary: false },
-  { name: "PartyWirks", description: "Party-booking data import", kind: "Data Import", primary: false },
-  { name: "Party Center Software", description: "FEC booking data import", kind: "Data Import", primary: false },
-  { name: "Ferret Personality", description: "Hiring data import", kind: "Data Import", primary: false },
-];
-
-const testimonials = [
-  {
-    quote: "It's Not Just a Tool — It's a Growth Engine for our Business. Book More is transforming our booking flow — clients book parties faster because of the automations, and now with Roller integration we close deals smoother. The intuitive interface and smart automation save us hours every week.",
-    author: "Matthew",
-    role: "FEC Owner",
-  },
-  {
-    quote: "Five-Star reviews have skyrocketed. Since implementing the review automation, our number of five-star reviews have skyrocketed. People were always thanking us but never leaving a review. Now they have an easy way to give us a shout out and they're doing so daily.",
-    author: "Theresa",
-    role: "FEC Operator",
-  },
-  {
-    quote: "Our Party Confirmation Process is SO Much More Efficient. It has absolutely cut down on the time our team spends on the hiring process. The chat widget functions make communicating with our customers so much easier and quicker. The team is always quick to answer questions.",
-    author: "Rilee",
-    role: "Events Manager, FEC",
+    title: "Return visit",
+    outcome: "Every guest has a relevant reason to come back.",
+    copy: "Use the moments that already matter to deliver follow-up that feels timely instead of generic.",
   },
 ];
 
 const faqs = [
   {
-    question: "Does FEC Playbook™ replace my POS or booking software?",
-    answer: "No. FEC Playbook™ works alongside your existing POS and booking systems. Your existing system records the transaction; FEC Playbook™ helps your team manage the follow-up, marketing, lead ownership, and guest communication around it.",
+    question: "What is FEC Playbook™?",
+    answer: "FEC Playbook™ is a revenue operating system built for Family Entertainment Centers. It brings party-lead follow-up, guest communication, reviews, and return-visit work into one connected process around the systems your venue already uses.",
   },
   {
-    question: "What does FEC Playbook™ help us fix first?",
-    answer: "Start with the problem costing your team the most: missed party leads, manual confirmations, weak guest follow-up, unclear ownership, or too few return visits. The Revenue Review maps the ready-built playbooks that fit that problem.",
+    question: "Do we have to build the workflows ourselves?",
+    answer: "No. The workflow sequence, follow-up timing, ownership, and repeatable next steps start ready. Your venue shapes the offers, policies, team roles, and guest voice that make the system fit.",
   },
   {
-    question: "Do we have to build the automations ourselves?",
-    answer: "No. The workflows, timing, handoffs, reminders, and follow-up sequences start ready. Your venue tailors the brand, offers, policies, and team ownership.",
+    question: "Does FEC Playbook™ replace our POS or booking system?",
+    answer: "No. Your POS and booking tools can continue to run the transaction. FEC Playbook™ helps your team run the lead ownership, communication, review, and return-visit work around it.",
   },
-  {
-    question: "Will it work with the systems we already use?",
-    answer: "Yes. FEC Playbook™ works alongside your current operating systems. CenterEdge is the official partner; other supported data-import paths are confirmed during your Revenue Review.",
-  },
-];
-
-const proofScreens = [
-  { tab: "Pipeline", src: ASSETS.screenshotPipeline, alt: "FEC Playbook™ party lead pipeline" },
-  { tab: "Inbox", src: ASSETS.screenshotConversations, alt: "FEC Playbook™ conversations inbox" },
-  { tab: "Dashboard", src: ASSETS.screenshotDashboard, alt: "FEC Playbook™ operations dashboard" },
 ];
 
 const homeStructuredData = [
@@ -205,7 +62,7 @@ const homeStructuredData = [
     name: "FEC Playbook™",
     url: "https://www.fecplaybook.com/",
     logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png",
-    description: "FEC system for party lead follow-up, booking confirmations, guest communication, repeat visits, and team accountability.",
+    description: "A revenue operating system for Family Entertainment Centers that helps teams move party leads, guest communication, reviews, and return visits forward.",
   },
   {
     "@context": "https://schema.org",
@@ -221,547 +78,249 @@ const homeStructuredData = [
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   },
 ];
 
-function PrimaryCta({ placement, className = "" }: { placement: string; className?: string }) {
+function ReviewCta({ placement, className = "" }: { placement: string; className?: string }) {
   return (
     <a
       href="/book-a-demo"
       onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement })}
-      className={`inline-flex min-h-[52px] items-center justify-center gap-2 bg-[#00AEEF] px-5 py-3 text-center text-sm font-black uppercase tracking-[0.08em] text-[#0A0A0A] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#5ad0ff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#00AEEF] sm:px-7 ${className}`}
+      className={`fec-btn-primary justify-center px-6 py-3.5 text-sm normal-case tracking-normal ${className}`}
     >
-      <CalendarCheck size={18} aria-hidden="true" />
+      <CalendarCheck size={17} aria-hidden="true" />
       Book a 30-Minute FEC Revenue Review
     </a>
   );
 }
 
 export default function Home() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [activeProof, setActiveProof] = useState(0);
-  const [activeMotionProof, setActiveMotionProof] = useState(0);
-  const [builtSystemActive, setBuiltSystemActive] = useState(false);
-  const builtSystemRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const section = builtSystemRef.current;
-    if (!section) return;
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reducedMotion.matches || !("IntersectionObserver" in window)) {
-      setBuiltSystemActive(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setBuiltSystemActive(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.25 },
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+    <div className="fec-page overflow-x-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
-        title="Stop Missing Party Leads & Bring Families Back | FEC Playbook™"
-        description="FEC Playbook™ helps Family Entertainment Centers stop missed party leads, automate confirmations and follow-up, and give families a reason to return."
+        title="FEC Revenue Operating System for More Booked Parties | FEC Playbook™"
+        description="FEC Playbook™ helps Family Entertainment Centers consolidate revenue work, move party leads faster, automate routine communication, earn more reviews, and create more return visits."
         path="/"
       />
       <StructuredData data={homeStructuredData} />
       <Navigation />
 
       <main>
-        {/* Design reminder: asymmetric action campaign hero with a real product-proof visual and one primary action. */}
-        <section
-          className="relative isolate overflow-hidden bg-[#0A0A0A] pb-14 pt-28 sm:pb-20 sm:pt-32"
-          style={{ backgroundImage: "linear-gradient(118deg, #0A0A0A 0%, #0A0A0A 56%, #081326 100%)" }}
-        >
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-[7px] bg-[#00AEEF]" />
-          <div className="pointer-events-none absolute right-[-9rem] top-16 h-72 w-72 -skew-x-12 border border-[#00AEEF]/25" />
-          <div className="pointer-events-none absolute right-[8%] top-20 hidden text-[18rem] font-black leading-none text-[#00AEEF]/[0.045] lg:block" aria-hidden="true">▶</div>
-          <div className="pointer-events-none absolute bottom-0 left-0 h-24 w-full bg-[#0A0A0A] [clip-path:polygon(0_65%,100%_0,100%_100%,0_100%)]" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
-              <div className="lg:col-span-7">
-                <div className="mb-6 flex items-center gap-3">
-                  <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Built by FEC Operators</span>
-                </div>
-                <h1 className="max-w-4xl text-[2.7rem] font-black uppercase leading-[0.91] tracking-[-0.045em] sm:text-6xl lg:text-7xl xl:text-[5.6rem]">
-                  Stop Losing Party Leads. <span className="text-[#00AEEF]">Bring Families Back.</span>
-                </h1>
-                <p className="mt-7 max-w-2xl text-base font-medium leading-relaxed text-white/75 sm:text-lg">
-                  FEC Playbook™ keeps party leads, confirmations, follow-up, and team handoffs moving. It is built by fellow FEC operators, then tailored to your venue and the systems you already use.
-                </p>
-                <div className="mt-8 flex flex-col items-stretch gap-4 sm:items-start">
-                  <PrimaryCta placement="hero" className="w-full sm:w-auto" />
-                  <p className="max-w-xl text-sm leading-relaxed text-white/60">
-                    See where leads, time, and repeat visits are getting stuck.
-                  </p>
-                  <a
-                    href="#revenue-playbooks"
-                    onClick={() => trackEvent("revenue_playbooks_clicked", { placement: "hero" })}
-                    className="inline-flex w-fit items-center gap-2 border-b border-white/30 pb-1 text-sm font-black uppercase tracking-[0.08em] text-white transition-colors hover:border-[#00AEEF] hover:text-[#00AEEF] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#00AEEF]"
-                  >
-                    See the Revenue Playbooks <ArrowRight size={17} aria-hidden="true" />
-                  </a>
-                </div>
-                <p className="mt-7 text-xs font-bold uppercase tracking-[0.12em] text-white/55">Built by fellow FEC operators. Works with the systems you already use.</p>
-              </div>
-
-              <div className="lg:col-span-5">
-                <div className="relative border border-white/15 bg-[#081326] p-2 shadow-[18px_18px_0_rgba(0,174,239,0.18)]">
-                  <div className="absolute -left-3 top-8 hidden h-28 w-3 bg-[#00AEEF] lg:block" />
-                  <div className="relative overflow-hidden border border-white/10 bg-[#0D1B3E]">
-                    <div className="flex items-center gap-2 border-b border-white/10 bg-[#081326] px-4 py-3">
-                      <span className="h-2.5 w-2.5 bg-[#00AEEF]" />
-                      <span className="h-2.5 w-2.5 bg-white/25" />
-                      <span className="h-2.5 w-2.5 bg-white/25" />
-                      <span className="ml-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/55">FEC Playbook™ / Live Revenue Work</span>
-                    </div>
-                    <img src={ASSETS.screenshotPipeline} alt="FEC Playbook™ party and group lead pipeline" className="aspect-[4/3] w-full object-cover object-left-top" />
-                  </div>
-                  <div className="relative mt-2 flex items-center justify-between bg-[#0A0A0A] px-4 py-3">
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#00AEEF]">Real platform proof</p>
-                      <p className="mt-1 text-xs font-bold uppercase tracking-[0.09em] text-white">Lead ownership · follow-up · visibility</p>
-                    </div>
-                    <span className="flex h-9 w-9 items-center justify-center bg-[#00AEEF] text-sm text-[#0A0A0A]" aria-hidden="true">▶</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-14 grid border-y border-white/10 sm:grid-cols-3">
-              {proofPillars.map((pillar, index) => (
-                <div key={pillar.title} className={`px-0 py-5 sm:px-7 ${index !== 0 ? "border-t border-white/10 sm:border-l sm:border-t-0" : ""}`}>
-                  <p className="text-sm font-black uppercase tracking-[0.11em] text-white">{pillar.title}</p>
-                  <p className="mt-1 text-sm text-white/55">{pillar.copy}</p>
-                </div>
-              ))}
-            </div>
-            <div className="grid border-b border-white/10 sm:grid-cols-3">
-              {[
-                ["08", "REVENUE PLAYBOOKS"],
-                ["13", "CORE MODULES"],
-                ["100+", "PREBUILT AUTOMATIONS"],
-              ].map(([value, label], index) => (
-                <div key={label} className={`flex items-baseline gap-3 px-0 py-4 sm:px-7 ${index !== 0 ? "border-t border-white/10 sm:border-l sm:border-t-0" : ""}`}>
-                  <span className="text-3xl font-black tracking-[-0.06em] text-[#00AEEF]">{value}</span>
-                  <span className="text-[10px] font-black uppercase tracking-[0.13em] text-white/55">{label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Design reminder: Open SaaS-inspired proof lane, adapted as a hard-edged FEC action sequence rather than a generic logo carousel. */}
-        <section id="playbooks-in-motion" className="relative overflow-hidden bg-[#F3F6F8] py-20 text-[#0A0A0A] sm:py-28">
-          <div className="pointer-events-none absolute right-[-4rem] top-0 h-full w-[28%] bg-[#1565C0] [clip-path:polygon(35%_0,100%_0,100%_100%,0_100%)]" />
-          <div className="pointer-events-none absolute right-[3%] top-[-4rem] hidden text-[15rem] font-black leading-none text-white/25 lg:block" aria-hidden="true">▶</div>
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 border-b border-[#0D1B3E]/15 pb-10 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-7">
-                <div className="flex items-center gap-3">
-                  <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#1565C0]">Playbooks in Motion</span>
-                </div>
-                <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                  See the Revenue Work <span className="text-[#1565C0]">Move Forward.</span>
-                </h2>
-              </div>
-              <p className="max-w-xl text-base leading-relaxed text-[#1E3A5F]/80 lg:col-span-5 lg:justify-self-end">
-                These are not loose features to configure. Each ready-built playbook gives a revenue moment a trigger, a next action, and a clear outcome your team can own.
+        <section className="relative overflow-hidden border-b border-[#0D1B3E]/10 bg-[#fcfcfa] pb-20 pt-32 sm:pb-28 sm:pt-40">
+          <div className="pointer-events-none absolute -right-20 top-10 h-80 w-80 rounded-full bg-[#00AEEF]/10 blur-3xl" />
+          <div className="pointer-events-none absolute left-[56%] top-0 hidden h-full w-px bg-[#0D1B3E]/8 lg:block" />
+          <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.04fr_.96fr] lg:gap-16 lg:px-8">
+            <div className="max-w-2xl">
+              <p className="fec-eyebrow">Built for Family Entertainment Centers</p>
+              <h1 className="fec-display mt-5 text-[3.15rem] sm:text-6xl lg:text-[4.45rem]">More booked parties. Less busywork.</h1>
+              <p className="fec-copy mt-7 max-w-xl text-base sm:text-lg">
+                FEC Playbook™ brings your party leads, guest communication, reviews, and return-visit work into one FEC revenue operating system—so your team spends less time switching tools and more time moving guests forward.
               </p>
-            </div>
-
-            <div className="mt-10 -mr-4 overflow-hidden sm:-mr-6 lg:-mr-8">
-              <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 pr-4 [scrollbar-width:thin] sm:pr-6 lg:pr-8" role="list" aria-label="Examples of ready-built Revenue Playbooks">
-                {motionProofs.map((proof, index) => {
-                  const Icon = proof.icon;
-                  const isActive = activeMotionProof === index;
-                  return (
-                    <button
-                      key={proof.number}
-                      type="button"
-                      onClick={() => setActiveMotionProof(index)}
-                      aria-pressed={isActive}
-                      className={`group relative flex min-h-[28rem] w-[18.5rem] shrink-0 snap-start flex-col overflow-hidden border p-6 text-left transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#00AEEF] sm:w-[23rem] sm:p-7 ${
-                        isActive
-                          ? "border-[#00AEEF] bg-[#0A0A0A] text-white shadow-[10px_10px_0_rgba(0,174,239,0.22)]"
-                          : "border-[#0D1B3E]/20 bg-white text-[#0A0A0A] hover:-translate-y-1 hover:border-[#1565C0]"
-                      }`}
-                    >
-                      <div className={`absolute right-0 top-0 h-20 w-24 [clip-path:polygon(58%_0,100%_0,100%_100%,0_100%)] ${isActive ? "bg-[#00AEEF]" : "bg-[#1565C0]"}`} />
-                      <div className="relative flex items-start justify-between">
-                        <span className={`text-6xl font-black leading-none tracking-[-0.08em] ${isActive ? "text-white/15" : "text-[#0D1B3E]/12"}`}>{proof.number}</span>
-                        <span className={`flex h-10 w-10 items-center justify-center ${isActive ? "bg-[#00AEEF] text-[#0A0A0A]" : "bg-[#0A0A0A] text-[#00AEEF]"}`}><Icon size={18} aria-hidden="true" /></span>
-                      </div>
-                      <p className={`mt-8 text-[10px] font-black uppercase tracking-[0.18em] ${isActive ? "text-[#00AEEF]" : "text-[#1565C0]"}`}>{proof.label}</p>
-                      <h3 className={`mt-3 max-w-sm text-2xl font-black uppercase leading-[0.94] tracking-[-0.03em] ${isActive ? "text-white" : "text-[#0A0A0A]"}`}>{proof.title}</h3>
-                      <dl className={`mt-auto space-y-0 border-t pt-6 ${isActive ? "border-white/15" : "border-[#0D1B3E]/15"}`}>
-                        <div className={`border-b pb-4 ${isActive ? "border-white/10" : "border-[#0D1B3E]/10"}`}>
-                          <dt className={`text-[10px] font-black uppercase tracking-[0.16em] ${isActive ? "text-white/45" : "text-[#1E3A5F]/55"}`}>Trigger</dt>
-                          <dd className={`mt-1 text-sm font-bold leading-snug ${isActive ? "text-white" : "text-[#0D1B3E]"}`}>{proof.trigger}</dd>
-                        </div>
-                        <div className={`border-b py-4 ${isActive ? "border-white/10" : "border-[#0D1B3E]/10"}`}>
-                          <dt className={`text-[10px] font-black uppercase tracking-[0.16em] ${isActive ? "text-white/45" : "text-[#1E3A5F]/55"}`}>Ready-built action</dt>
-                          <dd className={`mt-1 text-sm font-bold leading-snug ${isActive ? "text-white" : "text-[#0D1B3E]"}`}>{proof.action}</dd>
-                        </div>
-                        <div className="pt-4">
-                          <dt className={`text-[10px] font-black uppercase tracking-[0.16em] ${isActive ? "text-[#00AEEF]" : "text-[#1565C0]"}`}>Outcome</dt>
-                          <dd className={`mt-1 text-sm font-black leading-snug ${isActive ? "text-white" : "text-[#0A0A0A]"}`}>{proof.outcome}</dd>
-                        </div>
-                      </dl>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="mt-7 flex flex-col gap-5 border-t border-[#0D1B3E]/15 pt-7 sm:flex-row sm:items-center sm:justify-between">
-              <p className="max-w-2xl text-sm font-bold leading-relaxed text-[#1E3A5F]/75">
-                Tap a playbook to bring its sequence forward. Every workflow is adapted to your facility before it is activated.
-              </p>
-              <a
-                href="#revenue-playbooks"
-                onClick={() => trackEvent("revenue_playbooks_clicked", { placement: "playbooks_in_motion" })}
-                className="inline-flex w-fit items-center gap-2 bg-[#0A0A0A] px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#1565C0] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1565C0]"
-              >
-                Explore All 8 Playbooks <ArrowRight size={17} aria-hidden="true" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Design reminder: diagonal transition and a clear revenue-cycle story, not a generic feature grid. */}
-        <section id="revenue-cycle" className="relative bg-white py-20 text-[#0A0A0A] sm:py-28">
-          <div className="absolute left-0 top-0 h-12 w-full bg-[#0A0A0A] [clip-path:polygon(0_0,100%_0,100%_35%,0_100%)]" />
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
-              <div className="lg:col-span-5">
-                <div className="mt-6 flex items-center gap-3">
-                  <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#1565C0]">The FEC Revenue Cycle</span>
-                </div>
-                <h2 className="mt-6 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
-                  The Revenue Work That <span className="text-[#1565C0]">Cannot Be Missed.</span>
-                </h2>
-                <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-[#1E3A5F]/80 sm:text-lg">
-                  Revenue gets lost when a party lead waits, a confirmation does not go out, or a good visit ends without follow-up. FEC Playbook™ gives each moment a clear owner and next step.
-                </p>
-                <p className="mt-7 border-l-4 border-[#00AEEF] pl-4 text-base font-black leading-relaxed text-[#0D1B3E]">
-                  Your POS records the transaction. FEC Playbook™ runs the revenue work around it.
-                </p>
-                <a
-                  href="#revenue-playbooks"
-                  onClick={() => trackEvent("revenue_playbooks_clicked", { placement: "revenue_cycle" })}
-                  className="mt-8 inline-flex items-center gap-2 bg-[#0A0A0A] px-5 py-3 text-sm font-black uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#1565C0] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1565C0]"
-                >
-                  See the Revenue Playbooks <ArrowRight size={17} aria-hidden="true" />
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <ReviewCta placement="hero" className="w-full sm:w-auto" />
+                <a href="/how-it-works" className="inline-flex items-center justify-center gap-2 px-2 py-3 text-sm font-bold text-[#0D1B3E] transition-colors hover:text-[#0c719a] sm:justify-start">
+                  See how it works <ArrowRight size={16} aria-hidden="true" />
                 </a>
               </div>
+              <p className="mt-6 text-sm leading-relaxed text-[#526070]">Keep the systems that run your venue. Put the revenue work around them in motion.</p>
+            </div>
 
-              <div className="lg:col-span-7">
-                <ol className="relative space-y-0 border-l-2 border-[#00AEEF]">
-                  {revenueStages.map((stage) => {
-                    const Icon = stage.icon;
-                    return (
-                      <li key={stage.number} className="relative grid gap-5 border-b border-[#0D1B3E]/10 px-5 py-7 sm:grid-cols-[5.4rem_1fr_auto] sm:px-8 sm:py-8">
-                        <span className="absolute -left-[11px] top-9 h-5 w-5 bg-[#00AEEF] ring-4 ring-white" />
-                        <div className="flex items-start gap-3 sm:block">
-                          <span className="text-5xl font-black leading-none tracking-[-0.08em] text-[#0D1B3E]/15 sm:text-7xl">{stage.number}</span>
-                          <Icon className="mt-1 h-5 w-5 text-[#1565C0] sm:mt-3 sm:h-6 sm:w-6" aria-hidden="true" />
-                        </div>
-                        <div>
-                          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#1565C0]">{stage.short} <span className="text-[#0D1B3E]/45">/ {stage.label}</span></p>
-                          <h3 className="mt-2 text-xl font-black uppercase leading-tight text-[#0A0A0A] sm:text-2xl">{stage.title}</h3>
-                          <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#1E3A5F]/75">{stage.copy}</p>
-                        </div>
-                        <span className="h-fit w-fit bg-[#00AEEF] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.1em] text-[#0A0A0A] sm:mt-1">{stage.proof}</span>
-                      </li>
-                    );
-                  })}
-                </ol>
+            <div className="relative mx-auto w-full max-w-xl lg:mx-0">
+              <div className="fec-frame overflow-hidden p-2 sm:p-3">
+                <div className="flex items-center gap-2 border-b border-white/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-white/60 sm:px-4">
+                  <span className="h-2 w-2 rounded-full bg-[#00AEEF]" />
+                  <span>FEC Playbook™ / Party lead workflow</span>
+                </div>
+                <img src={ASSETS.pipeline} alt="FEC Playbook™ party lead pipeline with visible follow-up stages" className="mt-2 aspect-[4/3] w-full rounded-lg object-cover object-left-top" />
+                <div className="flex items-center gap-3 px-3 py-4 sm:px-4">
+                  <CircleDot size={17} className="shrink-0 text-[#00AEEF]" aria-hidden="true" />
+                  <p className="text-sm font-semibold leading-snug text-white">Every inquiry has an owner and next step.</p>
+                </div>
               </div>
+              <div className="absolute -bottom-5 -left-5 -z-10 hidden h-36 w-36 rounded-2xl border border-[#0D1B3E]/10 bg-white lg:block" />
             </div>
           </div>
         </section>
 
-        {/* Design reminder: pre-built system proof uses large stage numbers, angular fields, and play-button geometry—not soft SaaS cards. */}
-        <section ref={builtSystemRef} id="built-system" className="relative overflow-hidden bg-[#0A0A0A] py-20 sm:py-28">
-          <div className="pointer-events-none absolute -left-16 top-0 h-full w-48 bg-[#1565C0]/30 [clip-path:polygon(0_0,100%_0,45%_100%,0_100%)]" />
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 border-b border-white/15 pb-10 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-7">
-                <div className="flex items-center gap-3">
-                  <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Pre-Built by FEC Experience</span>
-                </div>
-                <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl lg:text-6xl">Built by Fellow Operators. <span className="text-[#00AEEF]">Made for Your FEC.</span></h2>
-              </div>
-              <p className="max-w-xl text-base leading-relaxed text-white/65 lg:col-span-5 lg:justify-self-end">The playbooks start with real FEC workflows for leads, bookings, guest follow-up, and return visits. We adapt the system to your team, offers, and brand.</p>
+        <section className="bg-white py-18 sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-end lg:px-8">
+            <div>
+              <p className="fec-eyebrow">The operational problem</p>
+              <h2 className="fec-display mt-4 max-w-xl text-4xl sm:text-5xl">Your team should not have to run revenue from five different tools.</h2>
             </div>
-
-            <div className="mt-10 grid gap-4 lg:grid-cols-3">
-              {builtSystemBlocks.map((block, index) => (
-                <article
-                  key={block.number}
-                  className={`relative min-h-80 overflow-hidden border border-white/15 bg-[#0D1B3E] p-6 transition-[opacity,transform,box-shadow] duration-500 ease-out motion-reduce:translate-x-0 motion-reduce:opacity-100 motion-reduce:transition-none sm:p-8 ${builtSystemActive ? "translate-x-0 opacity-100 shadow-[10px_10px_0_rgba(0,174,239,0.12)]" : "translate-x-8 opacity-0"}`}
-                  style={{ transitionDelay: builtSystemActive ? `${index * 190}ms` : "0ms" }}
-                >
-                  <div className="absolute right-0 top-0 h-24 w-28 bg-[#00AEEF] [clip-path:polygon(56%_0,100%_0,100%_100%,0_100%)]" />
-                  <div className="relative flex h-full flex-col">
-                    <div className="flex items-start justify-between">
-                      <span className="text-7xl font-black leading-none tracking-[-0.08em] text-white/15">{block.number}</span>
-                      <span className={`mt-1 flex h-9 w-9 items-center justify-center bg-[#0A0A0A] text-[#00AEEF] transition-all duration-300 motion-reduce:scale-100 motion-reduce:transition-none ${builtSystemActive ? "scale-100 opacity-100" : "scale-75 opacity-0"}`} style={{ transitionDelay: builtSystemActive ? `${index * 190 + 170}ms` : "0ms" }} aria-hidden="true">▶</span>
-                    </div>
-                    <h3 className="mt-12 max-w-xs text-2xl font-black uppercase leading-[0.95] tracking-[-0.03em] text-white">{block.title}</h3>
-                    <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">{block.copy}</p>
-                    <p className="mt-auto pt-6 text-[10px] font-black uppercase tracking-[0.16em] text-[#00AEEF]">{index === 0 ? "8 Ready-Built Playbooks" : index === 1 ? "You Bring the Brand" : "FEC-Specific Guidance"}</p>
-                  </div>
-                </article>
+            <div className="space-y-4 border-t border-[#0D1B3E]/12 pt-4 lg:pt-0">
+              {[
+                "Party leads wait while staff switch between forms, inboxes, texts, and spreadsheets.",
+                "Confirmations, reminders, and follow-up become more manual work on the busiest days.",
+                "A great guest visit ends without a clear next step toward a review or return visit.",
+              ].map((problem) => (
+                <div key={problem} className="flex gap-3 border-b border-[#0D1B3E]/12 py-4 last:border-b-0">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#00AEEF]" />
+                  <p className="text-base leading-relaxed text-[#526070]">{problem}</p>
+                </div>
               ))}
             </div>
-
-            <div className="mt-10 border-t border-white/15 pt-8">
-              <p className="max-w-2xl text-lg font-black uppercase leading-tight text-white">You bring the brand. We provide the playbook—and the FEC experience to help your team run it.</p>
-              <div className="mt-6 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-                <div className="hidden h-7 flex-1 items-center sm:flex" aria-hidden="true">
-                  <div className={`h-px w-full origin-left bg-[#00AEEF] transition-transform duration-700 ease-out motion-reduce:scale-x-100 motion-reduce:transition-none ${builtSystemActive ? "scale-x-100" : "scale-x-0"}`} style={{ transitionDelay: builtSystemActive ? "690ms" : "0ms" }} />
-                  <span className={`-ml-1 flex h-7 w-7 items-center justify-center bg-[#00AEEF] text-[10px] text-[#0A0A0A] transition-all duration-300 motion-reduce:translate-x-0 motion-reduce:opacity-100 motion-reduce:transition-none ${builtSystemActive ? "translate-x-0 opacity-100" : "-translate-x-3 opacity-0"}`} style={{ transitionDelay: builtSystemActive ? "1290ms" : "0ms" }}>▶</span>
-                </div>
-                <div className="flex items-center gap-3 sm:hidden" aria-hidden="true">
-                  <div className={`h-8 w-px origin-top bg-[#00AEEF] transition-transform duration-500 motion-reduce:scale-y-100 motion-reduce:transition-none ${builtSystemActive ? "scale-y-100" : "scale-y-0"}`} />
-                  <span className={`flex h-7 w-7 items-center justify-center bg-[#00AEEF] text-[10px] text-[#0A0A0A] transition-all duration-300 motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${builtSystemActive ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"}`} style={{ transitionDelay: builtSystemActive ? "690ms" : "0ms" }}>▶</span>
-                </div>
-                <PrimaryCta placement="built_system" className="shrink-0" />
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* Design reminder: product proof is a full-size visual focal point; controls remain functional without hover. */}
-        <section id="platform" className="bg-[#0A0A0A] py-20 sm:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-end gap-8 lg:grid-cols-12">
-              <div className="lg:col-span-7">
-                <div className="flex items-center gap-3">
-                  <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Platform Proof</span>
-                </div>
-                <h2 className="mt-6 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-5xl">
-                  See the Work Your Team Needs <span className="text-[#00AEEF]">in One Place.</span>
-                </h2>
-              </div>
-              <p className="max-w-md text-base leading-relaxed text-white/60 lg:col-span-5 lg:justify-self-end">
-                FEC Playbook™ keeps conversations, opportunity ownership, automated next steps, and manager visibility connected instead of scattered across separate tools.
-              </p>
-            </div>
-
-            <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-0">
-              <div className="border border-white/15 bg-[#0D1B3E] p-2 shadow-[18px_18px_0_rgba(0,174,239,0.18)]">
-                <div className="flex items-center gap-2 border-b border-white/10 bg-[#081326] px-4 py-3">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#00AEEF]" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-                  <span className="ml-3 text-[10px] font-bold uppercase tracking-[0.15em] text-white/45">FEC Playbook™ / {proofScreens[activeProof].tab}</span>
-                </div>
-                <img src={proofScreens[activeProof].src} alt={proofScreens[activeProof].alt} className="w-full" />
-              </div>
-              <div className="grid gap-2 sm:grid-cols-3 lg:grid-cols-1">
-                {proofScreens.map((screen, index) => (
-                  <button
-                    key={screen.tab}
-                    type="button"
-                    onClick={() => setActiveProof(index)}
-                    className={`flex min-h-20 items-center justify-between border px-5 py-4 text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#00AEEF] ${activeProof === index ? "border-[#00AEEF] bg-[#00AEEF] text-[#0A0A0A]" : "border-white/15 bg-white/[0.03] text-white hover:border-[#00AEEF]/60"}`}
-                  >
-                    <span>
-                      <span className="block text-[10px] font-black uppercase tracking-[0.16em] opacity-65">Product view</span>
-                      <span className="mt-1 block text-sm font-black uppercase tracking-[0.08em]">{screen.tab}</span>
-                    </span>
-                    <ArrowRight size={17} aria-hidden="true" />
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="revenue-playbooks" className="relative overflow-hidden bg-[#0D1B3E] py-20 sm:py-28">
-          <div className="pointer-events-none absolute -right-24 top-14 text-[18rem] font-black leading-none text-white/[0.035]">08</div>
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col justify-between gap-6 border-b border-white/15 pb-10 lg:flex-row lg:items-end">
-              <div className="max-w-3xl">
-                <div className="flex items-center gap-3">
-                  <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Revenue Playbooks</span>
-                </div>
-                <h2 className="mt-6 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-5xl">Eight Ready-Built Playbooks. One Connected Revenue System.</h2>
-              </div>
-              <p className="max-w-md text-base leading-relaxed text-white/60">These are not starter templates for your team to build from scratch. Each playbook includes the workflow, automation, ownership, and follow-up structure for a specific revenue moment—then we tailor the details to your venue.</p>
-            </div>
-
-            <div className="mt-10 grid gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-4">
-              {playbooks.map((playbook) => (
-                <article key={playbook.number} className="group min-h-64 bg-[#0D1B3E] p-6 transition-colors hover:bg-[#102a57] sm:p-7">
-                  <p className="text-5xl font-black tracking-[-0.07em] text-[#00AEEF]/45">{playbook.number}</p>
-                  <h3 className="mt-10 text-lg font-black uppercase leading-tight text-white">{playbook.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/60">{playbook.copy}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="mt-10 flex flex-col items-start justify-between gap-5 border-t border-white/15 pt-8 sm:flex-row sm:items-center">
-              <p className="max-w-xl text-base font-medium leading-relaxed text-white/75">You bring the brand. We provide the playbook—and the support to put it to work.</p>
-              <PrimaryCta placement="revenue_playbooks" className="shrink-0" />
-            </div>
-          </div>
-        </section>
-
-        <section id="integrations" className="bg-white py-20 text-[#0A0A0A] sm:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-              <div className="lg:col-span-5">
-                <div className="flex items-center gap-3">
-                  <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                  <span className="text-xs font-black uppercase tracking-[0.18em] text-[#1565C0]">Works With Your Stack</span>
-                </div>
-                <h2 className="mt-6 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-5xl">Keep the Systems You Trust. Add the Revenue System You Need.</h2>
-                <p className="mt-6 max-w-lg text-base leading-relaxed text-[#1E3A5F]/75">FEC Playbook™ extends existing POS and booking platforms with connected lead ownership, communication, marketing, and follow-up. No rip-and-replace. No disruption.</p>
-              </div>
-              <div className="grid gap-4 lg:col-span-7">
-                {integrations.filter((integration) => integration.primary).map((integration) => (
-                  <div key={integration.name} className="relative overflow-hidden border border-[#1565C0] bg-[#0D1B3E] px-6 py-7 text-white">
-                    <div className="absolute right-0 top-0 h-full w-24 bg-[#00AEEF] [clip-path:polygon(72%_0,100%_0,100%_100%,0_100%)]" />
-                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#00AEEF]">{integration.kind}</p>
-                    <p className="mt-3 text-2xl font-black uppercase tracking-[-0.03em]">{integration.name}</p>
-                    <p className="mt-2 max-w-lg text-sm text-white/65">FEC Playbook™ works with CenterEdge as an official integration partner.</p>
-                  </div>
-                ))}
-                <ul className="grid gap-px border border-[#0D1B3E]/15 bg-[#0D1B3E]/15 sm:grid-cols-2">
-                  {integrations.filter((integration) => !integration.primary).map((integration) => (
-                    <li key={integration.name} className="bg-white px-5 py-6">
-                      <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#1565C0]">{integration.kind}</p>
-                      <p className="mt-2 text-sm font-black uppercase tracking-[0.08em] text-[#0A0A0A]">{integration.name}</p>
-                      <p className="mt-1 text-sm text-[#1E3A5F]/65">{integration.description}</p>
-                    </li>
-                  ))}
-                  <li className="flex items-center bg-[#00AEEF] px-5 py-6 text-sm font-black uppercase tracking-[0.08em] text-[#0A0A0A]">Compatibility reviewed in your Revenue Review <ArrowRight className="ml-3" size={18} aria-hidden="true" /></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#0A0A0A] py-20 sm:py-28">
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
-            <div className="relative order-2 border border-white/10 bg-[#0D1B3E] p-2 lg:order-1">
-              <div className="absolute -bottom-4 -left-4 h-20 w-20 border-b-4 border-l-4 border-[#00AEEF]" />
-              <img src={ASSETS.fecOperator} alt="Family Entertainment Center operator reviewing operational data" className="relative w-full" />
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="flex items-center gap-3">
-                <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Built by Operators</span>
-              </div>
-              <h2 className="mt-6 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-5xl">Not Generic Software Forced to Fit.</h2>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70">FEC Playbook™ was built around the operational moments FEC teams face every day: party inquiries that need an owner, guests who need a next step, campaigns that need relevance, and managers who need a clear view of revenue work.</p>
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {["FEC-oriented playbooks", "Lead ownership and follow-up", "Guest communication around the visit", "Manager visibility without extra dashboards"].map((item) => (
-                  <div key={item} className="flex gap-3 border-l-2 border-[#00AEEF] bg-white/[0.03] px-4 py-4 text-sm font-bold text-white/80">
-                    <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-[#00AEEF]" aria-hidden="true" /> {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#0D1B3E] py-20 sm:py-28">
+        <section className="border-y border-[#0D1B3E]/10 bg-[#f2f5f6] py-18 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
-              <div className="flex items-center gap-3">
-                <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Operator Perspective</span>
+              <p className="fec-eyebrow">A simpler operating picture</p>
+              <h2 className="fec-display mt-4 text-4xl sm:text-5xl">One operating system for the work around the transaction.</h2>
+              <p className="fec-copy mt-5 text-base sm:text-lg">FEC Playbook™ keeps the revenue work visible and moving while your existing POS and booking systems continue to run the venue.</p>
+            </div>
+            <div className="mt-10 overflow-hidden rounded-2xl border border-[#0D1B3E]/12 bg-white">
+              <div className="grid grid-cols-2 border-b border-[#0D1B3E]/12 bg-[#0D1B3E] text-xs font-bold uppercase tracking-[0.12em] text-white">
+                <div className="px-5 py-4 text-white/65 sm:px-7">Before</div>
+                <div className="border-l border-white/15 px-5 py-4 sm:px-7">With FEC Playbook™</div>
               </div>
-              <h2 className="mt-6 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-5xl">Built Around Work That Has to Get Done.</h2>
-            </div>
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
-              {testimonials.map((testimonial) => (
-                <figure key={testimonial.author} className="flex min-h-72 flex-col border border-white/15 bg-[#0A0A0A] p-6 sm:p-7">
-                  <blockquote className="text-sm leading-relaxed text-white/75">“{testimonial.quote}”</blockquote>
-                  <figcaption className="mt-auto border-t border-white/10 pt-5">
-                    <p className="text-sm font-black uppercase tracking-[0.08em] text-white">{testimonial.author}</p>
-                    <p className="mt-1 text-xs font-bold uppercase tracking-[0.1em] text-[#00AEEF]">{testimonial.role}</p>
-                  </figcaption>
-                </figure>
+              {[
+                ["Separate inboxes, forms, review tools, manual follow-up, and campaign tools", "Connected lead ownership, guest communication, review requests, follow-up, and visibility"],
+                ["Repetitive staff work", "Ready-built workflows running in the background"],
+                ["Revenue work hidden in separate systems", "Clear next actions for your team"],
+              ].map(([before, after]) => (
+                <div key={before} className="grid grid-cols-2 border-b border-[#0D1B3E]/12 last:border-b-0">
+                  <p className="px-5 py-5 text-sm leading-relaxed text-[#526070] sm:px-7 sm:py-6 sm:text-base">{before}</p>
+                  <p className="border-l border-[#0D1B3E]/12 px-5 py-5 text-sm font-semibold leading-relaxed text-[#0D1B3E] sm:px-7 sm:py-6 sm:text-base">{after}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-[#00AEEF] py-20 text-[#0A0A0A] sm:py-24">
-          <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/3 bg-[#1565C0] [clip-path:polygon(45%_0,100%_0,100%_100%,0_100%)] lg:block" />
-          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 border border-[#0A0A0A]/25 px-3 py-2 text-xs font-black uppercase tracking-[0.16em]"><Sparkles size={14} aria-hidden="true" /> Your 30-Minute FEC Revenue Review</div>
-              <h2 className="mt-6 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-6xl">Leave With a Clearer Revenue Plan.</h2>
-              <p className="mx-auto mt-6 max-w-2xl text-base font-medium leading-relaxed text-[#0A0A0A]/75 sm:text-lg">In 30 minutes, we will identify the revenue leaks we would address first, map the FEC Playbooks™ that fit your facility, and explain the implementation path.</p>
+        <section className="bg-[#fcfcfa] py-18 sm:py-24" id="revenue-moments">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-8 border-b border-[#0D1B3E]/12 pb-10 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
+              <div>
+                <p className="fec-eyebrow">From first inquiry to the next visit</p>
+                <h2 className="fec-display mt-4 text-4xl sm:text-5xl">The revenue moments that should keep moving.</h2>
+              </div>
+              <p className="fec-copy max-w-xl text-base sm:justify-self-end sm:text-lg">Every workflow begins with a familiar moment your team already handles. The difference is a clear owner, next action, and follow-through already in place.</p>
             </div>
-            <div className="mt-10 grid gap-3 md:grid-cols-3">
-              {["The revenue moments to address first", "The playbooks that match your operation", "A practical implementation path"].map((takeaway, index) => (
-                <div key={takeaway} className="border border-[#0A0A0A]/20 bg-white/20 p-5 text-left">
-                  <p className="text-xs font-black tracking-[0.16em] text-[#0A0A0A]/55">0{index + 1}</p>
-                  <p className="mt-6 text-base font-black uppercase leading-tight">{takeaway}</p>
-                </div>
-              ))}
+            <div className="mt-10 grid gap-x-10 gap-y-0 md:grid-cols-2">
+              {revenueMoments.map((moment, index) => {
+                const Icon = moment.icon;
+                return (
+                  <article key={moment.title} className="group border-b border-[#0D1B3E]/12 py-8 first:pt-0 md:odd:pr-6 md:even:pl-6 md:even:border-l md:even:border-[#0D1B3E]/12 md:nth-[2]:pt-0">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#00AEEF]/12 text-[#0c719a]"><Icon size={19} aria-hidden="true" /></span>
+                      <p className="fec-eyebrow">0{index + 1} / {moment.title}</p>
+                    </div>
+                    <h3 className="mt-5 text-2xl font-bold tracking-[-0.035em] text-[#0D1B3E]">{moment.outcome}</h3>
+                    <p className="fec-copy mt-3 text-sm sm:text-base">{moment.copy}</p>
+                  </article>
+                );
+              })}
             </div>
-            <div className="mt-9 flex justify-center"><PrimaryCta placement="revenue_review" className="bg-[#0A0A0A] text-white hover:bg-[#0D1B3E]" /></div>
           </div>
         </section>
 
-        <section className="bg-[#0A0A0A] py-20 sm:py-28">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Frequently Asked Questions</p>
-              <h2 className="mt-5 text-4xl font-black uppercase leading-[0.92] tracking-[-0.04em] sm:text-5xl">Common Questions. Straight Answers.</h2>
+        <section className="border-y border-[#0D1B3E]/10 bg-[#0D1B3E] py-18 text-white sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.95fr_1.05fr] lg:items-center lg:px-8">
+            <div className="max-w-xl">
+              <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[#59c9ee]">Make more time for the work guests notice</p>
+              <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.055em] sm:text-5xl">Let the system handle the repeatable work.</h2>
+              <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">FEC Playbook™ does not replace the people who make your venue great. It removes the routine work that keeps them in inboxes, spreadsheets, and scattered logins—so they can respond faster, serve guests better, and focus on the moments only people can handle.</p>
+              <a href="/features" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#59c9ee] transition-colors hover:text-white">See the outcomes <ArrowRight size={16} aria-hidden="true" /></a>
             </div>
-            <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
-              {faqs.map((faq, index) => (
-                <div key={faq.question}>
-                  <button
-                    type="button"
-                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                    className="flex w-full items-center justify-between gap-5 py-5 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#00AEEF]"
-                    aria-expanded={openFaq === index}
-                  >
-                    <span className="text-sm font-black leading-snug text-white sm:text-base">{faq.question}</span>
-                    {openFaq === index ? <ChevronUp className="shrink-0 text-[#00AEEF]" aria-hidden="true" /> : <ChevronDown className="shrink-0 text-[#00AEEF]" aria-hidden="true" />}
-                  </button>
-                  {openFaq === index && <p className="max-w-2xl pb-6 text-sm leading-relaxed text-white/65">{faq.answer}</p>}
-                </div>
-              ))}
+            <div className="fec-frame overflow-hidden p-2 sm:p-3">
+              <div className="flex items-center gap-2 border-b border-white/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-white/60 sm:px-4">
+                <span className="h-2 w-2 rounded-full bg-[#00AEEF]" />
+                <span>FEC Playbook™ / Shared guest conversations</span>
+              </div>
+              <img src={ASSETS.inbox} alt="FEC Playbook™ shared inbox showing guest messages and team context" className="mt-2 w-full rounded-lg" />
             </div>
-            <div className="mt-10 text-center"><PrimaryCta placement="faq" /></div>
+          </div>
+        </section>
+
+        <section className="bg-white py-18 sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.08fr_.92fr] lg:items-center lg:px-8">
+            <div>
+              <p className="fec-eyebrow">Ready-built, not a blank platform</p>
+              <h2 className="fec-display mt-4 max-w-2xl text-4xl sm:text-5xl">You bring the brand. FEC Playbook™ brings the playbook.</h2>
+              <p className="fec-copy mt-6 max-w-xl text-base sm:text-lg">The workflows for party follow-up, booking confirmation, review requests, and repeat-visit communication start ready. We shape them around your offers, team, and guest journey before they go live.</p>
+              <ReviewCta placement="ready_built" className="mt-8 w-full sm:w-auto" />
+            </div>
+            <div className="fec-surface p-6 sm:p-8">
+              <p className="fec-eyebrow">What starts ready</p>
+              <ul className="mt-6 space-y-5">
+                {[
+                  ["The sequence", "Follow-up timing and the next action at each revenue moment."],
+                  ["The ownership", "Clear handoffs that keep the work from relying on memory."],
+                  ["The follow-through", "Guest communication that keeps moving when your team is busy."],
+                ].map(([title, copy]) => (
+                  <li key={title} className="flex gap-3">
+                    <Check size={18} className="mt-1 shrink-0 text-[#0c719a]" aria-hidden="true" />
+                    <div><p className="font-bold text-[#0D1B3E]">{title}</p><p className="mt-1 text-sm leading-relaxed text-[#526070]">{copy}</p></div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f2f5f6] py-18 sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.82fr_1.18fr] lg:px-8">
+            <div>
+              <p className="fec-eyebrow">Built by FEC operators</p>
+              <h2 className="fec-display mt-4 text-4xl sm:text-5xl">A better system should feel simpler for the team using it.</h2>
+              <p className="fec-copy mt-5 max-w-md text-base">FEC Playbook™ is shaped around the work real FEC teams do every day—not generic software that asks them to design the process first.</p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <figure className="fec-surface p-6">
+                <blockquote className="text-base font-medium leading-relaxed text-[#0D1B3E]">“Five-star reviews have skyrocketed. People were always thanking us but never leaving a review. Now they have an easy way to give us a shout out.”</blockquote>
+                <figcaption className="mt-5 text-sm text-[#526070]"><span className="font-bold text-[#0D1B3E]">Theresa</span> · FEC Operator</figcaption>
+              </figure>
+              <figure className="fec-surface p-6">
+                <blockquote className="text-base font-medium leading-relaxed text-[#0D1B3E]">“Our party confirmation process is so much more efficient. The chat functions make communicating with our customers easier and quicker.”</blockquote>
+                <figcaption className="mt-5 text-sm text-[#526070]"><span className="font-bold text-[#0D1B3E]">Rilee</span> · Events Manager, FEC</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#fcfcfa] py-18 sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
+            <div>
+              <p className="fec-eyebrow">Straight answers</p>
+              <h2 className="fec-display mt-4 text-4xl sm:text-5xl">Before you book a Revenue Review.</h2>
+              <p className="fec-copy mt-5 max-w-md text-base">Bring the people closest to party, guest, or sales follow-up. We will find the work getting stuck and map a practical next step.</p>
+              <ReviewCta placement="faq" className="mt-7 w-full sm:w-auto" />
+            </div>
+            <div className="divide-y divide-[#0D1B3E]/12 border-y border-[#0D1B3E]/12">
+              {faqs.map((faq, index) => {
+                const open = openFaq === index;
+                return (
+                  <article key={faq.question}>
+                    <button type="button" onClick={() => setOpenFaq(open ? null : index)} className="flex w-full items-center justify-between gap-5 py-5 text-left" aria-expanded={open}>
+                      <span className="text-lg font-bold tracking-[-0.025em] text-[#0D1B3E]">{faq.question}</span>
+                      {open ? <ChevronUp size={19} className="shrink-0 text-[#0c719a]" aria-hidden="true" /> : <ChevronDown size={19} className="shrink-0 text-[#0c719a]" aria-hidden="true" />}
+                    </button>
+                    {open && <p className="fec-copy max-w-3xl pb-6 text-sm sm:text-base">{faq.answer}</p>}
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#00AEEF] py-18 text-[#07111f] sm:py-22">
+          <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[#07111f]/70">Your next move</p>
+              <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.055em] sm:text-6xl">See what FEC Playbook™ can take off your team’s plate.</h2>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#07111f]/75">Find the revenue work getting stuck and the ready-built workflows that fit.</p>
+            </div>
+            <ReviewCta placement="final_cta" className="shrink-0 bg-[#07111f] text-white hover:bg-[#0D1B3E]" />
           </div>
         </section>
       </main>
+
       <Footer />
     </div>
   );
