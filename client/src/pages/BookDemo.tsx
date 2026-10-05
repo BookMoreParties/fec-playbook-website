@@ -1,274 +1,54 @@
-/*
- * FEC Playbook™ — Book a Demo Page
- * Design: Bold FEC action campaign with true black and white contrast, cyan power accents,
- * a tangible Revenue Review artefact, angular geometry, and no calm centered SaaS composition.
- * Route: /book-a-demo
- */
-
 import { useEffect } from "react";
-import { ArrowDown, CheckCircle, ClipboardCheck, Map, Target, Users } from "lucide-react";
+import { CalendarCheck, Check, CircleDot, Map, Target, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOMeta from "@/components/SEOMeta";
 import StructuredData from "@/components/StructuredData";
 import { trackEvent } from "@/lib/analytics";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png";
+const LOGO_URL = "/manus-storage/fec-playbook-light-background-logo_55e28466.png";
 
-const bookDemoFaqs = [
-  {
-    q: "What happens in a 30-Minute FEC Revenue Review?",
-    a: "We find where party leads, confirmations, follow-up, or ownership are getting stuck, then map the ready-built playbooks that fit your venue.",
-  },
-  {
-    q: "Who should attend?",
-    a: "Bring the people who own party, group, guest follow-up, or operating decisions. Owner/operators, general managers, and sales or marketing leaders commonly join.",
-  },
-  {
-    q: "Do I need to prepare anything?",
-    a: "No preparation is required. Bring your current tools if you want a more specific conversation, but the review is designed to give you a clear starting point either way.",
-  },
+const reviewFaqs = [
+  { question: "What happens in a 30-Minute FEC Revenue Review?", answer: "We find where party leads, confirmations, guest communication, feedback, or team handoffs are getting stuck, then map the ready-built workflows that fit your venue." },
+  { question: "Who should attend?", answer: "Bring the people who know how party, guest, or sales follow-up works today. Owner/operators, general managers, and sales or marketing leaders commonly join." },
+  { question: "Do I need to prepare anything?", answer: "No preparation is required. Your current tools are helpful if you want a more specific conversation, but the review is designed to give you a clear starting point either way." },
 ];
 
-const bookDemoFaqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: bookDemoFaqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
-};
-
-const bookDemoBreadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fecplaybook.com/" },
-    { "@type": "ListItem", position: 2, name: "Book a Revenue Review", item: "https://www.fecplaybook.com/book-a-demo" },
-  ],
-};
+const schema = [
+  { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: reviewFaqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://www.fecplaybook.com/" }, { "@type": "ListItem", position: 2, name: "Book a Revenue Review", item: "https://www.fecplaybook.com/book-a-demo" }] },
+];
 
 export default function BookDemo() {
-  // Load GHL booking embed script
   useEffect(() => {
-    const SCRIPT_ID = "bookdemo-form-embed";
-    if (document.getElementById(SCRIPT_ID)) return;
-    const script = document.createElement("script");
-    script.id = SCRIPT_ID;
-    script.src = "https://link.bookmore.app/js/form_embed.js";
-    script.type = "text/javascript";
-    script.async = true;
-    document.body.appendChild(script);
+    const scriptId = "bookdemo-form-embed";
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://link.bookmore.app/js/form_embed.js";
+      script.type = "text/javascript";
+      script.async = true;
+      document.body.appendChild(script);
+    }
     trackEvent("demo_page_viewed", { path: "/book-a-demo" });
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-      <SEOMeta
-        title="Book a 30-Minute FEC Revenue Review | FEC Playbook™"
-        description="Schedule a 30-minute FEC Revenue Review. Find the party leads, confirmations, follow-up, or handoffs that are getting stuck, then see the ready-built system that can help."
-        path="/book-a-demo"
-      />
-      <StructuredData data={[bookDemoFaqSchema, bookDemoBreadcrumbSchema]} />
+    <div className="fec-page overflow-x-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <SEOMeta title="Book a 30-Minute FEC Revenue Review | FEC Playbook™" description="Find where party leads, guest communication, reviews, or return-visit work are getting stuck, then see the ready-built FEC Playbook™ workflows that fit your venue." path="/book-a-demo" />
+      <StructuredData data={schema} />
       <Navigation />
+      <main>
+        <section className="relative overflow-hidden border-b border-[#0D1B3E]/10 bg-[#fcfcfa] pb-18 pt-32 sm:pb-24 sm:pt-40"><div className="pointer-events-none absolute right-[-8rem] top-0 h-72 w-72 rounded-full bg-[#00AEEF]/10 blur-3xl" /><div className="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:items-end lg:px-8"><div className="max-w-2xl"><p className="fec-eyebrow">30-Minute FEC Revenue Review</p><h1 className="fec-display mt-4 text-5xl sm:text-6xl">Find the work that is costing you leads and time.</h1><p className="fec-copy mt-6 text-base sm:text-lg">We’ll look at your party-lead follow-up, guest communication, reviews, and return-visit work—then show you where a ready-built FEC Playbook™ workflow fits.</p><a href="#scheduling" className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#0D1B3E] transition-colors hover:text-[#0c719a]">Choose a time <CalendarCheck size={16} aria-hidden="true" /></a></div><div className="fec-surface bg-white p-6 shadow-[0_24px_70px_rgba(13,27,62,0.12)] sm:p-8"><p className="fec-eyebrow">A working session, not a generic product tour</p><ol className="mt-7 space-y-6">{[["01", "What is getting stuck", "Find the inquiry, communication, feedback, or return-visit work where the next action is unclear."], ["02", "What can move automatically", "See where ready-built timing, ownership, and follow-through can take repetitive work off the team."], ["03", "What a practical next step looks like", "Leave with a clearer view of which workflow fits your venue first."]].map(([number, title, copy]) => <li key={number} className="flex gap-4"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#00AEEF]/12 text-xs font-extrabold text-[#0c719a]">{number}</span><div><p className="font-bold text-[#0D1B3E]">{title}</p><p className="mt-1 text-sm leading-relaxed text-[#526070]">{copy}</p></div></li>)}</ol></div></div></section>
 
-      {/* Design reminder: left-led action hero, with a proprietary-feeling visual proof object rather than a centered SaaS headline. */}
-      <section className="relative isolate overflow-hidden bg-[#0A0A0A] pb-16 pt-32 sm:pb-20">
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-[7px] bg-[#00AEEF]" />
-        <div className="pointer-events-none absolute right-[-9rem] top-16 h-72 w-72 -skew-x-12 border border-[#00AEEF]/25" />
-        <div className="pointer-events-none absolute bottom-0 left-0 h-20 w-full bg-[#0D1B3E] [clip-path:polygon(0_70%,100%_0,100%_100%,0_100%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-3">
-                <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">30-Minute FEC Revenue Review</span>
-              </div>
-              <h1 className="mt-6 max-w-4xl text-5xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-                See What Is Costing You <span className="text-[#00AEEF]">Leads and Time.</span>
-              </h1>
-              <p className="mt-7 max-w-2xl text-base font-medium leading-relaxed text-white/75 sm:text-lg">
-                In 30 minutes, we find where party leads, confirmations, follow-up, or team handoffs are getting stuck. Then we map the ready-built FEC Playbooks™ that can help.
-              </p>
-              <p className="mt-7 max-w-xl border-l-4 border-[#00AEEF] pl-4 text-sm font-black uppercase leading-relaxed tracking-[0.08em] text-white">
-                The playbooks are already built by fellow FEC operators. Your venue makes them yours.
-              </p>
-              <a href="#scheduling" className="mt-7 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#00AEEF] transition-all hover:gap-3">
-                Ready to choose a time? Skip to scheduling <ArrowDown size={16} />
-              </a>
-            </div>
+        <section id="scheduling" className="scroll-mt-24 bg-white py-18 sm:py-24"><div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.7fr_1.3fr] lg:px-8"><aside><p className="fec-eyebrow">What we will look at</p><h2 className="fec-display mt-4 text-4xl sm:text-5xl">Bring the people closest to the work.</h2><p className="fec-copy mt-5 text-base">The review is most useful when the people who own party, guest, sales, or operating decisions can share the current process.</p><div className="mt-8 space-y-5">{[[Target, "Revenue work", "Where leads, follow-up, and ownership are getting stuck."], [Map, "Ready-built workflows", "Which route fits your facility’s first opportunity."], [Users, "A practical path", "How the system can fit your team, brand, and current tools."]].map(([Icon, title, copy]) => { const ItemIcon = Icon as typeof Target; return <div key={title as string} className="flex gap-3"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#00AEEF]/12 text-[#0c719a]"><ItemIcon size={17} aria-hidden="true" /></span><div><p className="font-bold text-[#0D1B3E]">{title as string}</p><p className="mt-1 text-sm leading-relaxed text-[#526070]">{copy as string}</p></div></div>; })}</div><div className="mt-9 border-l-2 border-[#00AEEF] pl-4 text-sm leading-relaxed text-[#526070]">No preparation is required; your current tools are helpful if you want a more specific conversation.</div></aside>
+          <div className="fec-surface overflow-hidden bg-[#f8fafb] shadow-[0_24px_70px_rgba(13,27,62,0.12)]"><div className="border-b border-[#0D1B3E]/10 bg-white px-5 py-5 sm:px-7"><div className="flex flex-wrap items-center gap-3"><img src={LOGO_URL} alt="FEC Playbook™" className="h-7 w-auto" /><span className="h-5 w-px bg-[#0D1B3E]/12" /><p className="text-sm font-bold text-[#0D1B3E]">Choose a 30-Minute FEC Revenue Review</p></div><div className="mt-4 grid gap-3 border-t border-[#0D1B3E]/10 pt-4 sm:grid-cols-2"><p className="flex gap-2 text-xs leading-relaxed text-[#526070]"><Users size={14} className="mt-0.5 shrink-0 text-[#0c719a]" />Bring the people who own party, guest, sales, or operating decisions.</p><p className="flex gap-2 text-xs leading-relaxed text-[#526070]"><Check size={14} className="mt-0.5 shrink-0 text-[#0c719a]" />The review is a working session, not a generic product tour.</p></div></div><div className="p-2"><iframe src="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp" style={{ width: "100%", border: "none", display: "block", minHeight: "900px" }} scrolling="no" id="Sd7Mk7F4D238JDTcGTWp_bookdemo" title="Schedule a 30-Minute FEC Revenue Review" /></div></div>
+        </div></section>
 
-            <div className="lg:col-span-5">
-              <div className="relative border border-white/15 bg-[#0D1B3E] p-1 shadow-[18px_18px_0_rgba(0,174,239,0.18)]">
-                <div className="absolute -left-3 top-8 hidden h-28 w-3 bg-[#00AEEF] lg:block" />
-                <div className="relative border border-white/10 bg-[#081326] p-5 sm:p-6">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                    <div>
-                      <p className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">Revenue Review Worksheet</p>
-                      <p className="mt-1 text-sm font-semibold text-white/65">What you leave with in 30 minutes.</p>
-                    </div>
-                    <span className="flex h-9 w-9 items-center justify-center bg-[#00AEEF] text-sm text-[#0A0A0A]" aria-hidden="true">▶</span>
-                  </div>
-                  <ol className="mt-5 space-y-4">
-                    {[
-                      ["01", "WHAT IS STUCK", "Find the lead, follow-up, or handoff that needs attention."],
-                      ["02", "WHAT HELPS", "Match the ready-built playbook to the problem."],
-                      ["03", "WHAT HAPPENS NEXT", "See how the system fits your team and venue."],
-                    ].map(([number, title, copy]) => (
-                      <li key={number} className="flex gap-3">
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-[#00AEEF] text-xs font-black text-[#0A0A0A]">{number}</span>
-                        <div className="border-l border-white/15 pl-3">
-                          <p className="text-xs font-black uppercase tracking-[0.12em] text-white">{title}</p>
-                          <p className="mt-1 text-xs leading-relaxed text-white/55">{copy}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <section className="border-y border-[#0D1B3E]/10 bg-[#f2f5f6] py-18 sm:py-24"><div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8"><div><p className="fec-eyebrow">From review to activation</p><h2 className="fec-display mt-4 text-4xl sm:text-5xl">The system starts ready. Your team stays supported.</h2><p className="fec-copy mt-6 text-base sm:text-lg">After you decide what needs attention first, FEC Playbook™ helps fit the workflow to your team and put it to work around the systems you already use.</p></div><div className="grid gap-3">{[["Bring your venue context", "Your offers, policies, team roles, guest voice, and operating goals."], ["Fit the ready-built workflow", "The sequence, timing, ownership, and next actions begin ready."], ["Keep the work moving", "Your team has a clearer route for daily execution and improvement."]].map(([title, copy]) => <div key={title} className="fec-surface flex gap-4 p-5"><CircleDot size={18} className="mt-1 shrink-0 text-[#0c719a]" /><div><p className="font-bold text-[#0D1B3E]">{title}</p><p className="mt-1 text-sm leading-relaxed text-[#526070]">{copy}</p></div></div>)}</div></div></section>
 
-      {/* Main Content: Calendar + What to Expect */}
-      <section className="py-16 bg-[#0A0A0A]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-
-            {/* Left: What to Expect */}
-            <div className="lg:col-span-2 space-y-8">
-              <div>
-                <h2 className="text-2xl font-black uppercase mb-6">
-                  What to <span className="text-[#00AEEF]">Expect</span>
-                </h2>
-
-                <div className="space-y-5">
-                  {[
-                    {
-                      icon: Target,
-                      title: "Find What Is Falling Through",
-                      desc: "Party leads, confirmations, follow-up, or team handoffs.",
-                    },
-                    {
-                      icon: Map,
-                      title: "Match the Right Playbooks",
-                      desc: "See which ready-built systems fit the work your team needs done.",
-                    },
-                    {
-                      icon: ClipboardCheck,
-                      title: "See the Path Forward",
-                      desc: "Understand how the system is tailored to your venue and team.",
-                    },
-                    {
-                      icon: CheckCircle,
-                      title: "Get FEC-Specific Support",
-                      desc: "You are supported as the playbooks become daily work.",
-                    },
-                  ].map((item) => (
-                    <div key={item.title} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-[#00AEEF]/10 border border-[#00AEEF]/30 rounded-lg flex items-center justify-center">
-                        <item.icon size={18} className="text-[#00AEEF]" />
-                      </div>
-                      <div>
-                        <h3 className="text-white font-bold text-sm uppercase tracking-wide mb-1">{item.title}</h3>
-                        <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* What's Covered */}
-              <div className="border border-white/10 bg-[#0D1B3E] p-6">
-                <h3 className="text-white font-black text-sm uppercase tracking-wide mb-4">
-                  We'll Cover
-                </h3>
-                <ul className="space-y-3">
-                  {[
-                    "Where leads, follow-up, and ownership get stuck",
-                    "The playbooks that fit your venue",
-                    "How the system gets tailored and activated",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <CheckCircle size={14} className="text-[#00AEEF] flex-shrink-0 mt-0.5" />
-                      <span className="text-white/60 text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-            </div>
-
-            {/* Right: Booking Calendar */}
-            <div id="scheduling" className="lg:col-span-3 scroll-mt-28">
-              <div className="border border-[#00AEEF]/20 bg-[#0D1B3E] shadow-[14px_14px_0_rgba(0,174,239,0.1)]">
-                <div className="px-4 sm:px-6 py-4 border-b border-white/10">
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                    <img src={LOGO_URL} alt="FEC Playbook" className="h-6 sm:h-7 w-auto flex-shrink-0" />
-                    <div className="h-4 w-px bg-white/20 flex-shrink-0" />
-                    <p className="text-[#00AEEF] text-xs font-bold uppercase tracking-widest">30-Minute FEC Revenue Review</p>
-                  </div>
-                  <div className="mt-4 grid gap-3 border-t border-white/10 pt-4 sm:grid-cols-2">
-                    <p className="flex gap-2 text-xs leading-relaxed text-white/65"><Users size={14} className="mt-0.5 flex-none text-[#00AEEF]" />Bring the people who own party, group, guest follow-up, or operating decisions.</p>
-                    <p className="flex gap-2 text-xs leading-relaxed text-white/65"><CheckCircle size={14} className="mt-0.5 flex-none text-[#00AEEF]" />No preparation required. Bring your current tools if you want a more specific conversation.</p>
-                  </div>
-                </div>
-                <div className="p-2">
-                  <iframe
-                    src="https://link.bookmore.app/widget/booking/Sd7Mk7F4D238JDTcGTWp"
-                    style={{ width: "100%", border: "none", display: "block", minHeight: "900px" }}
-                    scrolling="no"
-                    id="Sd7Mk7F4D238JDTcGTWp_bookdemo"
-                    title="Schedule a 30-Minute FEC Revenue Review"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Design reminder: make the activation promise specific and physical, using black/white/cyan contrast and angular play-button geometry. */}
-      <section className="relative overflow-hidden bg-white py-20 text-[#0A0A0A] sm:py-24">
-        <div className="absolute right-0 top-0 hidden h-full w-[32%] bg-[#1565C0] [clip-path:polygon(38%_0,100%_0,100%_100%,0_100%)] lg:block" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-3">
-                <span className="h-[3px] w-11 bg-[#00AEEF]" />
-                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#1565C0]">From Review to Activation</span>
-              </div>
-              <h2 className="mt-6 max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.045em] sm:text-5xl">The System Is Ready. Your Team Is Supported.</h2>
-              <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-[#1E3A5F]/80 sm:text-lg">We tailor the ready-built playbooks to your venue, then help your team put them to work.</p>
-            </div>
-            <div className="border-l-4 border-[#00AEEF] bg-[#0A0A0A] p-6 text-white lg:col-span-5 lg:mr-10">
-              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#00AEEF]">The Support Path</p>
-              <p className="mt-4 text-xl font-black uppercase leading-tight">Ready-Built Systems. FEC-Specific Support.</p>
-              <p className="mt-4 text-sm leading-relaxed text-white/65">Know what gets tailored, who is involved, and what happens next.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Strip */}
-      <section className="py-16 bg-[#0D1B3E]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl font-black uppercase text-center mb-10">
-            Common <span className="text-[#00AEEF]">Questions</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {bookDemoFaqs.map((faq) => (
-              <div key={faq.q} className="bg-[#0A0A0A] border border-white/10 rounded-xl p-5">
-                <h3 className="text-white font-bold text-sm mb-2">{faq.q}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+        <section className="bg-[#fcfcfa] py-18 sm:py-24"><div className="mx-auto max-w-5xl px-4 sm:px-6"><p className="fec-eyebrow text-center">Straight answers</p><h2 className="fec-display mt-4 text-center text-4xl sm:text-5xl">Before you choose a time.</h2><div className="mt-10 grid gap-4 md:grid-cols-3">{reviewFaqs.map((faq) => <article key={faq.question} className="fec-surface bg-white p-6"><h3 className="text-base font-bold tracking-[-0.02em] text-[#0D1B3E]">{faq.question}</h3><p className="fec-copy mt-3 text-sm">{faq.answer}</p></article>)}</div></div></section>
+      </main>
       <Footer />
     </div>
   );

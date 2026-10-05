@@ -1,306 +1,148 @@
-/**
- * FEC Playbook™ — Core Modules
- * Design: Action-led black/white/cyan system with angular groupings and clear operating outcomes.
- */
-
-import {
-  ArrowRight,
-  BarChart3,
-  Bot,
-  Calendar,
-  CheckCircle2,
-  ClipboardList,
-  Eye,
-  Gift,
-  GitBranch,
-  Globe,
-  HeartHandshake,
-  Mail,
-  MessageSquare,
-  Phone,
-  Play,
-  Send,
-  Share2,
-  Star,
-  Users,
-  Zap,
-} from "lucide-react";
+import { ArrowRight, CalendarCheck, Check, Clock3, MessageSquare, Star, UsersRound, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOMeta from "@/components/SEOMeta";
 import StructuredData from "@/components/StructuredData";
+import { trackEvent } from "@/lib/analytics";
 
-const coreModules = [
+const ASSETS = {
+  party: "/manus-storage/party-lead-workflow-nav-no-memberships_b6da7bc5.png",
+  conversations: "/manus-storage/guest-conversations-workflow-nav-no-memberships_1974c66b.png",
+  feedback: "/manus-storage/guest-feedback-workflow-nav-no-memberships_210a686f.png",
+};
+
+const outcomes = [
   {
-    number: "01",
-    lane: "Capture & Convert",
+    icon: UsersRound,
+    title: "More party leads moved forward",
+    summary: "Every inquiry has a clear owner, next action, and route through follow-up.",
+    points: ["Capture the details your team needs", "Route the inquiry to the right person", "Keep the next action visible"],
+  },
+  {
     icon: MessageSquare,
-    title: "Unified Inbox",
-    summary: "Keep guest questions, booking inquiries, and team follow-through in one visible conversation space.",
-    ready: ["Conversation routing", "Ownership rules", "Internal notes and history", "Follow-up prompts"],
-    capabilities: ["Two-way SMS and email", "Website chat", "Social direct messages", "Team assignments"],
+    title: "Less repetitive guest communication",
+    summary: "Confirmations, reminders, and guest questions keep moving without every step becoming a manual task.",
+    points: ["Use ready-built communication routes", "Give the team conversation context", "Keep guests informed at the right moment"],
   },
   {
-    number: "02",
-    lane: "Capture & Convert",
-    icon: Globe,
-    title: "Forms & Funnel Pages",
-    summary: "Turn party, group, and event interest into structured information your team can act on.",
-    ready: ["Inquiry capture paths", "Contact creation", "Follow-up triggers", "Ownership handoff"],
-    capabilities: ["Landing-page builder", "Conditional forms", "Party inquiry flows", "Group event intake"],
+    icon: Clock3,
+    title: "More time for the work guests notice",
+    summary: "Reduce the switch between inboxes, spreadsheets, and scattered logins so staff can focus on the people in front of them.",
+    points: ["Fewer manual handoffs", "Clear ownership", "Less reliance on memory"],
   },
   {
-    number: "03",
-    lane: "Capture & Convert",
-    icon: GitBranch,
-    title: "Sales Pipeline",
-    summary: "Give party, group, and event opportunities a defined route from first inquiry to the next team action.",
-    ready: ["Stage definitions", "Ownership routing", "Reminder logic", "Next-step visibility"],
-    capabilities: ["Visual opportunity management", "Group event pipelines", "Party sales stages", "Revenue reporting"],
-  },
-  {
-    number: "04",
-    lane: "Communicate & Return",
-    icon: Mail,
-    title: "Email Marketing",
-    summary: "Activate ready-built email sequences for celebrations, guest follow-up, return visits, and seasonal offers.",
-    ready: ["Sequence timing", "Audience rules", "Follow-up logic", "Brand-ready message structure"],
-    capabilities: ["Email builder", "Post-visit follow-through", "Birthday messaging", "Engagement reporting"],
-  },
-  {
-    number: "05",
-    lane: "Communicate & Return",
-    icon: Share2,
-    title: "Social Media Planner",
-    summary: "Plan social communication around your venue calendar rather than relying on last-minute posting.",
-    ready: ["Content planning rhythm", "Campaign alignment", "Posting checkpoints", "Response workflows"],
-    capabilities: ["Multi-platform scheduling", "Calendar view", "Facebook and Instagram management", "Comment-response rules"],
-  },
-  {
-    number: "06",
-    lane: "Manage & Improve",
-    icon: BarChart3,
-    title: "Ads Manager",
-    summary: "Bring campaign activity, lead capture, and performance visibility closer to the revenue systems they support.",
-    ready: ["Lead handoff paths", "Campaign tracking structure", "Audience logic", "Performance checkpoints"],
-    capabilities: ["Meta campaign support", "Google campaign support", "Lead form routing", "Budget visibility"],
-  },
-  {
-    number: "07",
-    lane: "Communicate & Return",
-    icon: Bot,
-    title: "AI Voice & Chat",
-    summary: "Give guests a clear path to basic information and your team a better handoff for questions that need a person.",
-    ready: ["Knowledge-base structure", "After-hours response logic", "Escalation paths", "Team transfer rules"],
-    capabilities: ["Website chat", "Inbound call support", "FAQ responses", "Live-staff transfer"],
-  },
-  {
-    number: "08",
-    lane: "Communicate & Return",
     icon: Star,
-    title: "Reputation Management",
-    summary: "Create a consistent process for collecting guest feedback and directing the right response to the right person.",
-    ready: ["Review-request timing", "Feedback routing", "Response workflows", "Experience trend visibility"],
-    capabilities: ["Guest feedback collection", "Review monitoring", "Response drafts", "Google Business Profile support"],
+    title: "More review opportunities",
+    summary: "Give a great visit a consistent path to feedback, a review request, and the right response when it needs attention.",
+    points: ["Invite feedback while it is fresh", "Keep review work visible", "Route concerns back to the team"],
   },
   {
-    number: "09",
-    lane: "Communicate & Return",
-    icon: Gift,
-    title: "Loyalty & Text Club",
-    summary: "Give repeat visits, membership engagement, and promotions a permission-based communication system.",
-    ready: ["Subscriber pathways", "Audience grouping", "Offer timing", "Return-visit campaigns"],
-    capabilities: ["Text Club growth", "Targeted offers", "Birthday specials", "Seasonal campaigns"],
-  },
-  {
-    number: "10",
-    lane: "Manage & Improve",
-    icon: Eye,
-    title: "Behavioral Tracking",
-    summary: "Use guest interest and browsing activity to inform relevant follow-through instead of treating every contact the same.",
-    ready: ["Interest signals", "Behavior triggers", "Audience logic", "Follow-up paths"],
-    capabilities: ["Page-visit tracking", "Cross-sell prompts", "Contact history", "Retargeting audiences"],
-  },
-  {
-    number: "11",
-    lane: "Capture & Convert",
-    icon: HeartHandshake,
-    title: "Donation & Fundraiser Requests",
-    summary: "Give community requests a managed route that can support both guest goodwill and group-event opportunity.",
-    ready: ["Request intake", "Qualification sequence", "Ownership routing", "Follow-up checkpoints"],
-    capabilities: ["Donation-request pipeline", "Fundraiser follow-up", "School and nonprofit outreach", "Proposal tracking"],
-  },
-  {
-    number: "12",
-    lane: "Manage & Improve",
-    icon: ClipboardList,
-    title: "Hiring & Staffing",
-    summary: "Organize applicant progress, interview communication, and onboarding follow-through around your team process.",
-    ready: ["Applicant pathways", "Acknowledgment messages", "Interview timing", "Onboarding sequences"],
-    capabilities: ["Applicant intake", "Stage tracking", "Interview scheduling", "Role-fit support"],
-  },
-  {
-    number: "13",
-    lane: "Manage & Improve",
     icon: Zap,
-    title: "Automation Engine",
-    summary: "Power the handoffs, reminders, sequences, and follow-through inside every FEC Revenue Playbook.",
-    ready: ["100+ FEC-specific automations", "Trigger and timing logic", "Ownership handoffs", "Next-action prompts"],
-    capabilities: ["Party workflows", "Group-event follow-through", "Bounce-back sequences", "Operational reminders"],
+    title: "More reasons to return",
+    summary: "Create relevant follow-up around the moments guests already care about instead of relying on a last-minute send.",
+    points: ["Use guest context", "Align follow-up to real moments", "Keep return-visit work in motion"],
   },
 ];
 
-const moduleLanes = [
+const faqs = [
   {
-    number: "01",
-    title: "Capture & Convert",
-    outcome: "Turn every inquiry, request, and conversation into a visible next step.",
-    modules: ["Unified Inbox", "Forms & Funnel Pages", "Sales Pipeline", "Donation & Fundraiser Requests"],
+    question: "How does FEC Playbook™ help with party lead follow-up?",
+    answer: "Party inquiries are captured in a clear workflow with an owner, a visible next step, and ready-built follow-through. Your team can see what needs attention instead of relying on a separate inbox or memory.",
   },
   {
-    number: "02",
-    title: "Communicate & Return",
-    outcome: "Keep guests engaged before, during, and after the moments that matter.",
-    modules: ["Email Marketing", "Social Media Planner", "AI Voice & Chat", "Reputation Management", "Loyalty & Text Club"],
+    question: "Do we have to replace our POS or booking system?",
+    answer: "No. FEC Playbook™ is designed to run the lead ownership, guest communication, review, and return-visit work around the systems your venue already uses.",
   },
   {
-    number: "03",
-    title: "Manage & Improve",
-    outcome: "Give your team connected visibility, automation, and operational control.",
-    modules: ["Ads Manager", "Behavioral Tracking", "Hiring & Staffing", "Automation Engine"],
+    question: "Does our staff have to build the workflows?",
+    answer: "No. The sequence, timing, handoffs, and next actions start ready. Your venue shapes the offers, policies, team roles, and guest voice that make the system fit.",
   },
 ];
 
-const featureFaqs = [
+const schema = [
   {
-    question: "How does FEC Playbook™ help stop missed party leads?",
-    answer: "It gives party and group inquiries a clear owner, next step, and ready-built follow-up route. Your team can see what needs attention instead of relying on memory or separate tools.",
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })),
   },
   {
-    question: "Can FEC Playbook™ automate party confirmations and follow-up?",
-    answer: "Yes. Ready-built playbooks cover the timing, ownership, reminders, and guest communication around party and group bookings. Your venue tailors the details that matter to your guests and team.",
-  },
-  {
-    question: "Can FEC Playbook™ work with an existing POS or booking system?",
-    answer: "CenterEdge is the official partner. Other supported systems may be connected through the appropriate data-import path, confirmed during your 30-Minute FEC Revenue Review. FEC Playbook™ is designed to run alongside your operating systems rather than require a rip-and-replace decision.",
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fecplaybook.com/" },
+      { "@type": "ListItem", position: 2, name: "Outcomes", item: "https://www.fecplaybook.com/features" },
+    ],
   },
 ];
 
-const featureFaqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: featureFaqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: { "@type": "Answer", text: faq.answer },
-  })),
-};
-
-const featureBreadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fecplaybook.com/" },
-    { "@type": "ListItem", position: 2, name: "Core Modules", item: "https://www.fecplaybook.com/features" },
-  ],
-};
+function ReviewCta({ placement, className = "" }: { placement: string; className?: string }) {
+  return <a href="/book-a-demo" onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement })} className={`fec-btn-primary justify-center px-6 py-3.5 text-sm normal-case tracking-normal ${className}`}><CalendarCheck size={17} aria-hidden="true" />Book a 30-Minute FEC Revenue Review</a>;
+}
 
 export default function Features() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-      <SEOMeta
-        title="Stop Missing Party Leads and Follow-Up | FEC Playbook™"
-        description="FEC Playbook™ helps Family Entertainment Centers keep party leads, confirmations, guest follow-up, and team handoffs moving without building the system from scratch."
-        path="/features"
-      />
-      <StructuredData data={[featureFaqSchema, featureBreadcrumbSchema]} />
+    <div className="fec-page overflow-x-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+      <SEOMeta title="FEC Revenue Outcomes: More Bookings, Reviews & Return Visits" description="See how FEC Playbook™ helps Family Entertainment Centers move party leads faster, automate routine communication, earn more reviews, and give guests a reason to return." path="/features" />
+      <StructuredData data={schema} />
       <Navigation />
-
       <main>
-        <section className="relative overflow-hidden border-b border-white/10 pt-32 pb-20 sm:pt-40 sm:pb-28">
-          <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(112deg, transparent 0 48%, #00AEEF 48.1% 48.25%, transparent 48.4% 100%), linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px)", backgroundSize: "100% 100%, 54px 54px" }} />
-          <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_.8fr] lg:items-end lg:px-8">
-            <div className="max-w-4xl">
-              <div className="mb-7 flex items-center gap-3 text-[#00AEEF]"><span className="flex h-8 w-8 items-center justify-center bg-[#00AEEF] text-[#0A0A0A]"><Play className="ml-0.5" size={14} fill="currentColor" /></span><span className="h-px w-8 bg-[#00AEEF]" /><span className="text-xs font-black uppercase tracking-[0.22em]">The capability layer</span></div>
-              <h1 className="text-5xl font-black uppercase leading-[0.88] tracking-[-0.055em] sm:text-6xl lg:text-8xl">Less Chasing.<span className="block text-[#00AEEF]">More Booked Parties.</span></h1>
-              <p className="mt-8 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">FEC Playbook™ gives your team the pieces that keep a party lead moving, a family prepared, and the next visit in reach. The systems start ready, so your team can focus on guests instead of building workflows.</p>
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a href="/book-a-demo" className="fec-btn-primary px-7 py-4 text-sm"><Phone size={18} />Book a 30-Minute FEC Revenue Review</a>
-                <a href="#module-map" className="inline-flex items-center gap-2 px-2 text-sm font-black uppercase tracking-wide text-white/70 transition-colors hover:text-[#00AEEF]">See the module map <ArrowRight size={16} /></a>
-              </div>
+        <section className="relative overflow-hidden border-b border-[#0D1B3E]/10 bg-[#fcfcfa] pb-18 pt-32 sm:pb-24 sm:pt-40">
+          <div className="pointer-events-none absolute right-[-8rem] top-0 h-72 w-72 rounded-full bg-[#00AEEF]/10 blur-3xl" />
+          <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[.95fr_1.05fr] lg:px-8">
+            <div className="max-w-2xl">
+              <p className="fec-eyebrow">Outcomes your team can feel</p>
+              <h1 className="fec-display mt-4 text-5xl sm:text-6xl">Make revenue work feel simpler.</h1>
+              <p className="fec-copy mt-6 text-base sm:text-lg">FEC Playbook™ connects the work around party leads, guest communication, feedback, and return visits—so the next step is clear for your team and guests do not get left waiting.</p>
+              <ReviewCta placement="outcomes_hero" className="mt-8 w-full sm:w-auto" />
             </div>
-            <div className="border border-[#00AEEF]/40 bg-[#071629] p-6 shadow-[18px_18px_0_rgba(0,174,239,.18)] sm:p-8">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#00AEEF]">What arrives ready</p>
-              <div className="mt-7 grid gap-4">
-                {[
-                  ["13", "Core Modules", "Connected capabilities for daily FEC execution."],
-                  ["08", "Revenue Playbooks", "Ready-built operating systems for revenue moments."],
-                  ["100+", "Automations", "Triggers, handoffs, timing, and follow-through."],
-                ].map(([number, label, detail]) => (
-                  <div key={label} className="grid grid-cols-[4rem_1fr] gap-4 border-b border-white/10 pb-4 last:border-0 last:pb-0"><span className="text-2xl font-black text-white">{number}</span><div><p className="font-black uppercase text-white">{label}</p><p className="mt-1 text-sm text-white/55">{detail}</p></div></div>
-                ))}
-              </div>
+            <div className="fec-surface overflow-hidden p-2 shadow-[0_24px_70px_rgba(13,27,62,0.14)] sm:p-3">
+              <div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070]"><span className="h-2 w-2 rounded-full bg-[#00AEEF]" />FEC Playbook™ / Conversations</div>
+              <img src={ASSETS.conversations} alt="FEC Playbook™ Conversations area showing guest messages, assignment, and next steps" className="mt-2 w-full rounded-lg" />
             </div>
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-white py-10 text-[#0A0A0A]">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-7 px-4 sm:px-6 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-8">
-            <div className="border-l-4 border-[#00AEEF] pl-5"><p className="text-xs font-black uppercase tracking-[0.2em] text-[#1565C0]">A direct answer</p><h2 className="mt-2 text-3xl font-black uppercase leading-[0.9] sm:text-4xl">Your team should not have to remember every follow-up.</h2></div>
-            <p className="max-w-3xl text-base leading-relaxed text-black/70 sm:text-lg">FEC Playbook™ combines 13 Core Modules, eight Revenue Playbooks, and 100+ pre-built automations. Together, they give common FEC revenue problems a clear route forward.</p>
-          </div>
-        </section>
-
-        <section id="module-map" className="relative overflow-hidden bg-[#0A0A0A] py-16 sm:py-20">
-          <div className="absolute left-0 top-0 h-2 w-[25%] bg-[#00AEEF]" />
+        <section className="bg-white py-18 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-6 border-b border-white/10 pb-10 lg:grid-cols-[.85fr_1.15fr] lg:items-end"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#00AEEF]">The module map</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] sm:text-5xl">The tools behind fewer missed handoffs.</h2></div><p className="max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">Start with the problem your team needs to solve. The modules below show the connected capabilities that make the result repeatable.</p></div>
-            <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
-              {moduleLanes.map((lane) => (
-                <article key={lane.title} className="relative border border-white/10 bg-[#0D1B3E] p-6"><span className="absolute right-5 top-3 text-5xl font-black text-white/5">{lane.number}</span><p className="text-xs font-black uppercase tracking-[0.18em] text-[#00AEEF]">{lane.number} / Action lane</p><h3 className="mt-3 text-2xl font-black uppercase leading-none">{lane.title}</h3><p className="mt-4 text-sm leading-relaxed text-white/65">{lane.outcome}</p><ul className="mt-6 space-y-2 border-t border-white/10 pt-5">{lane.modules.map((module) => <li key={module} className="flex items-center gap-2 text-sm font-semibold text-white/80"><span className="h-1.5 w-1.5 bg-[#00AEEF]" />{module}</li>)}</ul></article>
-              ))}
+            <div className="grid gap-8 border-b border-[#0D1B3E]/12 pb-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+              <div><p className="fec-eyebrow">What changes day to day</p><h2 className="fec-display mt-4 text-4xl sm:text-5xl">The work that should not rely on memory.</h2></div>
+              <p className="fec-copy max-w-xl text-base sm:justify-self-end sm:text-lg">FEC Playbook™ makes the recurring revenue work visible, repeatable, and easier to act on without turning your venue into a new software project.</p>
             </div>
-          </div>
-        </section>
-
-        <section className="bg-[#F3F6F8] py-16 text-[#0A0A0A] sm:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-8 border-b border-black/15 pb-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#1565C0]">The detailed system</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] sm:text-5xl">13 connected capabilities. One operating context.</h2></div><p className="max-w-2xl text-base leading-relaxed text-black/65 sm:text-lg">Every module below has its own job. They become more valuable because they operate together inside the same ready-built FEC revenue system.</p></div>
-            <div className="mt-10 space-y-4">
-              {coreModules.map((module, index) => {
-                const Icon = module.icon;
-                const cyan = index % 2 === 0;
-                return (
-                  <article key={module.number} className="group relative overflow-hidden border border-black/15 bg-white p-6 sm:p-8">
-                    <div className={`absolute left-0 top-0 h-full w-1.5 ${cyan ? "bg-[#00AEEF]" : "bg-[#1565C0]"}`} />
-                    <div className="grid grid-cols-1 gap-7 pl-2 lg:grid-cols-[.8fr_.85fr_1.35fr] lg:items-start">
-                      <div>
-                        <div className="flex items-start gap-4"><span className={`text-5xl font-black leading-none sm:text-6xl ${cyan ? "text-[#00AEEF]" : "text-[#1565C0]"}`}>{module.number}</span><Icon className={cyan ? "mt-1 text-[#00AEEF]" : "mt-1 text-[#1565C0]"} size={27} /></div>
-                        <p className="mt-6 text-[11px] font-black uppercase tracking-[0.18em] text-black/45">{module.lane}</p>
-                        <h3 className="mt-2 text-2xl font-black uppercase leading-[0.95]">{module.title}</h3>
-                        <p className="mt-4 leading-relaxed text-black/65">{module.summary}</p>
-                      </div>
-                      <div className="border-y border-black/10 py-5 lg:border-y-0 lg:border-r lg:py-0 lg:pr-7"><p className="text-[11px] font-black uppercase tracking-[0.18em] text-black/45">What arrives ready</p><div className="mt-4 grid grid-cols-2 gap-2 text-[10px] font-black uppercase tracking-[0.12em] text-black/50">{["Workflow", "Automation", "Ownership", "Next action"].map((item) => <span key={item} className="flex items-center gap-1.5"><span className={`h-1.5 w-1.5 ${cyan ? "bg-[#00AEEF]" : "bg-[#1565C0]"}`} />{item}</span>)}</div><ul className="mt-5 space-y-2">{module.ready.map((item) => <li key={item} className="flex gap-2 text-sm leading-snug text-black/70"><CheckCircle2 size={15} className={`mt-0.5 flex-none ${cyan ? "text-[#00AEEF]" : "text-[#1565C0]"}`} />{item}</li>)}</ul></div>
-                      <div><p className="text-[11px] font-black uppercase tracking-[0.18em] text-black/45">Module capabilities</p><div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">{module.capabilities.map((item) => <div key={item} className="border border-black/10 bg-[#F3F6F8] px-3 py-2 text-sm font-semibold text-black/70">{item}</div>)}</div><a href="/book-a-demo" className={`mt-6 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide transition-all hover:gap-3 ${cyan ? "text-[#00AEEF]" : "text-[#1565C0]"}`}>See this in your Revenue Review <ArrowRight size={15} /></a></div>
-                    </div>
-                  </article>
-                );
+            <div className="mt-10 grid gap-x-10 md:grid-cols-2">
+              {outcomes.map((outcome, index) => {
+                const Icon = outcome.icon;
+                return <article key={outcome.title} className={`border-b border-[#0D1B3E]/12 py-8 ${index === 0 || index === 1 ? "md:pt-0" : ""} ${index % 2 === 1 ? "md:border-l md:border-[#0D1B3E]/12 md:pl-8" : "md:pr-8"}`}>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#00AEEF]/12 text-[#0c719a]"><Icon size={19} aria-hidden="true" /></div>
+                  <h3 className="mt-5 text-2xl font-bold tracking-[-0.035em] text-[#0D1B3E]">{outcome.title}</h3>
+                  <p className="fec-copy mt-3 text-sm sm:text-base">{outcome.summary}</p>
+                  <ul className="mt-5 space-y-2">{outcome.points.map((point) => <li key={point} className="flex gap-2 text-sm text-[#526070]"><Check size={15} className="mt-1 shrink-0 text-[#0c719a]" aria-hidden="true" />{point}</li>)}</ul>
+                </article>;
               })}
             </div>
           </div>
         </section>
 
-        <section className="bg-white py-16 text-[#0A0A0A] sm:py-20">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#1565C0]">Data and activation</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] sm:text-5xl">Built to work alongside the systems you already run.</h2></div><div className="border-l-4 border-[#00AEEF] bg-[#F3F6F8] p-6 sm:p-8"><p className="text-lg font-black uppercase leading-tight">CenterEdge is the official partner.</p><p className="mt-3 leading-relaxed text-black/70">Other supported systems may be connected through the appropriate data-import path, confirmed during your 30-Minute FEC Revenue Review. FEC Playbook™ is designed to add operating context and follow-through around the systems your venue already uses.</p><a href="/book-a-demo" className="mt-6 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#1565C0] transition-all hover:gap-3">See which modules power your Revenue Review <ArrowRight size={16} /></a></div></div>
+        <section className="border-y border-[#0D1B3E]/10 bg-[#f2f5f6] py-18 sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:px-8">
+            <div className="fec-surface order-2 overflow-hidden p-2 shadow-[0_24px_70px_rgba(13,27,62,0.12)] sm:p-3 lg:order-1">
+              <div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070]"><span className="h-2 w-2 rounded-full bg-[#00AEEF]" />FEC Playbook™ / Party leads</div>
+              <img src={ASSETS.party} alt="FEC Playbook™ party lead workflow showing inquiry stages and follow-up" className="mt-2 w-full rounded-lg" />
+            </div>
+            <div className="order-1 max-w-xl lg:order-2 lg:justify-self-end"><p className="fec-eyebrow">Work from one connected view</p><h2 className="fec-display mt-4 text-4xl sm:text-5xl">Your team can see what needs to happen next.</h2><p className="fec-copy mt-6 text-base sm:text-lg">A party lead does not need to disappear into an inbox. A booking does not need a separate checklist. The system keeps context and next actions together, so people can move faster without guessing.</p><a href="/how-it-works" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#0D1B3E] transition-colors hover:text-[#0c719a]">See how FEC Playbook™ activates <ArrowRight size={16} aria-hidden="true" /></a></div>
+          </div>
         </section>
 
-        <section className="bg-[#0A0A0A] py-20 sm:py-24">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[.75fr_1.25fr] lg:px-8"><div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#00AEEF]">Straight answers</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.9] sm:text-5xl">Before you choose a platform.</h2><p className="mt-5 max-w-md leading-relaxed text-white/60">A Revenue Review is the fastest way to map the Core Modules, ready-built playbooks, and activation path that matter for your facility.</p><a href="/book-a-demo" className="fec-btn-primary mt-8 px-7 py-4 text-sm"><Phone size={17} />Book a 30-Minute FEC Revenue Review</a></div><div className="divide-y divide-white/10 border-y border-white/10">{featureFaqs.map((faq, index) => <article key={faq.question} className="py-7 first:pt-0 last:pb-0"><div className="flex gap-4"><span className="text-xl font-black text-[#00AEEF]">0{index + 1}</span><div><h3 className="text-xl font-black uppercase leading-tight">{faq.question}</h3><p className="mt-3 leading-relaxed text-white/65">{faq.answer}</p></div></div></article>)}</div></div>
+        <section className="bg-[#0D1B3E] py-18 text-white sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8">
+            <div><p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[#59c9ee]">Feedback and reviews</p><h2 className="mt-4 text-4xl font-extrabold tracking-[-0.055em] sm:text-5xl">Make it easier for a great visit to become public proof.</h2><p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">Create a predictable way to invite feedback, request reviews, and put guest concerns in front of the right person before they become a bigger problem.</p><ReviewCta placement="outcomes_feedback" className="mt-8 w-full sm:w-auto" /></div>
+            <div className="fec-surface overflow-hidden p-2 shadow-[0_24px_70px_rgba(0,0,0,0.22)] sm:p-3"><div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070]"><span className="h-2 w-2 rounded-full bg-[#00AEEF]" />FEC Playbook™ / Guest feedback</div><img src={ASSETS.feedback} alt="FEC Playbook™ guest feedback workflow for review requests and follow-up" className="mt-2 w-full rounded-lg" /></div>
+          </div>
         </section>
 
-        <section className="relative overflow-hidden bg-[#00AEEF] py-16 text-[#0A0A0A] sm:py-20"><div className="absolute right-[8%] top-[-5rem] text-[16rem] font-black leading-none text-white/20">13</div><div className="relative mx-auto flex max-w-7xl flex-col justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-end lg:px-8"><div className="max-w-3xl"><p className="text-xs font-black uppercase tracking-[0.22em] text-[#0A0A0A]/70">Your next move</p><h2 className="mt-3 text-4xl font-black uppercase leading-[0.88] tracking-[-0.045em] sm:text-6xl">See which modules power your Revenue Review.</h2></div><a href="/book-a-demo" className="inline-flex w-fit items-center gap-2 bg-[#0A0A0A] px-7 py-4 text-sm font-black uppercase tracking-wide text-white transition-transform hover:-translate-y-1"><Calendar size={18} />Book a Revenue Review</a></div></section>
+        <section className="bg-[#fcfcfa] py-18 sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8"><div><p className="fec-eyebrow">Straight answers</p><h2 className="fec-display mt-4 text-4xl sm:text-5xl">Before you book a Revenue Review.</h2><p className="fec-copy mt-5 max-w-md text-base">We will start with the revenue work that matters most to your venue, not a generic feature tour.</p><ReviewCta placement="outcomes_faq" className="mt-7 w-full sm:w-auto" /></div><div className="divide-y divide-[#0D1B3E]/12 border-y border-[#0D1B3E]/12">{faqs.map((faq) => <article key={faq.question} className="py-6"><h3 className="text-lg font-bold tracking-[-0.025em] text-[#0D1B3E]">{faq.question}</h3><p className="fec-copy mt-3 text-sm sm:text-base">{faq.answer}</p></article>)}</div></div>
+        </section>
       </main>
-
       <Footer />
     </div>
   );
