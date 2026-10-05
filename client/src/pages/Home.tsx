@@ -7,9 +7,9 @@ import StructuredData from "@/components/StructuredData";
 import { trackEvent } from "@/lib/analytics";
 
 const ASSETS = {
-  pipeline: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/jzOfDimigbKrwlMX.png",
-  inbox: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/CjPKBzNWRmmnOPtW.png",
-  feedback: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/JWFcYpXKJogiUQzt.png",
+  pipeline: "/manus-storage/party-lead-workflow-nav-no-memberships_b6da7bc5.png",
+  inbox: "/manus-storage/guest-conversations-workflow-nav-no-memberships_1974c66b.png",
+  feedback: "/manus-storage/guest-feedback-workflow-nav-no-memberships_210a686f.png",
 };
 
 const revenueMoments = [

@@ -1,7 +1,7 @@
 import { ExternalLink, Mail, Phone } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
-const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/kdnjoUoQqKflqKtj.png";
+const LOGO_URL = "/manus-storage/fec-playbook-light-background-logo_55e28466.png";
 
 const exploreLinks = [
   { label: "Platform", href: "/" },
