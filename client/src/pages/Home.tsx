@@ -7,9 +7,9 @@ import StructuredData from "@/components/StructuredData";
 import { trackEvent } from "@/lib/analytics";
 
 const ASSETS = {
-  pipeline: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/nXITzUQvAdHDVaBp.png",
-  inbox: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/qGAUpQgJhmiKplYT.png",
-  feedback: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/qdwYPzWbyulEGkSW.png",
+  pipeline: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/qkjscweRVCJfafVo.png",
+  inbox: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/oMyIuUzBkrbYWWYA.png",
+  feedback: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/KmsBpfnGnTtWvNWU.png",
 };
 
 const revenueMoments = [
@@ -251,9 +251,9 @@ export default function Home() {
             <div className="fec-surface overflow-hidden p-2 shadow-[0_24px_70px_rgba(0,0,0,0.18)] sm:p-3">
               <div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070] sm:px-4">
                 <span className="h-2 w-2 rounded-full bg-[#00AEEF]" />
-                <span>FEC Playbook™ / Shared guest conversations</span>
+                <span>FEC Playbook™ / Conversations</span>
               </div>
-              <img src={ASSETS.inbox} alt="FEC Playbook™ shared inbox showing guest messages and team context" className="mt-2 w-full rounded-lg" />
+              <img src={ASSETS.inbox} alt="FEC Playbook™ Conversations area showing guest messages, assignment, and the next step" className="mt-2 w-full rounded-lg" />
             </div>
           </div>
         </section>
