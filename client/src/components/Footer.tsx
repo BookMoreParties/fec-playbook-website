@@ -1,7 +1,7 @@
 import { ExternalLink, Mail, Phone } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
-const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/jwiFtSckfvSoscMT.png";
+const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/kdnjoUoQqKflqKtj.png";
 
 const exploreLinks = [
   { label: "Platform", href: "/" },
@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <div className="inline-flex rounded-lg bg-[#07111f] px-3 py-2"><img src={LOGO_URL} alt="FEC Playbook" className="h-7 w-auto" /></div>
+            <img src={LOGO_URL} alt="FEC Playbook" className="h-8 w-auto" />
             <p className="mt-5 max-w-md text-sm leading-relaxed text-[#526070]">
               FEC Playbook™ is the revenue operating system built for Family Entertainment Centers—helping teams move party leads, guest communication, reviews, and return visits forward from one place.
             </p>

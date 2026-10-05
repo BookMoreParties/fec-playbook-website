@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, Phone, X } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
-const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/jwiFtSckfvSoscMT.png";
+const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/kdnjoUoQqKflqKtj.png";
 
 const navLinks = [
   { label: "Platform", href: "/", desc: "The connected revenue operating system" },
@@ -75,8 +75,8 @@ export default function Navigation() {
         }`}
       >
         <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary navigation">
-          <Link href="/" aria-label="FEC Playbook home" className="shrink-0 rounded-lg bg-[#07111f] px-3 py-2">
-            <img src={LOGO_URL} alt="FEC Playbook" className="h-6 w-auto sm:h-7" />
+          <Link href="/" aria-label="FEC Playbook home" className="shrink-0">
+            <img src={LOGO_URL} alt="FEC Playbook" className="h-7 w-auto sm:h-8" />
           </Link>
 
           <div className="hidden items-center gap-7 lg:flex">
@@ -137,7 +137,7 @@ export default function Navigation() {
       >
         <div className="flex items-center justify-between border-b border-[#0D1B3E]/10 px-5 py-5">
           <h2 id="mobile-navigation-title" className="sr-only">Site navigation</h2>
-          <div className="rounded-lg bg-[#07111f] px-3 py-2"><img src={LOGO_URL} alt="FEC Playbook" className="h-6 w-auto" /></div>
+          <img src={LOGO_URL} alt="FEC Playbook" className="h-7 w-auto" />
           <button
             type="button"
             ref={closeButtonRef}

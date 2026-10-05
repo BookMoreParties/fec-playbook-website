@@ -7,9 +7,9 @@ import StructuredData from "@/components/StructuredData";
 import { trackEvent } from "@/lib/analytics";
 
 const ASSETS = {
-  pipeline: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-pipeline-5H8g837XP3Whcjpofgqvyf.webp",
-  inbox: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-conversations-JtN2wUBGRkhaeNP9KaWfvi.webp",
-  dashboard: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/mockup-dashboard-Xvv4CsYBmbuFktddYJRVAY.webp",
+  pipeline: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/nXITzUQvAdHDVaBp.png",
+  inbox: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/qGAUpQgJhmiKplYT.png",
+  feedback: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663283664117/qdwYPzWbyulEGkSW.png",
 };
 
 const revenueMoments = [
@@ -130,15 +130,15 @@ export default function Home() {
             </div>
 
             <div className="relative mx-auto w-full max-w-xl lg:mx-0">
-              <div className="fec-frame overflow-hidden p-2 sm:p-3">
-                <div className="flex items-center gap-2 border-b border-white/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-white/60 sm:px-4">
+              <div className="fec-surface overflow-hidden p-2 shadow-[0_24px_70px_rgba(13,27,62,0.16)] sm:p-3">
+                <div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070] sm:px-4">
                   <span className="h-2 w-2 rounded-full bg-[#00AEEF]" />
                   <span>FEC Playbook™ / Party lead workflow</span>
                 </div>
                 <img src={ASSETS.pipeline} alt="FEC Playbook™ party lead pipeline with visible follow-up stages" className="mt-2 aspect-[4/3] w-full rounded-lg object-cover object-left-top" />
                 <div className="flex items-center gap-3 px-3 py-4 sm:px-4">
                   <CircleDot size={17} className="shrink-0 text-[#00AEEF]" aria-hidden="true" />
-                  <p className="text-sm font-semibold leading-snug text-white">Every inquiry has an owner and next step.</p>
+                  <p className="text-sm font-semibold leading-snug text-[#0D1B3E]">Every inquiry has an owner and next step.</p>
                 </div>
               </div>
               <div className="absolute -bottom-5 -left-5 -z-10 hidden h-36 w-36 rounded-2xl border border-[#0D1B3E]/10 bg-white lg:block" />
@@ -220,6 +220,26 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="border-y border-[#0D1B3E]/10 bg-white py-18 sm:py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.92fr_1.08fr] lg:items-center lg:px-8">
+            <div className="order-2 lg:order-1">
+              <div className="fec-surface overflow-hidden p-2 shadow-[0_24px_70px_rgba(13,27,62,0.14)] sm:p-3">
+                <div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070] sm:px-4">
+                  <span className="h-2 w-2 rounded-full bg-[#00AEEF]" />
+                  <span>FEC Playbook™ / Guest feedback workflow</span>
+                </div>
+                <img src={ASSETS.feedback} alt="FEC Playbook™ guest feedback workflow with review-request follow-up and response actions" className="mt-2 w-full rounded-lg" />
+              </div>
+            </div>
+            <div className="order-1 max-w-xl lg:order-2 lg:justify-self-end">
+              <p className="fec-eyebrow">Turn a great visit into public proof</p>
+              <h2 className="fec-display mt-4 text-4xl sm:text-5xl">Reviews should not depend on someone remembering to ask.</h2>
+              <p className="fec-copy mt-6 text-base sm:text-lg">Give every guest experience a clear path to feedback, a review request, and the right response. The system keeps it moving while your team stays focused on the experience in front of them.</p>
+              <a href="/features" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#0D1B3E] transition-colors hover:text-[#0c719a]">See how review work fits the system <ArrowRight size={16} aria-hidden="true" /></a>
+            </div>
+          </div>
+        </section>
+
         <section className="border-y border-[#0D1B3E]/10 bg-[#0D1B3E] py-18 text-white sm:py-24">
           <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.95fr_1.05fr] lg:items-center lg:px-8">
             <div className="max-w-xl">
@@ -228,8 +248,8 @@ export default function Home() {
               <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">FEC Playbook™ does not replace the people who make your venue great. It removes the routine work that keeps them in inboxes, spreadsheets, and scattered logins—so they can respond faster, serve guests better, and focus on the moments only people can handle.</p>
               <a href="/features" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#59c9ee] transition-colors hover:text-white">See the outcomes <ArrowRight size={16} aria-hidden="true" /></a>
             </div>
-            <div className="fec-frame overflow-hidden p-2 sm:p-3">
-              <div className="flex items-center gap-2 border-b border-white/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-white/60 sm:px-4">
+            <div className="fec-surface overflow-hidden p-2 shadow-[0_24px_70px_rgba(0,0,0,0.18)] sm:p-3">
+              <div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070] sm:px-4">
                 <span className="h-2 w-2 rounded-full bg-[#00AEEF]" />
                 <span>FEC Playbook™ / Shared guest conversations</span>
               </div>
