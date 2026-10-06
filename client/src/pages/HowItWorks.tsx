@@ -11,13 +11,13 @@ const ASSETS = {
 };
 
 const steps = [
-  { icon: Map, number: "01", title: "Find the revenue leak", copy: "Look at the inquiry, communication, review, or return-visit work that is costing your team the most attention today.", points: ["Identify what is getting stuck", "Clarify the current handoff", "Choose the highest-value first move"] },
+  { icon: Map, number: "01", title: "Find the process gap", copy: "Look at the inquiry, sale, confirmation, review, or retention work that is costing your team the most attention today.", points: ["Identify what is getting stuck", "Clarify the current handoff", "Choose the highest-value first move"] },
   { icon: Layers3, number: "02", title: "Fit the playbook", copy: "Start with the ready-built workflow, then align it to your offers, team roles, guest voice, and the systems already running your venue.", points: ["Use the sequence that starts ready", "Make the ownership fit your team", "Shape the message around your brand"] },
   { icon: Settings2, number: "03", title: "Put it to work", copy: "Activate the workflow and make the next action visible. Your team stays in control while the repeatable work keeps moving.", points: ["Keep context with the next step", "Make follow-through more consistent", "Review what improves with the team"] },
 ];
 
 const faqs = [
-  { question: "Where does FEC Playbook™ start?", answer: "Start with a 30-Minute FEC Revenue Review. We identify the party lead, guest communication, review, return-visit, or handoff problem that needs attention first." },
+  { question: "Where does FEC Playbook™ start?", answer: "Start with a 30-Minute FEC Demo. We identify the party lead, guest communication, review, return-visit, or handoff problem that needs attention first." },
   { question: "Do we have to build the workflows ourselves?", answer: "No. The sequence, timing, handoffs, and next actions start ready. Your team shapes the details that make the workflow fit the way your venue operates." },
   { question: "What happens to the systems we already use?", answer: "Your POS and booking tools can keep running the transaction. FEC Playbook™ adds a connected process around the lead ownership, communication, feedback, and return-visit work." },
 ];
@@ -27,8 +27,8 @@ const schema = [
   { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://www.fecplaybook.com/" }, { "@type": "ListItem", position: 2, name: "How It Works", item: "https://www.fecplaybook.com/how-it-works" }] },
 ];
 
-function ReviewCta({ placement, className = "" }: { placement: string; className?: string }) {
-  return <a href="/book-a-demo" onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement })} className={`fec-btn-primary justify-center px-6 py-3.5 text-sm normal-case tracking-normal ${className}`}><CalendarCheck size={17} aria-hidden="true" />Book a 30-Minute FEC Revenue Review</a>;
+function DemoCta({ placement, className = "" }: { placement: string; className?: string }) {
+  return <a href="/book-a-demo" onClick={() => trackEvent("cta_book_demo_clicked", { placement })} className={`fec-btn-primary justify-center px-6 py-3.5 text-sm normal-case tracking-normal ${className}`}><CalendarCheck size={17} aria-hidden="true" />Book a Demo</a>;
 }
 
 export default function HowItWorks() {
@@ -42,7 +42,7 @@ export default function HowItWorks() {
           <div className="pointer-events-none absolute left-[45%] top-0 hidden h-full w-px bg-[#0D1B3E]/8 lg:block" />
           <div className="pointer-events-none absolute right-0 top-8 h-72 w-72 rounded-full bg-[#00AEEF]/10 blur-3xl" />
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
-            <div className="max-w-2xl"><p className="fec-eyebrow">A ready-built system, fitted to your FEC</p><h1 className="fec-display mt-4 text-5xl sm:text-6xl">No blank platform. No new operating manual.</h1><p className="fec-copy mt-6 text-base sm:text-lg">FEC Playbook™ starts with proven FEC workflows, then fits the details to your brand, offers, team, and the systems already running your venue.</p><ReviewCta placement="how_it_works_hero" className="mt-8 w-full sm:w-auto" /></div>
+            <div className="max-w-2xl"><p className="fec-eyebrow">A ready-built system, fitted to your FEC</p><h1 className="fec-display mt-4 text-5xl sm:text-6xl">No blank platform. No new operating manual.</h1><p className="fec-copy mt-6 text-base sm:text-lg">FEC Playbook™ starts with proven FEC workflows, then fits the details to your brand, offers, team, and the systems already running your venue.</p><DemoCta placement="how_it_works_hero" className="mt-8 w-full sm:w-auto" /></div>
             <div className="fec-surface overflow-hidden p-2 shadow-[0_24px_70px_rgba(13,27,62,0.14)] sm:p-3"><div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070]"><span className="h-2 w-2 rounded-full bg-[#00AEEF]" />FEC Playbook™ / Party lead workflow</div><img src={ASSETS.party} alt="FEC Playbook™ party lead workflow showing a ready-built process" className="mt-2 w-full rounded-lg" /></div>
           </div>
         </section>
@@ -62,7 +62,7 @@ export default function HowItWorks() {
 
         <section className="bg-[#0D1B3E] py-18 text-white sm:py-24"><div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:px-8"><div><p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[#59c9ee]">What daily execution looks like</p><h2 className="mt-4 text-4xl font-extrabold tracking-[-0.055em] sm:text-5xl">The team sees the next action. The system handles the repeatable work.</h2><div className="mt-7 space-y-4">{["A party inquiry is assigned and followed up.", "A booked family receives the information that helps them arrive prepared.", "A guest experience has a route to feedback, reviews, and a relevant next visit."].map((item) => <p key={item} className="flex gap-3 text-sm leading-relaxed text-white/75"><CircleDot size={16} className="mt-1 shrink-0 text-[#59c9ee]" aria-hidden="true" />{item}</p>)}</div></div><div className="fec-surface overflow-hidden p-2 shadow-[0_24px_70px_rgba(0,0,0,0.2)] sm:p-3"><div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070]"><span className="h-2 w-2 rounded-full bg-[#00AEEF]" />FEC Playbook™ / Conversations</div><img src={ASSETS.conversations} alt="FEC Playbook™ Conversations area with assigned guest messages and next steps" className="mt-2 w-full rounded-lg" /></div></div></section>
 
-        <section className="bg-[#fcfcfa] py-18 sm:py-24"><div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8"><div><p className="fec-eyebrow">Straight answers</p><h2 className="fec-display mt-4 text-4xl sm:text-5xl">Understand the path before you book.</h2><p className="fec-copy mt-5 max-w-md text-base">The Revenue Review is a working session, not a generic product tour.</p><ReviewCta placement="how_it_works_faq" className="mt-7 w-full sm:w-auto" /></div><div className="divide-y divide-[#0D1B3E]/12 border-y border-[#0D1B3E]/12">{faqs.map((faq) => <article key={faq.question} className="py-6"><h3 className="text-lg font-bold tracking-[-0.025em] text-[#0D1B3E]">{faq.question}</h3><p className="fec-copy mt-3 text-sm sm:text-base">{faq.answer}</p></article>)}</div></div></section>
+        <section className="bg-[#fcfcfa] py-18 sm:py-24"><div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8"><div><p className="fec-eyebrow">Straight answers</p><h2 className="fec-display mt-4 text-4xl sm:text-5xl">Understand the path before you book.</h2><p className="fec-copy mt-5 max-w-md text-base">The demo is a working session, not a generic product tour.</p><DemoCta placement="how_it_works_faq" className="mt-7 w-full sm:w-auto" /></div><div className="divide-y divide-[#0D1B3E]/12 border-y border-[#0D1B3E]/12">{faqs.map((faq) => <article key={faq.question} className="py-6"><h3 className="text-lg font-bold tracking-[-0.025em] text-[#0D1B3E]">{faq.question}</h3><p className="fec-copy mt-3 text-sm sm:text-base">{faq.answer}</p></article>)}</div></div></section>
       </main>
       <Footer />
     </div>

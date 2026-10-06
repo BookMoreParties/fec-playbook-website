@@ -6,10 +6,10 @@ import { trackEvent } from "@/lib/analytics";
 const LOGO_URL = "/manus-storage/fec-playbook-light-background-logo_55e28466.png";
 
 const navLinks = [
-  { label: "Platform", href: "/", desc: "The connected revenue operating system" },
+  { label: "Platform", href: "/", desc: "One connected sales, marketing, and customer journey system" },
   { label: "Outcomes", href: "/features", desc: "What gets easier and moves faster" },
   { label: "How It Works", href: "/how-it-works", desc: "How the ready-built system is activated" },
-  { label: "Playbooks", href: "/playbook", desc: "The workflows behind daily FEC revenue work" },
+  { label: "Playbooks", href: "/playbook", desc: "The workflows behind daily FEC sales, marketing, and guest work" },
 ];
 
 export default function Navigation() {
@@ -75,8 +75,8 @@ export default function Navigation() {
         }`}
       >
         <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary navigation">
-          <Link href="/" aria-label="FEC Playbook home" className="shrink-0">
-            <img src={LOGO_URL} alt="FEC Playbook" className="h-7 w-auto sm:h-8" />
+          <Link href="/" aria-label="FEC Playbook™ home" className="shrink-0">
+            <img src={LOGO_URL} alt="FEC Playbook™" className="h-7 w-auto sm:h-8" />
           </Link>
 
           <div className="hidden items-center gap-7 lg:flex">
@@ -98,11 +98,11 @@ export default function Navigation() {
             </a>
             <a
               href="/book-a-demo"
-              onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement: "navigation_desktop" })}
+              onClick={() => trackEvent("cta_book_demo_clicked", { placement: "navigation_desktop" })}
               className="fec-btn-primary px-5 py-2.5 text-sm normal-case tracking-normal"
             >
               <Phone size={15} aria-hidden="true" />
-              Book a Revenue Review
+              Book a Demo
             </a>
           </div>
 
@@ -137,7 +137,7 @@ export default function Navigation() {
       >
         <div className="flex items-center justify-between border-b border-[#0D1B3E]/10 px-5 py-5">
           <h2 id="mobile-navigation-title" className="sr-only">Site navigation</h2>
-          <img src={LOGO_URL} alt="FEC Playbook" className="h-7 w-auto" />
+          <img src={LOGO_URL} alt="FEC Playbook™" className="h-7 w-auto" />
           <button
             type="button"
             ref={closeButtonRef}
@@ -177,15 +177,15 @@ export default function Navigation() {
           <a
             href="/book-a-demo"
             onClick={() => {
-              trackEvent("cta_book_revenue_review_clicked", { placement: "navigation_mobile" });
+              trackEvent("cta_book_demo_clicked", { placement: "navigation_mobile" });
               setMobileOpen(false);
             }}
             className="fec-btn-primary w-full justify-center px-5 py-3.5 text-sm normal-case tracking-normal"
           >
             <Phone size={16} aria-hidden="true" />
-            Book a Revenue Review
+            Book a Demo
           </a>
-          <p className="mt-3 text-center text-xs leading-relaxed text-[#526070]">Find the revenue work that is getting stuck.</p>
+          <p className="mt-3 text-center text-xs leading-relaxed text-[#526070]">Find the sales, marketing, and customer journey work that needs a clearer system.</p>
         </div>
       </div>
     </>

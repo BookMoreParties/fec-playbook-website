@@ -12,7 +12,7 @@ const ASSETS = {
   feedback: "/manus-storage/guest-feedback-workflow-nav-no-memberships_210a686f.png",
 };
 
-const revenueMoments = [
+const guestJourneyMoments = [
   {
     icon: UsersRound,
     title: "Party lead",
@@ -20,29 +20,35 @@ const revenueMoments = [
     copy: "Capture the inquiry, route it to the right person, and keep follow-up visible before interest cools.",
   },
   {
+    icon: CircleDot,
+    title: "Sale",
+    outcome: "Every opportunity has a clear path to booking.",
+    copy: "Use a shared sales pipeline to keep party, group, donation, and event opportunities moving forward.",
+  },
+  {
     icon: CalendarCheck,
-    title: "Booked event",
+    title: "Event confirmation",
     outcome: "Every family gets the right information at the right time.",
     copy: "Confirmations, reminders, guest details, and team handoffs keep moving when the schedule gets busy.",
   },
   {
     icon: Star,
-    title: "Guest feedback",
+    title: "Review and reputation",
     outcome: "Every great experience has a route to public proof.",
-    copy: "Create a consistent way to ask for feedback, invite reviews, and put guest concerns in front of the team.",
+    copy: "Create a consistent way to ask for feedback, invite reviews, and respond to guests across connected channels.",
   },
   {
     icon: MessageSquare,
-    title: "Return visit",
+    title: "Retention",
     outcome: "Every guest has a relevant reason to come back.",
-    copy: "Use the moments that already matter to deliver follow-up that feels timely instead of generic.",
+    copy: "Use targeted email, text, and campaigns to turn a great visit into the next one.",
   },
 ];
 
 const faqs = [
   {
     question: "What is FEC Playbook™?",
-    answer: "FEC Playbook™ is a revenue operating system built for Family Entertainment Centers. It brings party-lead follow-up, guest communication, reviews, and return-visit work into one connected process around the systems your venue already uses.",
+    answer: "FEC Playbook™ is one connected sales, marketing, communications, reputation, and retention system built for Family Entertainment Centers. It brings the customer journey from inquiry through return visit into one place around the systems your venue already uses.",
   },
   {
     question: "Do we have to build the workflows ourselves?",
@@ -62,7 +68,7 @@ const homeStructuredData = [
     name: "FEC Playbook™",
     url: "https://www.fecplaybook.com/",
     logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663283664117/QvmM4Ny6bGx8BEV8LcdvBi/logo-horizontal-blue_eeb2d5d6.png",
-    description: "A revenue operating system for Family Entertainment Centers that helps teams move party leads, guest communication, reviews, and return visits forward.",
+    description: "A unified sales, marketing, communications, reputation, and retention system for Family Entertainment Centers.",
   },
   {
     "@context": "https://schema.org",
@@ -83,15 +89,15 @@ const homeStructuredData = [
   },
 ];
 
-function ReviewCta({ placement, className = "" }: { placement: string; className?: string }) {
+function DemoCta({ placement, className = "" }: { placement: string; className?: string }) {
   return (
     <a
       href="/book-a-demo"
-      onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement })}
+      onClick={() => trackEvent("cta_book_demo_clicked", { placement })}
       className={`fec-btn-primary justify-center px-6 py-3.5 text-sm normal-case tracking-normal ${className}`}
     >
       <CalendarCheck size={17} aria-hidden="true" />
-      Book a 30-Minute FEC Revenue Review
+      Book a Demo
     </a>
   );
 }
@@ -102,8 +108,8 @@ export default function Home() {
   return (
     <div className="fec-page overflow-x-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <SEOMeta
-        title="FEC Revenue Operating System for More Booked Parties | FEC Playbook™"
-        description="FEC Playbook™ helps Family Entertainment Centers consolidate revenue work, move party leads faster, automate routine communication, earn more reviews, and create more return visits."
+        title="FEC Sales, Marketing & Guest Journey System | FEC Playbook™"
+        description="FEC Playbook™ consolidates sales, marketing, messaging, reviews, and retention into one connected system for Family Entertainment Centers."
         path="/"
       />
       <StructuredData data={homeStructuredData} />
@@ -116,17 +122,17 @@ export default function Home() {
           <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.04fr_.96fr] lg:gap-16 lg:px-8">
             <div className="max-w-2xl">
               <p className="fec-eyebrow">Built for Family Entertainment Centers</p>
-              <h1 className="fec-display mt-5 text-[3.15rem] sm:text-6xl lg:text-[4.45rem]">More booked parties. Less busywork.</h1>
+              <h1 className="fec-display mt-5 text-[3.15rem] sm:text-6xl lg:text-[4.45rem]">Simplify your systems. Amplify your results.</h1>
               <p className="fec-copy mt-7 max-w-xl text-base sm:text-lg">
-                FEC Playbook™ brings your party leads, guest communication, reviews, and return-visit work into one FEC revenue operating system—so your team spends less time switching tools and more time moving guests forward.
+                FEC Playbook™ consolidates sales, marketing, guest communication, reputation, and retention into one connected system—so your team spends less time switching tools and more time serving guests.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <ReviewCta placement="hero" className="w-full sm:w-auto" />
+                <DemoCta placement="hero" className="w-full sm:w-auto" />
                 <a href="/how-it-works" className="inline-flex items-center justify-center gap-2 px-2 py-3 text-sm font-bold text-[#0D1B3E] transition-colors hover:text-[#0c719a] sm:justify-start">
                   See how it works <ArrowRight size={16} aria-hidden="true" />
                 </a>
               </div>
-              <p className="mt-6 text-sm leading-relaxed text-[#526070]">Keep the systems that run your venue. Put the revenue work around them in motion.</p>
+              <p className="mt-6 text-sm leading-relaxed text-[#526070]">Keep the systems that run your venue. Bring the sales, marketing, and customer journey work around them into one place.</p>
             </div>
 
             <div className="relative mx-auto w-full max-w-xl lg:mx-0">
@@ -150,12 +156,12 @@ export default function Home() {
           <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
               <p className="fec-eyebrow">The operational problem</p>
-              <h2 className="fec-display mt-4 max-w-xl text-4xl sm:text-5xl">Your team should not have to run revenue from five different tools.</h2>
+              <h2 className="fec-display mt-4 max-w-xl text-4xl sm:text-5xl">Your team should not have to manage sales and marketing from five different tools.</h2>
             </div>
             <div className="space-y-4 border-t border-[#0D1B3E]/12 pt-4 lg:pt-0">
               {[
-                "Party leads wait while staff switch between forms, inboxes, texts, and spreadsheets.",
-                "Confirmations, reminders, and follow-up become more manual work on the busiest days.",
+                "Party leads wait while staff switch between forms, inboxes, text messages, and spreadsheets.",
+                "Email, SMS, social messages, and Google Business Profile activity live in separate places.",
                 "A great guest visit ends without a clear next step toward a review or return visit.",
               ].map((problem) => (
                 <div key={problem} className="flex gap-3 border-b border-[#0D1B3E]/12 py-4 last:border-b-0">
@@ -171,8 +177,8 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
               <p className="fec-eyebrow">A simpler operating picture</p>
-              <h2 className="fec-display mt-4 text-4xl sm:text-5xl">One operating system for the work around the transaction.</h2>
-              <p className="fec-copy mt-5 text-base sm:text-lg">FEC Playbook™ keeps the revenue work visible and moving while your existing POS and booking systems continue to run the venue.</p>
+              <h2 className="fec-display mt-4 text-4xl sm:text-5xl">One unified system for the customer journey around the transaction.</h2>
+              <p className="fec-copy mt-5 text-base sm:text-lg">FEC Playbook™ connects sales pipelines, marketing, guest communication, reviews, and retention while your existing POS and booking systems continue to run the venue.</p>
             </div>
             <div className="mt-10 overflow-hidden rounded-2xl border border-[#0D1B3E]/12 bg-white">
               <div className="grid grid-cols-2 border-b border-[#0D1B3E]/12 bg-[#0D1B3E] text-xs font-bold uppercase tracking-[0.12em] text-white">
@@ -180,9 +186,9 @@ export default function Home() {
                 <div className="border-l border-white/15 px-5 py-4 sm:px-7">With FEC Playbook™</div>
               </div>
               {[
-                ["Separate inboxes, forms, review tools, manual follow-up, and campaign tools", "Connected lead ownership, guest communication, review requests, follow-up, and visibility"],
-                ["Repetitive staff work", "Ready-built workflows running in the background"],
-                ["Revenue work hidden in separate systems", "Clear next actions for your team"],
+                ["Separate email, SMS, social, Google Business Profile, review, and campaign tools", "One connected system for sales, marketing, messaging, reviews, and retention"],
+                ["Manual replies, comment monitoring, and follow-up", "Ready-built automation and clear team handoffs"],
+                ["Customer journey work hidden in separate systems", "One shared view of conversations, campaigns, and next actions"],
               ].map(([before, after]) => (
                 <div key={before} className="grid grid-cols-2 border-b border-[#0D1B3E]/12 last:border-b-0">
                   <p className="px-5 py-5 text-sm leading-relaxed text-[#526070] sm:px-7 sm:py-6 sm:text-base">{before}</p>
@@ -193,17 +199,17 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#fcfcfa] py-18 sm:py-24" id="revenue-moments">
+        <section className="bg-[#fcfcfa] py-18 sm:py-24" id="guest-journey">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8 border-b border-[#0D1B3E]/12 pb-10 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
               <div>
                 <p className="fec-eyebrow">From first inquiry to the next visit</p>
-                <h2 className="fec-display mt-4 text-4xl sm:text-5xl">The revenue moments that should keep moving.</h2>
+                <h2 className="fec-display mt-4 text-4xl sm:text-5xl">The customer journey should keep moving.</h2>
               </div>
               <p className="fec-copy max-w-xl text-base sm:justify-self-end sm:text-lg">Every workflow begins with a familiar moment your team already handles. The difference is a clear owner, next action, and follow-through already in place.</p>
             </div>
             <div className="mt-10 grid gap-x-10 gap-y-0 md:grid-cols-2">
-              {revenueMoments.map((moment, index) => {
+              {guestJourneyMoments.map((moment, index) => {
                 const Icon = moment.icon;
                 return (
                   <article key={moment.title} className="group border-b border-[#0D1B3E]/12 py-8 first:pt-0 md:odd:pr-6 md:even:pl-6 md:even:border-l md:even:border-[#0D1B3E]/12 md:nth-[2]:pt-0">
@@ -264,13 +270,13 @@ export default function Home() {
               <p className="fec-eyebrow">Ready-built, not a blank platform</p>
               <h2 className="fec-display mt-4 max-w-2xl text-4xl sm:text-5xl">You bring the brand. FEC Playbook™ brings the playbook.</h2>
               <p className="fec-copy mt-6 max-w-xl text-base sm:text-lg">The workflows for party follow-up, booking confirmation, review requests, and repeat-visit communication start ready. We shape them around your offers, team, and guest journey before they go live.</p>
-              <ReviewCta placement="ready_built" className="mt-8 w-full sm:w-auto" />
+              <DemoCta placement="ready_built" className="mt-8 w-full sm:w-auto" />
             </div>
             <div className="fec-surface p-6 sm:p-8">
               <p className="fec-eyebrow">What starts ready</p>
               <ul className="mt-6 space-y-5">
                 {[
-                  ["The sequence", "Follow-up timing and the next action at each revenue moment."],
+                  ["The sequence", "Follow-up timing and the next action at each stage of the customer journey."],
                   ["The ownership", "Clear handoffs that keep the work from relying on memory."],
                   ["The follow-through", "Guest communication that keeps moving when your team is busy."],
                 ].map(([title, copy]) => (
@@ -308,9 +314,9 @@ export default function Home() {
           <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
             <div>
               <p className="fec-eyebrow">Straight answers</p>
-              <h2 className="fec-display mt-4 text-4xl sm:text-5xl">Before you book a Revenue Review.</h2>
-              <p className="fec-copy mt-5 max-w-md text-base">Bring the people closest to party, guest, or sales follow-up. We will find the work getting stuck and map a practical next step.</p>
-              <ReviewCta placement="faq" className="mt-7 w-full sm:w-auto" />
+              <h2 className="fec-display mt-4 text-4xl sm:text-5xl">Before you book a Demo.</h2>
+              <p className="fec-copy mt-5 max-w-md text-base">Bring the people closest to sales, marketing, guest communication, or event operations. We will map the work that needs a clearer system.</p>
+              <DemoCta placement="faq" className="mt-7 w-full sm:w-auto" />
             </div>
             <div className="divide-y divide-[#0D1B3E]/12 border-y border-[#0D1B3E]/12">
               {faqs.map((faq, index) => {
@@ -334,9 +340,9 @@ export default function Home() {
             <div className="max-w-3xl">
               <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[#07111f]/70">Your next move</p>
               <h2 className="mt-4 text-4xl font-extrabold tracking-[-0.055em] sm:text-6xl">See what FEC Playbook™ can take off your team’s plate.</h2>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#07111f]/75">Find the revenue work getting stuck and the ready-built workflows that fit.</p>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#07111f]/75">Find the sales, marketing, and customer journey work that needs a clearer system.</p>
             </div>
-            <ReviewCta placement="final_cta" className="shrink-0 bg-[#07111f] text-white hover:bg-[#0D1B3E]" />
+            <DemoCta placement="final_cta" className="shrink-0 bg-[#07111f] text-white hover:bg-[#0D1B3E]" />
           </div>
         </section>
       </main>

@@ -33,12 +33,12 @@ export default function MobileCTABar() {
         <div className="flex items-center gap-3">
           <a
             href="/book-a-demo"
-            onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement: "mobile_sticky_bar" })}
+            onClick={() => trackEvent("cta_book_demo_clicked", { placement: "mobile_sticky_bar" })}
             className="fec-btn-primary flex-1 justify-center px-4 py-3 text-sm normal-case tracking-normal"
             tabIndex={visible ? 0 : -1}
           >
             <Phone size={16} aria-hidden="true" />
-            Book a Revenue Review
+            Book a Demo
           </a>
           <button
             type="button"

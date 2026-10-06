@@ -14,33 +14,33 @@ const ASSETS = {
 const outcomes = [
   {
     icon: UsersRound,
-    title: "More party leads moved forward",
-    summary: "Every inquiry has a clear owner, next action, and route through follow-up.",
-    points: ["Capture the details your team needs", "Route the inquiry to the right person", "Keep the next action visible"],
+    title: "More sales leads moved forward",
+    summary: "Capture party and group inquiries, automate follow-up, and keep every opportunity visible from first contact to booking.",
+    points: ["Party and group pipelines", "Automated follow-up", "Dedicated donation and fundraiser requests"],
   },
   {
     icon: MessageSquare,
-    title: "Less repetitive guest communication",
-    summary: "Confirmations, reminders, and guest questions keep moving without every step becoming a manual task.",
-    points: ["Use ready-built communication routes", "Give the team conversation context", "Keep guests informed at the right moment"],
+    title: "Every conversation in one place",
+    summary: "Email, text, web chat, social messages, and Google Business Profile (Google My Business) inquiries can live in one shared conversation space.",
+    points: ["One communication inbox", "Reply and comment automation", "Clear team context"],
   },
   {
     icon: Clock3,
-    title: "More time for the work guests notice",
-    summary: "Reduce the switch between inboxes, spreadsheets, and scattered logins so staff can focus on the people in front of them.",
-    points: ["Fewer manual handoffs", "Clear ownership", "Less reliance on memory"],
+    title: "Marketing that is easier to run",
+    summary: "Plan, schedule, and automate email, SMS, social content, and campaigns without managing a separate tool for every channel.",
+    points: ["Targeted email and text", "Social post scheduling", "Campaign and engagement visibility"],
   },
   {
     icon: Star,
-    title: "More review opportunities",
-    summary: "Give a great visit a consistent path to feedback, a review request, and the right response when it needs attention.",
-    points: ["Invite feedback while it is fresh", "Keep review work visible", "Route concerns back to the team"],
+    title: "Reviews that build trust",
+    summary: "Give a great visit a consistent path to feedback, review requests, response management, and the right next action when attention is needed.",
+    points: ["Review request timing", "AI-assisted reply options", "Google Business Profile visibility"],
   },
   {
     icon: Zap,
-    title: "More reasons to return",
-    summary: "Create relevant follow-up around the moments guests already care about instead of relying on a last-minute send.",
-    points: ["Use guest context", "Align follow-up to real moments", "Keep return-visit work in motion"],
+    title: "Retention that brings guests back",
+    summary: "Use guest context to run relevant email and text campaigns that keep your facility top of mind after the visit.",
+    points: ["Guest segmentation", "Text Club growth", "Return-visit campaigns"],
   },
 ];
 
@@ -75,14 +75,14 @@ const schema = [
   },
 ];
 
-function ReviewCta({ placement, className = "" }: { placement: string; className?: string }) {
-  return <a href="/book-a-demo" onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement })} className={`fec-btn-primary justify-center px-6 py-3.5 text-sm normal-case tracking-normal ${className}`}><CalendarCheck size={17} aria-hidden="true" />Book a 30-Minute FEC Revenue Review</a>;
+function DemoCta({ placement, className = "" }: { placement: string; className?: string }) {
+  return <a href="/book-a-demo" onClick={() => trackEvent("cta_book_demo_clicked", { placement })} className={`fec-btn-primary justify-center px-6 py-3.5 text-sm normal-case tracking-normal ${className}`}><CalendarCheck size={17} aria-hidden="true" />Book a Demo</a>;
 }
 
 export default function Features() {
   return (
     <div className="fec-page overflow-x-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-      <SEOMeta title="FEC Revenue Outcomes: More Bookings, Reviews & Return Visits" description="See how FEC Playbook™ helps Family Entertainment Centers move party leads faster, automate routine communication, earn more reviews, and give guests a reason to return." path="/features" />
+      <SEOMeta title="FEC Sales, Marketing & Guest Journey Outcomes" description="See how FEC Playbook™ helps Family Entertainment Centers move party leads faster, automate routine communication, earn more reviews, and give guests a reason to return." path="/features" />
       <StructuredData data={schema} />
       <Navigation />
       <main>
@@ -91,9 +91,9 @@ export default function Features() {
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[.95fr_1.05fr] lg:px-8">
             <div className="max-w-2xl">
               <p className="fec-eyebrow">Outcomes your team can feel</p>
-              <h1 className="fec-display mt-4 text-5xl sm:text-6xl">Make revenue work feel simpler.</h1>
+              <h1 className="fec-display mt-4 text-5xl sm:text-6xl">Make sales and marketing easier to manage.</h1>
               <p className="fec-copy mt-6 text-base sm:text-lg">FEC Playbook™ connects the work around party leads, guest communication, feedback, and return visits—so the next step is clear for your team and guests do not get left waiting.</p>
-              <ReviewCta placement="outcomes_hero" className="mt-8 w-full sm:w-auto" />
+              <DemoCta placement="outcomes_hero" className="mt-8 w-full sm:w-auto" />
             </div>
             <div className="fec-surface overflow-hidden p-2 shadow-[0_24px_70px_rgba(13,27,62,0.14)] sm:p-3">
               <div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070]"><span className="h-2 w-2 rounded-full bg-[#00AEEF]" />FEC Playbook™ / Conversations</div>
@@ -106,7 +106,7 @@ export default function Features() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8 border-b border-[#0D1B3E]/12 pb-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
               <div><p className="fec-eyebrow">What changes day to day</p><h2 className="fec-display mt-4 text-4xl sm:text-5xl">The work that should not rely on memory.</h2></div>
-              <p className="fec-copy max-w-xl text-base sm:justify-self-end sm:text-lg">FEC Playbook™ makes the recurring revenue work visible, repeatable, and easier to act on without turning your venue into a new software project.</p>
+              <p className="fec-copy max-w-xl text-base sm:justify-self-end sm:text-lg">FEC Playbook™ brings recurring sales, marketing, communications, reviews, and retention work into one connected system without turning your venue into a new software project.</p>
             </div>
             <div className="mt-10 grid gap-x-10 md:grid-cols-2">
               {outcomes.map((outcome, index) => {
@@ -134,13 +134,13 @@ export default function Features() {
 
         <section className="bg-[#0D1B3E] py-18 text-white sm:py-24">
           <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8">
-            <div><p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[#59c9ee]">Feedback and reviews</p><h2 className="mt-4 text-4xl font-extrabold tracking-[-0.055em] sm:text-5xl">Make it easier for a great visit to become public proof.</h2><p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">Create a predictable way to invite feedback, request reviews, and put guest concerns in front of the right person before they become a bigger problem.</p><ReviewCta placement="outcomes_feedback" className="mt-8 w-full sm:w-auto" /></div>
+            <div><p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[#59c9ee]">Feedback and reviews</p><h2 className="mt-4 text-4xl font-extrabold tracking-[-0.055em] sm:text-5xl">Make it easier for a great visit to become public proof.</h2><p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">Create a predictable way to invite feedback, request reviews, and put guest concerns in front of the right person before they become a bigger problem.</p><DemoCta placement="outcomes_feedback" className="mt-8 w-full sm:w-auto" /></div>
             <div className="fec-surface overflow-hidden p-2 shadow-[0_24px_70px_rgba(0,0,0,0.22)] sm:p-3"><div className="flex items-center gap-2 border-b border-[#0D1B3E]/10 px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#526070]"><span className="h-2 w-2 rounded-full bg-[#00AEEF]" />FEC Playbook™ / Guest feedback</div><img src={ASSETS.feedback} alt="FEC Playbook™ guest feedback workflow for review requests and follow-up" className="mt-2 w-full rounded-lg" /></div>
           </div>
         </section>
 
         <section className="bg-[#fcfcfa] py-18 sm:py-24">
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8"><div><p className="fec-eyebrow">Straight answers</p><h2 className="fec-display mt-4 text-4xl sm:text-5xl">Before you book a Revenue Review.</h2><p className="fec-copy mt-5 max-w-md text-base">We will start with the revenue work that matters most to your venue, not a generic feature tour.</p><ReviewCta placement="outcomes_faq" className="mt-7 w-full sm:w-auto" /></div><div className="divide-y divide-[#0D1B3E]/12 border-y border-[#0D1B3E]/12">{faqs.map((faq) => <article key={faq.question} className="py-6"><h3 className="text-lg font-bold tracking-[-0.025em] text-[#0D1B3E]">{faq.question}</h3><p className="fec-copy mt-3 text-sm sm:text-base">{faq.answer}</p></article>)}</div></div>
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8"><div><p className="fec-eyebrow">Straight answers</p><h2 className="fec-display mt-4 text-4xl sm:text-5xl">Before you book a Demo.</h2><p className="fec-copy mt-5 max-w-md text-base">We will start with the sales, marketing, or customer journey work that matters most to your venue—not a generic feature tour.</p><DemoCta placement="outcomes_faq" className="mt-7 w-full sm:w-auto" /></div><div className="divide-y divide-[#0D1B3E]/12 border-y border-[#0D1B3E]/12">{faqs.map((faq) => <article key={faq.question} className="py-6"><h3 className="text-lg font-bold tracking-[-0.025em] text-[#0D1B3E]">{faq.question}</h3><p className="fec-copy mt-3 text-sm sm:text-base">{faq.answer}</p></article>)}</div></div>
         </section>
       </main>
       <Footer />

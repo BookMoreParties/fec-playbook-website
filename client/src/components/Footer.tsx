@@ -16,17 +16,17 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <img src={LOGO_URL} alt="FEC Playbook" className="h-8 w-auto" />
+            <img src={LOGO_URL} alt="FEC Playbook™" className="h-8 w-auto" />
             <p className="mt-5 max-w-md text-sm leading-relaxed text-[#526070]">
-              FEC Playbook™ is the revenue operating system built for Family Entertainment Centers—helping teams move party leads, guest communication, reviews, and return visits forward from one place.
+              FEC Playbook™ is one connected sales, marketing, communications, reputation, and retention system built for Family Entertainment Centers.
             </p>
             <a
               href="/book-a-demo"
-              onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement: "footer_brand" })}
+              onClick={() => trackEvent("cta_book_demo_clicked", { placement: "footer_brand" })}
               className="fec-btn-primary mt-6 px-5 py-3 text-sm normal-case tracking-normal"
             >
               <Phone size={15} aria-hidden="true" />
-              Book a Revenue Review
+              Book a Demo
             </a>
           </div>
 
@@ -45,7 +45,7 @@ export default function Footer() {
               <h2 className="fec-eyebrow">Get started</h2>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <a href="/book-a-demo" onClick={() => trackEvent("cta_book_revenue_review_clicked", { placement: "footer_link" })} className="inline-flex items-center gap-2 text-sm font-semibold text-[#526070] transition-colors hover:text-[#0D1B3E]"><Phone size={14} aria-hidden="true" />Book a Revenue Review</a>
+                  <a href="/book-a-demo" onClick={() => trackEvent("cta_book_demo_clicked", { placement: "footer_link" })} className="inline-flex items-center gap-2 text-sm font-semibold text-[#526070] transition-colors hover:text-[#0D1B3E]"><Phone size={14} aria-hidden="true" />Book a Demo</a>
                 </li>
                 <li>
                   <a href="mailto:support@fecplaybook.com" className="inline-flex items-center gap-2 text-sm font-semibold text-[#526070] transition-colors hover:text-[#0D1B3E]"><Mail size={14} aria-hidden="true" />Support</a>
