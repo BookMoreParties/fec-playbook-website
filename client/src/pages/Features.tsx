@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarCheck, Check, Clock3, MessageSquare, Star, UsersRound, Zap } from "lucide-react";
+import { ArrowRight, CalendarCheck, Check, Clock3, ListChecks, MessageSquare, Star, UsersRound, Zap } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOMeta from "@/components/SEOMeta";
@@ -41,6 +41,12 @@ const outcomes = [
     title: "Retention that brings guests back",
     summary: "Use guest context to run relevant email and text campaigns that keep your facility top of mind after the visit.",
     points: ["Guest segmentation", "Text Club growth", "Return-visit campaigns"],
+  },
+  {
+    icon: ListChecks,
+    title: "Team handoffs that stay clear",
+    summary: "Keep party details, tasks, messages, and next actions in one shared view so a great guest experience does not depend on someone remembering a handoff.",
+    points: ["Shared event details", "Task ownership", "Visible next actions"],
   },
 ];
 

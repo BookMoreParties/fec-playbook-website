@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, CalendarCheck, Check, ChevronDown, ChevronUp, CircleDot, MessageSquare, Star, UsersRound } from "lucide-react";
+import { ArrowRight, CalendarCheck, Check, ChevronDown, ChevronUp, CircleDot, ListChecks, MessageSquare, Star, UsersRound } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOMeta from "@/components/SEOMeta";
@@ -24,6 +24,12 @@ const guestJourneyMoments = [
     title: "Sale",
     outcome: "Every opportunity has a clear path to booking.",
     copy: "Use a shared sales pipeline to keep party, group, donation, and event opportunities moving forward.",
+  },
+  {
+    icon: ListChecks,
+    title: "Booking handoff",
+    outcome: "Every booking moves from sale to execution with context.",
+    copy: "Keep event details, tasks, messages, and ownership together so the team knows exactly what needs to happen next.",
   },
   {
     icon: CalendarCheck,
